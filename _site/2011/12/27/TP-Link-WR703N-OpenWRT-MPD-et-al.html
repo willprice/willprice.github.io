@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Will Price" />
+    <title>First encounters with OpenWRT on the TP-Link WR703N</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+  </head>
+  <body>
+      <div class="site">
+          <div class="title">
+              <a href="/">Will Price</a>
+              <a class="extra" href="/">Home</a>
+              <a class="extra" href="/projects">Projects</a>
+          </div>
+      </div>
+    <section>
+      <div class="content">
+  <div id="post">
+      <h2>First encounters with OpenWRT on the TP-Link WR703N</h2>
+    <p>Finally, a post&#8230;. I bought a TP-Link WR703N <span>1</span>, it&#8217;s a little router meant to be used in conjunction with a 3G Modem, it works as an access point broadcasting a wireless connection allowing multiple devices to utilize the modem at once (quite a clever idea, however, not one I&#8217;m interested in using), hence I decided to flash it with OpenWRT <span>2</span></p>
+
+<p>Specs: RAM - 32Mb ROM - 4Mb USB port (USB2) CPU - Atheros AR7240 - 400Mhz Wireless - Atheros AR9331 - b/g/n</p>
+
+<p>Powered by a micro usb port, 5.7cm x 5.7cm, serial interface. (These are just the basics, more here <span>3</span>)</p>
+
+<p>OpenWRT Install: The device comes preinstalled with Chinese firmware, I connected the router via ethernet and configured Arch to have the IP 192.168.1.2 (in /etc/rc.conf) but you could also easily use wifi to upload the new firmware.</p>
+
+<p>After connecting to the router, keep hovering over the menu items, the page file names are in English, keep expanding the drop down menus until you find one with a page name similar to &#8216;software upgrade&#8217;, something along those lines (I do believe it&#8217;s in one of the last sections). Go to the OpenWRT wiki and download the &#8216;vanilla&#8217; firmware for the router, upload this, once the router has upgraded the firmware, it should reboot and openWRT will have been installed</p>
+
+<p>Having now installed the OpenWRT firmware, you can connect to the router via the ethernet port if you configure your computer&#8217;s IP to be 192.168.1.2, telnet into the router using: telnet 192.168.1.1 There you are presented with the CLI of the router where you can start manipulating things. Use opkg update to update the packages list and opkg install <em>package name</em> to install applications</p>
+
+<p>These are simply the basics and much more informative instructions can be found on the OpenWRT forums and wiki.</p>
+
+<p>OpenWRT Configuration: I wanted to use the router as a wireless client (i.e. similar to a computer), I used the following network configurations</p>
+
+<p>/etc/config/network</p>
+
+<p>config &#8216;interface&#8217; &#8216;loopback&#8217; option &#8216;ifname&#8217; &#8216;lo&#8217; option &#8216;proto&#8217; &#8216;static&#8217; option &#8216;ipaddr&#8217; &#8216;127.0.0.1&#8217; option &#8216;netmask&#8217; &#8216;255.0.0.0&#8217;</p>
+
+<p>config &#8216;interface&#8217; &#8216;lan&#8217; option &#8216;ifname&#8217; &#8216;eth0&#8217; option &#8216;type&#8217; &#8216;bridge&#8217; option &#8216;proto&#8217; &#8216;static&#8217; option &#8216;ipaddr&#8217; &#8216;192.168.1.1&#8217; option &#8216;netmask&#8217; &#8216;255.255.255.0&#8217;</p>
+
+<p>config &#8216;interface&#8217; &#8216;wan&#8217; option &#8216;proto&#8217; &#8216;dhcp&#8217;</p>
+
+<p>/etc/config/wireless config &#8216;wifi-device&#8217; &#8216;radio0&#8217; option &#8216;type&#8217; &#8216;mac80211&#8217; option &#8216;channel&#8217; &#8216;11&#8217; option &#8216;macaddr&#8217; &#8216;38:83:45:a2:14:18&#8217; option &#8216;hwmode&#8217; &#8216;11ng&#8217; option &#8216;htmode&#8217; &#8216;HT20&#8217; list &#8216;ht_capab&#8217; &#8216;SHORT-GI-20&#8217; list &#8216;ht_capab&#8217; &#8216;SHORT-GI-40&#8217; list &#8216;ht_capab&#8217; &#8216;RX-STBC1&#8217; list &#8216;ht_capab&#8217; &#8216;DSSS_CCK-40&#8217;</p>
+
+<p>config &#8216;wifi-iface&#8217; option &#8216;device&#8217; &#8216;radio0&#8217; option &#8216;network&#8217; &#8216;wan&#8217; #Set the adapter to act as a wide area network &#8211; not sure why option &#8216;ssid&#8217; &#8216;Price LAN&#8217; option &#8216;key&#8217; &#8216;****<strong><em>&#8217; option &#8216;encryption&#8217; &#8216;psk2&#8217; # My network uses psk2 security option &#8216;mode&#8217; &#8216;sta&#8217; #Setup client mode</em></strong></p>
+
+<p>In the section &#8216;config &#8216;wifi-iface&#8221; I&#8217;ve setup the router to act as a client by setting the &#8216;mode&#8217; to &#8216;sta&#8217; which sets the router to act as a client rather than an access point.</p>
+
+<p>USB Support: I needed USB support as the router only has a 4mb flash which isn&#8217;t sufficient to install transmission, mpd, mpc etc. I updated /etc/opkg.conf to remedy this (look at the wiki page on opkg, there is a section on how to do this).</p>
+
+<p>Now I could install to my memory stick using the command opkg -d usb install <em>package name</em> This usually works fairly well, I had to update my PATH variable in /etc/profile to reflect the new install directories.</p>
+
+<p>I&#8217;ve also played around in /etc/rc.local setting up some startup applications. I&#8217;ve got mpd, transmission-daemon and mpc (adding playlists) on startup.</p>
+
+<p>Links: <span>1</span> - $22/£15 - http://www.volumerates.com/product/genuine-tp-link-tl-wr703n-150m-11n-mini-wifi-wireless-router-for-instant-wifi-connection-99273 <span>2</span> - https://openwrt.org/ <span>3</span> - OpenWRT wiki page on WR703N - http://wiki.openwrt.org/toh/tp-link/tl-wr703n</p>
+  </div>
+</div>
+
+    </section>
+  </body>
+</html>
