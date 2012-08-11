@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Recursive</title>
+ <link href="http://recursive-design.com/feed/" rel="self"/>
+ <link href="http://recursive-design.com/"/>
+ <updated>2012-08-11T19:04:58+01:00</updated>
+ <id>http://recursive-design.com/</id>
+ <author>
+   <name>Recursive</name>
+   <email>mail@recursive-design.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>First encounters with OpenWRT on the TP-Link WR703N</title>
+   <link href="http://recursive-design.com/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al.html"/>
+   <updated>2011-12-27T00:00:00+00:00</updated>
+   <id>http://recursive-design.com/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al</id>
+   <content type="html">&lt;p&gt;Finally, a post&amp;#8230;. I bought a TP-Link WR703N &lt;span&gt;1&lt;/span&gt;, it&amp;#8217;s a little router meant to be used in conjunction with a 3G Modem, it works as an access point broadcasting a wireless connection allowing multiple devices to utilize the modem at once (quite a clever idea, however, not one I&amp;#8217;m interested in using), hence I decided to flash it with OpenWRT &lt;span&gt;2&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Specs: RAM - 32Mb ROM - 4Mb USB port (USB2) CPU - Atheros AR7240 - 400Mhz Wireless - Atheros AR9331 - b/g/n&lt;/p&gt;
+
+&lt;p&gt;Powered by a micro usb port, 5.7cm x 5.7cm, serial interface. (These are just the basics, more here &lt;span&gt;3&lt;/span&gt;)&lt;/p&gt;
+
+&lt;p&gt;OpenWRT Install: The device comes preinstalled with Chinese firmware, I connected the router via ethernet and configured Arch to have the IP 192.168.1.2 (in /etc/rc.conf) but you could also easily use wifi to upload the new firmware.&lt;/p&gt;
+
+&lt;p&gt;After connecting to the router, keep hovering over the menu items, the page file names are in English, keep expanding the drop down menus until you find one with a page name similar to &amp;#8216;software upgrade&amp;#8217;, something along those lines (I do believe it&amp;#8217;s in one of the last sections). Go to the OpenWRT wiki and download the &amp;#8216;vanilla&amp;#8217; firmware for the router, upload this, once the router has upgraded the firmware, it should reboot and openWRT will have been installed&lt;/p&gt;
+
+&lt;p&gt;Having now installed the OpenWRT firmware, you can connect to the router via the ethernet port if you configure your computer&amp;#8217;s IP to be 192.168.1.2, telnet into the router using: telnet 192.168.1.1 There you are presented with the CLI of the router where you can start manipulating things. Use opkg update to update the packages list and opkg install &lt;em&gt;package name&lt;/em&gt; to install applications&lt;/p&gt;
+
+&lt;p&gt;These are simply the basics and much more informative instructions can be found on the OpenWRT forums and wiki.&lt;/p&gt;
+
+&lt;p&gt;OpenWRT Configuration: I wanted to use the router as a wireless client (i.e. similar to a computer), I used the following network configurations&lt;/p&gt;
+
+&lt;p&gt;/etc/config/network&lt;/p&gt;
+
+&lt;p&gt;config &amp;#8216;interface&amp;#8217; &amp;#8216;loopback&amp;#8217; option &amp;#8216;ifname&amp;#8217; &amp;#8216;lo&amp;#8217; option &amp;#8216;proto&amp;#8217; &amp;#8216;static&amp;#8217; option &amp;#8216;ipaddr&amp;#8217; &amp;#8216;127.0.0.1&amp;#8217; option &amp;#8216;netmask&amp;#8217; &amp;#8216;255.0.0.0&amp;#8217;&lt;/p&gt;
+
+&lt;p&gt;config &amp;#8216;interface&amp;#8217; &amp;#8216;lan&amp;#8217; option &amp;#8216;ifname&amp;#8217; &amp;#8216;eth0&amp;#8217; option &amp;#8216;type&amp;#8217; &amp;#8216;bridge&amp;#8217; option &amp;#8216;proto&amp;#8217; &amp;#8216;static&amp;#8217; option &amp;#8216;ipaddr&amp;#8217; &amp;#8216;192.168.1.1&amp;#8217; option &amp;#8216;netmask&amp;#8217; &amp;#8216;255.255.255.0&amp;#8217;&lt;/p&gt;
+
+&lt;p&gt;config &amp;#8216;interface&amp;#8217; &amp;#8216;wan&amp;#8217; option &amp;#8216;proto&amp;#8217; &amp;#8216;dhcp&amp;#8217;&lt;/p&gt;
+
+&lt;p&gt;/etc/config/wireless config &amp;#8216;wifi-device&amp;#8217; &amp;#8216;radio0&amp;#8217; option &amp;#8216;type&amp;#8217; &amp;#8216;mac80211&amp;#8217; option &amp;#8216;channel&amp;#8217; &amp;#8216;11&amp;#8217; option &amp;#8216;macaddr&amp;#8217; &amp;#8216;38:83:45:a2:14:18&amp;#8217; option &amp;#8216;hwmode&amp;#8217; &amp;#8216;11ng&amp;#8217; option &amp;#8216;htmode&amp;#8217; &amp;#8216;HT20&amp;#8217; list &amp;#8216;ht_capab&amp;#8217; &amp;#8216;SHORT-GI-20&amp;#8217; list &amp;#8216;ht_capab&amp;#8217; &amp;#8216;SHORT-GI-40&amp;#8217; list &amp;#8216;ht_capab&amp;#8217; &amp;#8216;RX-STBC1&amp;#8217; list &amp;#8216;ht_capab&amp;#8217; &amp;#8216;DSSS_CCK-40&amp;#8217;&lt;/p&gt;
+
+&lt;p&gt;config &amp;#8216;wifi-iface&amp;#8217; option &amp;#8216;device&amp;#8217; &amp;#8216;radio0&amp;#8217; option &amp;#8216;network&amp;#8217; &amp;#8216;wan&amp;#8217; #Set the adapter to act as a wide area network &amp;#8211; not sure why option &amp;#8216;ssid&amp;#8217; &amp;#8216;Price LAN&amp;#8217; option &amp;#8216;key&amp;#8217; &amp;#8216;****&lt;strong&gt;&lt;em&gt;&amp;#8217; option &amp;#8216;encryption&amp;#8217; &amp;#8216;psk2&amp;#8217; # My network uses psk2 security option &amp;#8216;mode&amp;#8217; &amp;#8216;sta&amp;#8217; #Setup client mode&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the section &amp;#8216;config &amp;#8216;wifi-iface&amp;#8221; I&amp;#8217;ve setup the router to act as a client by setting the &amp;#8216;mode&amp;#8217; to &amp;#8216;sta&amp;#8217; which sets the router to act as a client rather than an access point.&lt;/p&gt;
+
+&lt;p&gt;USB Support: I needed USB support as the router only has a 4mb flash which isn&amp;#8217;t sufficient to install transmission, mpd, mpc etc. I updated /etc/opkg.conf to remedy this (look at the wiki page on opkg, there is a section on how to do this).&lt;/p&gt;
+
+&lt;p&gt;Now I could install to my memory stick using the command opkg -d usb install &lt;em&gt;package name&lt;/em&gt; This usually works fairly well, I had to update my PATH variable in /etc/profile to reflect the new install directories.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve also played around in /etc/rc.local setting up some startup applications. I&amp;#8217;ve got mpd, transmission-daemon and mpc (adding playlists) on startup.&lt;/p&gt;
+
+&lt;p&gt;Links: &lt;span&gt;1&lt;/span&gt; - $22/£15 - http://www.volumerates.com/product/genuine-tp-link-tl-wr703n-150m-11n-mini-wifi-wireless-router-for-instant-wifi-connection-99273 &lt;span&gt;2&lt;/span&gt; - https://openwrt.org/ &lt;span&gt;3&lt;/span&gt; - OpenWRT wiki page on WR703N - http://wiki.openwrt.org/toh/tp-link/tl-wr703n&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Test Post</title>
+   <link href="http://recursive-design.com/1985/10/26/Test-Post.html"/>
+   <updated>1985-10-26T00:00:00+01:00</updated>
+   <id>http://recursive-design.com/1985/10/26/Test-Post</id>
+   <content type="html">&lt;p&gt;This is a test post writen in markdown. To learn more about markdown check out the &lt;a href='http://daringfireball.net/projects/markdown/'&gt;documentation&lt;/a&gt; on &lt;a href='http://daringfireball.net/'&gt;Daring Fireball&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>
