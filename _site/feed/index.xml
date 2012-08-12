@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Recursive</title>
- <link href="http://recursive-design.com/feed/" rel="self"/>
- <link href="http://recursive-design.com/"/>
- <updated>2012-08-11T19:04:58+01:00</updated>
- <id>http://recursive-design.com/</id>
+ <title>Will Price</title>
+ <link href="http://willprice.github.com/feed/" rel="self"/>
+ <link href="http://willprice.github.com/feed/" />
+ <updated>2012-08-12T10:04:53+01:00</updated>
+ <id>http://willprice.github.com/</id>
  <author>
    <name>Recursive</name>
-   <email>mail@recursive-design.com</email>
+   <email>will.price94@gmail.com</email>
  </author>
 
  
  <entry>
    <title>First encounters with OpenWRT on the TP-Link WR703N</title>
-   <link href="http://recursive-design.com/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al.html"/>
+   <link href="http://willprice.github.com/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al.html"/>
    <updated>2011-12-27T00:00:00+00:00</updated>
-   <id>http://recursive-design.com/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al</id>
+   <id>http://willprice.github.com/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al</id>
    <content type="html">&lt;p&gt;Finally, a post&amp;#8230;. I bought a TP-Link WR703N &lt;span&gt;1&lt;/span&gt;, it&amp;#8217;s a little router meant to be used in conjunction with a 3G Modem, it works as an access point broadcasting a wireless connection allowing multiple devices to utilize the modem at once (quite a clever idea, however, not one I&amp;#8217;m interested in using), hence I decided to flash it with OpenWRT &lt;span&gt;2&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;Specs: RAM - 32Mb ROM - 4Mb USB port (USB2) CPU - Atheros AR7240 - 400Mhz Wireless - Atheros AR9331 - b/g/n&lt;/p&gt;
@@ -58,9 +58,9 @@
  
  <entry>
    <title>Test Post</title>
-   <link href="http://recursive-design.com/1985/10/26/Test-Post.html"/>
+   <link href="http://willprice.github.com/1985/10/26/Test-Post.html"/>
    <updated>1985-10-26T00:00:00+01:00</updated>
-   <id>http://recursive-design.com/1985/10/26/Test-Post</id>
+   <id>http://willprice.github.com/1985/10/26/Test-Post</id>
    <content type="html">&lt;p&gt;This is a test post writen in markdown. To learn more about markdown check out the &lt;a href='http://daringfireball.net/projects/markdown/'&gt;documentation&lt;/a&gt; on &lt;a href='http://daringfireball.net/'&gt;Daring Fireball&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  

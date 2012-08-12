@@ -1,10 +1,13 @@
 ---
 layout: layout
+comments: true
 ---
 
 <div class="content">
-  <div id="post">
-      <h2>{{ page.title }}</h2>
-    {{ content }}
-  </div>
+    <div id="post">
+        <h2>{{ page.title }}</h2>
+        {{ content }}
+    </div>
 </div>
+<div id="comments>
+    {% if page.comments %} {% endif %}

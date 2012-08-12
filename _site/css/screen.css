@@ -3,7 +3,12 @@
 /* Common
 /*
 /*****************************************************************************/
-
+/* COLOURS: */
+/* D BLUE: #4D5376
+ * BLUE: #44C7F4
+ * L BLUE: #9DDCF9
+ * RED: #F15A22
+ * ORANGE: #F7931D
 /* Global Reset */
 
 * {
@@ -21,6 +26,7 @@ body {
   *font-size: small;
   text-align: center;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
@@ -52,7 +58,9 @@ table {
 }
 
 ::selection {
-  background: #F5BFD7
+  background: #FF5E99;
+  color:#fff;
+  text-shadow:none;
 }
 
 /*****************************************************************************/
@@ -73,7 +81,7 @@ ul.posts {
   ul.posts span {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
-    font-size: 80%;
+    font-size: 90%;
   }
 
 /*****************************************************************************/
@@ -97,8 +105,9 @@ ul.posts {
 }
 
   .site .title a {
-    color: #a00;
+    color: #4D5376;
     text-decoration: none;
+    margin-right: 1em;
   }
 
   .site .title a:hover {
@@ -106,8 +115,9 @@ ul.posts {
   }
 
   .site .title a.extra {
-    color: #aaa;
+    color: #44C7F4;
     text-decoration: none;
+    margin-right: 0em;
     margin-left: 1em;
   }
 
