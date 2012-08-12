@@ -81,9 +81,3 @@ And then run
       $ jekyll --server
 
 This will run jekyll generating the site in html whilst also serving it at the address: 'localhost:4000'
-
-{% highlight python %}
-      import sys
-      while x < 10:
-          x += 1
-{% endhighlight}
