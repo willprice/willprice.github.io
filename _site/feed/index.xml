@@ -4,13 +4,95 @@
  <title>Will Price</title>
  <link href="http://willprice.github.com/feed/" rel="self"/>
  <link href="http://willprice.github.com/feed/" />
- <updated>2012-08-12T10:29:54+01:00</updated>
+ <updated>2012-08-12T14:33:39+01:00</updated>
  <id>http://willprice.github.com/</id>
  <author>
    <name>Recursive</name>
    <email>will.price94@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Introduction to Jekyll</title>
+   <link href="http://willprice.github.com/Technology/2012/08/12/introduction-to-jekyll.html"/>
+   <updated>2012-08-12T00:00:00+01:00</updated>
+   <id>http://willprice.github.com/Technology/2012/08/12/introduction-to-jekyll</id>
+   <content type="html">&lt;p&gt;I first encountered Jekyll through github pages. I read that all git repositories are passed through jekyll and if they are either a valid jekyll or html site then that site can be published through github pages. This was my first misconception that left me confused as I thought that Jekyll was some server side program that you processed some text files, although it is in a sense it isn&amp;#8217;t true to the real workflow using jekyll.&lt;/p&gt;
+
+&lt;p&gt;Jekyll is a program that generates a static html site from markdown pages using layouts you specify. I kind of like to think of it a control program that converts markdown to html, then structures that and runs a local http server so you can check out what your site looks like, finally you&amp;#8217;re left with a folder with your site in, you could setup your own website with the http root pointed at it, or upload it to github and enable github pages so that you can host it freely. This tutorial hopefully will give you a sense of jekyll works and what&amp;#8217;s what.&lt;/p&gt;
+
+&lt;p&gt;Install Jekyll and other programs to begin with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ gem install jekyll rdiscount&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This installs jekyll and rdiscount, &lt;em&gt;a markdown converter&lt;/em&gt;. These programs are the utter basics we need to start playing around with jekyll, in a later guide I&amp;#8217;ll introduce some other programs.&lt;/p&gt;
+
+&lt;p&gt;Create a directory in which you&amp;#8217;re going to make your site:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ mkdir jekyll_site
+  $ cd jekyll_site&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Inside that folder we&amp;#8217;re going to create a folder called &amp;#8216;_layouts&amp;#8217;, &amp;#8216;_posts&amp;#8217; and &amp;#8216;css&amp;#8217;, these will hold virtually everything we need for our site. The website will need an &amp;#8216;index.html&amp;#8217;, which is what jekyll will initially point at when someone visits the site, it is our homepage.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ mkdir _layouts _posts css
+  $ touch index.html _layouts/default.html _layouts/post.html css/screen.css _config.yml&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The layouts and homepage need to be created now before we can start writing anything in the &lt;em&gt;posts folder. In&lt;/em&gt;layouts/default.html type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE HTML&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Introduction to Jekyll&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;h2&amp;gt;Introduction to Jekyll&amp;lt;/h2&amp;gt;
+    &amp;lt;section&amp;gt;
+    
+    &amp;lt;/section&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The parts of the file bound in tags are &lt;a href='https://github.com/shopify/liquid/wiki/liquid-for-designers'&gt;Liquid Tags&lt;/a&gt;, they will be substituted by whatever variable is inserted into them, in this case we have &amp;#8216;page.title&amp;#8217; which is the title of the page defined in the YAML preamble (we&amp;#8217;ll get to this in a minute) and &amp;#8216;content&amp;#8217; which is a standard tag that is filled by the page content like index.html or a translated markdown post.&lt;/p&gt;
+
+&lt;p&gt;We need to do something similar in &lt;em&gt;layouts/post.html&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ---
+  layout: default
+  ---&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the top part of the file where the hyphens and the title are located are processed by Jekyll is &lt;a href='https://github.com/mojombo/jekyll/wiki/liquid-extensions'&gt;YAML Front Matter&lt;/a&gt;,this sets some variables like the layout to use, in this case default.html is used, content will be substituted by the post content.&lt;/p&gt;
+
+&lt;p&gt;Finally we need a homepage for our website which will be located in index.html, just something simple for the time being&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ---
+  layout: default
+  title: homepage
+  ---
+
+  &amp;lt;ul&amp;gt;
+    ``
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/Technology/2012/08/12/introduction-to-jekyll.html&amp;quot;&amp;gt;Introduction to Jekyll&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al.html&amp;quot;&amp;gt;First encounters with OpenWRT on the TP-Link WR703N&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    ``
+  &amp;lt;/ul&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we have another example of liquid extensions, this is a for loop. There is a standard array of all the posts in the site, we&amp;#8217;re looping through them and creating an unordered list of each one with links to their location attached to their titles.&lt;/p&gt;
+
+&lt;p&gt;Now we&amp;#8217;ve created all the files we need to get up and running. You can type a test post with the title &amp;#8216;2012-08-12-title.md&amp;#8217; where &amp;#8216;title&amp;#8217; is anything you want it to be separated with hyphens. Type this into it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ---
+  title: test post
+  --- 
+
+  This is a post&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $ jekyll --server&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will run jekyll generating the site in html whilst also serving it at the address: &amp;#8216;localhost:4000&amp;#8217;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>First encounters with OpenWRT on the TP-Link WR703N</title>
@@ -102,14 +184,6 @@
 
 &lt;li&gt;&lt;span&gt;3&lt;/span&gt; - OpenWRT wiki page on WR703N - http://wiki.openwrt.org/toh/tp-link/tl-wr703n&lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>Test Post</title>
-   <link href="http://willprice.github.com/1985/10/26/Test-Post.html"/>
-   <updated>1985-10-26T00:00:00+01:00</updated>
-   <id>http://willprice.github.com/1985/10/26/Test-Post</id>
-   <content type="html">&lt;p&gt;This is a test post writen in markdown. To learn more about markdown check out the &lt;a href='http://daringfireball.net/projects/markdown/'&gt;documentation&lt;/a&gt; on &lt;a href='http://daringfireball.net/'&gt;Daring Fireball&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
  
