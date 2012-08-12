@@ -4,104 +4,13 @@
  <title>Will Price</title>
  <link href="http://willprice.github.com/feed/" rel="self"/>
  <link href="http://willprice.github.com/feed/" />
- <updated>2012-08-12T23:31:53+01:00</updated>
+ <updated>2012-08-12T23:37:11+01:00</updated>
  <id>http://willprice.github.com/</id>
  <author>
    <name>Recursive</name>
    <email>will.price94@gmail.com</email>
  </author>
 
- 
- <entry>
-   <title>Introduction to Jekyll</title>
-   <link href="http://willprice.github.com/Technology/2012/08/12/introduction-to-jekyll.html"/>
-   <updated>2012-08-12T00:00:00+01:00</updated>
-   <id>http://willprice.github.com/Technology/2012/08/12/introduction-to-jekyll</id>
-   <content type="html">&lt;p&gt;I first encountered Jekyll through github pages. I read that all git repositories are passed through jekyll and if they are either a valid jekyll or html site then that site can be published through github pages. This was my first misconception that left me confused as I thought that Jekyll was some server side program that you processed some text files, although it is in a sense it isn't true to the real workflow using jekyll.&lt;/p&gt;
-
-&lt;p&gt;Jekyll is a program that generates a static html site from markdown pages using layouts you specify. I kind of like to think of it a control program that converts markdown to html, then structures that and runs a local http server so you can check out what your site looks like, finally you're left with a folder with your site in, you could setup your own website with the http root pointed at it, or upload it to github and enable github pages so that you can host it freely. This tutorial hopefully will give you a sense of jekyll works and what's what.&lt;/p&gt;
-
-&lt;p&gt;Install Jekyll and other programs to begin with:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ gem install jekyll rdiscount
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This installs jekyll and rdiscount, &lt;em&gt;a markdown converter&lt;/em&gt;. These programs are the utter basics we need to start playing around with jekyll, in a later guide I'll introduce some other programs.&lt;/p&gt;
-
-&lt;p&gt;Create a directory in which you're going to make your site:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ mkdir jekyll_site
-  $ cd jekyll_site
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Inside that folder we're going to create a folder called '&lt;em&gt;layouts', '&lt;/em&gt;posts' and 'css', these will hold virtually everything we need for our site. The website will need an 'index.html', which is what jekyll will initially point at when someone visits the site, it is our homepage.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ mkdir _layouts _posts css
-  $ touch index.html _layouts/default.html _layouts/post.html css/screen.css _config.yml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The layouts and homepage need to be created now before we can start writing anything in the &lt;em&gt;posts folder. In &lt;/em&gt;layouts/default.html type:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE HTML&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;title&amp;gt;Introduction to Jekyll&amp;lt;/title&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;h2&amp;gt;Introduction to Jekyll&amp;lt;/h2&amp;gt;
-    &amp;lt;section&amp;gt;
-
-    &amp;lt;/section&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The parts of the file bound in  tags are &lt;a href=&quot;https://github.com/shopify/liquid/wiki/liquid-for-designers&quot;&gt;Liquid Tags&lt;/a&gt;, they will be substituted by whatever variable is inserted into them, in this case we have 'page.title' which is the title of the page defined in the YAML preamble (we'll get to this in a minute) and 'content' which is a standard tag that is filled by the page content like index.html or a translated markdown post.&lt;/p&gt;
-
-&lt;p&gt;We need to do something similar in _layouts/post.html&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  ---
-  layout: default
-  ---
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In the top part of the file where the hyphens and the title are located are processed by Jekyll is &lt;a href=&quot;https://github.com/mojombo/jekyll/wiki/liquid-extensions&quot;&gt;YAML Front Matter&lt;/a&gt;,this sets some variables like the layout to use, in this case default.html is used, content will be substituted by the post content.&lt;/p&gt;
-
-&lt;p&gt;Finally we need a homepage for our website which will be located in index.html, just something simple for the time being&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  ---
-  layout: default
-  title: homepage
-  ---
-
-  &amp;lt;ul&amp;gt;
-    ``
-    &amp;lt;li&amp;gt;&amp;lt;a href=&quot;/Technology/2012/08/12/introduction-to-jekyll.html&quot;&amp;gt;Introduction to Jekyll&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-
-    &amp;lt;li&amp;gt;&amp;lt;a href=&quot;/2011/12/27/TP-Link-WR703N-OpenWRT-MPD-et-al.html&quot;&amp;gt;First encounters with OpenWRT on the TP-Link WR703N&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-    ``
-  &amp;lt;/ul&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here we have another example of liquid extensions, this is a for loop. There is a standard array of all the posts in the site, we're looping through them and creating an unordered list of each one with links to their location attached to their titles.&lt;/p&gt;
-
-&lt;p&gt;Now we've created all the files we need to get up and running. You can type a test post with the title '2012-08-12-title.md' where 'title' is anything you want it to be separated with hyphens. Type this into it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  ---
-  title: test post
-  --- 
-
-  This is a post
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And then run&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $ jekyll --server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This will run jekyll generating the site in html whilst also serving it at the address: 'localhost:4000'&lt;/p&gt;
-</content>
- </entry>
  
  <entry>
    <title>First encounters with OpenWRT on the TP-Link WR703N</title>

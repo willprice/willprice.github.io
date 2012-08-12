@@ -4,6 +4,7 @@ title: "Introduction to Jekyll"
 description: "An introduction to the static site generator used to create this site"
 category: Technology
 tags: [Jekyll, Web]
+published: false
 ---
 
 I first encountered Jekyll through github pages. I read that all git repositories are passed through jekyll and if they are either a valid jekyll or html site then that site can be published through github pages. This was my first misconception that left me confused as I thought that Jekyll was some server side program that you processed some text files, although it is in a sense it isn't true to the real workflow using jekyll.
