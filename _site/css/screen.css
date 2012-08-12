@@ -151,8 +151,7 @@ ul.posts {
       margin-right: -.2em;
       float: right;
     }
-
-      .site .footer .rss img {
+.site .footer .rss img {
         border: 0;
       }
 
@@ -210,3 +209,7 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+
+#disqus_thread {
+  margin-top: 2em;
+}
