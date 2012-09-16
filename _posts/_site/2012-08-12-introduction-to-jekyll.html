@@ -1,0 +1,71 @@
+<p>I first encountered Jekyll through github pages. I read that all git repositories are passed through jekyll and if they are either a valid jekyll or html site then that site can be published through github pages. This was my first misconception that left me confused as I thought that Jekyll was some server side program that you processed some text files, although it is in a sense it isn&#8217;t true to the real workflow using jekyll.</p>
+
+<p>Jekyll is a program that generates a static html site from markdown pages using layouts you specify. I kind of like to think of it a control program that converts markdown to html, then structures that and runs a local http server so you can check out what your site looks like, finally you&#8217;re left with a folder with your site in, you could setup your own website with the http root pointed at it, or upload it to github and enable github pages so that you can host it freely. This tutorial hopefully will give you a sense of jekyll works and what&#8217;s what.</p>
+
+<p>Install Jekyll and other programs to begin with:</p>
+
+<pre><code>  $ gem install jekyll rdiscount</code></pre>
+
+<p>This installs jekyll and rdiscount, <em>a markdown converter</em>. These programs are the utter basics we need to start playing around with jekyll, in a later guide I&#8217;ll introduce some other programs.</p>
+
+<p>Create a directory in which you&#8217;re going to make your site:</p>
+
+<pre><code>  $ mkdir jekyll_site
+  $ cd jekyll_site</code></pre>
+
+<p>Inside that folder we&#8217;re going to create a folder called &#8216;_layouts&#8217;, &#8216;_posts&#8217; and &#8216;css&#8217;, these will hold virtually everything we need for our site. The website will need an &#8216;index.html&#8217;, which is what jekyll will initially point at when someone visits the site, it is our homepage.</p>
+
+<pre><code>  $ mkdir _layouts _posts css
+  $ touch index.html _layouts/default.html _layouts/post.html css/screen.css _config.yml</code></pre>
+
+<p>The layouts and homepage need to be created now before we can start writing anything in the <em>posts folder. In</em>layouts/default.html type:</p>
+
+<pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Introduction to Jekyll&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h2&gt;Introduction to Jekyll&lt;/h2&gt;
+    &lt;section&gt;
+    
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>The parts of the file bound in tags are <a href='https://github.com/shopify/liquid/wiki/liquid-for-designers'>Liquid Tags</a>, they will be substituted by whatever variable is inserted into them, in this case we have &#8216;page.title&#8217; which is the title of the page defined in the YAML preamble (we&#8217;ll get to this in a minute) and &#8216;content&#8217; which is a standard tag that is filled by the page content like index.html or a translated markdown post.</p>
+
+<p>We need to do something similar in <em>layouts/post.html</em></p>
+
+<pre><code>  ---
+  layout: default
+  ---</code></pre>
+
+<p>In the top part of the file where the hyphens and the title are located are processed by Jekyll is <a href='https://github.com/mojombo/jekyll/wiki/liquid-extensions'>YAML Front Matter</a>,this sets some variables like the layout to use, in this case default.html is used, content will be substituted by the post content.</p>
+
+<p>Finally we need a homepage for our website which will be located in index.html, just something simple for the time being</p>
+
+<pre><code>  ---
+  layout: default
+  title: homepage
+  ---
+
+  &lt;ul&gt;
+    ````
+  &lt;/ul&gt;</code></pre>
+
+<p>Here we have another example of liquid extensions, this is a for loop. There is a standard array of all the posts in the site, we&#8217;re looping through them and creating an unordered list of each one with links to their location attached to their titles.</p>
+
+<p>Now we&#8217;ve created all the files we need to get up and running. You can type a test post with the title &#8216;2012-08-12-title.md&#8217; where &#8216;title&#8217; is anything you want it to be separated with hyphens. Type this into it:</p>
+
+<pre><code>  ---
+  title: test post
+  --- 
+
+  This is a post</code></pre>
+
+<p>And then run</p>
+
+<pre><code>  $ jekyll --server</code></pre>
+
+<p>This will run jekyll generating the site in html whilst also serving it at the address: &#8216;localhost:4000&#8217;</p>

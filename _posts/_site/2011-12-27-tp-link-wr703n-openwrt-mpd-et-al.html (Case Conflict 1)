@@ -1,0 +1,85 @@
+<p>I bought a TP-Link WR703N <span>1</span>, it&#8217;s a little router meant to be used in conjunction with a 3G Modem, it works as an access point broadcasting a wireless connection allowing multiple devices to utilize the modem at once (quite a clever idea, however, not one I&#8217;m interested in using), hence I decided to flash it with OpenWRT <span>2</span></p>
+
+<h2 id='specs'>Specs:</h2>
+
+<ul>
+<li><em>RAM - 32Mb</em></li>
+
+<li>ROM - 4Mb</li>
+
+<li>USB port (USB2)</li>
+
+<li>CPU - Atheros AR7240 - 400Mhz</li>
+
+<li>Wireless - Atheros AR9331 - b/g/n*</li>
+</ul>
+
+<p>Powered by a micro usb port, 5.7cm x 5.7cm, serial interface. (These are just the basics, more here <span>3</span>)</p>
+
+<p>OpenWRT Install: The device comes preinstalled with Chinese firmware, I connected the router via ethernet and configured Arch to have the IP 192.168.1.2 (in /etc/rc.conf) but you could also easily use wifi to upload the new firmware.</p>
+
+<p>After connecting to the router, keep hovering over the menu items, the page file names are in English, keep expanding the drop down menus until you find one with a page name similar to &#8216;software upgrade&#8217;, something along those lines (I do believe it&#8217;s in one of the last sections). Go to the OpenWRT wiki and download the &#8216;vanilla&#8217; firmware for the router, upload this, once the router has upgraded the firmware, it should reboot and openWRT will have been installed</p>
+
+<p>Having now installed the OpenWRT firmware, you can connect to the router via the ethernet port if you configure your computer&#8217;s IP to be 192.168.1.2, telnet into the router using: telnet 192.168.1.1 There you are presented with the CLI of the router where you can start manipulating things. Use opkg update to update the packages list and opkg install <em>package name</em> to install applications</p>
+
+<p>These are simply the basics and much more informative instructions can be found on the OpenWRT forums and wiki.</p>
+
+<p>OpenWRT Configuration: I wanted to use the router as a wireless client (i.e. similar to a computer), I used the following network configurations</p>
+
+<p><em>/etc/config/network</em></p>
+
+<pre><code>    `config &#39;interface&#39; &#39;loopback&#39;
+     option &#39;ifname&#39; &#39;lo&#39;
+     option &#39;proto&#39; &#39;static&#39;
+     option &#39;ipaddr&#39; &#39;127.0.0.1&#39;
+     option &#39;netmask&#39; &#39;255.0.0.0&#39;
+
+
+    config &#39;interface&#39; &#39;lan&#39;
+     option &#39;ifname&#39; &#39;eth0&#39;
+     option &#39;type&#39; &#39;bridge&#39;
+     option &#39;proto&#39; &#39;static&#39;
+     option &#39;ipaddr&#39; &#39;192.168.1.1&#39;
+     option &#39;netmask&#39; &#39;255.255.255.0&#39;
+
+
+    config &#39;interface&#39; &#39;wan&#39;
+     option &#39;proto&#39; &#39;dhcp&#39;
+
+    /etc/config/wireless
+    Config &#39;wifi-device&#39; &#39;radio0&#39;
+     option &#39;type&#39; &#39;mac80211&#39;
+     option &#39;channel&#39; &#39;11&#39;
+     option &#39;macaddr&#39; &#39;38:83:45:a2:14:18&#39;
+     option &#39;hwmode&#39; &#39;11ng&#39;
+     option &#39;htmode&#39; &#39;HT20&#39;
+     list &#39;ht_capab&#39; &#39;SHORT-GI-20&#39;
+     list &#39;ht_capab&#39; &#39;SHORT-GI-40&#39;
+     list &#39;ht_capab&#39; &#39;RX-STBC1&#39;
+     list &#39;ht_capab&#39; &#39;DSSS_CCK-40&#39;
+
+    config &#39;wifi-iface&#39;
+     option &#39;device&#39; &#39;radio0&#39;
+     option &#39;network&#39; &#39;wan&#39; #Set the adapter to act as a wide area network -- not sure why
+     option &#39;ssid&#39; &#39;Price LAN&#39;
+     option &#39;key&#39; &#39;*******&#39;
+     option &#39;encryption&#39; &#39;psk2&#39; # My network uses psk2 security
+     option &#39;mode&#39; &#39;sta&#39; #Setup client mode`</code></pre>
+
+<p>In the section &#8216;config &#8216;wifi-iface&#8221; I&#8217;ve setup the router to act as a client by setting the &#8216;mode&#8217; to &#8216;sta&#8217; which sets the router to act as a client rather than an access point.</p>
+
+<p>USB Support: I needed USB support as the router only has a 4mb flash which isn&#8217;t sufficient to install transmission, mpd, mpc etc. I updated /etc/opkg.conf to remedy this (look at the wiki page on opkg, there is a section on how to do this).</p>
+
+<p>Now I could install to my memory stick using the command opkg -d usb install <em>package name</em> This usually works fairly well, I had to update my PATH variable in /etc/profile to reflect the new install directories.</p>
+
+<p>I&#8217;ve also played around in /etc/rc.local setting up some startup applications. I&#8217;ve got mpd, transmission-daemon and mpc (adding playlists) on startup.</p>
+
+<h1 id='links'>Links:</h1>
+
+<ul>
+<li><span>1</span> - $22/£15 - http://www.volumerates.com/product/genuine-tp-link-tl-wr703n-150m-11n-mini-wifi-wireless-router-for-instant-wifi-connection-99273</li>
+
+<li><span>2</span> - https://openwrt.org/</li>
+
+<li><span>3</span> - OpenWRT wiki page on WR703N - http://wiki.openwrt.org/toh/tp-link/tl-wr703n</li>
+</ul>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <!-- Metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Will Price" />
+    <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/css/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/css/skeleton.css" type="text/css" />
+
+
+  </head>
+  <body>
+    <div class="site">
+      <!-- TITLE BLOCK -->
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <hr />
+      </div>
+
+      <section>
+      {{ content }}
+      </section>
+    </div>
+  </body>
+</html>
