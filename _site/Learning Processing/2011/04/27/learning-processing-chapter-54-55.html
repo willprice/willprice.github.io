@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Learning Processing: Chapter 5.4-5.5</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h2>Learning Processing: Chapter 5.4-5.5</h2>
+        <div class='post'>
+<b><u>CHAPTER 5.4 - LOGICAL OPERATORS:</u></b><div>So, what on earth are <i>"logical operators"</i>, <a href="http://en.wikipedia.org/wiki/Logical_connective">wikipedia</a> defines them as "A symbol or word used to connect to or more sentences in a grammatically valid way". </div><div>Not that I really understand that, for things I don't understand, I find it massively helpful to apply the mathematical paradigm of abstraction, instead of comprehending the (I'm pretty sure it's used in other fields as well, but this is where I first came upon it, just a warning to the pedants!). </div><div><br /></div><div>So what properties do logical operators have, there are 3:</div><div><br /></div><div>NOT - <a href="http://processing.org/reference/logicalNOT.html">!</a></div><div>AND - <a href="http://processing.org/reference/logicalAND.html">&amp;&amp;</a><br />OR - <a href="http://processing.org/reference/logicalOR.html">||</a> </div><div><br /></div><div><b></b></div><blockquote><div><b>NOT</b> is used to invert a boolean expression, so if we asked the question "Is the sky blue", NOT would return "false" thus having inverted "true"</div><div><br /></div><div><b>AND</b> is used to compare two boolean expressions and only return "true" if both of the 2 expressions are satisfied. For example if we were to ask the question "is the sky blue AND is the sea blue" processing would return "true" if we asked "is the sky blue AND the sea orange" processing would return "false", although one of the expressions is true, the other is false, AND only returns true when both expressions are true.</div><div><br /></div><div><b>OR </b>is like AND, however only one of the expressions has to be true to for it to return 'true', for example "is the sky blue OR is the sea orange", this returns 'true' because the first expression is true, even though the second is false.</div></blockquote><div></div><div><br /></div><div><span class="Apple-style-span" ><i>Looking at what I've just written, that is an incredibly lengthy explanation for such simple concepts, I blame this on wikipedias overly wordy explanation of a 'logical operator' and it being quite late... now with the explanations dispensed, time to document the chapter.</i></span></div><div><br /></div><div><br />In 5.4 we write a simple program to change a rectangles colour when the mouse is over it. I expanded on this code a bit and implemented a multiple rollover, when the mouse is not on the rectangle, the background is <i>black</i> and the rectangle <i>white</i>. When the mouse is on the rectangle, the background is <i>white </i>and the rectangle <i>black. </i>Hopefully the code is commented well enough for most people to understand!</div><br /><pre style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> /* logical operators in use in a simple sketch, &amp;&amp; is AND<br />|| is OR */<br /><br />void setup() {<br />size(200,200);  //200x200 canvas<br />smooth();  //set anti-aliasing<br />}<br /><br />void draw() {<br />background(255);  //set backgroudn white<br />if (mouseX &gt; width/2 &amp;&amp; mouseY &gt; width/2) {  //if mouse X coord is on the right AND the mouse Y coord is on the bottom half of the canvas<br />fill(0); //fill rect with black<br />rect(width/2,height/2,width/2,height/2);  //draw rect at bottom right<br />}<br />else if (mouseX &lt; width/2 || mouseY &lt; height/2) {  //else if the mouse X coord is less than half of the width OR the mouse Y coord is above the middle of the canvas<br />background(0);  //fill background with black<br />fill(255);  //fill rectangle with white<br />rect(width/2,height/2,width/2,height/2);  //draw rect at bottom right<br />}<br />}<br /><br /></code></pre><br /><iframe width="228" height="280" scrolling="no" frameborder="0" src="http://www.openprocessing.org/visuals/iframe.php?visualID=27654&amp;width=200&amp;height=200&amp;border=true"></iframe><div><br /></div><div>In 5.5 we learn to implement 'multiple rollovers' Shiffman has provided some pseudocode of his next example, however I decided to implement it myself before going ahead and reading his example, as usual my code is cruder, less well written and much harder to mod, but I'm proud of it, it accomplishes the same thing as Shiffman's code.</div><div><br /></div><div><u>MY CODE:</u></div><div><pre style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"><br />int w = 200; //width of canvas<br />int h = 200; //height of canvas<br />int c1 = 255; //colour1 = white<br />int c2 = 255; //colour2 = white<br />int c3 = 255; //colour3 = white<br />int c4 =255; //colour4 = white<br /><br />void setup() {<br />size (w,h); //set canvas size<br />smooth(); //anti-aliasing<br />rectMode(CORNER);<br />}<br /><br />void draw() {<br />if (mouseX &lt; width/2 &amp;&amp; mouseY &lt; height/2) {<br />c1 = 0;<br />c2 = 255;<br />c3 = 255;<br />c4 = 255;<br /><br />} else if (mouseX &lt; width/2 &amp;&amp; mouseY &gt; height/2){<br />c1 = 255;<br />c2 = 255;<br />c3 = 0;<br />c4 = 255;<br /><br />} else if (mouseX &gt; width/2 &amp;&amp; mouseY &lt; height/2) {<br />c1 = 255;<br />c2 = 0;<br />c3 = 255;<br />c4 = 255;<br /><br />} else if (mouseX &gt; width/2 &amp;&amp; mouseY &gt; height/2) {<br />c1 = 255;<br />c2 = 255;<br />c3 = 255;<br />c4 = 0;<br />}<br /><br />background(255); //set white background<br />fill(c1);<br />rect(0,0,width/2,height/2);<br />fill(c2);<br />rect(width/2,0,width/2,height/2);<br />fill(c3);<br />rect(0,height/2,width/2,height/2);<br />fill(c4);<br />rect(width/2,height/2,width/2,height/2);<br /><br />println("X = " + mouseX + " Y = " + mouseY);<br />}<br /></code></pre><div></div><br /></div><br /><iframe width="228" height="280" scrolling="no" frameborder="0" src="http://www.openprocessing.org/visuals/iframe.php?visualID=27655&amp;width=200&amp;height=200&amp;border=true"></iframe><div><br /></div><div><u>VS. <a href="http://www.learningprocessing.com/examples/chapter-5/example-5-3/">SHIFFMAN'S CODE</a>:</u></div><pre style="font-family:arial;font-size:12px;border:1px dashed #CCCCCC;width:99%;height:auto;overflow:auto;background:#f0f0f0;padding:0px;color:#000000;text-align:left;line-height:20px;"><code style="color:#000000;word-wrap:normal;"> // Learning Processing<br />// Daniel Shiffman<br />// http://www.learningprocessing.com<br /><br />// Example 5-3: Rollovers<br />void setup() {<br />size(200,200);<br />}<br /><br />void draw() {<br />background(255);<br />stroke(0);<br />line(100,0,100,200);<br />line(0,100,200,100);<br /><br />// Fill a black color<br />noStroke();<br />fill(0);<br /><br />// Depending on the mouse location, a different rectangle is displayed. <br />if (mouseX &lt; 100 &amp;&amp; mouseY &lt; 100) {<br />rect(0,0,100,100);<br />} else if (mouseX &gt; 100 &amp;&amp; mouseY &lt; 100) {<br />rect(100,0,100,100);<br />} else if (mouseX &lt; 100 &amp;&amp; mouseY &gt; 100) {<br />rect(0,100,100,100);<br />} else if (mouseX &gt; 100 &amp;&amp; mouseY &gt; 100) {<br />rect(100,100,100,100);<br />}<br />}<br /><br /></code></pre><br /><div></div>Right, I think that's it for tonight...</div>
+
+    </div>
+</div>
+ 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'willprice'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
