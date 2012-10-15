@@ -14,7 +14,10 @@
   font-size: 15px;
   color:#811C21
 }
-ul ol{
+ul {
+  margin-left: 1em;
+}
+ol {
   margin-left: 1em;
 }
 .highlight {

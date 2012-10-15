@@ -3,7 +3,7 @@ title: About me
 layout: layout
 categories: [meta]
 ---
-# ABOUT ME #
+# About me #
 #### Personal Infomation: ####
 Age: 19
 
@@ -20,6 +20,7 @@ Hobbies: Learning, Wood carving, Metal work, Programming, Cooking (in no particu
 I've lived in hereford all my life and have always had a keen interest in learning new things
 
 #### Sites I like: ####
+
 
 ##### Technology: #####
 - [Hacker News](news.ycombinator.com)

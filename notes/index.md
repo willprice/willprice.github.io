@@ -11,5 +11,4 @@ innacurracies in them as I may well already be aware of them. They are
 for archival's sake.
 
 {% for note in site.posts %}
-- <a href="{{note.url}}">{{note.title}}</a>
 {% endfor %}
