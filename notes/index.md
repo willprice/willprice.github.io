@@ -10,5 +10,4 @@ are not polished or fact checked. Please don't contact me about
 innacurracies in them as I may well already be aware of them. They are
 for archival's sake.
 
-{% for note in site.posts %}
-{% endfor %}
+[Learn You A Haskell For Great Good](./learn_you_a_haskell/)
