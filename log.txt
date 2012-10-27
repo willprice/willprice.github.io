@@ -1,0 +1,5 @@
+Configuration from /home/will/Dropbox/Notes/personal_site/_config.yml
+Building site: /home/will/Dropbox/Notes/personal_site -> /home/will/Dropbox/Notes/personal_site/_site
+Liquid Exception: highlight tag was never closed in index.md
+Liquid Exception: highlight tag was never closed in test.md
+Successfully generated site: /home/will/Dropbox/Notes/personal_site -> /home/will/Dropbox/Notes/personal_site/_site

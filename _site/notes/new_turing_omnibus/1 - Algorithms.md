@@ -1,8 +1,3 @@
----
-title: "NTO: Algorithms questions"
-layout: layout
----
-
 Ex 1: Rewrite recipe as algorithm:
 
     

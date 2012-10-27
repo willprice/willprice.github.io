@@ -1,5 +1,5 @@
 ---
-title: Learn you a Haskell Chapter 1 Starting out
+title: "LYAHFGG: Chapter 1 Starting out"
 layout: post
 tags: [haskell, notes]
 ---
@@ -65,7 +65,7 @@ The order in which operators evaluated from first to last is:
 If operators are on the same level of precedence, for example the
 expression:
 {% highlight haskell %}
-ghci> 7 * 8 / 4
+ghci> 7 \* 8 / 4
 14.0
 {% endhighlight %}
 operators are evaluated from __right to left__
@@ -231,17 +231,17 @@ ghci> take 10 (repeat 10)
 #### LIST COMPREHENSIONS ####
 List comprehensions are very similar to set comprehensions for mathematics (note: very cool). They allow you to generate lists of elements based on predicates. The example below will show a typical list comprehension:
 {% highlight haskell %}
-example xs ubound = [ x*2 | x <- xs, (x < ubound) ]
+example xs ubound = [ x\*2 | x <- xs, (x < ubound) ]
 
 ghci> example [1..10] 5 
 [2,4,6,8]
 {% endhighlight %}
 
-_example_ refers to the name of the function and the 2 variables afterward are the parameters: 'xs' 'ubound'. 'x' is drawn from the list 'xs', then the predicate 'x < ubound' filters out the elements of the list greater than 'ubound', finally the stripped list is then passed to 'x*2' where a new list is generated from the previous list x being mapped to x*2.
+_example_ refers to the name of the function and the 2 variables afterward are the parameters: 'xs' 'ubound'. 'x' is drawn from the list 'xs', then the predicate 'x < ubound' filters out the elements of the list greater than 'ubound', finally the stripped list is then passed to 'x\*2' where a new list is generated from the previous list x being mapped to x\*2.
 
 A better example:
 {% highlight haskell %}
-square xs = [x**2 | x <- xs]
+square xs = [x\*\*2 | x <- xs]
 
 ghci> square [1,2,3,4]
 [1,4,9,16]
@@ -249,5 +249,5 @@ ghci> square [1,2,3,4]
 
 Of course list comprehensions can spiral in complexity so that you end up with expressions like:
 {% highlight haskell %}
-fizzbu
-
+fizzbuzz
+{% endhighlight %}

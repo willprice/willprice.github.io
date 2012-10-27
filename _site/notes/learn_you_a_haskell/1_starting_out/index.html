@@ -7,7 +7,7 @@
 
 	<!-- Basic Page Needs
   ================================================== -->
-  <title>Learn you a Haskell Chapter 1 Starting out</title>
+  <title>LYAHFGG: Chapter 1 Starting out</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="author" content="Will Price" />
   <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
@@ -61,7 +61,7 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>Learn you a Haskell Chapter 1 Starting out</h2>
+        <h2>LYAHFGG: Chapter 1 Starting out</h2>
         <p>I&#8217;ve decided to learn Haskell as from what I&#8217;ve read, it seems like an interesting language quite different from anything I&#8217;ve used before. I&#8217;d also very much like to be able to hack on <a href='http://xmonad.org/'>XMonad</a>, the tiling window manager I use.</p>
 
 <p><a href='http://learnyouahaskell.com/'>&#8216;Learn you a Haskell for great good&#8217;</a> is a fantastic book written in a light hearted manner with very good explanations and drawings to keep your attension. It&#8217;s available to read free on the website.</p>
@@ -134,7 +134,7 @@
 </ol>
 
 <p>If operators are on the same level of precedence, for example the expression:</p>
-<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='mi'>7</span> <span class='o'>*</span> <span class='mi'>8</span> <span class='o'>/</span> <span class='mi'>4</span>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='mi'>7</span> <span class='o'>\*</span> <span class='mi'>8</span> <span class='o'>/</span> <span class='mi'>4</span>
 <span class='mf'>14.0</span>
 </code></pre>
 </div>
@@ -217,7 +217,7 @@
 <span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>null</span> <span class='kt'>[]</span>
 <span class='kt'>True</span>
 <span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>null</span> <span class='p'>[</span><span class='mi'>1</span><span class='p'>]</span>
-<span class='kt'>False</span>
+<span class='kt'>FalsE</span>
 
 <span class='c1'>-- Reverse</span>
 <span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>]</span>
@@ -246,8 +246,68 @@
 <span class='kt'>Truce</span>
 </code></pre>
 </div>
+<h4 id='texas_ranges'>TEXAS RANGES</h4>
+
+<p>Texas ranges allow you to produce a list from an arithmetic sequence in any step size up to any number or it can even be infinite.</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>20</span><span class='p'>]</span>
+<span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>5</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>11</span><span class='p'>,</span><span class='mi'>12</span><span class='p'>,</span><span class='mi'>13</span><span class='p'>,</span><span class='mi'>14</span><span class='p'>,</span><span class='mi'>15</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>,</span><span class='mi'>17</span><span class='p'>,</span><span class='mi'>18</span><span class='p'>,</span><span class='mi'>19</span><span class='p'>,</span><span class='mi'>20</span><span class='p'>]</span>
+</code></pre>
+</div>
+<p>This shows a simple texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as haskell defaults to one. so <span>20..1</span> would evaluate to an empty list as 20 is greater than one.</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='p'>[</span><span class='mi'>20</span><span class='p'>,</span><span class='mi'>19</span><span class='o'>..</span><span class='mi'>1</span><span class='p'>]</span>
+<span class='p'>[</span><span class='mi'>20</span><span class='p'>,</span><span class='mi'>19</span><span class='p'>,</span><span class='mi'>18</span><span class='p'>,</span><span class='mi'>17</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>,</span><span class='mi'>15</span><span class='p'>,</span><span class='mi'>14</span><span class='p'>,</span><span class='mi'>13</span><span class='p'>,</span><span class='mi'>12</span><span class='p'>,</span><span class='mi'>11</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>5</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>]</span>
+
+<span class='c1'>-- Or you could always just reverse a list:</span>
+
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>reverse</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>20</span><span class='p'>]</span>
+<span class='p'>[</span><span class='mi'>20</span><span class='p'>,</span><span class='mi'>19</span><span class='p'>,</span><span class='mi'>18</span><span class='p'>,</span><span class='mi'>17</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>,</span><span class='mi'>15</span><span class='p'>,</span><span class='mi'>14</span><span class='p'>,</span><span class='mi'>13</span><span class='p'>,</span><span class='mi'>12</span><span class='p'>,</span><span class='mi'>11</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>5</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>]</span>
+</code></pre>
+</div>
+<p>As the above example shows, step size is implicitly defined by writing the second term of the sequence.</p>
+
+<p>Any type of element that is enumerable can be used with texas ranges. Letters for example are enumerable:</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='p'>[</span><span class='sc'>&#39;a&#39;</span><span class='o'>..</span><span class='sc'>&#39;z&#39;</span><span class='p'>]</span>
+<span class='s'>&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+</code></pre>
+</div>
+<p>If you want to produce a list up to a certain number of members you can use &#8216;take&#8217; on an infinite list:</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>take</span> <span class='mi'>12</span> <span class='p'>[</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>12</span><span class='o'>..</span><span class='p'>]</span>
+<span class='p'>[</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>12</span><span class='p'>,</span><span class='mi'>18</span><span class='p'>,</span><span class='mi'>24</span><span class='p'>,</span><span class='mi'>30</span><span class='p'>,</span><span class='mi'>36</span><span class='p'>,</span><span class='mi'>42</span><span class='p'>,</span><span class='mi'>48</span><span class='p'>,</span><span class='mi'>54</span><span class='p'>,</span><span class='mi'>60</span><span class='p'>,</span><span class='mi'>66</span><span class='p'>,</span><span class='mi'>72</span><span class='p'>]</span>
+</code></pre>
+</div>
+<p>&#8216;cycle&#8217; and &#8216;repeat&#8217; produce infinite lists which can be used with &#8216;take&#8217; to produce finite lists.</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>take</span> <span class='mi'>9</span> <span class='p'>(</span><span class='n'>cycle</span> <span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>])</span>
+<span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>]</span>
+
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>take</span> <span class='mi'>10</span> <span class='p'>(</span><span class='n'>repeat</span> <span class='mi'>10</span><span class='p'>)</span>
+<span class='p'>[</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>]</span>
+</code></pre>
+</div>
+<h4 id='list_comprehensions'>LIST COMPREHENSIONS</h4>
+
+<p>List comprehensions are very similar to set comprehensions for mathematics (note: very cool). They allow you to generate lists of elements based on predicates. The example below will show a typical list comprehension:</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>example</span> <span class='n'>xs</span> <span class='n'>ubound</span> <span class='ow'>=</span> <span class='p'>[</span> <span class='n'>x</span><span class='o'>\*</span><span class='mi'>2</span> <span class='o'>|</span> <span class='n'>x</span> <span class='ow'>&lt;-</span> <span class='n'>xs</span><span class='p'>,</span> <span class='p'>(</span><span class='n'>x</span> <span class='o'>&lt;</span> <span class='n'>ubound</span><span class='p'>)</span> <span class='p'>]</span>
+
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>example</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>10</span><span class='p'>]</span> <span class='mi'>5</span> 
+<span class='p'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>]</span>
+</code></pre>
+</div>
+<p><em>example</em> refers to the name of the function and the 2 variables afterward are the parameters: &#8216;xs&#8217; &#8216;ubound&#8217;. &#8216;x&#8217; is drawn from the list &#8216;xs&#8217;, then the predicate &#8216;x &lt; ubound&#8217; filters out the elements of the list greater than &#8216;ubound&#8217;, finally the stripped list is then passed to &#8216;x*2&#8217; where a new list is generated from the previous list x being mapped to x*2.</p>
+
+<p>A better example:</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>square</span> <span class='n'>xs</span> <span class='ow'>=</span> <span class='p'>[</span><span class='n'>x</span><span class='o'>\*\*</span><span class='mi'>2</span> <span class='o'>|</span> <span class='n'>x</span> <span class='ow'>&lt;-</span> <span class='n'>xs</span><span class='p'>]</span>
+
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>square</span> <span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>]</span>
+<span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>]</span>
+</code></pre>
+</div>
+<p>Of course list comprehensions can spiral in complexity so that you end up with expressions like:</p>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>fizzbuzz</span>
+</code></pre>
+</div>
     </div>
 </div>
+
  
 <div id="disqus_thread"></div>
 <script type="text/javascript">
