@@ -153,7 +153,7 @@ ghci> length [5,4,3]
 ghci> null []
 True
 ghci> null [1]
-False
+FalsE
 
 -- Reverse
 ghci> [1,2,3]
@@ -182,3 +182,72 @@ ghci> 2 `elem` [2,3,4]
 Truce
 
 {% endhighlight %}
+
+#### TEXAS RANGES ####
+Texas ranges allow you to produce a list from an arithmetic sequence in any step size up to any number or it can even be infinite.
+{% highlight haskell %}
+ghci> [1..20]
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+{% endhighlight %}
+
+This shows a simple texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as haskell defaults to one. so [20..1] would evaluate to an empty list as 20 is greater than one.
+
+{% highlight haskell %}
+ghci> [20,19..1]
+[20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
+
+-- Or you could always just reverse a list:
+
+ghci> reverse [1..20]
+[20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
+{% endhighlight %}
+
+As the above example shows, step size is implicitly defined by writing the second term of the sequence. 
+
+Any type of element that is enumerable can be used with texas ranges. Letters for example are enumerable:
+
+{% highlight haskell %}
+ghci> ['a'..'z']
+"abcdefghijklmnopqrstuvwxyz"
+{% endhighlight %}
+
+If you want to produce a list up to a certain number of members you can use 'take' on an infinite list:
+
+{% highlight haskell %}
+ghci> take 12 [6,12..]
+[6,12,18,24,30,36,42,48,54,60,66,72]
+{% endhighlight %}
+
+'cycle' and 'repeat' produce infinite lists which can be used with 'take' to produce finite lists.
+
+{% highlight haskell %}
+ghci> take 9 (cycle [1,2,3])
+[1,2,3,1,2,3,1,2,3]
+
+ghci> take 10 (repeat 10)
+[10,10,10,10,10,10,10,10,10,10]
+{% endhighlight %}
+
+#### LIST COMPREHENSIONS ####
+List comprehensions are very similar to set comprehensions for mathematics (note: very cool). They allow you to generate lists of elements based on predicates. The example below will show a typical list comprehension:
+{% highlight haskell %}
+example xs ubound = [ x*2 | x <- xs, (x < ubound) ]
+
+ghci> example [1..10] 5 
+[2,4,6,8]
+{% endhighlight %}
+
+_example_ refers to the name of the function and the 2 variables afterward are the parameters: 'xs' 'ubound'. 'x' is drawn from the list 'xs', then the predicate 'x < ubound' filters out the elements of the list greater than 'ubound', finally the stripped list is then passed to 'x*2' where a new list is generated from the previous list x being mapped to x*2.
+
+A better example:
+{% highlight haskell %}
+square xs = [x**2 | x <- xs]
+
+ghci> square [1,2,3,4]
+[1,4,9,16]
+{% endhighlight %}
+
+Of course list comprehensions can spiral in complexity so that you end up with expressions like:
+{% highlight haskell %}
+fizzbu
+
