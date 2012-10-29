@@ -1,6 +1,6 @@
 ---
 title: "LYAHFGG: Chapter 1 Starting out"
-layout: post
+layout: layout
 tags: [haskell, notes]
 ---
 
@@ -11,20 +11,20 @@ the tiling window manager I use.
 
 ['Learn you a Haskell for great good'](http://learnyouahaskell.com/) is a fantastic book written in a
 light hearted manner with very good explanations and drawings to keep
-your attension. It's available to read free on the website.
+your attention. It's available to read free on the website.
 
 
-### Haskell ###
-Haskell is _referencially transparent_ and as such you can't
+#### Haskell ###
+Haskell is _referentially transparent_ and as such you can't
 change variables (they're actually called _definitions_ or _names_ as they don't _vary_)after assigning a value; for example you can't say x = 5
 and then saying that x = 6. This means _side effects_ don't exist (when
 calling a function twice with the same parameters it might return
-something different in an imperative lanuage -- not in Haskell! Variable
-reassignment isn't permittted).
+something different in an imperative language -- not in Haskell! Variable
+reassignment isn't permitted).
 
 Haskell also has the cool property of being _lazy_ meaning it will only
 evaluate expressions when it absolutely must, this allows us to play
-with infinite sets, this is the result of referencial transparency.
+with infinite sets, this is the result of referential transparency.
 
 Haskell is _statically typed_ meaning that Haskell knows what things are
 numbers, strings, lists and so on. This allows it check for a lot of
@@ -34,12 +34,12 @@ this is not the case. Haskell has a _type inference_ system that knows
 that when you perform the assignment a = 5 + 4, that a is also a number,
 and so on.
 
-### Basic Operators ###
+#### Basic Operators ###
 - AND: &&
 - OR: ||
 - NOT: not
-- EQUIVALENCY: ==
-- NONEQUIVALENCY: /=
+- EQUIVALENCE: ==
+- NONEQUIVALENCE: /=
 
 - succ x: returns the _successor_ of x (e.g. succ 8 = 9)
 - min x y: returns the _minimum_ of x and y (e.g. min 7 10 = 7)
@@ -55,7 +55,7 @@ ghci> 92 `div` 10
 9
 {% endhighlight %}
 
-#### Operator Precedence ####
+##### Operator Precedence ####
 The order in which operators evaluated from first to last is:
 
 1. Functions
@@ -65,13 +65,13 @@ The order in which operators evaluated from first to last is:
 If operators are on the same level of precedence, for example the
 expression:
 {% highlight haskell %}
-ghci> 7 \* 8 / 4
+ghci> 7 * 8 / 4
 14.0
 {% endhighlight %}
 operators are evaluated from __right to left__
 
 
-### Function definition ###
+#### Function definition ###
 Functions are defined in a very clean way in Haskell, like so:
 {% highlight haskell %}
 doubleMe x = x + x
@@ -86,7 +86,7 @@ ghci> doubleMe 7
 
 Also remember that definitions are also functions so 'x = 8' is a function that returns 8 when called and so on.
 
-### Conditionals ###
+#### Conditionals ###
 Given that Haskell isn't imperative all 'if's must be accompanied by an 'else', if the predicate evaluates to false then the function won't know what to return otherwise.
 {% highlight haskell %}
 amIawesome x = if x == "Keith Devlin"
@@ -98,8 +98,8 @@ ghci> amIawesome "Keith Devlin"
 "Yes"
 {% endhighlight %}
 
-### Lists ###
-Lists are _homogenous_. Concatenation walks through the first list before appending the other list, this is computationally intensive on big lists. Prepend lists to avoid this issue.
+#### Lists ###
+Lists are _homogeneous_. Concatenation walks through the first list before appending the other list, this is computationally intensive on big lists. Prepend lists to avoid this issue.
 
 {% highlight haskell %}
 list = ["this","is","a","list"]
@@ -190,7 +190,7 @@ ghci> [1..20]
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 {% endhighlight %}
 
-This shows a simple texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as haskell defaults to one. so [20..1] would evaluate to an empty list as 20 is greater than one.
+This shows a simple Texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as Haskell defaults to one. So [20..1] would evaluate to an empty list as 20 is greater than one.
 
 {% highlight haskell %}
 ghci> [20,19..1]
@@ -204,7 +204,7 @@ ghci> reverse [1..20]
 
 As the above example shows, step size is implicitly defined by writing the second term of the sequence. 
 
-Any type of element that is enumerable can be used with texas ranges. Letters for example are enumerable:
+Any type of element that is enumerable can be used with Texas ranges. Letters for example are enumerable:
 
 {% highlight haskell %}
 ghci> ['a'..'z']
@@ -231,7 +231,7 @@ ghci> take 10 (repeat 10)
 #### LIST COMPREHENSIONS ####
 List comprehensions are very similar to set comprehensions for mathematics (note: very cool). They allow you to generate lists of elements based on predicates. The example below will show a typical list comprehension:
 {% highlight haskell %}
-example xs ubound = [ x\*2 | x <- xs, (x < ubound) ]
+example xs ubound = [ x*2 | x <- xs, (x < ubound) ]
 
 ghci> example [1..10] 5 
 [2,4,6,8]
@@ -247,7 +247,45 @@ ghci> square [1,2,3,4]
 [1,4,9,16]
 {% endhighlight %}
 
-Of course list comprehensions can spiral in complexity so that you end up with expressions like:
-{% highlight haskell %}
-fizzbuzz
+
+#### TUPLES ####
+Tuples are a little bit like lists in that they store sets of data, however they differ in fundamental ways. Tuples store _heterogeneous_ data and they cannot be extended in size. If you define a tuple to contain a _Char_ and a _Bool_ then it can only contains those 2 types in the correct order. Tuples are defined using the following notation:
+
+{% highlight hs %}
+ghci> let tuple = ("Hi", True)
+ghci> tuple
+("Hi", True)
 {% endhighlight %}
+
+_("Hi", True)"_ isn't the same type of tuple as _(True, "Hi")_, order is important. 
+
+Because tuples composed of 2 types of data are dealt with so frequently there are 2 important functions to memorise: _fst_ and _snd_, they're fairly obvious:
+
+{% highlight hs %}
+ghci> fst ("one", 2)
+"one"
+ghci> snd ("one", 2) 
+2
+{% endhighlight %}
+
+A list of tuples can be produced using the _zip_ command that takes 2 lists as parameters and creates pairs based on those lists:
+
+{% highlight hs %}
+ghci> zip [1..] ["one", "two", "three", "four"]
+[(1,"one"),(2,"two"),(3,"three"),(4,"four")]
+{% endhighlight %}
+
+Tuples, as any other primitive can be used in list comprehension, they're useful for calculating things:
+
+{% highlight hs %}
+ghci> let triangle = [ (a,b,c) | c <- [1..10], a <- [1..10], b <- [1..10], a+b+c==24, a^2+b^2==c^2 ]
+ghci> triangle
+[(6,8,10)]
+{% endhighlight %}
+
+This is a simple function that calculates the sides of a triangle such that:
+- Perimeter = 24
+- Right angled
+- Integer sides
+
+The predicates are evaluated in the order they're written in (DON'T UNDERSTAND WHY THEY'RE IN THAT ORDER TO AVOID (a OR b) > c)
