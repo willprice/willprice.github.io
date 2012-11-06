@@ -20,11 +20,12 @@ p {
 }
 
 ul {
-  margin-left: 1em;
+  padding-left: 1em;
+  list-style-type: square;
 }
 
 ol {
-  margin-left: 1em;
+  padding-left: 1em;
 }
 
 .highlight {

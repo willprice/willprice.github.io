@@ -59,22 +59,19 @@
       </div>
 
       <section>
-      <div class="content">
-    <div id="post">
-        <h2>LYAHFGG: Chapter 1 Starting out</h2>
-        <p>I&#8217;ve decided to learn Haskell as from what I&#8217;ve read, it seems like an interesting language quite different from anything I&#8217;ve used before. I&#8217;d also very much like to be able to hack on <a href='http://xmonad.org/'>XMonad</a>, the tiling window manager I use.</p>
+      <p>I&#8217;ve decided to learn Haskell as from what I&#8217;ve read, it seems like an interesting language quite different from anything I&#8217;ve used before. I&#8217;d also very much like to be able to hack on <a href='http://xmonad.org/'>XMonad</a>, the tiling window manager I use.</p>
 
-<p><a href='http://learnyouahaskell.com/'>&#8216;Learn you a Haskell for great good&#8217;</a> is a fantastic book written in a light hearted manner with very good explanations and drawings to keep your attension. It&#8217;s available to read free on the website.</p>
+<p><a href='http://learnyouahaskell.com/'>&#8216;Learn you a Haskell for great good&#8217;</a> is a fantastic book written in a light hearted manner with very good explanations and drawings to keep your attention. It&#8217;s available to read free on the website.</p>
 
-<h3 id='haskell'>Haskell</h3>
+<h4 id='haskell'>Haskell</h4>
 
-<p>Haskell is <em>referencially transparent</em> and as such you can&#8217;t change variables (they&#8217;re actually called <em>definitions</em> or <em>names</em> as they don&#8217;t <em>vary</em>)after assigning a value; for example you can&#8217;t say x = 5 and then saying that x = 6. This means <em>side effects</em> don&#8217;t exist (when calling a function twice with the same parameters it might return something different in an imperative lanuage &#8211; not in Haskell! Variable reassignment isn&#8217;t permittted).</p>
+<p>Haskell is <em>referentially transparent</em> and as such you can&#8217;t change variables (they&#8217;re actually called <em>definitions</em> or <em>names</em> as they don&#8217;t <em>vary</em>)after assigning a value; for example you can&#8217;t say x = 5 and then saying that x = 6. This means <em>side effects</em> don&#8217;t exist (when calling a function twice with the same parameters it might return something different in an imperative language &#8211; not in Haskell! Variable reassignment isn&#8217;t permitted).</p>
 
-<p>Haskell also has the cool property of being <em>lazy</em> meaning it will only evaluate expressions when it absolutely must, this allows us to play with infinite sets, this is the result of referencial transparency.</p>
+<p>Haskell also has the cool property of being <em>lazy</em> meaning it will only evaluate expressions when it absolutely must, this allows us to play with infinite sets, this is the result of referential transparency.</p>
 
 <p>Haskell is <em>statically typed</em> meaning that Haskell knows what things are numbers, strings, lists and so on. This allows it check for a lot of possible errors at compile time. Whilst this might lead you to think that you have to tell Haskell what type everything is in your program, this is not the case. Haskell has a <em>type inference</em> system that knows that when you perform the assignment a = 5 + 4, that a is also a number, and so on.</p>
 
-<h3 id='basic_operators'>Basic Operators</h3>
+<h4 id='basic_operators'>Basic Operators</h4>
 
 <ul>
 <li>
@@ -90,11 +87,11 @@
 </li>
 
 <li>
-<p>EQUIVALENCY: ==</p>
+<p>EQUIVALENCE: ==</p>
 </li>
 
 <li>
-<p>NONEQUIVALENCY: /=</p>
+<p>NONEQUIVALENCE: /=</p>
 </li>
 
 <li>
@@ -121,7 +118,7 @@
 <span class='mi'>9</span>
 </code></pre>
 </div>
-<h4 id='operator_precedence'>Operator Precedence</h4>
+<h5 id='operator_precedence'>Operator Precedence</h5>
 
 <p>The order in which operators evaluated from first to last is:</p>
 
@@ -134,13 +131,13 @@
 </ol>
 
 <p>If operators are on the same level of precedence, for example the expression:</p>
-<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='mi'>7</span> <span class='o'>\*</span> <span class='mi'>8</span> <span class='o'>/</span> <span class='mi'>4</span>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='mi'>7</span> <span class='o'>*</span> <span class='mi'>8</span> <span class='o'>/</span> <span class='mi'>4</span>
 <span class='mf'>14.0</span>
 </code></pre>
 </div>
 <p>operators are evaluated from <strong>right to left</strong></p>
 
-<h3 id='function_definition'>Function definition</h3>
+<h4 id='function_definition'>Function definition</h4>
 
 <p>Functions are defined in a very clean way in Haskell, like so:</p>
 <div class='highlight'><pre><code class='haskell'><span class='nf'>doubleMe</span> <span class='n'>x</span> <span class='ow'>=</span> <span class='n'>x</span> <span class='o'>+</span> <span class='n'>x</span>
@@ -153,7 +150,7 @@
 </div>
 <p>Also remember that definitions are also functions so &#8216;x = 8&#8217; is a function that returns 8 when called and so on.</p>
 
-<h3 id='conditionals'>Conditionals</h3>
+<h4 id='conditionals'>Conditionals</h4>
 
 <p>Given that Haskell isn&#8217;t imperative all &#8216;if&#8217;s must be accompanied by an &#8216;else&#8217;, if the predicate evaluates to false then the function won&#8217;t know what to return otherwise.</p>
 <div class='highlight'><pre><code class='haskell'><span class='nf'>amIawesome</span> <span class='n'>x</span> <span class='ow'>=</span> <span class='kr'>if</span> <span class='n'>x</span> <span class='o'>==</span> <span class='s'>&quot;Keith Devlin&quot;</span>
@@ -165,9 +162,9 @@
 <span class='s'>&quot;Yes&quot;</span>
 </code></pre>
 </div>
-<h3 id='lists'>Lists</h3>
+<h4 id='lists'>Lists</h4>
 
-<p>Lists are <em>homogenous</em>. Concatenation walks through the first list before appending the other list, this is computationally intensive on big lists. Prepend lists to avoid this issue.</p>
+<p>Lists are <em>homogeneous</em>. Concatenation walks through the first list before appending the other list, this is computationally intensive on big lists. Prepend lists to avoid this issue.</p>
 <div class='highlight'><pre><code class='haskell'><span class='nf'>list</span> <span class='ow'>=</span> <span class='p'>[</span><span class='s'>&quot;this&quot;</span><span class='p'>,</span><span class='s'>&quot;is&quot;</span><span class='p'>,</span><span class='s'>&quot;a&quot;</span><span class='p'>,</span><span class='s'>&quot;list&quot;</span><span class='p'>]</span>
 <span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>list</span>
 <span class='p'>[</span><span class='s'>&quot;this&quot;</span><span class='p'>,</span><span class='s'>&quot;is&quot;</span><span class='p'>,</span><span class='s'>&quot;a&quot;</span><span class='p'>,</span><span class='s'>&quot;list&quot;</span><span class='p'>]</span>
@@ -253,7 +250,7 @@
 <span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>5</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>11</span><span class='p'>,</span><span class='mi'>12</span><span class='p'>,</span><span class='mi'>13</span><span class='p'>,</span><span class='mi'>14</span><span class='p'>,</span><span class='mi'>15</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>,</span><span class='mi'>17</span><span class='p'>,</span><span class='mi'>18</span><span class='p'>,</span><span class='mi'>19</span><span class='p'>,</span><span class='mi'>20</span><span class='p'>]</span>
 </code></pre>
 </div>
-<p>This shows a simple texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as haskell defaults to one. so <span>20..1</span> would evaluate to an empty list as 20 is greater than one.</p>
+<p>This shows a simple Texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as Haskell defaults to one. So <span>20..1</span> would evaluate to an empty list as 20 is greater than one.</p>
 <div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='p'>[</span><span class='mi'>20</span><span class='p'>,</span><span class='mi'>19</span><span class='o'>..</span><span class='mi'>1</span><span class='p'>]</span>
 <span class='p'>[</span><span class='mi'>20</span><span class='p'>,</span><span class='mi'>19</span><span class='p'>,</span><span class='mi'>18</span><span class='p'>,</span><span class='mi'>17</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>,</span><span class='mi'>15</span><span class='p'>,</span><span class='mi'>14</span><span class='p'>,</span><span class='mi'>13</span><span class='p'>,</span><span class='mi'>12</span><span class='p'>,</span><span class='mi'>11</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>7</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>5</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>]</span>
 
@@ -265,7 +262,7 @@
 </div>
 <p>As the above example shows, step size is implicitly defined by writing the second term of the sequence.</p>
 
-<p>Any type of element that is enumerable can be used with texas ranges. Letters for example are enumerable:</p>
+<p>Any type of element that is enumerable can be used with Texas ranges. Letters for example are enumerable:</p>
 <div class='highlight'><pre><code class='haskell'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='p'>[</span><span class='sc'>&#39;a&#39;</span><span class='o'>..</span><span class='sc'>&#39;z&#39;</span><span class='p'>]</span>
 <span class='s'>&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
 </code></pre>
@@ -286,7 +283,7 @@
 <h4 id='list_comprehensions'>LIST COMPREHENSIONS</h4>
 
 <p>List comprehensions are very similar to set comprehensions for mathematics (note: very cool). They allow you to generate lists of elements based on predicates. The example below will show a typical list comprehension:</p>
-<div class='highlight'><pre><code class='haskell'><span class='nf'>example</span> <span class='n'>xs</span> <span class='n'>ubound</span> <span class='ow'>=</span> <span class='p'>[</span> <span class='n'>x</span><span class='o'>\*</span><span class='mi'>2</span> <span class='o'>|</span> <span class='n'>x</span> <span class='ow'>&lt;-</span> <span class='n'>xs</span><span class='p'>,</span> <span class='p'>(</span><span class='n'>x</span> <span class='o'>&lt;</span> <span class='n'>ubound</span><span class='p'>)</span> <span class='p'>]</span>
+<div class='highlight'><pre><code class='haskell'><span class='nf'>example</span> <span class='n'>xs</span> <span class='n'>ubound</span> <span class='ow'>=</span> <span class='p'>[</span> <span class='n'>x</span><span class='o'>*</span><span class='mi'>2</span> <span class='o'>|</span> <span class='n'>x</span> <span class='ow'>&lt;-</span> <span class='n'>xs</span><span class='p'>,</span> <span class='p'>(</span><span class='n'>x</span> <span class='o'>&lt;</span> <span class='n'>ubound</span><span class='p'>)</span> <span class='p'>]</span>
 
 <span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>example</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>10</span><span class='p'>]</span> <span class='mi'>5</span> 
 <span class='p'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>]</span>
@@ -301,30 +298,45 @@
 <span class='p'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>4</span><span class='p'>,</span><span class='mi'>9</span><span class='p'>,</span><span class='mi'>16</span><span class='p'>]</span>
 </code></pre>
 </div>
-<p>Of course list comprehensions can spiral in complexity so that you end up with expressions like:</p>
-<div class='highlight'><pre><code class='haskell'><span class='nf'>fizzbuzz</span>
+<h4 id='tuples'>TUPLES</h4>
+
+<p>Tuples are a little bit like lists in that they store sets of data, however they differ in fundamental ways. Tuples store <em>heterogeneous</em> data and they cannot be extended in size. If you define a tuple to contain a <em>Char</em> and a <em>Bool</em> then it can only contains those 2 types in the correct order. Tuples are defined using the following notation:</p>
+<div class='highlight'><pre><code class='hs'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='kr'>let</span> <span class='n'>tuple</span> <span class='ow'>=</span> <span class='p'>(</span><span class='s'>&quot;Hi&quot;</span><span class='p'>,</span> <span class='kt'>True</span><span class='p'>)</span>
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>tuple</span>
+<span class='p'>(</span><span class='s'>&quot;Hi&quot;</span><span class='p'>,</span> <span class='kt'>True</span><span class='p'>)</span>
 </code></pre>
 </div>
-    </div>
+<p><em>(&#8220;Hi&#8221;, True)&#8221;</em> isn&#8217;t the same type of tuple as <em>(True, &#8220;Hi&#8221;)</em>, order is important.</p>
+
+<p>Because tuples composed of 2 types of data are dealt with so frequently there are 2 important functions to memorise: <em>fst</em> and <em>snd</em>, they&#8217;re fairly obvious:</p>
+<div class='highlight'><pre><code class='hs'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>fst</span> <span class='p'>(</span><span class='s'>&quot;one&quot;</span><span class='p'>,</span> <span class='mi'>2</span><span class='p'>)</span>
+<span class='s'>&quot;one&quot;</span>
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>snd</span> <span class='p'>(</span><span class='s'>&quot;one&quot;</span><span class='p'>,</span> <span class='mi'>2</span><span class='p'>)</span> 
+<span class='mi'>2</span>
+</code></pre>
 </div>
+<p>A list of tuples can be produced using the <em>zip</em> command that takes 2 lists as parameters and creates pairs based on those lists:</p>
+<div class='highlight'><pre><code class='hs'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>zip</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='p'>]</span> <span class='p'>[</span><span class='s'>&quot;one&quot;</span><span class='p'>,</span> <span class='s'>&quot;two&quot;</span><span class='p'>,</span> <span class='s'>&quot;three&quot;</span><span class='p'>,</span> <span class='s'>&quot;four&quot;</span><span class='p'>]</span>
+<span class='p'>[(</span><span class='mi'>1</span><span class='p'>,</span><span class='s'>&quot;one&quot;</span><span class='p'>),(</span><span class='mi'>2</span><span class='p'>,</span><span class='s'>&quot;two&quot;</span><span class='p'>),(</span><span class='mi'>3</span><span class='p'>,</span><span class='s'>&quot;three&quot;</span><span class='p'>),(</span><span class='mi'>4</span><span class='p'>,</span><span class='s'>&quot;four&quot;</span><span class='p'>)]</span>
+</code></pre>
+</div>
+<p>Tuples, as any other primitive can be used in list comprehension, they&#8217;re useful for calculating things:</p>
+<div class='highlight'><pre><code class='hs'><span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='kr'>let</span> <span class='n'>triangle</span> <span class='ow'>=</span> <span class='p'>[</span> <span class='p'>(</span><span class='n'>a</span><span class='p'>,</span><span class='n'>b</span><span class='p'>,</span><span class='n'>c</span><span class='p'>)</span> <span class='o'>|</span> <span class='n'>c</span> <span class='ow'>&lt;-</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>10</span><span class='p'>],</span> <span class='n'>a</span> <span class='ow'>&lt;-</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>10</span><span class='p'>],</span> <span class='n'>b</span> <span class='ow'>&lt;-</span> <span class='p'>[</span><span class='mi'>1</span><span class='o'>..</span><span class='mi'>10</span><span class='p'>],</span> <span class='n'>a</span><span class='o'>+</span><span class='n'>b</span><span class='o'>+</span><span class='n'>c</span><span class='o'>==</span><span class='mi'>24</span><span class='p'>,</span> <span class='n'>a</span><span class='o'>^</span><span class='mi'>2</span><span class='o'>+</span><span class='n'>b</span><span class='o'>^</span><span class='mi'>2</span><span class='o'>==</span><span class='n'>c</span><span class='o'>^</span><span class='mi'>2</span> <span class='p'>]</span>
+<span class='nf'>ghci</span><span class='o'>&gt;</span> <span class='n'>triangle</span>
+<span class='p'>[(</span><span class='mi'>6</span><span class='p'>,</span><span class='mi'>8</span><span class='p'>,</span><span class='mi'>10</span><span class='p'>)]</span>
+</code></pre>
+</div>
+<p>This is a simple function that calculates the sides of a triangle such that:</p>
 
- 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'willprice'; // required: replace example with your forum shortname
+<ul>
+<li>Perimeter = 24</li>
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
- var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
- dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
- (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
- })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<li>Right angled</li>
 
+<li>Integer sides</li>
+</ul>
 
+<p>The predicates are evaluated in the order they&#8217;re written in (DON&#8217;T UNDERSTAND WHY THEY&#8217;RE IN THAT ORDER TO AVOID (a OR b) &gt; c)</p>
       </section>
     </div>
 	</div><!-- container -->

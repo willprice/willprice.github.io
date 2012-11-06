@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Learning Processing: Arrays</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/about.html">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <a class="extra" href="/notes">Notes</a>
+        <hr />
+      </div>
+
+      <section>
+      <p>Array&#8217;s are declared using the syntax:</p>
+<div class='highlight'><pre><code class='java'><span class='n'>type</span> <span class='o'>[]</span> <span class='n'>name</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>type</span> <span class='o'>[</span><span class='n'>size</span><span class='o'>]</span>
+</code></pre>
+</div>
+<p>Where <em>type</em> is a data type, like <em>int</em> or <em>float</em> and <em>name</em> is the name of the array. Finally, the <em>size</em> is the number of elements in the array.</p>
+
+<p>An example:</p>
+<div class='highlight'><pre><code class='java'><span class='c1'>// Array of 10 integers to enter ages into.</span>
+<span class='kt'>int</span> <span class='o'>[]</span> <span class='n'>ages</span> <span class='o'>=</span> <span class='k'>new</span> <span class='kt'>int</span> <span class='o'>[</span><span class='mi'>10</span><span class='o'>]</span>
+</code></pre>
+</div>
+<p>Initially after defining an array, it will be empty, the elements have no defined values. To set up an array, it&#8217;s usually best to fill it with something, lets say 0s.</p>
+<div class='highlight'><pre><code class='java'><span class='k'>for</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span> <span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>ages</span><span class='o'>.</span><span class='na'>length</span><span class='o'>;</span> <span class='n'>i</span><span class='o'>++)</span> <span class='o'>{</span>
+  <span class='n'>age</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span>
+<span class='o'>}</span>
+</code></pre>
+</div><script src='processing.js'><script/><canvas data-processing-sources='test.pde'><canvas/>
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
