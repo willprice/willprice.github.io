@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2012-11-08T00:03:19+00:00</updated>
+ <updated>2012-11-08T00:04:26+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -19,7 +19,7 @@
    <id>http://willprice.org/programming/2012/11/07/processing-and-xmonad</id>
    <content type="html">&lt;p&gt;After having put up with problems with the Processing IDE for quite a while, I could no longer take not being able to focus the text area without clicking on the stop button.&lt;/p&gt;
 
-&lt;p&gt;It transpires this is an issue caused by XMonad&amp;#8217;s handling of Java swing applications as noted by Krzysztof Krason in a &lt;a href='http://youtrack.jetbrains.com/issue/IDEA-65637'&gt;thread&lt;/a&gt; in regards to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
+&lt;p&gt;It transpires this is an issue caused by XMonad&amp;#8217;s handling of Java swing applications as noted by Krzysztof Krason in a &lt;a href='http://youtrack.jetbrains.com/issue/IDEA-65637'&gt;thread&lt;/a&gt; in regard to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;It&amp;#8217;s not a problem with Intellij but with XMonad, it has problems with java swing applications. The solution is to use something like this in to add &amp;#8220;import XMonad.Hooks.ICCCMFocus&amp;#8221; and in your logHook add &amp;#8220;takeTopFocus&amp;#8221;.&lt;/p&gt;
