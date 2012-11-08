@@ -59,7 +59,9 @@
       </div>
 
       <section>
-      <p>Array&#8217;s are declared using the syntax:</p>
+      <h2 id='arrays'>ARRAYS</h2>
+
+<p>Array&#8217;s are declared using the syntax:</p>
 <div class='highlight'><pre><code class='java'><span class='n'>type</span> <span class='o'>[]</span> <span class='n'>name</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>type</span> <span class='o'>[</span><span class='n'>size</span><span class='o'>]</span>
 </code></pre>
 </div>
@@ -75,7 +77,59 @@
   <span class='n'>age</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span>
 <span class='o'>}</span>
 </code></pre>
-</div><script src='/scripts/processing.js' /><canvas data-processing-sources='test.pde' />
+</div>
+<h2 id='objects'>OBJECTS</h2>
+
+<p>Objects essentially pack up a set of variables and functions into a data structure that allows you to organise your code efficiently.</p>
+
+<p>Objects are defined in a few distinct parts. Looking at an object from a top-down perspective:</p>
+
+<ul>
+<li>
+<p>Class</p>
+
+<ul>
+<li>Variables of object</li>
+
+<li>Object constructor</li>
+
+<li>Functions</li>
+</ul>
+</li>
+</ul>
+
+<p>A <em>class</em> is simply a way to define an object, or perhaps more intuitively a set of objects (think of yourself as a particular human, in this case, you&#8217;re the object and the class is &#8216;_humans_). From the class, objects can be produced using the <em>constructor</em> which defines which variables should be set externally through parameters (for example position etc). Variables just keep track of the data in the object. Functions take care of functionality&#8230;</p>
+<div class='highlight'><pre><code class='java'><span class='kd'>class</span> <span class='nc'>Name</span> <span class='o'>{</span>
+
+  <span class='c1'>//data</span>
+  <span class='kt'>float</span> <span class='n'>var1</span><span class='o'>;</span>
+  <span class='kt'>float</span> <span class='n'>var2</span><span class='o'>;</span>
+
+  <span class='n'>Name</span><span class='o'>(</span><span class='n'>temp_parameters</span><span class='o'>)</span> <span class='o'>{</span>
+    <span class='n'>var1</span> <span class='o'>=</span> <span class='n'>var1_</span><span class='o'>;</span>
+    <span class='n'>var2</span> <span class='o'>=</span> <span class='n'>var2_</span><span class='o'>;</span>
+    <span class='c1'>// var2_ is the parameter which is then set as var2.</span>
+  <span class='o'>}</span>
+<span class='o'>}</span>
+</code></pre>
+</div>
+<p>The nice thing with objects is that you can create a whole host of <em>instances</em> (objects that have been defined) using arrays.</p>
+<div class='highlight'><pre><code class='java'><span class='c1'>// Define the objects</span>
+<span class='n'>object</span><span class='o'>[]</span> <span class='n'>objects</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>object</span><span class='o'>[</span><span class='n'>num_of_objects</span><span class='o'>];</span>
+
+<span class='k'>for</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span> <span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>objects</span><span class='o'>.</span><span class='na'>length</span><span class='o'>;</span> <span class='n'>i</span><span class='o'>++)</span> <span class='o'>{</span>
+  <span class='c1'>// Initilize the objects</span>
+  <span class='n'>objects</span><span class='o'>[</span><span class='n'>i</span><span class='o'>]</span> <span class='o'>=</span> <span class='k'>new</span> <span class='n'>object</span><span class='o'>(</span><span class='n'>parameters</span><span class='o'>);</span>
+<span class='o'>}</span>
+
+<span class='k'>while</span> <span class='o'>(</span><span class='kc'>true</span><span class='o'>)</span> <span class='o'>{</span>
+  <span class='c1'>// Loop and perform a function on all the objects</span>
+  <span class='k'>for</span> <span class='o'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span> <span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>objects</span><span class='o'>.</span><span class='na'>length</span><span class='o'>;</span> <span class='n'>i</span><span class='o'>++)</span> <span class='o'>{</span>
+    <span class='n'>objects</span><span class='o'>[</span><span class='n'>i</span><span class='o'>].</span><span class='na'>function</span><span class='o'>();</span>
+  <span class='o'>}</span>
+<span class='o'>}</span>
+</code></pre>
+</div>
       </section>
     </div>
 	</div><!-- container -->

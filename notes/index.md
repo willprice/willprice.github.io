@@ -11,3 +11,4 @@ innacurracies in them as I may well already be aware of them. They are
 for archival's sake.
 
 [Learn You A Haskell For Great Good](./learn_you_a_haskell/)
+[Learning Processing](./learning_processing/)

@@ -4,13 +4,39 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2012-11-06T15:49:25+00:00</updated>
+ <updated>2012-11-08T00:03:19+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Processing and XMonad</title>
+   <link href="http://willprice.org//programming/2012/11/07/processing-and-xmonad.html"/>
+   <updated>2012-11-07T00:00:00+00:00</updated>
+   <id>http://willprice.org/programming/2012/11/07/processing-and-xmonad</id>
+   <content type="html">&lt;p&gt;After having put up with problems with the Processing IDE for quite a while, I could no longer take not being able to focus the text area without clicking on the stop button.&lt;/p&gt;
+
+&lt;p&gt;It transpires this is an issue caused by XMonad&amp;#8217;s handling of Java swing applications as noted by Krzysztof Krason in a &lt;a href='http://youtrack.jetbrains.com/issue/IDEA-65637'&gt;thread&lt;/a&gt; in regards to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;#8217;s not a problem with Intellij but with XMonad, it has problems with java swing applications. The solution is to use something like this in to add &amp;#8220;import XMonad.Hooks.ICCCMFocus&amp;#8221; and in your logHook add &amp;#8220;takeTopFocus&amp;#8221;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So the solution is remarkable simple. Just add these lines to your xmonad.hs file:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='hs'&gt;&lt;span class='c1'&gt;-- After import statements&lt;/span&gt;
+&lt;span class='kr'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt; 
+
+&lt;span class='c1'&gt;-- If you&amp;#39;re using default loghook&lt;/span&gt;
+&lt;span class='nf'&gt;loghook&lt;/span&gt; &lt;span class='ow'&gt;=&lt;/span&gt; &lt;span class='n'&gt;takeTopFocus&lt;/span&gt;
+
+&lt;span class='c1'&gt;-- Else use&lt;/span&gt;
+&lt;span class='nf'&gt;loghook&lt;/span&gt; &lt;span class='ow'&gt;=&lt;/span&gt; &lt;span class='o'&gt;...&lt;/span&gt;&lt;span class='n'&gt;blah&lt;/span&gt;&lt;span class='o'&gt;...&lt;/span&gt; &lt;span class='o'&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;takeTopFocus&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Gmail Notifier</title>
