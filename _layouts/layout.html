@@ -26,6 +26,15 @@
 	<link rel="stylesheet" href="/css/user.css">
 	<link rel="stylesheet" href="/css/pygments.css">
 
+  <! -- SCRIPTS
+  ================================================== -->
+  {% for item in page.tags %}
+    {% if item == 'processing' %}
+  <scripts type="text/javascript" src="/scripts/processing.js"
+    {% endif %}
+  {% endfor %}
+
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->

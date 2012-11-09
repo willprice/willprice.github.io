@@ -1,6 +1,7 @@
 ---
 title: "Learning Processing: Arrays"
 layout: layout
+tags: ['processing']
 ---
 ## ARRAYS
 Array's are declared using the syntax:
@@ -70,3 +71,5 @@ while (true) {
 
 {% endhighlight %}
 
+## TRANSFORMATIONS
+Transformations are carried out by moving the origin using the `translate()` function, `translate(x,y)` moves the origin by `x` to the right and `y` down. Rotate is used to spin the canvas around the origin clockwise: `rotate(x)` will rotate the canvas by `x` radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save tratu
