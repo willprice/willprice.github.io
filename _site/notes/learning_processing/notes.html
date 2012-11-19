@@ -144,7 +144,47 @@
 <p>Transformations are carried out by moving the origin using the <code>translate()</code> function, <code>translate(x,y)</code> moves the origin by <code>x</code> to the right and <code>y</code> down. Rotate is used to spin the canvas around the origin clockwise: <code>rotate(x)</code> will rotate the canvas by <code>x</code> radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save transformations, this is handled by storing translations and rotations in a matrix, this matrix can be pushed to a stack using <code>matrixPush()</code> and popped using <code>matrixPop()</code> (pushing is like saving and removing, popping is like restoring, look up how stacks work).</p>
 
 <p>Here&#8217;s a good example of a variety of transformative functions:</p>
-<div class='highlight'><pre><code class='java'>
+<div class='highlight'><pre><code class='java'><span class='kt'>int</span> <span class='n'>number_of_boxes</span> <span class='o'>=</span> <span class='mi'>30</span><span class='o'>;</span>
+<span class='kt'>float</span> <span class='n'>width_of_box</span> <span class='o'>=</span> <span class='mi'>20</span><span class='o'>;</span>
+<span class='kt'>float</span> <span class='n'>theta</span><span class='o'>;</span>
+
+<span class='kt'>void</span> <span class='nf'>setup</span><span class='o'>()</span> <span class='o'>{</span>
+  <span class='n'>size</span><span class='o'>(</span><span class='mi'>400</span><span class='o'>,</span> <span class='mi'>400</span><span class='o'>);</span>
+<span class='o'>}</span>
+
+<span class='kt'>void</span> <span class='nf'>draw</span><span class='o'>()</span> <span class='o'>{</span>
+  <span class='n'>background</span><span class='o'>(</span><span class='mi'>255</span><span class='o'>);</span>
+
+  <span class='kt'>float</span> <span class='n'>circumference</span> <span class='o'>=</span> <span class='n'>number_of_boxes</span><span class='o'>*</span><span class='n'>width_of_box</span><span class='o'>;</span>
+  <span class='kt'>float</span> <span class='n'>radius</span> <span class='o'>=</span> <span class='n'>circumference</span><span class='o'>/</span><span class='n'>TWO_PI</span><span class='o'>;</span>
+  <span class='kt'>float</span> <span class='n'>step</span> <span class='o'>=</span> <span class='n'>TWO_PI</span><span class='o'>/</span><span class='n'>number_of_boxes</span><span class='o'>;</span>
+  <span class='c1'>// everything is drawn from the center</span>
+  <span class='n'>translate</span><span class='o'>(</span><span class='n'>width</span><span class='o'>/</span><span class='mi'>2</span><span class='o'>,</span><span class='n'>height</span><span class='o'>/</span><span class='mi'>2</span><span class='o'>);</span>
+  
+  <span class='n'>noFill</span><span class='o'>();</span>
+  
+  <span class='n'>ellipse</span><span class='o'>(</span><span class='mi'>0</span><span class='o'>,</span><span class='mi'>0</span><span class='o'>,</span> <span class='n'>radius</span><span class='o'>*</span><span class='mi'>2</span><span class='o'>,</span> <span class='n'>radius</span><span class='o'>*</span><span class='mi'>2</span><span class='o'>);</span>
+  
+  <span class='n'>fill</span><span class='o'>(</span><span class='mi'>170</span><span class='o'>,</span><span class='mi'>40</span><span class='o'>);</span>
+  
+  <span class='k'>for</span> <span class='o'>(</span><span class='kt'>float</span> <span class='n'>x</span> <span class='o'>=</span> <span class='mi'>0</span><span class='o'>;</span> <span class='n'>x</span> <span class='o'>&lt;</span> <span class='n'>TWO_PI</span><span class='o'>;</span> <span class='n'>x</span> <span class='o'>+=</span> <span class='n'>step</span><span class='o'>)</span> <span class='o'>{</span>
+    <span class='n'>pushMatrix</span><span class='o'>();</span>
+    <span class='n'>rotate</span><span class='o'>(</span><span class='n'>x</span><span class='o'>);</span>
+    <span class='n'>translate</span><span class='o'>(</span><span class='mi'>0</span><span class='o'>,</span> <span class='n'>radius</span><span class='o'>);</span>
+    <span class='n'>rectMode</span><span class='o'>(</span><span class='n'>CENTER</span><span class='o'>);</span>
+    <span class='n'>rect</span><span class='o'>(</span><span class='mi'>0</span><span class='o'>,</span><span class='mi'>0</span><span class='o'>,</span><span class='n'>width_of_box</span><span class='o'>,</span><span class='n'>width_of_box</span><span class='o'>);</span>
+    <span class='n'>popMatrix</span><span class='o'>();</span>
+  <span class='o'>}</span>
+<span class='o'>}</span>
+
+<span class='kt'>void</span> <span class='nf'>mousePressed</span><span class='o'>()</span> <span class='o'>{</span>
+  <span class='k'>if</span> <span class='o'>(</span><span class='n'>mouseX</span> <span class='o'>&lt;</span> <span class='n'>width</span><span class='o'>/</span><span class='mi'>2</span><span class='o'>)</span> <span class='o'>{</span>
+    <span class='n'>number_of_boxes</span><span class='o'>+=</span><span class='mi'>1</span><span class='o'>;</span>
+  <span class='o'>}</span>
+  <span class='k'>else</span> <span class='o'>{</span>
+    <span class='n'>number_of_boxes</span><span class='o'>-=</span><span class='mi'>1</span><span class='o'>;</span>
+  <span class='o'>}</span>
+<span class='o'>}</span>
 </code></pre>
 </div><canvas data-processing-sources='sketches/boxes.pde' />
       </section>
