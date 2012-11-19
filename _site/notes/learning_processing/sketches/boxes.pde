@@ -7,6 +7,9 @@ void setup() {
 }
 
 void draw() {
+  if (number_of_boxes < 1) {
+     number_of_boxes = 1;
+  }
   background(255);
 
   float circumference = number_of_boxes*width_of_box;

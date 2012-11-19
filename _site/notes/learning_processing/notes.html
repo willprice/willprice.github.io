@@ -153,6 +153,9 @@
 <span class='o'>}</span>
 
 <span class='kt'>void</span> <span class='nf'>draw</span><span class='o'>()</span> <span class='o'>{</span>
+  <span class='k'>if</span> <span class='o'>(</span><span class='n'>number_of_boxes</span> <span class='o'>&lt;</span> <span class='mi'>1</span><span class='o'>)</span> <span class='o'>{</span>
+      <span class='n'>number_of_boxes</span> <span class='o'>=</span> <span class='mi'>1</span><span class='o'>;</span>
+  <span class='o'>}</span>
   <span class='n'>background</span><span class='o'>(</span><span class='mi'>255</span><span class='o'>);</span>
 
   <span class='kt'>float</span> <span class='n'>circumference</span> <span class='o'>=</span> <span class='n'>number_of_boxes</span><span class='o'>*</span><span class='n'>width_of_box</span><span class='o'>;</span>
