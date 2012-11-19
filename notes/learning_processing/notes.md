@@ -72,4 +72,12 @@ while (true) {
 {% endhighlight %}
 
 ## TRANSFORMATIONS
-Transformations are carried out by moving the origin using the `translate()` function, `translate(x,y)` moves the origin by `x` to the right and `y` down. Rotate is used to spin the canvas around the origin clockwise: `rotate(x)` will rotate the canvas by `x` radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save tratu
+
+Transformations are carried out by moving the origin using the `translate()` function, `translate(x,y)` moves the origin by `x` to the right and `y` down. Rotate is used to spin the canvas around the origin clockwise: `rotate(x)` will rotate the canvas by `x` radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save transformations, this is handled by storing translations and rotations in a matrix, this matrix can be pushed to a stack using `matrixPush()` and popped using `matrixPop()` (pushing is like saving and removing, popping is like restoring, look up how stacks work).
+
+Here's a good example of a variety of transformative functions:
+{% highlight java %}
+{{includes boxes.pde}}
+{% endhighlight %}
+
+<canvas data-processing-sources="sketches/boxes.pde"></canvas>

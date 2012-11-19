@@ -38,3 +38,9 @@ ol {
 code {
   font-family: monospace;
 }
+
+pre code {
+  padding-left: 1em;
+  padding-top: 2em;
+  padding-bottom: 1.8em;
+}

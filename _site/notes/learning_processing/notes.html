@@ -30,7 +30,7 @@
   ================================================== -->
   
     
-  <scripts type="text/javascript" src="/scripts/processing.js"
+  <script type="text/javascript" src="/scripts/processing.js"
     
   
 
@@ -141,7 +141,12 @@
 </div>
 <h2 id='transformations'>TRANSFORMATIONS</h2>
 
-<p>Transformations are carried out by moving the origin using the <code>translate()</code> function, <code>translate(x,y)</code> moves the origin by <code>x</code> to the right and <code>y</code> down. Rotate is used to spin the canvas around the origin clockwise: <code>rotate(x)</code> will rotate the canvas by <code>x</code> radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save tratu</p>
+<p>Transformations are carried out by moving the origin using the <code>translate()</code> function, <code>translate(x,y)</code> moves the origin by <code>x</code> to the right and <code>y</code> down. Rotate is used to spin the canvas around the origin clockwise: <code>rotate(x)</code> will rotate the canvas by <code>x</code> radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save transformations, this is handled by storing translations and rotations in a matrix, this matrix can be pushed to a stack using <code>matrixPush()</code> and popped using <code>matrixPop()</code> (pushing is like saving and removing, popping is like restoring, look up how stacks work).</p>
+
+<p>Here&#8217;s a good example of a variety of transformative functions:</p>
+<div class='highlight'><pre><code class='java'>
+</code></pre>
+</div><canvas data-processing-sources='sketches/boxes.pde' />
       </section>
     </div>
 	</div><!-- container -->

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>CS101 Unit 4: Homework 4: Splitting Strings</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+
+  <! -- SCRIPTS
+  ================================================== -->
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/about.html">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <a class="extra" href="/notes">Notes</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h2>CS101 Unit 4: Homework 4: Splitting Strings</h2>
+        <p>I&#8217;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&#8217;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&#8217;ll explain the question and how the solution is reached for those that didn&#8217;t find the video particularly clear.</p>
+
+<p>The question:</p>
+
+<pre><code> # 1 Gold Star
+ 
+ # The built-in &lt;string&gt;.split() procedure works
+ # okay, but fails to find all the words on a page
+ # because it only uses whitespace to split the
+ # string. To do better, we should also use punctuation
+ # marks to split the page into words.
+ 
+ # Define a procedure, split_string, that takes two
+ # inputs: the string to split and a string containing
+ # all of the characters considered separators. The
+ # procedure should return a list of strings that break
+ # the source string up by the characters in the
+ # splitlist.
+ #
+ # def split_string(source,splitlist)</code></pre>
+
+<p>There are also some examples and expected behaviour given:</p>
+
+<pre><code> out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
+ print out
+ #&gt;&gt;&gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]
+ 
+ out = split_string(&quot;After  the flood   ...  all the colors came out.&quot;, &quot; .&quot;)
+ print out
+ #&gt;&gt;&gt; [&#39;After&#39;, &#39;the&#39;, &#39;flood&#39;, &#39;all&#39;, &#39;the&#39;, &#39;colors&#39;, &#39;came&#39;, &#39;out&#39;]</code></pre>
+
+<p>Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&#8217;t members of <code>splitlist</code>) that are separated by splitting characters (as defined in <code>splitlist</code>).</p>
+
+<p>Let&#8217;s define a list,<code>word_list</code>, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in <code>word_list</code>. We want to iterate through <code>source</code> adding characters to a string present in <code>word_list</code> until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&#8217;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&#8217;ll need to start a new entry in the word_list list otherwise we&#8217;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.</p>
+
+<p>Now we have a better of idea of the problem and how to implement the solution we can start writing code:</p>
+<div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
+    <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[]</span>
+
+    <span class='c'># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
+    <span class='k'>return</span> <span class='n'>word_list</span>
+</code></pre>
+</div>
+<p>So we&#8217;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#8217;ll now add functionality that loops through <code>source</code> and check which characters are members of split list</p>
+<div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
+    <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[]</span>
+
+    <span class='k'>for</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>source</span><span class='p'>:</span>
+        <span class='k'>if</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>splitlist</span><span class='p'>:</span>
+            <span class='k'>print</span> <span class='s'>&quot;this char: &quot;</span> <span class='o'>+</span> <span class='nb'>str</span><span class='p'>(</span><span class='n'>char</span><span class='p'>)</span> <span class='o'>+</span> <span class='s'>&quot; is in splitlist&quot;</span>
+
+    <span class='c'># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
+    <span class='k'>return</span> <span class='n'>word_list</span>
+
+<span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span><span class='s'>&quot; ,!-.&quot;</span><span class='p'>)</span>
+<span class='k'>print</span> <span class='n'>out</span>
+</code></pre>
+</div>
+<p>This code results in:</p>
+
+<pre><code>  this char:   is in splitlist
+  this char:   is in splitlist
+  this char:   is in splitlist
+  this char: - is in splitlist
+  this char:   is in splitlist
+  this char: , is in splitlist
+  this char:   is in splitlist
+  this char: - is in splitlist
+  this char: ! is in splitlist</code></pre>
+
+<p>We&#8217;ve got a code block that is executed when <code>char</code> is equal to a character from <code>splitlist</code>. We can now implement the code that will add the words to <code>word_list</code>. Remember that once we&#8217;ve added a word to <code>word_list</code> and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&#8217;ll end up with one great list of words without spaces. First we&#8217;ll acheive this unwanted behaviour as it&#8217;s a step in the right direction, then we&#8217;ll add checks to create new list entries splitting the words properly.</p>
+<div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
+    <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[</span><span class='s'>&#39;&#39;</span><span class='p'>]</span>
+
+    <span class='k'>for</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>source</span><span class='p'>:</span>
+        <span class='k'>if</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>splitlist</span><span class='p'>:</span>
+            <span class='k'>print</span> <span class='s'>&quot;this char: &quot;</span> <span class='o'>+</span> <span class='nb'>str</span><span class='p'>(</span><span class='n'>char</span><span class='p'>)</span> <span class='o'>+</span> <span class='s'>&quot; is in splitlist&quot;</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='n'>word_list</span><span class='p'>[</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>word_list</span><span class='p'>[</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>+</span> <span class='n'>char</span>
+    <span class='c'># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
+    <span class='k'>return</span> <span class='n'>word_list</span>
+
+<span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span> <span class='s'>&quot; ,.!-&quot;</span><span class='p'>)</span>
+<span class='k'>print</span> <span class='n'>out</span>
+</code></pre>
+</div>
+<p><code>word_list</code>s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in <code>word_list</code>. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.</p>
+
+<p>To acheive the functionality above, we need to know when we get to splitting characters, we&#8217;ve already got a block of code that deals with this situation, it&#8217;s simply printing lines at the moment, not doing anything useful, we&#8217;ll change that so we know when we&#8217;ve reached a splitting character.</p>
+<div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
+    <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[</span><span class='s'>&#39;&#39;</span><span class='p'>]</span>
+
+    <span class='n'>at_split</span> <span class='o'>=</span> <span class='bp'>False</span>
+    <span class='k'>for</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>source</span><span class='p'>:</span>
+        <span class='k'>if</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>splitlist</span><span class='p'>:</span>
+            <span class='n'>at_split</span> <span class='o'>=</span> <span class='bp'>True</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='n'>at_split</span> <span class='o'>=</span> <span class='bp'>False</span>
+            <span class='n'>word_list</span><span class='p'>[</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>word_list</span><span class='p'>[</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>+</span> <span class='n'>char</span>
+    <span class='c'># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
+    <span class='k'>return</span> <span class='n'>word_list</span>
+
+<span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span> <span class='s'>&quot; ,.!-&quot;</span><span class='p'>)</span>
+<span class='k'>print</span> <span class='n'>out</span>
+</code></pre>
+</div>
+<p>Here we&#8217;ve intialised <code>at_split</code> outside of the for loop as it&#8217;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#8217;t affected the functionality of <code>split_string</code> yet, but it&#8217;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.</p>
+<div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
+    <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[</span><span class='s'>&#39;&#39;</span><span class='p'>]</span>
+
+    <span class='n'>at_split</span> <span class='o'>=</span> <span class='bp'>False</span>
+    <span class='k'>for</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>source</span><span class='p'>:</span>
+        <span class='k'>if</span> <span class='n'>char</span> <span class='ow'>in</span> <span class='n'>splitlist</span><span class='p'>:</span>
+            <span class='n'>at_split</span> <span class='o'>=</span> <span class='bp'>True</span>
+        <span class='k'>else</span><span class='p'>:</span>
+            <span class='k'>if</span> <span class='n'>at_split</span><span class='p'>:</span>
+                <span class='c'># We&#39;ve now reached the start of the word, time to make a new element in the list</span>
+                <span class='n'>word_list</span><span class='o'>.</span><span class='n'>append</span><span class='p'>(</span><span class='n'>char</span><span class='p'>)</span> <span class='c'># This creates a new element in the array with the value of &#39;char&#39;</span>
+                <span class='c'># Reset at_split so no more elements are created until we reach a new word</span>
+                <span class='n'>at_split</span> <span class='o'>=</span> <span class='bp'>False</span>
+            <span class='k'>else</span><span class='p'>:</span>
+                <span class='c'># Char is not in splitlist, and we&#39;re not at the start of a word, so simply concatenate</span>
+                <span class='c'># char with the last entry in word_list</span>
+                <span class='n'>word_list</span><span class='p'>[</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>word_list</span><span class='p'>[</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>]</span> <span class='o'>+</span> <span class='n'>char</span>
+
+    <span class='c'># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
+    <span class='k'>return</span> <span class='n'>word_list</span>
+
+<span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span> <span class='s'>&quot; ,.!-&quot;</span><span class='p'>)</span>
+<span class='k'>print</span> <span class='n'>out</span>
+</code></pre>
+</div>
+<p>Finally, we have the behaviour, the code above prints: <span>&#8216;This&#8217;, &#8216;is&#8217;, &#8216;a&#8217;, &#8216;test&#8217;, &#8216;of&#8217;, &#8216;the&#8217;, &#8216;string&#8217;, &#8216;separation&#8217;, &#8216;code&#8217;</span></p>
+
+<p>Mission accomplished.</p>
+
+<p>I&#8217;ve also used Python Tutor&#8217;s visualise program to show how the code is executed: <a href='http://goo.gl/GSRHJ'>Visualised</a>. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.</p>
+    </div>
+</div>
+
+ 
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'willprice'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

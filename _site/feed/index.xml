@@ -4,13 +4,157 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2012-11-09T10:47:46+00:00</updated>
+ <updated>2012-11-19T17:09:11+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>CS101 Unit 4: Homework 4: Splitting Strings</title>
+   <link href="http://willprice.org//2012/11/19/CS101-Homework-4-splitting-strings.html"/>
+   <updated>2012-11-19T00:00:00+00:00</updated>
+   <id>http://willprice.org/2012/11/19/CS101-Homework-4-splitting-strings</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&amp;#8217;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&amp;#8217;ll explain the question and how the solution is reached for those that didn&amp;#8217;t find the video particularly clear.&lt;/p&gt;
+
+&lt;p&gt;The question:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; # 1 Gold Star
+ 
+ # The built-in &amp;lt;string&amp;gt;.split() procedure works
+ # okay, but fails to find all the words on a page
+ # because it only uses whitespace to split the
+ # string. To do better, we should also use punctuation
+ # marks to split the page into words.
+ 
+ # Define a procedure, split_string, that takes two
+ # inputs: the string to split and a string containing
+ # all of the characters considered separators. The
+ # procedure should return a list of strings that break
+ # the source string up by the characters in the
+ # splitlist.
+ #
+ # def split_string(source,splitlist)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There are also some examples and expected behaviour given:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; out = split_string(&amp;quot;This is a test-of the,string separation-code!&amp;quot;,&amp;quot; ,!-&amp;quot;)
+ print out
+ #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]
+ 
+ out = split_string(&amp;quot;After  the flood   ...  all the colors came out.&amp;quot;, &amp;quot; .&amp;quot;)
+ print out
+ #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;After&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;flood&amp;#39;, &amp;#39;all&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;colors&amp;#39;, &amp;#39;came&amp;#39;, &amp;#39;out&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&amp;#8217;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#8217;s define a list,&lt;code&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code&gt;source&lt;/code&gt; adding characters to a string present in &lt;code&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&amp;#8217;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&amp;#8217;ll need to start a new entry in the word_list list otherwise we&amp;#8217;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
+
+&lt;p&gt;Now we have a better of idea of the problem and how to implement the solution we can start writing code:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='py'&gt;&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='n'&gt;word_list&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[]&lt;/span&gt;
+
+    &lt;span class='c'&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;So we&amp;#8217;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&amp;#8217;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='py'&gt;&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='n'&gt;word_list&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[]&lt;/span&gt;
+
+    &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='nb'&gt;str&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;char&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='s'&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
+
+    &lt;span class='c'&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;
+
+&lt;span class='n'&gt;out&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='s'&gt;&amp;quot; ,!-.&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='n'&gt;out&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This code results in:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  this char:   is in splitlist
+  this char:   is in splitlist
+  this char:   is in splitlist
+  this char: - is in splitlist
+  this char:   is in splitlist
+  this char: , is in splitlist
+  this char:   is in splitlist
+  this char: - is in splitlist
+  this char: ! is in splitlist&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We&amp;#8217;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&amp;#8217;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&amp;#8217;ll end up with one great list of words without spaces. First we&amp;#8217;ll acheive this unwanted behaviour as it&amp;#8217;s a step in the right direction, then we&amp;#8217;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='py'&gt;&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='n'&gt;word_list&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+
+    &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='s'&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='nb'&gt;str&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;char&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='s'&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt;
+    &lt;span class='c'&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;
+
+&lt;span class='n'&gt;out&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='n'&gt;out&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
+
+&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&amp;#8217;ve already got a block of code that deals with this situation, it&amp;#8217;s simply printing lines at the moment, not doing anything useful, we&amp;#8217;ll change that so we know when we&amp;#8217;ve reached a splitting character.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='py'&gt;&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='n'&gt;word_list&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+
+    &lt;span class='n'&gt;at_split&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
+    &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;at_split&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;at_split&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
+            &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt;
+    &lt;span class='c'&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;
+
+&lt;span class='n'&gt;out&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='n'&gt;out&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Here we&amp;#8217;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&amp;#8217;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&amp;#8217;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&amp;#8217;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='py'&gt;&lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;):&lt;/span&gt;
+    &lt;span class='n'&gt;word_list&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s'&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt;
+
+    &lt;span class='n'&gt;at_split&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
+    &lt;span class='k'&gt;for&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;source&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+        &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt; &lt;span class='ow'&gt;in&lt;/span&gt; &lt;span class='n'&gt;splitlist&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='n'&gt;at_split&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;True&lt;/span&gt;
+        &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+            &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='n'&gt;at_split&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+                &lt;span class='c'&gt;# We&amp;#39;ve now reached the start of the word, time to make a new element in the list&lt;/span&gt;
+                &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;append&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;char&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='c'&gt;# This creates a new element in the array with the value of &amp;#39;char&amp;#39;&lt;/span&gt;
+                &lt;span class='c'&gt;# Reset at_split so no more elements are created until we reach a new word&lt;/span&gt;
+                &lt;span class='n'&gt;at_split&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='bp'&gt;False&lt;/span&gt;
+            &lt;span class='k'&gt;else&lt;/span&gt;&lt;span class='p'&gt;:&lt;/span&gt;
+                &lt;span class='c'&gt;# Char is not in splitlist, and we&amp;#39;re not at the start of a word, so simply concatenate&lt;/span&gt;
+                &lt;span class='c'&gt;# char with the last entry in word_list&lt;/span&gt;
+                &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;&lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='o'&gt;-&lt;/span&gt;&lt;span class='mi'&gt;1&lt;/span&gt;&lt;span class='p'&gt;]&lt;/span&gt; &lt;span class='o'&gt;+&lt;/span&gt; &lt;span class='n'&gt;char&lt;/span&gt;
+
+    &lt;span class='c'&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;word_list&lt;/span&gt;
+
+&lt;span class='n'&gt;out&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;split_string&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='s'&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='k'&gt;print&lt;/span&gt; &lt;span class='n'&gt;out&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally, we have the behaviour, the code above prints: &lt;span&gt;&amp;#8216;This&amp;#8217;, &amp;#8216;is&amp;#8217;, &amp;#8216;a&amp;#8217;, &amp;#8216;test&amp;#8217;, &amp;#8216;of&amp;#8217;, &amp;#8216;the&amp;#8217;, &amp;#8216;string&amp;#8217;, &amp;#8216;separation&amp;#8217;, &amp;#8216;code&amp;#8217;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Mission accomplished.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve also used Python Tutor&amp;#8217;s visualise program to show how the code is executed: &lt;a href='http://goo.gl/GSRHJ'&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Processing and XMonad</title>
