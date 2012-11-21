@@ -6,7 +6,7 @@ layout: post
 I've been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I've found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I'll explain the question and how the solution is reached for those that didn't find the video particularly clear.
 
 The question:
-
+     
      # 1 Gold Star
      
      # The built-in <string>.split() procedure works
@@ -23,9 +23,9 @@ The question:
      # splitlist.
      #
      # def split_string(source,splitlist)
-
+     
 There are also some examples and expected behaviour given:
-
+     
      out = split_string("This is a test-of the,string separation-code!"," ,!-")
      print out
      #>>> ['This', 'is', 'a', 'test', 'of', 'the', 'string', 'separation', 'code']
@@ -33,8 +33,7 @@ There are also some examples and expected behaviour given:
      out = split_string("After  the flood   ...  all the colors came out.", " .")
      print out
      #>>> ['After', 'the', 'flood', 'all', 'the', 'colors', 'came', 'out']
-
-
+     
 Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren't members of `splitlist`) that are separated by splitting characters (as defined in `splitlist`). 
 
 Let's define a list,`word_list`, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in `word_list`. We want to iterate through `source` adding characters to a string present in `word_list` until we hit upon a splitting character. At that point we want to skip to the next character and check whether that's also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we'll need to start a new entry in the word_list list otherwise we'll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.

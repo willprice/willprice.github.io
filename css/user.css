@@ -31,7 +31,7 @@ ol {
 .highlight {
   padding: 1em;
   margin: 0.8em;
-  -moz-border-radious: 15px;
+  -moz-border-radius: 15px;
   border-radius:15px;
 }
 
@@ -40,7 +40,6 @@ code {
 }
 
 pre code {
-  padding-left: 1em;
-  padding-top: 2em;
-  padding-bottom: 1.8em;
+  color: red;
+  margin: 2em;
 }

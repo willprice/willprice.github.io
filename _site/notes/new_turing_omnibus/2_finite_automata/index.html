@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Finite Automata</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+
+  <! -- SCRIPTS
+  ================================================== -->
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/about.html">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <a class="extra" href="/notes">Notes</a>
+        <hr />
+      </div>
+
+      <section>
+      <p>Finite automata are computational models that consist of internal circuitry that exist in a stable equilibriums in between signals being interpreted. There must only be a finite number of these equilibrium states.</p>
+
+<p>A finite automaton has a set of states Q, a set of input signals Epsilon and a function epsilon mapping members of Epsilon (input signals) to Q (set of states).</p>
+
+<p>There are 2 special states in Q, the initial state and the final state. The set of input signals that make the automaton reach the final state from the initial state are said to be the <em>language of the automaton</em> which are expressed through regular expressions for finite automata.</p>
+
+<p>If there are a known number of states it is possible to precisely deduce the language of the finite automaton (L_a)</p>
+
+<p>In regular expressions: - <code>+</code> is used as an OR for example: 0101 + 1111 subset L_a means that either 0101 OR 1111 can be excepted by the finite automaton. - <code>*</code> means 0 or more times: 01(001)* matches 01001, 01001001 and so on.</p>
+
+<p><a href='http://theoryclass.wordpress.com/2010/08/17/boundedly-rational-players/'>finite automata</a></p>
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
