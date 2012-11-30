@@ -130,6 +130,8 @@
 <h1 id='folds'>Folds</h1>
 
 <p>Folds are pretty cool, they allow you to apply a binary function to every member in the list starting with the first and second value, then the result of that and the third value and so on, the starting value is called the <em>accumulator</em>.</p>
+
+<p>Folds deal with reducing a data structure down into a single value, this is carried out through a recursive process</p>
 <div class='highlight'><pre><code class='hs'>  <span class='c1'>-- Definition of foldl&#39; (fold left)</span>
   <span class='n'>foldl&#39;</span> <span class='ow'>::</span> <span class='p'>(</span><span class='n'>a</span> <span class='ow'>-&gt;</span> <span class='n'>a</span> <span class='ow'>-&gt;</span> <span class='n'>a</span><span class='p'>)</span> <span class='ow'>-&gt;</span> <span class='n'>a</span> <span class='ow'>-&gt;</span> <span class='p'>[</span><span class='n'>a</span><span class='p'>]</span> <span class='ow'>-&gt;</span> <span class='n'>a</span>
   <span class='n'>foldl&#39;</span> <span class='n'>f</span> <span class='n'>acc</span> <span class='p'>[</span><span class='n'>x</span><span class='p'>]</span> <span class='ow'>=</span> <span class='n'>f</span> <span class='n'>acc</span> <span class='n'>x</span>
