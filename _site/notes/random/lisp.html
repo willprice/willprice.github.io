@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Lisp: ConsCells</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+
+  <! -- SCRIPTS
+  ================================================== -->
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/about.html">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <a class="extra" href="/notes">Notes</a>
+        <hr />
+      </div>
+
+      <section>
+      <p>ConsCells are the building blocks of Lisp, everything in Lisp is either a ConsCell or an Atom (strings, numbers, symbols etc). ConsCells take the form: (CAR CDR) where CAR is another ConsCell or an atom, CDR is always another ConsCell or the atom NIL, in which case, you&#8217;ve reached the end of the list.</p>
+
+<p>In Lisp, (cons 1 2) evaluates to (1 . 2), in this case, CAR=1, CDR=2</p>
+
+<p>In Lisp, all lists (so all programs) are represented as ConsCells, it&#8217;s just that (a b c) == (a . (b . (c . NIL))). In this format Lisp programs take the form of a binary tree with each ConsCell being a node.</p>
+
+<p>Lisp source code is parsed into lists built out of cons cells which are then operated on by Lisp macros</p>
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

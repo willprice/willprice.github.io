@@ -31,7 +31,7 @@ ol {
 .highlight {
   padding: 1em;
   margin: 0.8em;
-  -moz-border-radious: 15px;
+  -moz-border-radius: 15px;
   border-radius:15px;
 }
 
@@ -39,6 +39,6 @@ code {
   font-family: monospace;
 }
 
-pre code {
+pre {
   margin: 2em;
 }

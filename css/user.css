@@ -39,7 +39,6 @@ code {
   font-family: monospace;
 }
 
-pre code {
-  color: red;
+pre {
   margin: 2em;
 }
