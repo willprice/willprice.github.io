@@ -1,7 +1,8 @@
 ---
 layout: layout
-title: Will Price&#59; Posts
+title: Will Price
 ---
+
 <h2>Posts</h2>
 <ul class="posts">
   {% for post in site.posts %}

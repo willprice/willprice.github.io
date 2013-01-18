@@ -86,29 +86,29 @@ void setup() {
 }
 
 void draw() {
-  if (number_of_boxes < 1) {
-      number_of_boxes = 1;
+  if (numberOfBoxes < 1) {
+      numberOfBoxes = 1;
   }
   background(255);
 
-  float circumference = number_of_boxes*width_of_box;
-  float radius = circumference/TWO_PI;
-  float step = TWO_PI/number_of_boxes;
+  float circumference = numberOfBoxes * widthOfBox;
+  float radius = circumference/(2 * PI);
+  float step = (2 * PI)/numberOfBoxes;
   // everything is drawn from the center
   translate(width/2,height/2);
   
   noFill();
   
-  ellipse(0,0, radius*2, radius*2);
+  ellipse(0,0, radius * 2, radius * 2);
   
   fill(170,40);
   
-  for (float x = 0; x < TWO_PI; x += step) {
+  for (float x = 0; x < (2 * PI); x += step) {
     pushMatrix();
     rotate(x);
     translate(0, radius);
     rectMode(CENTER);
-    rect(0,0,width_of_box,width_of_box);
+    rect(0,0,widthOfBox,widthOfBox);
     popMatrix();
   }
 }
@@ -124,3 +124,31 @@ void mousePressed() {
 {% endhighlight %}
 
 <canvas data-processing-sources="sketches/boxes.pde"></canvas>
+
+## STRINGS
+Strings are immutable and hence cannot be modified.
+### Methods:
+- toUpperCase()
+- length()
+- chartAt(x)
+- equals(stringB) (This is used instead of `==` as `==` compares memory address, `equals` compares actual values at memory addresses)
+
+### Specifying fonts:
+To use a font in processing for display, you must initialize it using the following snippet of code:
+{% highlight java %}
+  PFont f;
+
+  void setup() {
+    f = loadFont("fontname")
+    // or use
+    // f = createFont("fontname", i, true/false) where i is the size, true/false enables/disables anti-aliasing
+    textFont(f); // use font object 'f' to render text
+  }
+
+  void draw() {
+    text(string,x,y); // (x,y)
+  }
+{% endhighlight %}
+
+### Drawing text
+`text(string,x,y)` is used to draw text, this is left-aligned by default, i.e. text starts being drawn from (x,y). `textAlign(LEFT)/textAlign(CENTER)/textAlign(RIGHT)` modifies this characteristic. `textSize(i)` specifies the size of the text. `textWidth(char)` returns the width of a specific character.

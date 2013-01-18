@@ -104,3 +104,30 @@ Anonymous functions are simply functions that don't have a name, these are espec
   reverse xs = foldl (\acc x -> x:acc) [] xs
 {% endhighlight %}
 
+# Syntactical beauty
+## Function application with `$`
+{% highlight hs %}
+  ($) :: (a -> b) -> a -> b
+  f $ a = f a
+{% endhighlight %}
+Yes, that's right, this does not modify the function at all. However it changes how an expression with `$` is evaluated, `f $ a + 4` would be evaluated as `f (a+4)`, `$` has the lowest precedence of all operators. This allows you to write code a little more cleanly without so many parentheses. For example: `sum (map (*2) [1..10])` becomes `sum $ map (*2) [1..10]`.  It also allows you to weird things like `map ($ 3) [(4+), (4*), (4/)]` strange, eh?
+
+## Function composition
+{% highlight hs %}
+  (.) :: (b -> c) -> (a -> b) -> a -> c
+  f . g = \x -> f (g x)
+{% endhighlight %}
+
+Yay, more abstraction! Cool things like `map (negate . abs) [1, -2, -4, 3]` are now possible. So function composition takes 2 functions and returns a composite function which can then be combined with more functions to make more complex composite functions f(g(h(i(x))))) == f . g . h . i, much tidier, and no nasty parentheses!
+
+Note: Function composition is right associate, that is: `sum . tail` == `sum (tail)` 
+  
+What about using functions that take multiple parameters? well how about...
+{% highlight hs %}
+  -- not too tidy
+  f x y = sum (replicate 5 (max x y))
+  
+  -- much better!
+  f' x y = sum . replicate $ max x y
+{% endhighlight %}
+

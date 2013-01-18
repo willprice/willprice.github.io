@@ -1,8 +1,6 @@
 ---
-layout: post
 title: "Processing and XMonad"
-category: [programming]
-tags: [xmonad, arch, processing, java, programming]
+layout: post
 ---
 
 After having put up with problems with the Processing IDE for quite a
@@ -21,13 +19,5 @@ in regard to the IDEA IDE (which also uses Java swing).
 So the solution is remarkable simple. Just add these lines to your
 xmonad.hs file:
 
-{% highlight hs %}
--- After import statements
-import XMonad.Hooks.ICCCMFocus 
-
--- If you're using default loghook
-loghook = takeTopFocus
-
--- Else use
-loghook = ...blah... >> takeTopFocus
+{% highlight haskell %}
 {% endhighlight %}

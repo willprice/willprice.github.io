@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>AVR Programming with hackaday's tutorial</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+
+  <! -- SCRIPTS
+  ================================================== -->
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/about.html">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/projects">Projects</a>
+        <a class="extra" href="/notes">Notes</a>
+        <hr />
+      </div>
+
+      <section>
+      <p>Using <a href='http://hackaday.com/2010/11/05/avr-programming-03-reading-and-compiling-code/'>HackADay&#8217;s AVR tutorial</a> to learn a bit of AVR programming, hopefully so I can construct a 4x4x4 LED cube and write some routines to make some nice visual effects, the big goal is to write a frequency visualiser for it, taking an audio input and lighting up columns of LEDs according to the amplitude of different frequencies in the source wave. I&#8217;ll be content just writing routines to light up the LEDs prettily though for the time being.</p>
+
+<p>Look at the <a href='../miscellaneous.md'>Miscellaneous Notes</a> for a few general things I stumbled over + other things.</p>
+
+<h1 id='hexadecimal_and_binary'>Hexadecimal and Binary</h1>
+
+<p>When dealing with binary numbers in C, it&#8217;s quickest to type them out in hexadecimal, this is surprisingly easy due to a nice little trick allowing you to interpret a byte as 2 nibbles (four bit quantities):</p>
+
+<p><code>0x28 == 0010_1000</code></p>
+
+<p><code>0xaf == 1010_1111</code></p>
+
+<p>Simply take the first part of the hexadecimal number, for <code>0xaf</code> it&#8217;s <code>a</code>, which in binary is <code>1010</code> and then take the second part <code>f</code> which in binary is <code>1111</code>, then join them together -&gt; <code>10101111</code>.</p>
+
+<h1 id='bitwise_operators'>Bitwise Operators</h1>
+
+<p>Refer to <a href='http://www.avrfreaks.net/index.php?name=PNphpBB2&amp;file=viewtopic&amp;t=37871'>Programming 101</a> for an in-depth tutorial.</p>
+<pre class='markdown-html-error' style='border: solid 3px red; background-color: pink'>REXML could not parse this XML/HTML: 
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;&lt;td&gt;`|`&lt;/td&gt;&lt;td&gt;OR&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`&amp;`&lt;/td&gt;&lt;td&gt;AND&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`~`&lt;/td&gt;&lt;td&gt;NOT&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`^`&lt;/td&gt;&lt;td&gt;XOR&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`&lt;&lt;`&lt;/td&gt;&lt;td&gt;Shift Left&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`&gt;&gt;`&lt;/td&gt;&lt;td&gt;Shift Right&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</pre>
+<ul>
+<li><code>foo |= 0x01</code> takes a byte foo, and set&#8217;s the <code>0x01</code> bit, think about the maths.</li>
+
+<li><code>foo &amp;= 0x01</code> will set foo as <code>0x01</code> if the first bit (as we&#8217;re using <code>0x01</code>) is set, otherwise it will set foo as <code>0x00</code></li>
+
+<li>Shift left and Shift right allow us to make binary numbers really easily, for example: <code>0x01</code></li>
+</ul>
+
+<h1 id='blink_code'>Blink code</h1>
+<div class='highlight'><pre><code class='c'>  <span class='cm'>/*</span>
+<span class='cm'>  * Hackaday.com AVR Tutorial firmware</span>
+<span class='cm'>  * written by: Mike Szczys (@szczys)</span>
+<span class='cm'>  * 10/24/2010</span>
+<span class='cm'>  *</span>
+<span class='cm'>  * ATmega168</span>
+<span class='cm'>  * Blinks one LED conneced to PD0</span>
+<span class='cm'>  *</span>
+<span class='cm'>  * http://hackaday.com/2010/10/25/avr-programming-02-the-hardware/</span>
+<span class='cm'>  */</span>
+
+  <span class='err'>#</span><span class='n'>include</span> <span class='o'>&lt;</span><span class='n'>avr</span><span class='o'>/</span><span class='n'>io</span><span class='p'>.</span><span class='n'>h</span><span class='o'>&gt;</span>
+  <span class='err'>#</span><span class='n'>include</span> <span class='o'>&lt;</span><span class='n'>avr</span><span class='o'>/</span><span class='n'>interrupt</span><span class='p'>.</span><span class='n'>h</span><span class='o'>&gt;</span>
+
+  <span class='kt'>int</span> <span class='n'>main</span><span class='p'>(</span><span class='kt'>void</span><span class='p'>)</span>
+  <span class='p'>{</span>
+
+    <span class='c1'>//Setup the clock</span>
+    <span class='n'>cli</span><span class='p'>();</span>      <span class='c1'>//Disable global interrupts</span>
+    <span class='n'>TCCR1B</span> <span class='o'>|=</span> <span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='n'>CS11</span> <span class='o'>|</span> <span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='n'>CS10</span><span class='p'>;</span>  <span class='c1'>//Divide by 64</span>
+    <span class='n'>OCR1A</span> <span class='o'>=</span> <span class='mi'>15624</span><span class='p'>;</span>    <span class='c1'>//Count 15624 cycles for 1 second interrupt</span>
+    <span class='n'>TCCR1B</span> <span class='o'>|=</span> <span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='n'>WGM12</span><span class='p'>;</span>   <span class='c1'>//Put Timer/Counter1 in CTC mode</span>
+    <span class='n'>TIMSK1</span> <span class='o'>|=</span> <span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='n'>OCIE1A</span><span class='p'>;</span>    <span class='c1'>//enable timer compare interrupt</span>
+    <span class='n'>sei</span><span class='p'>();</span>      <span class='c1'>//Enable global interrupts</span>
+
+    <span class='c1'>//Setup the I/O for the LED</span>
+
+    <span class='n'>DDRD</span> <span class='o'>|=</span> <span class='p'>(</span><span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='mi'>0</span><span class='p'>);</span>   <span class='c1'>//Set PortD Pin0 as an output</span>
+    <span class='n'>PORTD</span> <span class='o'>|=</span> <span class='p'>(</span><span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='mi'>0</span><span class='p'>);</span>    <span class='c1'>//Set PortD Pin0 high to turn on LED</span>
+
+    <span class='k'>while</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>)</span> <span class='p'>{</span> <span class='p'>}</span>      <span class='c1'>//Loop forever, interrupts do the rest</span>
+  <span class='p'>}</span>
+
+  <span class='n'>ISR</span><span class='p'>(</span><span class='n'>TIMER1_COMPA_vect</span><span class='p'>)</span>    <span class='c1'>//Interrupt Service Routine</span>
+  <span class='p'>{</span>
+    <span class='n'>PORTD</span> <span class='o'>^=</span> <span class='p'>(</span><span class='mi'>1</span><span class='o'>&lt;&lt;</span><span class='mi'>0</span><span class='p'>);</span>    <span class='c1'>//Use xor to toggle the LED</span>
+  <span class='p'>}</span>  
+</code></pre></div>
+<p>Right, this to me looks like gobbledygook, regardless of having programmed in Processing&#8230; <code>int main(void)</code> is the start of the program, <code>main</code> is responsible for starting execution, it&#8217;s just an arbitrary function name that is now used in every programming language. Let&#8217;s start off by looking at the program line by line, the top lines starting with <code>#include</code> tell the C-preprocessor to include the files in angle brackets, this makes some useful functions available. The largest chunk of code which resides in main sets up the clock, so that the LED is flashed every second.</p>
+
+<p><code>cli()</code> allows you to disable all global interupts, so you know, from there on, nothing will interupt the execution of your code (apart from pulling the power), to re-enable the global interrupts (they&#8217;re useful) use <code>sei()</code></p>
+
+<p><code>unsigned char &lt;var_name&gt;</code> is used to declare a byte (0-255).</p>
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

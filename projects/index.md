@@ -2,7 +2,7 @@
 layout: layout
 title: Projects
 ---
-### Projects ###
+## Projects ##
 Here is a list of all the projects I've tried
 
 #### Heated etchant tank ####

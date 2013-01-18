@@ -108,8 +108,7 @@
 
     <span class='c'># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
     <span class='k'>return</span> <span class='n'>word_list</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>So we&#8217;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#8217;ll now add functionality that loops through <code>source</code> and check which characters are members of split list</p>
 <div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
     <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[]</span>
@@ -123,8 +122,7 @@
 
 <span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span><span class='s'>&quot; ,!-.&quot;</span><span class='p'>)</span>
 <span class='k'>print</span> <span class='n'>out</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>This code results in:</p>
 
 <pre><code>  this char:   is in splitlist
@@ -151,8 +149,7 @@
 
 <span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span> <span class='s'>&quot; ,.!-&quot;</span><span class='p'>)</span>
 <span class='k'>print</span> <span class='n'>out</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p><code>word_list</code>s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in <code>word_list</code>. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.</p>
 
 <p>To acheive the functionality above, we need to know when we get to splitting characters, we&#8217;ve already got a block of code that deals with this situation, it&#8217;s simply printing lines at the moment, not doing anything useful, we&#8217;ll change that so we know when we&#8217;ve reached a splitting character.</p>
@@ -171,8 +168,7 @@
 
 <span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span> <span class='s'>&quot; ,.!-&quot;</span><span class='p'>)</span>
 <span class='k'>print</span> <span class='n'>out</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>Here we&#8217;ve intialised <code>at_split</code> outside of the for loop as it&#8217;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#8217;t affected the functionality of <code>split_string</code> yet, but it&#8217;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.</p>
 <div class='highlight'><pre><code class='py'><span class='k'>def</span> <span class='nf'>split_string</span><span class='p'>(</span><span class='n'>source</span><span class='p'>,</span><span class='n'>splitlist</span><span class='p'>):</span>
     <span class='n'>word_list</span> <span class='o'>=</span> <span class='p'>[</span><span class='s'>&#39;&#39;</span><span class='p'>]</span>
@@ -197,8 +193,7 @@
 
 <span class='n'>out</span> <span class='o'>=</span> <span class='n'>split_string</span><span class='p'>(</span><span class='s'>&quot;This is a test-of the,string separation-code!&quot;</span><span class='p'>,</span> <span class='s'>&quot; ,.!-&quot;</span><span class='p'>)</span>
 <span class='k'>print</span> <span class='n'>out</span>
-</code></pre>
-</div>
+</code></pre></div>
 <p>Finally, we have the behaviour, the code above prints: <span>&#8216;This&#8217;, &#8216;is&#8217;, &#8216;a&#8217;, &#8216;test&#8217;, &#8216;of&#8217;, &#8216;the&#8217;, &#8216;string&#8217;, &#8216;separation&#8217;, &#8216;code&#8217;</span></p>
 
 <p>Mission accomplished.</p>
