@@ -20,4 +20,10 @@ So the solution is remarkable simple. Just add these lines to your
 xmonad.hs file:
 
 {% highlight haskell %}
+import XMonad.Hooks.ICCCMFocus
+
+main = do
+  import XMonad.Hooks.ICCCMFocus
+  
+  logHook = ... >> takeTopFocus 
 {% endhighlight %}
