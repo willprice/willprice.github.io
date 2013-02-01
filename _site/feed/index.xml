@@ -4,13 +4,21 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-01-18T17:02:33+00:00</updated>
+ <updated>2013-01-29T10:58:00+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Learning git</title>
+   <link href="http://willprice.org//2013/01/29/learning-git.html"/>
+   <updated>2013-01-29T00:00:00+00:00</updated>
+   <id>http://willprice.org/2013/01/29/learning-git</id>
+   <content type="html">&lt;p&gt;highl&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Arduino -> Processing serial communication</title>
@@ -234,7 +242,10 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;So the solution is remarkable simple. Just add these lines to your xmonad.hs file:&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='haskell'&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='haskell'&gt;&lt;span class='kr'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt;
+
+&lt;span class='nf'&gt;main&lt;/span&gt; &lt;span class='ow'&gt;=&lt;/span&gt; &lt;span class='kr'&gt;do&lt;/span&gt;
+  &lt;span class='n'&gt;logHook&lt;/span&gt; &lt;span class='ow'&gt;=&lt;/span&gt; &lt;span class='o'&gt;...&lt;/span&gt; &lt;span class='o'&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class='n'&gt;takeTopFocus&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
  </entry>
  

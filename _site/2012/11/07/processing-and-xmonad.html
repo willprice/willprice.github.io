@@ -58,8 +58,6 @@
         <a href="/about.html">Will Price</a>
         <a class="extra" href="/">Home</a>
         <a class="extra" href="/posts.html">Posts</a>
-        <a class="extra" href="/projects">Projects</a>
-        <a class="extra" href="/notes">Notes</a>
         <hr />
       </div>
 
@@ -76,7 +74,10 @@
 </blockquote>
 
 <p>So the solution is remarkable simple. Just add these lines to your xmonad.hs file:</p>
-<div class='highlight'><pre><code class='haskell'>
+<div class='highlight'><pre><code class='haskell'><span class='kr'>import</span> <span class='nn'>XMonad.Hooks.ICCCMFocus</span>
+
+<span class='nf'>main</span> <span class='ow'>=</span> <span class='kr'>do</span>
+  <span class='n'>logHook</span> <span class='ow'>=</span> <span class='o'>...</span> <span class='o'>&gt;&gt;</span> <span class='n'>takeTopFocus</span> 
 </code></pre></div>
     </div>
 </div>

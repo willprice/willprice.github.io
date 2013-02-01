@@ -35,10 +35,13 @@ ol {
   border-radius:15px;
 }
 
-code {
-  font-family: monospace;
-}
 
 pre {
+}
+
+div.highlight {
   margin: 2em;
+  font-family: monospace;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }

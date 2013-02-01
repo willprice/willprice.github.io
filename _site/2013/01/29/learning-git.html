@@ -7,7 +7,7 @@
 
 	<!-- Basic Page Needs
   ================================================== -->
-  <title>Processing and XMonad</title>
+  <title>Learning git</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="author" content="Will Price" />
   <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
@@ -28,18 +28,6 @@
 
   <! -- SCRIPTS
   ================================================== -->
-  
-    
-  
-    
-  
-    
-  <script type="text/javascript" src="/scripts/processing.js"
-    
-  
-    
-  
-    
   
 
 
@@ -70,34 +58,14 @@
         <a href="/about.html">Will Price</a>
         <a class="extra" href="/">Home</a>
         <a class="extra" href="/posts.html">Posts</a>
-        <a class="extra" href="/projects">Projects</a>
-        <a class="extra" href="/notes">Notes</a>
         <hr />
       </div>
 
       <section>
       <div class="content">
     <div id="post">
-        <h2>Processing and XMonad</h2>
-        <p>After having put up with problems with the Processing IDE for quite a while, I could no longer take not being able to focus the text area without clicking on the stop button.</p>
-
-<p>It transpires this is an issue caused by XMonad&#8217;s handling of Java swing applications as noted by Krzysztof Krason in a <a href='http://youtrack.jetbrains.com/issue/IDEA-65637'>thread</a> in regard to the IDEA IDE (which also uses Java swing).</p>
-
-<blockquote>
-<p>It&#8217;s not a problem with Intellij but with XMonad, it has problems with java swing applications. The solution is to use something like this in to add &#8220;import XMonad.Hooks.ICCCMFocus&#8221; and in your logHook add &#8220;takeTopFocus&#8221;.</p>
-</blockquote>
-
-<p>So the solution is remarkable simple. Just add these lines to your xmonad.hs file:</p>
-<div class='highlight'><pre><code class='hs'><span class='c1'>-- After import statements</span>
-<span class='kr'>import</span> <span class='nn'>XMonad.Hooks.ICCCMFocus</span> 
-
-<span class='c1'>-- If you&#39;re using default loghook</span>
-<span class='nf'>loghook</span> <span class='ow'>=</span> <span class='n'>takeTopFocus</span>
-
-<span class='c1'>-- Else use</span>
-<span class='nf'>loghook</span> <span class='ow'>=</span> <span class='o'>...</span><span class='n'>blah</span><span class='o'>...</span> <span class='o'>&gt;&gt;</span> <span class='n'>takeTopFocus</span>
-</code></pre>
-</div>
+        <h2>Learning git</h2>
+        <p>highl</p>
     </div>
 </div>
 
