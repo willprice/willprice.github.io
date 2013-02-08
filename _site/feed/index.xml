@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-02-08T10:42:38+00:00</updated>
+ <updated>2013-02-08T10:47:32+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -24,12 +24,12 @@
 &lt;ul&gt;
 &lt;li&gt;Write a failing test for the desired functionality.&lt;/li&gt;
 
-&lt;li&gt;Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test.&lt;/li&gt;
+&lt;li&gt;Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test pass.&lt;/li&gt;
 
 &lt;li&gt;Refactor you code, making sure your changes don&amp;#8217;t break functionality (keep running the tests)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I implemented a simple Fibonacci function, this enabled me to see how the general principle worked: &amp;#8220;Test a little, program a little&amp;#8221;, and see what sort of obstacles I might come across, such as &amp;#8220;What&amp;#8217;s the next test going to be where there is no linear path to follow&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I implemented a simple Fibonacci function, this enabled me to see how the general principle worked: &amp;#8220;Test a little, program a little&amp;#8221;, and see what sort of obstacles I might come across, such as &amp;#8220;What&amp;#8217;s the next test going to be where there is no linear progression to follow&amp;#8221;.&lt;/p&gt;
 
 &lt;p&gt;I&amp;#8217;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can commit every time I write a test or a piece of code. The history of the code can be viewed using &lt;code&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code&gt;git log --follow --all -p
 filename&lt;/code&gt;&lt;span&gt;1&lt;/span&gt;.&lt;/p&gt;
@@ -375,7 +375,7 @@ new file mode 100755
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#8217;m just getting started with the tools and methodologies so hopefully in 6 months time I&amp;#8217;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
 
-&lt;p&gt;&lt;span&gt;1&lt;/span&gt; - &amp;#8217;&amp;#8211;follow&amp;#8217; handles renames, &amp;#8217;&amp;#8211;all&amp;#8217; shows commits on all branches, &amp;#8216;-p&amp;#8217; shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;</content>
+&lt;p&gt;I&amp;#8217;ve been using &lt;code&gt;tmux&lt;/code&gt; to organise my work, &lt;code&gt;vim&lt;/code&gt; to edit it, &lt;code&gt;git&lt;/code&gt; to save progress and &lt;code&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I&amp;#8217;m reasonably pleased with this workflow, it&amp;#8217;s both simple and flexible. &lt;span&gt;1&lt;/span&gt; - &amp;#8217;&amp;#8211;follow&amp;#8217; handles renames, &amp;#8217;&amp;#8211;all&amp;#8217; shows commits on all branches, &amp;#8216;-p&amp;#8217; shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;</content>
  </entry>
  
  <entry>
