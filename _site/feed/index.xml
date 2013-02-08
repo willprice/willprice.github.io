@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-01-29T10:58:00+00:00</updated>
+ <updated>2013-02-08T10:42:38+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -13,80 +13,369 @@
 
  
  <entry>
-   <title>Learning git</title>
-   <link href="http://willprice.org//2013/01/29/learning-git.html"/>
-   <updated>2013-01-29T00:00:00+00:00</updated>
-   <id>http://willprice.org/2013/01/29/learning-git</id>
-   <content type="html">&lt;p&gt;highl&lt;/p&gt;</content>
- </entry>
+   <title>Beginner's steps with TDD</title>
+   <link href="http://willprice.org//2013/02/08/beginners-steps-with-tdd.html"/>
+   <updated>2013-02-08T00:00:00+00:00</updated>
+   <id>http://willprice.org/2013/02/08/beginners-steps-with-tdd</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://www.codemanship.co.uk/parlezuml/'&gt;Jason Gorman&lt;/a&gt; has agreed to mentor me in the subject of TDD (Test Driven Development). I plan to document my progress as I learn the principles behind this philosophy.&lt;/p&gt;
+
+&lt;p&gt;TDD can be roughly outlined as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Write a failing test for the desired functionality.&lt;/li&gt;
+
+&lt;li&gt;Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test.&lt;/li&gt;
+
+&lt;li&gt;Refactor you code, making sure your changes don&amp;#8217;t break functionality (keep running the tests)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I implemented a simple Fibonacci function, this enabled me to see how the general principle worked: &amp;#8220;Test a little, program a little&amp;#8221;, and see what sort of obstacles I might come across, such as &amp;#8220;What&amp;#8217;s the next test going to be where there is no linear path to follow&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can commit every time I write a test or a piece of code. The history of the code can be viewed using &lt;code&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code&gt;git log --follow --all -p
+filename&lt;/code&gt;&lt;span&gt;1&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#8217;t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise I did, however I&amp;#8217;ve got my third attempt at it (it&amp;#8217;s pretty similar to the first, I&amp;#8217;ve just been trying to internalize the concepts I&amp;#8217;ve met so far).&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='diff'&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:56:42 2013 +0000
+
+    Rename testLengthOf51 -&amp;gt; testLengthOfFiftyOne for consistency
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index b6d3197..dc28f8c 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -39,7 +39,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testLengthOfSeven(self):
+         self.assertRaises(ValueError, self.fibonacciGenerator, 7)
  
- <entry>
-   <title>Arduino -> Processing serial communication</title>
-   <link href="http://willprice.org//2013/01/02/arduino---processing-serial-communication.html"/>
-   <updated>2013-01-02T00:00:00+00:00</updated>
-   <id>http://willprice.org/2013/01/02/arduino---processing-serial-communication</id>
-   <content type="html">&lt;h3 id='preface'&gt;Preface&lt;/h3&gt;
+&lt;span class='gd'&gt;-    def testLengthOf51(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+    def testLengthOfFiftyOne(self):&lt;/span&gt;
+         self.assertRaises(ValueError, self.fibonacciGenerator, 51)
+ 
+ if __name__ == &amp;#39;__main__&amp;#39;:
 
-&lt;p&gt;I&amp;#8217;ve started reading &amp;#8220;Making Things Talk&amp;#8221;, the first edition. I bought it a while ago when I had little experience with microcontrollers and had trouble even understanding what for loops were doing. Now I&amp;#8217;m a little more experienced, I&amp;#8217;m interested in learning how protocols work &amp;#8211; this seemed liked the perfect book to consult for a beginner in communications.&lt;/p&gt;
+commit b73e6566b457ae493195ab04d8baf2bf5cfaf1bf
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:56:13 2013 +0000
 
-&lt;p&gt;Reading through the first chapter was fairly dull as I already knew most things, the conversation on debugging communications was interesting, something I&amp;#8217;ll definitely refer to if I have issues.&lt;/p&gt;
+    Code to pass testLengthOf51
 
-&lt;p&gt;In chapter 2, a project called &amp;#8216;Monski Pong&amp;#8217; is introduced, this involved a monkey with flex sensor attached to it&amp;#8217;s arms. These sensors are read by an arduino which communicates it&amp;#8217;s data via serial to a processing sketch, which uses it to control a game of pong. I was mostly interested in how the communication works, and less in the game of pong, however I did rewrite the game in an OO fashion (badly) to get some practice and make sure I don&amp;#8217;t forget the syntax etc.&lt;/p&gt;
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index d3df5a9..b6d3197 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
+ 
+ class TestFibonacciGenerator(unittest.TestCase):
+     def fibonacciGenerator(self, length):
+&lt;span class='gd'&gt;-        if (length &amp;lt; 8):&lt;/span&gt;
+&lt;span class='gi'&gt;+        if (length &amp;lt; 8 or length &amp;gt; 50):&lt;/span&gt;
+             raise ValueError
+ 
+         fibonacciSequence = [0, 1]
+&lt;span class='gu'&gt;@@ -39,5 +39,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testLengthOfSeven(self):
+         self.assertRaises(ValueError, self.fibonacciGenerator, 7)
+ 
+&lt;span class='gi'&gt;+    def testLengthOf51(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 51)&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
 
-&lt;h3 id='communication'&gt;Communication:&lt;/h3&gt;
+commit 67062b240b5d25631fd8d87fc2aeb3ae5e9b983e
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:54:41 2013 +0000
 
-&lt;p&gt;The processing sketch sends the arduino linefeeds which are interpreted as requests for data, the arduino then sends the data and the sketch reads the data in as a string, trims it of whitespace and interprets it as a number.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='cm'&gt;/* PROCESSING CODE */&lt;/span&gt;
-&lt;span class='kn'&gt;import&lt;/span&gt; &lt;span class='nn'&gt;processing.serial.*&lt;/span&gt;
+    Code to pass TestLengthOfSeven
 
-&lt;span class='n'&gt;Serial&lt;/span&gt; &lt;span class='n'&gt;myPort&lt;/span&gt;&lt;span class='o'&gt;;&lt;/span&gt;    &lt;span class='c1'&gt;// Declare serial port&lt;/span&gt;
-&lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;setup&lt;/span&gt;&lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
-   &lt;span class='c1'&gt;// Setup serial port as first available port, at 9600 baud&lt;/span&gt;
-   &lt;span class='n'&gt;myPort&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='n'&gt;Serial&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='k'&gt;this&lt;/span&gt;&lt;span class='o'&gt;,&lt;/span&gt; &lt;span class='n'&gt;Serial&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;list&lt;/span&gt;&lt;span class='o'&gt;()[&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='o'&gt;],&lt;/span&gt; &lt;span class='mi'&gt;9600&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index fcd695d..d3df5a9 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -4,6 +4,9 @@ import unittest&lt;/span&gt;
+ 
+ class TestFibonacciGenerator(unittest.TestCase):
+     def fibonacciGenerator(self, length):
+&lt;span class='gi'&gt;+        if (length &amp;lt; 8):&lt;/span&gt;
+&lt;span class='gi'&gt;+            raise ValueError&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+         fibonacciSequence = [0, 1]
+ 
+         for i in range(2, length):
 
-   &lt;span class='c1'&gt;// 10 in ASCII == linefeed&lt;/span&gt;
-   &lt;span class='n'&gt;myPort&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;bufferUntil&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;10&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-&lt;span class='o'&gt;}&lt;/span&gt;
-   
-&lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;draw&lt;/span&gt;&lt;span class='o'&gt;()&lt;/span&gt; &lt;span class='o'&gt;{}&lt;/span&gt;
+commit c313448c856360f009864e4c54d0fb25b47143ef
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:53:56 2013 +0000
 
-&lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;serialEvent&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Serial&lt;/span&gt; &lt;span class='n'&gt;myPort&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
-   &lt;span class='c1'&gt;// Read the data in the serial buffer until the linefeed&lt;/span&gt;
-   &lt;span class='n'&gt;String&lt;/span&gt; &lt;span class='n'&gt;myString&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;myPort&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;readStringUntil&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;linefeed&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+    Test for length of 7 (invalid)
 
-   &lt;span class='c1'&gt;// Clean up string, remove all whitespace from start and end&lt;/span&gt;
-   &lt;span class='n'&gt;myString&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;trim&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;myString&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index 274d12b..fcd695d 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -33,5 +33,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testValidLength(self):
+         self.assertEquals(8, len(self.fibonacciGenerator(8)))
+ 
+&lt;span class='gi'&gt;+    def testLengthOfSeven(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 7)&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
 
-   &lt;span class='c1'&gt;// If the string isn&amp;#39;t just a linefeed, read the contents as the sensor value&lt;/span&gt;
-   &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;myString&lt;/span&gt; &lt;span class='o'&gt;!=&lt;/span&gt; &lt;span class='kc'&gt;null&lt;/span&gt;&lt;span class='o'&gt;)&lt;/span&gt; &lt;span class='o'&gt;{&lt;/span&gt;
-      &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;sensor&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kt'&gt;int&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;myString&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-   
-   &lt;span class='c1'&gt;// Display the value in the console&lt;/span&gt;
-   &lt;span class='n'&gt;println&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;sensor&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-   
-   &lt;span class='c1'&gt;// Send a linefeed to the arduino, to request another sensor value&lt;/span&gt;
-   &lt;span class='n'&gt;myPort&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;write&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='sc'&gt;&amp;#39;\r&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
-&lt;span class='o'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='c'&gt;&lt;span class='cm'&gt;/* ARDUINO CODE */&lt;/span&gt;
-&lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;sensorVal&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;;&lt;/span&gt;
+commit 0ad4ec5dd3a1df92fe40afb608f62ac7c8c52cda
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:50:05 2013 +0000
 
-&lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;setup&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-   &lt;span class='n'&gt;Serial&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;begin&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;9600&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
+    Changed testLength to testValidLength for clarity
 
-&lt;span class='kt'&gt;void&lt;/span&gt; &lt;span class='nf'&gt;loop&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-   &lt;span class='n'&gt;sensorVal&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;analogRead&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index 61f6f9a..274d12b 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -30,7 +30,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testSixthNumber(self):
+         self.assertEquals(5, self.fibonacciGenerator(8)[5])
+ 
+&lt;span class='gd'&gt;-    def testLength(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+    def testValidLength(self):&lt;/span&gt;
+         self.assertEquals(8, len(self.fibonacciGenerator(8)))
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
 
-   &lt;span class='c1'&gt;// Wait for a message&lt;/span&gt;
-   &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;Serial&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;available&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='o'&gt;&amp;gt;&lt;/span&gt; &lt;span class='mi'&gt;0&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
-      &lt;span class='c1'&gt;// Empty the serial buffer&lt;/span&gt;
-      &lt;span class='kt'&gt;int&lt;/span&gt; &lt;span class='n'&gt;inByte&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;Serial&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;read&lt;/span&gt;&lt;span class='p'&gt;();&lt;/span&gt;
-      
-      &lt;span class='c1'&gt;// Now send response&lt;/span&gt;
-      &lt;span class='n'&gt;Serial&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='n'&gt;print&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;sensorVal&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-   &lt;span class='p'&gt;}&lt;/span&gt;
-&lt;span class='p'&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+commit f3c473f0fdd0d3e21f23efcf0916ea188a08f44c
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:49:13 2013 +0000
+
+    Test length of list
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index 783b800..61f6f9a 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -7,7 +7,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+         fibonacciSequence = [0, 1]
+ 
+         for i in range(2, length):
+&lt;span class='gd'&gt;-            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
+&lt;span class='gi'&gt;+            fibonacciSequence.append(fibonacciSequence[i - 2] + fibonacciSequence[i - 1])&lt;/span&gt;
+ 
+         return fibonacciSequence
+ 
+&lt;span class='gu'&gt;@@ -29,5 +29,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+ 
+     def testSixthNumber(self):
+         self.assertEquals(5, self.fibonacciGenerator(8)[5])
+&lt;span class='gi'&gt;+&lt;/span&gt;
+&lt;span class='gi'&gt;+    def testLength(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(8, len(self.fibonacciGenerator(8)))&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit 1130cea31b30924f49fe49f3042da45a2825a460
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:47:05 2013 +0000
+
+    Test 6th number + code for that
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index f1b21d9..783b800 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -5,8 +5,10 @@ import unittest&lt;/span&gt;
+ class TestFibonacciGenerator(unittest.TestCase):
+     def fibonacciGenerator(self, length):
+         fibonacciSequence = [0, 1]
+&lt;span class='gi'&gt;+&lt;/span&gt;
+         for i in range(2, length):
+&lt;span class='gd'&gt;-            fibonacciSequence.append(i - 1)&lt;/span&gt;
+&lt;span class='gi'&gt;+            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+         return fibonacciSequence
+ 
+     # TESTS
+&lt;span class='gu'&gt;@@ -24,5 +26,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+ 
+     def testFifthNumber(self):
+         self.assertEquals(3, self.fibonacciGenerator(8)[4])
+&lt;span class='gi'&gt;+&lt;/span&gt;
+&lt;span class='gi'&gt;+    def testSixthNumber(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(5, self.fibonacciGenerator(8)[5])&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit d0256181239d47d8d975eed0bfb4277fb7a78ae2
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:40:18 2013 +0000
+
+    Test fifth number, no code needed to pass
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index 3400d82..f1b21d9 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -22,5 +22,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testFourthNumber(self):
+         self.assertEquals(2, self.fibonacciGenerator(8)[3])
+ 
+&lt;span class='gi'&gt;+    def testFifthNumber(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(3, self.fibonacciGenerator(8)[4])&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit 92b636a26292f1e78078652c039347bca2027321
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:36:11 2013 +0000
+
+    Test fourth number, no code needed to pass
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index c43b118..3400d82 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -19,5 +19,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testThirdNumber(self):
+         self.assertEquals(1, self.fibonacciGenerator(8)[2])
+ 
+&lt;span class='gi'&gt;+    def testFourthNumber(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(2, self.fibonacciGenerator(8)[3])&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit 08b1e5edc66858f2205e16f32875706e06a128e6
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 17:35:02 2013 +0000
+
+    Code for third test
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index 28ed083..c43b118 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -4,8 +4,12 @@ import unittest&lt;/span&gt;
+ 
+ class TestFibonacciGenerator(unittest.TestCase):
+     def fibonacciGenerator(self, length):
+&lt;span class='gd'&gt;-        return [0, 1]&lt;/span&gt;
+&lt;span class='gi'&gt;+        fibonacciSequence = [0, 1]&lt;/span&gt;
+&lt;span class='gi'&gt;+        for i in range(2, length):&lt;/span&gt;
+&lt;span class='gi'&gt;+            fibonacciSequence.append(i - 1)&lt;/span&gt;
+&lt;span class='gi'&gt;+        return fibonacciSequence&lt;/span&gt;
+ 
+&lt;span class='gi'&gt;+    # TESTS&lt;/span&gt;
+     def testFirstNumber(self):
+         self.assertEquals(0, self.fibonacciGenerator(8)[0])
+ 
+
+commit a5f3e527cdc205afeaf8df930534304a991091bd
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 14:59:51 2013 +0000
+
+    Add code for passing second test, test for third number
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index c9d28f3..28ed083 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
+ 
+ class TestFibonacciGenerator(unittest.TestCase):
+     def fibonacciGenerator(self, length):
+&lt;span class='gd'&gt;-        return [0]&lt;/span&gt;
+&lt;span class='gi'&gt;+        return [0, 1]&lt;/span&gt;
+ 
+     def testFirstNumber(self):
+         self.assertEquals(0, self.fibonacciGenerator(8)[0])
+&lt;span class='gu'&gt;@@ -12,6 +12,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+     def testSecondNumber(self):
+         self.assertEquals(1, self.fibonacciGenerator(8)[1])
+ 
+&lt;span class='gi'&gt;+    def testThirdNumber(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[2])&lt;/span&gt;
+ 
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit f04d7ec901640e5771a4ae816f17fbfade9ee9af
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 14:58:04 2013 +0000
+
+    Code to pass first test, test for second number
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index 54fe5bf..c9d28f3 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -4,11 +4,14 @@ import unittest&lt;/span&gt;
+ 
+ class TestFibonacciGenerator(unittest.TestCase):
+     def fibonacciGenerator(self, length):
+&lt;span class='gd'&gt;-        return [None]&lt;/span&gt;
+&lt;span class='gi'&gt;+        return [0]&lt;/span&gt;
+ 
+     def testFirstNumber(self):
+         self.assertEquals(0, self.fibonacciGenerator(8)[0])
+ 
+&lt;span class='gi'&gt;+    def testSecondNumber(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[1])&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ 
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit a6a83808fb900638706ccfdbbe922b36f5e27d4d
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 14:51:39 2013 +0000
+
+    Testing first fibonacci number, implemented fibonacciGenerator function
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class='gh'&gt;index f4dfbd8..54fe5bf 100755&lt;/span&gt;
+&lt;span class='gd'&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -1,7 +1,14 @@&lt;/span&gt;
+ #!/usr/bin/env python2
+ import unittest
+ 
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ class TestFibonacciGenerator(unittest.TestCase):
+&lt;span class='gi'&gt;+    def fibonacciGenerator(self, length):&lt;/span&gt;
+&lt;span class='gi'&gt;+        return [None]&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+&lt;span class='gi'&gt;+    def testFirstNumber(self):&lt;/span&gt;
+&lt;span class='gi'&gt;+        self.assertEquals(0, self.fibonacciGenerator(8)[0])&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+ 
+ if __name__ == &amp;#39;__main__&amp;#39;:
+     unittest.main()
+
+commit d8bbcd07a01cc3b84a006bb8546133604bed12ba
+Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
+Date:   Tue Jan 29 10:16:20 2013 +0000
+
+    Skeleton
+
+&lt;span class='gh'&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+new file mode 100755
+&lt;span class='gh'&gt;index 0000000..f4dfbd8&lt;/span&gt;
+&lt;span class='gd'&gt;--- /dev/null&lt;/span&gt;
+&lt;span class='gi'&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class='gu'&gt;@@ -0,0 +1,7 @@&lt;/span&gt;
+&lt;span class='gi'&gt;+#!/usr/bin/env python2&lt;/span&gt;
+&lt;span class='gi'&gt;+import unittest&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+&lt;span class='gi'&gt;+class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class='gi'&gt;+&lt;/span&gt;
+&lt;span class='gi'&gt;+if __name__ == &amp;#39;__main__&amp;#39;:&lt;/span&gt;
+&lt;span class='gi'&gt;+    unittest.main()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#8217;m just getting started with the tools and methodologies so hopefully in 6 months time I&amp;#8217;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;1&lt;/span&gt; - &amp;#8217;&amp;#8211;follow&amp;#8217; handles renames, &amp;#8217;&amp;#8211;all&amp;#8217; shows commits on all branches, &amp;#8216;-p&amp;#8217; shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;</content>
  </entry>
  
  <entry>
