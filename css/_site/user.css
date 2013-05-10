@@ -1,7 +1,6 @@
 .title { 
   font-size: 17px;
   font-weight: bold;
-  font-family: 'Roboto Slab', serif;
   margin-top: 0.5em;
   margin-bottom: 2em;
 }
@@ -17,13 +16,13 @@
   color:#811C21
 }
 
-#post {
-  margin-left: 1em;
+.post {
+  margin-left: 0.5em;
 }
 
-#post h1, #post h2, #post h3, #post h4, #post h5, #post h6 {
-  font-family: 'Roboto Slab', serif;
-  margin-left: -0.5em;
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+  font-weight: bold;
+  margin-left: 0em;
 }
 
 ul {
