@@ -17,21 +17,30 @@
   color:#811C21
 }
 
+ul.posts {
+  list-style-type: none;
+  font-family: monospace;
+}
+
+ul.posts a {
+  font-family: sans-serif;
+}
+
 #post {
   margin-left: 1em;
 }
 
-#post h1, #post h2, #post h3, #post h4, #post h5, #post h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
   margin-left: -0.5em;
 }
 
 ul {
-  padding-left: 1em; list-style-type: square;
+  list-style-type: square;
+  margin-left: 1em;
 }
-
 ol {
-  padding-left: 1em;
+  margin-left: 1em;
 }
 
 .highlight {
