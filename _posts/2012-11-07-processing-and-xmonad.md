@@ -23,5 +23,5 @@ xmonad.hs file:
 import XMonad.Hooks.ICCCMFocus
 
 main = do
-  logHook = ... >> takeTopFocus 
+logHook = ... &gt;&gt; takeTopFocus 
 {% endhighlight %}

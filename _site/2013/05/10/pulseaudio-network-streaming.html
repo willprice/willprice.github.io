@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Pulseaudio network streaming</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+
+  <! -- SCRIPTS
+  ================================================== -->
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/about.html">Will Price</a>
+        <a class="extra" href="/">Home</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h2>Pulseaudio network streaming</h2>
+        <p>I&#8217;ve tried setting up pulseaudio before to stream music from my laptop to my desktop without much success. I attribute my past failures to my lack of understanding of the client/server model that pulseaudio follows. Trust me when I say it&#8217;s important to learn the necessery terminology to setup pulseaudio, you&#8217;ll end up quite confused otherwise!</p>
+
+<ul>
+<li><code>server</code> - A pulseaudio server or daemon accepts <code>sources</code> and outputs audio on a <code>sink</code></li>
+
+<li><code>source</code> - Any process that outputs audio, for example chromium playing music from <a href='http://hypem.com/willprice'>hypem.com</a></li>
+
+<li><code>sink</code> - A soundcard, a remote pulseaudio server (with soundcards) and some other niche things (think /dev/null, visualisers).</li>
+
+<li><code>client</code> - same as a <code>source</code></li>
+</ul>
+
+<h2 id='setup_the_server_the_machine_that_is_attached_to_an_audio_device'>Setup the server (the machine that is attached to an audio device):</h2>
+
+<p>Add the following lines to <code>/etc/pulse/default.pa</code></p>
+
+<pre><code>  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
+  load-module module-zeroconf-publish</code></pre>
+
+<p>The first line sets up a TCP server for pulseaudio allowing remote sound sources to be utilized (clients can be anonymous as well). The second line sets up <code>zerconf</code> publishing by the <code>avahi
+  daemon</code> (enable with <code>systemctl enable avahi-daemon &amp;&amp; systemctl start
+          avahi-daemon</code> on Arch), the clients that will attach to the server will also need the <code>avahi deamon</code> running to be informed of the pulseaudio server you&#8217;ve just set up.</p>
+
+<h2 id='setup_the_client_the_machine_that_you_want_audio_to_be_stream_from'>Setup the client (the machine that you want audio to be stream from)</h2>
+
+<p>Add the following lines to <code>/etc/pulse/default.pa</code> load-module module-zeroconf-discover Understandably this module searches out for other pulseaudio servers on the LAN.</p>
+
+<p>Restart pulseaudio and install <code>pasystray</code> or <code>padevchooser</code> to set your sink (desktop) on the client/source (laptop).</p>
+
+<h2 id='sources'>Sources</h2>
+
+<ul>
+<li><a href='http://en.wikipedia.org/wiki/PulseAudio'>Pulseaudio on Wikipedia</a></li>
+
+<li><a href='http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/'>Sound on Linux is confusing part 1: ALSA</a></li>
+
+<li><a href='http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/'>Sound on Linux is confusing part 2: Pulseaudio</a></li>
+
+<li><a href='https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network'>Pulseaudio examples | Arch Wiki</a></li>
+</ul>
+    </div>
+</div>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
