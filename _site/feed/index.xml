@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-05-10T12:23:31+01:00</updated>
+ <updated>2013-05-18T15:06:24+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -22,12 +22,14 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code&gt;sources&lt;/code&gt; and outputs audio on a &lt;code&gt;sink&lt;/code&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music from &lt;a href=&#39;http://hypem.com/willprice&#39;&gt;hypem.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music from &lt;a href=&#39;http://hypem.com/willprice&#39;&gt;hypem.com&lt;/a&gt;. In the client/server relationship a &lt;em&gt;source&lt;/em&gt; is a &lt;em&gt;client&lt;/em&gt;.&lt;/li&gt;
 
 &lt;li&gt;&lt;code&gt;sink&lt;/code&gt; - A soundcard, a remote pulseaudio server (with soundcards) and some other niche things (think /dev/null, visualisers).&lt;/li&gt;
-
-&lt;li&gt;&lt;code&gt;client&lt;/code&gt; - same as a &lt;code&gt;source&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;This diagram represents the setup we&amp;#8217;re creating:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#39;Diagram of PA network streaming setup&#39; src=&#39;/media/img/diagrams/pa-network-streaming.svg&#39; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#39;setup_the_server_the_machine_that_is_attached_to_an_audio_device&#39;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
 

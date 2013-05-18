@@ -71,12 +71,14 @@
 <ul>
 <li><code>server</code> - A pulseaudio server or daemon accepts <code>sources</code> and outputs audio on a <code>sink</code></li>
 
-<li><code>source</code> - Any process that outputs audio, for example chromium playing music from <a href='http://hypem.com/willprice'>hypem.com</a></li>
+<li><code>source</code> - Any process that outputs audio, for example chromium playing music from <a href='http://hypem.com/willprice'>hypem.com</a>. In the client/server relationship a <em>source</em> is a <em>client</em>.</li>
 
 <li><code>sink</code> - A soundcard, a remote pulseaudio server (with soundcards) and some other niche things (think /dev/null, visualisers).</li>
-
-<li><code>client</code> - same as a <code>source</code></li>
 </ul>
+
+<p>This diagram represents the setup we&#8217;re creating:</p>
+
+<p><img alt='Diagram of PA network streaming setup' src='/media/img/diagrams/pa-network-streaming.svg' /></p>
 
 <h2 id='setup_the_server_the_machine_that_is_attached_to_an_audio_device'>Setup the server (the machine that is attached to an audio device):</h2>
 
