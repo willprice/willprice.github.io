@@ -65,7 +65,7 @@
 		color: #181818;
 		font-family: "Georgia", "Times New Roman", serif;
 		font-weight: normal; }
-	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; border-bottom: 1px solid #000; }
 	h1 { font-size: 28px; line-height: 50px; margin-bottom: 14px;}
 	h2 { font-size: 23px; line-height: 40px; margin-bottom: 10px; }
 	h3 { font-size: 19px; line-height: 34px; margin-bottom: 8px; }
@@ -94,8 +94,7 @@
 
 /* #Links
 ================================================== */
-	a, a:visited { color: #333; text-decoration: underline; outline: 0; }
-	a:hover, a:focus { color: #000; }
+	a, a:visited { color: #143a54; text-decoration: underline; outline: 0; }
 	p a, p a:visited { line-height: inherit; }
 
 

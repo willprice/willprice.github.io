@@ -21,7 +21,7 @@ other niche things (think /dev/null, visualisers).
 This diagram represents the setup we're creating:
 
 
-![Diagram of PA network streaming setup](/media/img/diagrams/pa-network-streaming.svg)
+![Diagram of PA network streaming setup](/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg)
 
 
 ## Setup the server (the machine that is attached to an audio device): 
