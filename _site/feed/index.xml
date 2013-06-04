@@ -4,13 +4,134 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-05-10T12:24:14+01:00</updated>
+ <updated>2013-06-04T22:49:05+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>TDD rectangles</title>
+   <link href="http://willprice.org//2013/06/02/tdd-rectangles.html"/>
+   <updated>2013-06-02T00:00:00+01:00</updated>
+   <id>http://willprice.org/2013/06/02/tdd-rectangles</id>
+   <content type="html">&lt;p&gt;&lt;a href=&#39;http://www.codemanship.co.uk/parlezuml/blog/index.php&#39;&gt;Jason&lt;/a&gt; and I had a rather interesting pair programming session last week where we tackled a problem that I found on &lt;a href=&#39;http://topcoder.com&#39;&gt;Topcoder&lt;/a&gt;. It is in fact a slight twist (easier) on the actual topcoder problem as I didn&amp;#8217;t have it to hand when we were pairing.&lt;/p&gt;
+
+&lt;h2 id=&#39;the_problem&#39;&gt;The Problem:&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of sub rectangles that can be composed from the unit rectangles. Remember squares are rectangles&amp;#8230;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If that&amp;#8217;s not clear enough, this diagram should help articulate what the problem is.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#39;Diagram of 2x2 rectangles and its 9 subrectangles&#39; src=&#39;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.&lt;/p&gt;
+
+&lt;h2 id=&#39;the_design&#39;&gt;The Design:&lt;/h2&gt;
+
+&lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of test cases. The simplest test case seemed to be a invalid rectangle, 0 rectangles high or wide, or both.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test cases:
+-----------
+1. Do not accept geometrically impossible rectangle&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We&amp;#8217;d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason stressed that we were just sketching out a path we &lt;em&gt;might&lt;/em&gt; take, it may not have been neccessary to use all the test cases, or maybe we&amp;#8217;d need more; the list seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
+
+&lt;p&gt;The next step was to figure out how many subrectangles there were in each composite rectangle, this involved a bit of drawing and tallying. In the end I think I only miscounted one test case which we noticed fairly quickly when coding.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Test cases:
+-----------
+1. Do not accept geometrically impossible rectangle
+2. 1x1 has 1 subrectangle
+3. 2x1 has 3 subrectangles
+4. 1x2 has 3 subrectangles
+5. 3x1 has 6 subrectangles
+6. 1x3 has 6 subrectangles
+7. 2x2 has 9 subrectangles
+8. 3x2 has 18 subrectangles&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Having written our roadmap it was now time to start tackling this problem. We used Java, and JUnit with Eclipse.&lt;/p&gt;
+
+&lt;p&gt;The implementation up to 3x1 was fairly simple, however it started to get a little more tricky after that stage, it wasn&amp;#8217;t immediately obvious what formula we should have been using, &lt;code&gt;\(xy + (x-1)y + (y-1)x\)&lt;/code&gt; seemed like a promising start, passing all the previous tests up until that point, addition of another term sounded like it might hold the solution, however it was difficult to think of what it could be, we didn&amp;#8217;t come up with anything in the end.&lt;/p&gt;
+
+&lt;p&gt;Our design up until this point had been heading towards a solution in the form of &lt;code&gt;return some_algebraic_formula&lt;/code&gt;, we changed tack and started looking at it in terms of combinations as we thought it might be a more successful avenue of attack. Jason suggested it might be as simple as a factorial, given that there are &lt;code&gt;\(^n C_r\)&lt;/code&gt; ways of ordering &lt;code&gt;\(r\)&lt;/code&gt; items from a sample of size &lt;code&gt;\(n\)&lt;/code&gt; and&amp;#8230; &lt;code&gt;\[^n C_r = \frac{n!}{r!(n-r)!}\]&lt;/code&gt; Maybe not as simple as a single factorial, but we were definitely dealing with sequences and/or combinations. The problem with combinations is that they calculate all possible combinations including non-contiguous options (think first and last subrectangle of a 3x1). We didn&amp;#8217;t discuss this at the time because a simpler solution presented itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#39;Diagram demonstrating how many of each size of subrectangle are present in a 3x1 rectangle&#39; src=&#39;/media/img/diagrams/tdd-rectangles/combination-1.svg&#39; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Being Test Driven in design, we looked at our current test case, a 3x1 rectangle (I&amp;#8217;ve illustrated a 1x3, imagine it&amp;#8217;s just rotated!), after a bit of drawing and colouring it was evident that the number of subrectangles present in a column decreased by 1 for each unit increase in subrectangle length (refer to diagram). In the general case you have &lt;code&gt;\(n + (n-1) + (n-2) + \ldots + 1\)&lt;/code&gt; subrectangles per column where &lt;code&gt;\(n\)&lt;/code&gt; is the length of the column. We could iterate over each column and add either the general result of this formula (&lt;code&gt;\(\Sigma_0^nr\)&lt;/code&gt;), or generate it on the fly with another loop. Initially it was simplest to just loop over columns and rows separately, instead of trying to take the larger step and implement the actual solution.&lt;/p&gt;
+
+&lt;p&gt;Our implementation now took the form:&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;java&#39;&gt;&lt;span class=&#39;kd&#39;&gt;public&lt;/span&gt; &lt;span class=&#39;kt&#39;&gt;long&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;getSubrectangles&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;()&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;kt&#39;&gt;long&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;0&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+    &lt;span class=&#39;c1&#39;&gt;// We count the top left 1x1 rectangle twice with this method&lt;/span&gt;
+    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;-&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
+&lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous implementation yields 5 subrectangles instead of 9. We looked at which ones it was counting, just the first row and first column &amp;#8211; time to loop over the whole thing. Enclosing each loop with an outer loop iterating over either column or row depending on the inner loop and removing duplicates was a possibility, a very messy one, probably unlikely to succeed in being the general solution either. The algorithm needed to loop over both columns and rows (a nested loop?) and then calculate the number of possibilities, hopefully without counting duplicates.&lt;/p&gt;
+
+&lt;p&gt;After a bit of trial and error we managed to reach the general solution:&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;java&#39;&gt;&lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;*&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+&lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I like this, it&amp;#8217;s rather clever. It&amp;#8217;s easiest to understand given an example, let&amp;#8217;s use the 2x2 rectangle we were trying to solve. The first column has 3 subrectangles, here&amp;#8217;s what the code excecutes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;i = 1:
+    j = 1:
+        numberOfSubrectangles += 1;
+        // numberOfSubrectangles = 1;
+    j = 2:
+        numberOfSubrectangles += 2;
+        // numberOfSubrectangles = 3;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Looping over the first column we get 3 subrectangles, so good so far.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;i = 2:
+    j = 1:
+        numberOfSubrectangles += 2
+        // numberOfSubrectangles = 5
+    j = 2:
+        numberOfSubrectangles += 4
+        // numberOfSubrectangles = 9
+
+return 9&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Through the second column, the subrectangles found in &lt;code&gt;i = 1&lt;/code&gt; are found again in this next column, however, we also need to take into account the rectangles that are formed along the rows, which there are 3 of, giving us a total of 6 additional subrectangles.&lt;/p&gt;
+
+&lt;h2 id=&#39;algebraic_solution&#39;&gt;Algebraic solution:&lt;/h2&gt;
+
+&lt;p&gt;We had a solution! I like maths so I&amp;#8217;ve found the algebraic solution from the code. Reasoning about loops of loops in mathematics is particularly aesthetically pleasing to me.&lt;/p&gt;
+&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;java&#39;&gt;&lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
+        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;*&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
+    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+&lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I&amp;#8217;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths easier. &lt;code&gt;\[\begin{aligned}
+ z &amp;amp;= \sum_{i=1}^x (\sum_{j=1}^y(ij)) \\
+ z &amp;amp;= \sum_{i=1}^x i(\sum_{j=1}^y(j)) \\
+ z &amp;amp;= \sum_{i=1}^xi(\frac{1}{2}y(y+1)) \\
+ z &amp;amp;= \frac{1}{2}x(x+1)\frac{1}{2}y(y+1) \\
+ z &amp;amp;= \frac{1}{4}xy(x+1)(y+1)
+ \end{aligned}\]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can literally change the Java code to return &lt;code&gt;\(z\)&lt;/code&gt;, how pleasing :)&lt;/p&gt;
+
+&lt;p&gt;After tackling the problem with Jason, I had a go solving it mathematically a few days after and by then I&amp;#8217;d forgotten the solution; I didn&amp;#8217;t have much success at all. In this case I think developing in this way helped us to reach the insight that we should add &lt;code&gt;i*j&lt;/code&gt; inside our nested loops. I don&amp;#8217;t have the problem solving skills to incrementally build a solution mathematically, although I&amp;#8217;m starting to aquire them in the domain of programming (very slowly), perhaps if I try and apply a TDD approach to maths I may get further with hard mathematical problems?&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Pulseaudio network streaming</title>
@@ -22,12 +143,14 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code&gt;sources&lt;/code&gt; and outputs audio on a &lt;code&gt;sink&lt;/code&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music from &lt;a href=&#39;http://hypem.com/willprice&#39;&gt;hypem.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music from &lt;a href=&#39;http://hypem.com/willprice&#39;&gt;hypem.com&lt;/a&gt;. In the client/server relationship a &lt;em&gt;source&lt;/em&gt; is a &lt;em&gt;client&lt;/em&gt;.&lt;/li&gt;
 
 &lt;li&gt;&lt;code&gt;sink&lt;/code&gt; - A soundcard, a remote pulseaudio server (with soundcards) and some other niche things (think /dev/null, visualisers).&lt;/li&gt;
-
-&lt;li&gt;&lt;code&gt;client&lt;/code&gt; - same as a &lt;code&gt;source&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;This diagram represents the setup we&amp;#8217;re creating:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#39;Diagram of PA network streaming setup&#39; src=&#39;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&#39; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#39;setup_the_server_the_machine_that_is_attached_to_an_audio_device&#39;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
 

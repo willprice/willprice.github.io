@@ -14,10 +14,15 @@ I say it's important to learn the necessery terminology to setup pulseaudio,
 * `server` - A pulseaudio server or daemon accepts `sources` and outputs audio
 on a `sink`
 * `source` - Any process that outputs audio, for example chromium playing music
-from [hypem.com](http://hypem.com/willprice)
+from [hypem.com](http://hypem.com/willprice). In the client/server relationship a _source_ is a _client_.
 * `sink` - A soundcard, a remote pulseaudio server (with soundcards) and some
 other niche things (think /dev/null, visualisers).
-* `client` - same as a `source`
+
+This diagram represents the setup we're creating:
+
+
+![Diagram of PA network streaming setup](/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg)
+
 
 ## Setup the server (the machine that is attached to an audio device): 
   Add the following lines to `/etc/pulse/default.pa`

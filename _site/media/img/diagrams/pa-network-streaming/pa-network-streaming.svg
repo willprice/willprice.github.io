@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="40cm" height="14cm" viewBox="-2 18 798 262" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <path style="fill: #cbf6d3" d="M 590.4 220 L 703.6,220 C 719.23,220 731.9,233.138 731.9,249.344 C 731.9,265.55 719.23,278.687 703.6,278.687 L 590.4,278.687 C 574.77,278.687 562.1,265.55 562.1,249.344 C 562.1,233.138 574.77,220 590.4,220z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 590.4 220 L 703.6,220 C 719.23,220 731.9,233.138 731.9,249.344 C 731.9,265.55 719.23,278.687 703.6,278.687 L 590.4,278.687 C 574.77,278.687 562.1,265.55 562.1,249.344 C 562.1,233.138 574.77,220 590.4,220"/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:DejaVu Sans;font-style:normal;font-weight:700" x="647" y="254.635">
+      <tspan x="647" y="254.635">hypem.com</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #cbf6d3" d="M 85.45 220 L 208.55,220 C 225.547,220 239.325,233.138 239.325,249.344 C 239.325,265.55 225.547,278.687 208.55,278.687 L 85.45,278.687 C 68.4534,278.687 54.675,265.55 54.675,249.344 C 54.675,233.138 68.4534,220 85.45,220z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 85.45 220 L 208.55,220 C 225.547,220 239.325,233.138 239.325,249.344 C 239.325,265.55 225.547,278.687 208.55,278.687 L 85.45,278.687 C 68.4534,278.687 54.675,265.55 54.675,249.344 C 54.675,233.138 68.4534,220 85.45,220"/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:DejaVu Sans;font-style:normal;font-weight:700" x="147" y="254.635">
+      <tspan x="147" y="254.635">TCP source</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #d3cbf5" d="M 585.45 20 L 708.55,20 C 725.547,20 739.325,33.1376 739.325,49.3436 C 739.325,65.5497 725.547,78.6873 708.55,78.6873 L 585.45,78.6873 C 568.453,78.6873 554.675,65.5497 554.675,49.3436 C 554.675,33.1376 568.453,20 585.45,20z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 585.45 20 L 708.55,20 C 725.547,20 739.325,33.1376 739.325,49.3436 C 739.325,65.5497 725.547,78.6873 708.55,78.6873 L 585.45,78.6873 C 568.453,78.6873 554.675,65.5497 554.675,49.3436 C 554.675,33.1376 568.453,20 585.45,20"/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:DejaVu Sans;font-style:normal;font-weight:700" x="647" y="54.6353">
+      <tspan x="647" y="54.6353">TCP sink</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #d3cbf5" d="M 85.45 20 L 208.55,20 C 225.547,20 239.325,33.1376 239.325,49.3436 C 239.325,65.5497 225.547,78.6873 208.55,78.6873 L 85.45,78.6873 C 68.4534,78.6873 54.675,65.5497 54.675,49.3436 C 54.675,33.1376 68.4534,20 85.45,20z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 85.45 20 L 208.55,20 C 225.547,20 239.325,33.1376 239.325,49.3436 C 239.325,65.5497 225.547,78.6873 208.55,78.6873 L 85.45,78.6873 C 68.4534,78.6873 54.675,65.5497 54.675,49.3436 C 54.675,33.1376 68.4534,20 85.45,20"/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:DejaVu Sans;font-style:normal;font-weight:700" x="147" y="54.6353">
+      <tspan x="147" y="54.6353">Speakers</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #ffaaa1" d="M 49 120 L 245,120 C 272.062,120 294,133.138 294,149.344 C 294,165.55 272.062,178.687 245,178.687 L 49,178.687 C 21.938,178.687 0,165.55 0,149.344 C 0,133.138 21.938,120 49,120z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 49 120 L 245,120 C 272.062,120 294,133.138 294,149.344 C 294,165.55 272.062,178.687 245,178.687 L 49,178.687 C 21.938,178.687 0,165.55 0,149.344 C 0,133.138 21.938,120 49,120"/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:DejaVu Sans;font-style:normal;font-weight:700" x="147" y="154.635">
+      <tspan x="147" y="154.635">PA Server (Desktop)</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #ffaaa1" d="M 549 120 L 745,120 C 772.062,120 794,133.138 794,149.344 C 794,165.55 772.062,178.687 745,178.687 L 549,178.687 C 521.938,178.687 500,165.55 500,149.344 C 500,133.138 521.938,120 549,120z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" d="M 549 120 L 745,120 C 772.062,120 794,133.138 794,149.344 C 794,165.55 772.062,178.687 745,178.687 L 549,178.687 C 521.938,178.687 500,165.55 500,149.344 C 500,133.138 521.938,120 549,120"/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:middle;font-family:DejaVu Sans;font-style:normal;font-weight:700" x="647" y="154.635">
+      <tspan x="647" y="154.635">PA Server (Laptop)</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x1="647" y1="220" x2="647" y2="189.541"/>
+    <polygon style="fill: #000000" points="647,182.041 652,192.041 647,189.541 642,192.041 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" points="647,182.041 652,192.041 647,189.541 642,192.041 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x1="647" y1="120" x2="647" y2="89.5414"/>
+    <polygon style="fill: #000000" points="647,82.0414 652,92.0414 647,89.5414 642,92.0414 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" points="647,82.0414 652,92.0414 647,89.5414 642,92.0414 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x1="147" y1="218.492" x2="147" y2="189.541"/>
+    <polygon style="fill: #000000" points="147,182.041 152,192.041 147,189.541 142,192.041 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" points="147,182.041 152,192.041 147,189.541 142,192.041 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x1="147" y1="118.68" x2="147" y2="90.8618"/>
+    <polygon style="fill: #000000" points="147,83.3618 152,93.3618 147,90.8618 142,93.3618 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" points="147,83.3618 152,93.3618 147,90.8618 142,93.3618 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" points="554.675,49.3436 394.663,49.3436 394.663,249.344 250.179,249.344 "/>
+    <polygon style="fill: #000000" points="242.679,249.344 252.679,244.344 250.179,249.344 252.679,254.344 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" points="242.679,249.344 252.679,244.344 250.179,249.344 252.679,254.344 "/>
+  </g>
+</svg>
