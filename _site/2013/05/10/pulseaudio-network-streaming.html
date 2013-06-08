@@ -99,9 +99,11 @@
   daemon</code> (enable with <code>systemctl enable avahi-daemon &amp;&amp; systemctl start
           avahi-daemon</code> on Arch), the clients that will attach to the server will also need the <code>avahi deamon</code> running to be informed of the pulseaudio server you&#8217;ve just set up.</p>
 
-<h2 id='setup_the_client_the_machine_that_you_want_audio_to_be_stream_from'>Setup the client (the machine that you want audio to be stream from)</h2>
+<h2 id='setup_the_client_the_machine_that_you_want_audio_to_be_streamed_from'>Setup the client (the machine that you want audio to be streamed from)</h2>
 
 <p>Add the following lines to <code>/etc/pulse/default.pa</code> load-module module-zeroconf-discover Understandably this module searches out for other pulseaudio servers on the LAN.</p>
+
+<pre><code>load-module module-zeroconf-discover</code></pre>
 
 <p>Restart pulseaudio and install <code>pasystray</code> or <code>padevchooser</code> to set your sink (desktop) on the client/source (laptop).</p>
 

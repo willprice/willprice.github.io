@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-06-04T22:49:05+01:00</updated>
+ <updated>2013-06-08T10:10:52+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -163,9 +163,11 @@ return 9&lt;/code&gt;&lt;/pre&gt;
   daemon&lt;/code&gt; (enable with &lt;code&gt;systemctl enable avahi-daemon &amp;amp;&amp;amp; systemctl start
           avahi-daemon&lt;/code&gt; on Arch), the clients that will attach to the server will also need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&amp;#8217;ve just set up.&lt;/p&gt;
 
-&lt;h2 id=&#39;setup_the_client_the_machine_that_you_want_audio_to_be_stream_from&#39;&gt;Setup the client (the machine that you want audio to be stream from)&lt;/h2&gt;
+&lt;h2 id=&#39;setup_the_client_the_machine_that_you_want_audio_to_be_streamed_from&#39;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
 
 &lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt; load-module module-zeroconf-discover Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;load-module module-zeroconf-discover&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink (desktop) on the client/source (laptop).&lt;/p&gt;
 

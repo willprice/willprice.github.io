@@ -37,10 +37,12 @@ This diagram represents the setup we're creating:
   need the `avahi deamon` running to be informed of the pulseaudio server you've
   just set up. 
 
-## Setup the client (the machine that you want audio to be stream from)
+## Setup the client (the machine that you want audio to be streamed from)
   Add the following lines to `/etc/pulse/default.pa`
   load-module module-zeroconf-discover
   Understandably this module searches out for other pulseaudio servers on the LAN.
+
+    load-module module-zeroconf-discover
 
   Restart pulseaudio and install `pasystray` or `padevchooser` to set your sink
   (desktop) on the client/source (laptop).
