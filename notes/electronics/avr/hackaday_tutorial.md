@@ -19,18 +19,18 @@ Simply take the first part of the hexadecimal number, for `0xaf` it's `a`, which
 Refer to [Programming 101](http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=37871) for an in-depth tutorial.
 
 <table border="1">
-<tr><td>`|`</td><td>OR</td></tr>
-<tr><td>`&`</td><td>AND</td></tr>
-<tr><td>`~`</td><td>NOT</td></tr>
-<tr><td>`^`</td><td>XOR</td></tr>
-<tr><td>`<<`</td><td>Shift Left</td></tr>
-<tr><td>`>>`</td><td>Shift Right</td></tr>
+<tr><td>|    </td><td>OR         </td></tr>
+<tr><td>&amp;</td><td>AND        </td></tr>
+<tr><td>~    </td><td>NOT        </td></tr>
+<tr><td>^    </td><td>XOR        </td></tr>
+<tr><td>&lt;&lt;   </td><td>Shift Left </td></tr>
+<tr><td>&gt;&gt;   </td><td>Shift Right</td></tr>
 </table>
 
 - `foo |= 0x01` takes a byte foo, and set's the `0x01` bit, think about the maths.
 - `foo &= 0x01` will set foo as `0x01` if the first bit (as we're using `0x01`) is set, otherwise it will set foo as `0x00`
 - Shift left and Shift right allow us to make binary numbers really easily, for example: 
-  `0x01
+  `0x01`
 
 # Blink code
 {% highlight c %}

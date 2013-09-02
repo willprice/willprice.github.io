@@ -1,1 +1,3 @@
+safe: true
+rdiscount: true
 pygments: true
