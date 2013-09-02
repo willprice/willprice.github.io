@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Mock objects: The BoxOffice example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+    
+    
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h2>Mock objects: The BoxOffice example</h2>
+        <p>(Friday 30th August Pairing with Jason)</p>
+
+<h3 id='introduction_why_mock_objects'>Introduction: Why mock objects</h3>
+
+<p>Having been exposed to the basics of TDD: Using <code>asserts</code> to make sure things changed; trying to write each test so it fails for only one reason; triangulating a solution, rather than just dumping it all in one fell swoop, I thought it was about time to learn what mock objects are, and what they are used for.</p>
+
+<h3 id='useful_terminology'>Useful Terminology:</h3>
+
+<p>Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.</p>
+
+<ul>
+<li><code>Stub</code> - A method that returns a specific result</li>
+
+<li><code>Mock</code> - A class with the assertion that a certain method was called.</li>
+</ul>
+
+<p>Don&#8217;t expect my usage of terminology to be spot on; I&#8217;m still learning!</p>
+
+<h3 id='the_problem'>The Problem:</h3>
+
+<p>Jason suggested we try writing a virtual box office where a customer can book tickets for a specific play. After a discussion we wrote an acceptance test (in English) to outline what our end result should be able to do:</p>
+
+<pre><code>Given that the seat A6 is available for a performance of &#39;Cats&#39;
+when I reserve A6 using credit card number 1234
+then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
+
+### Roles:
+* Seat (A6)
+* Performance (Cats)
+* Box office - entry point.
+
+
+### Actions:
+* Reserve
+
+
+### States:
+* Available (Seat)
+* Marked as reserved for `[credit card number] (Seat)`
+* Cannot be booked/Unavailable (Seat)
+
+1. Customer tells box office to reserve seat A6 at performance of &#39;Cats&#39; using credit card number 1234
+2. Box office finds performance of &#39;Cats&#39; and tells performance to reserve Seat A6 using credit card number 1234
+3. &#39;Cats&#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
+4. Seat A6 records the credit card number of the reserver.</code></pre>
+
+<h3 id='building_outside_in'>Building Outside in:</h3>
+
+<p>When building an application from the outside in, we need some way of testing the interaction between what we&#8217;re writing and the next layer in which hasn&#8217;t been written yet. That&#8217;s were mocks and stubs come in&#8230;</p>
+
+<p>To start off Jason suggested that we design the program as a simple web service&#8211;a query would come in with a performance name, credit card number, and seat identifier. We&#8217; d then reserve the seat if it was available, otherwise throw and exception indicating the unavailability of that seat.</p>
+
+<p>The simplest thing I could think of testing was <strong>finding a specific performance</strong>, the implementation is pretty simple, define a method on <code>BoxOffice</code> that finds a performance in a <code>HashMap&lt;String, Performance&gt;</code>. Testing this is more complicated than simply asserting that the correct performance was found using the search. Mocks to the rescue! We can write an interface (<code>Mockito</code> can also mock classes too, Jason showed me the traditional way, before mocking classes was possible) for performance and then mock it using <code>mock(Performance.class)</code>, this returns a mock object of the type <code>Performance</code>. It has no functionality, but we can call any method on it that is defined in the interface, the methods will not do anything as we haven&#8217;t defined any behaviour for it (because for this test behaviour is superfluous).</p>
+
+<pre><code>    // BoxOffice is a field in the test class
+protected Performance createBoxOfficeWithMockPerformance() {
+	Performance mockPerformance = mock(Performance.class);
+	when(mockPerformance.checkSeatReservation(anyString())).thenReturn(&quot;&quot;);
+	HashMap&lt;String, Performance&gt; performances = new HashMap&lt;&gt;();
+	performances.put(&quot;Cats&quot;, mockPerformance);
+	boxOffice = new BoxOffice(performances);
+	return mockPerformance;
+}
+
+@Test
+public void findsPerformanceOfCats() {
+	Performance mockPerformance = createBoxOfficeWithMockPerformance();
+	assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));;
+}</code></pre>
+
+<p>I thought the responsibility of reserving a seat should belong to a <code>Seat</code> class that would be at the bottom of the class hierarchy of the finished application:</p>
+
+<pre><code>BoxOffice -&gt; Performance -&gt; Seat</code></pre>
+
+<p><code>BoxOffice</code> would need to talk to <code>Performance</code> which would then eventually talk to <code>Seat</code>.</p>
+
+<p>We wrote the next test for <strong>Reserving a seat</strong>. <code>BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)</code> would be the signature of the method so we started by writing the assertion:</p>
+
+<pre><code>verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)</code></pre>
+
+<p><code>verify</code> takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call <code>mockPerformance.reserveSeat(...)</code> which would be called by <code>BoxOffice.reserveSeat(...)</code></p>
+
+<pre><code>// mockPerformance is a performance of &quot;Cats&quot; in the box office
+boxOffice.reserveSeat(&quot;Cats&quot;, &quot;A6&quot;, &quot;1234&quot;)
+verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)</code></pre>
+
+<h3 id='mocking_'>Mocking <code>voids</code>:</h3>
+
+<p>Ouch! I had a hard time figuring out why <code>when(mockedObject.voidMethod).thenThrow(new RuntimeException())</code> wasn&#8217;t working. Mockito&#8217;s <code>when</code> method doesn&#8217;t work with void methods. You must use a <code>doReturn|doThrow|doAnswer...</code> method, and so the <code>when</code> code ends up looking like: <code>doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);</code></p>
+
+<p>This helped me mock <code>Performance</code> so that I could throw an <code>UnavailableSeatException</code> when trying to reserve a seat for the second time in my acceptance test.</p>
+
+<h3 id='mocked_method_behaviour'>Mocked method behaviour</h3>
+
+<p>Giving mocked methods &#8216;intelligent&#8217; behaviour cam be accomplished in 2 ways.</p>
+
+<ol>
+<li>Changing the behaviour based on argument</li>
+
+<li>Changing behavious based on number of invocations</li>
+</ol>
+
+<p>The first:</p>
+
+<pre><code>when(mockObject.method(1)).thenReturn(1)
+when(mockObject.method(2)).thenReturn(2)</code></pre>
+
+<p>The second</p>
+
+<pre><code>when(mockObject.method()).thenReturn(1).thenReturn(2)
+mockObject.method() // =&gt; 1
+mockObject.method() // =&gt; 2</code></pre>
+
+<p>Mockito returns the mocked method for each <code>then*</code> invocation, so you can chain the <code>then*</code> methods together like in this example.</p>
+
+<p>My tests all have the mocks written into them. Jason suggested I try removing this hardcoding of objects, allowing myself to inject either mocks or a concrete implementation which will the focus of my next post; that is once I&#8217;ve managed to do it, and write it up.</p>
+    </div>
+</div>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

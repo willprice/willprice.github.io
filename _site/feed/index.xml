@@ -4,13 +4,136 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-06-08T10:10:52+01:00</updated>
+ <updated>2013-09-02T23:14:14+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Mock objects: The BoxOffice example</title>
+   <link href="http://willprice.org//2013/09/02/mock-objects-pairing-session.html"/>
+   <updated>2013-09-02T00:00:00+01:00</updated>
+   <id>http://willprice.org/2013/09/02/mock-objects-pairing-session</id>
+   <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)&lt;/p&gt;
+
+&lt;h3 id=&#39;introduction_why_mock_objects&#39;&gt;Introduction: Why mock objects&lt;/h3&gt;
+
+&lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things changed; trying to write each test so it fails for only one reason; triangulating a solution, rather than just dumping it all in one fell swoop, I thought it was about time to learn what mock objects are, and what they are used for.&lt;/p&gt;
+
+&lt;h3 id=&#39;useful_terminology&#39;&gt;Useful Terminology:&lt;/h3&gt;
+
+&lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result&lt;/li&gt;
+
+&lt;li&gt;&lt;code&gt;Mock&lt;/code&gt; - A class with the assertion that a certain method was called.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Don&amp;#8217;t expect my usage of terminology to be spot on; I&amp;#8217;m still learning!&lt;/p&gt;
+
+&lt;h3 id=&#39;the_problem&#39;&gt;The Problem:&lt;/h3&gt;
+
+&lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book tickets for a specific play. After a discussion we wrote an acceptance test (in English) to outline what our end result should be able to do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Given that the seat A6 is available for a performance of &amp;#39;Cats&amp;#39;
+when I reserve A6 using credit card number 1234
+then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
+
+### Roles:
+* Seat (A6)
+* Performance (Cats)
+* Box office - entry point.
+
+
+### Actions:
+* Reserve
+
+
+### States:
+* Available (Seat)
+* Marked as reserved for `[credit card number] (Seat)`
+* Cannot be booked/Unavailable (Seat)
+
+1. Customer tells box office to reserve seat A6 at performance of &amp;#39;Cats&amp;#39; using credit card number 1234
+2. Box office finds performance of &amp;#39;Cats&amp;#39; and tells performance to reserve Seat A6 using credit card number 1234
+3. &amp;#39;Cats&amp;#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
+4. Seat A6 records the credit card number of the reserver.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#39;building_outside_in&#39;&gt;Building Outside in:&lt;/h3&gt;
+
+&lt;p&gt;When building an application from the outside in, we need some way of testing the interaction between what we&amp;#8217;re writing and the next layer in which hasn&amp;#8217;t been written yet. That&amp;#8217;s were mocks and stubs come in&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;To start off Jason suggested that we design the program as a simple web service&amp;#8211;a query would come in with a performance name, credit card number, and seat identifier. We&amp;#8217; d then reserve the seat if it was available, otherwise throw and exception indicating the unavailability of that seat.&lt;/p&gt;
+
+&lt;p&gt;The simplest thing I could think of testing was &lt;strong&gt;finding a specific performance&lt;/strong&gt;, the implementation is pretty simple, define a method on &lt;code&gt;BoxOffice&lt;/code&gt; that finds a performance in a &lt;code&gt;HashMap&amp;lt;String, Performance&amp;gt;&lt;/code&gt;. Testing this is more complicated than simply asserting that the correct performance was found using the search. Mocks to the rescue! We can write an interface (&lt;code&gt;Mockito&lt;/code&gt; can also mock classes too, Jason showed me the traditional way, before mocking classes was possible) for performance and then mock it using &lt;code&gt;mock(Performance.class)&lt;/code&gt;, this returns a mock object of the type &lt;code&gt;Performance&lt;/code&gt;. It has no functionality, but we can call any method on it that is defined in the interface, the methods will not do anything as we haven&amp;#8217;t defined any behaviour for it (because for this test behaviour is superfluous).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    // BoxOffice is a field in the test class
+protected Performance createBoxOfficeWithMockPerformance() {
+	Performance mockPerformance = mock(Performance.class);
+	when(mockPerformance.checkSeatReservation(anyString())).thenReturn(&amp;quot;&amp;quot;);
+	HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
+	performances.put(&amp;quot;Cats&amp;quot;, mockPerformance);
+	boxOffice = new BoxOffice(performances);
+	return mockPerformance;
+}
+
+@Test
+public void findsPerformanceOfCats() {
+	Performance mockPerformance = createBoxOfficeWithMockPerformance();
+	assertEquals(mockPerformance, boxOffice.findPerformance(&amp;quot;Cats&amp;quot;));;
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// mockPerformance is a performance of &amp;quot;Cats&amp;quot; in the box office
+boxOffice.reserveSeat(&amp;quot;Cats&amp;quot;, &amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#39;mocking_&#39;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+
+&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&amp;#8217;t working. Mockito&amp;#8217;s &lt;code&gt;when&lt;/code&gt; method doesn&amp;#8217;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This helped me mock &lt;code&gt;Performance&lt;/code&gt; so that I could throw an &lt;code&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test.&lt;/p&gt;
+
+&lt;h3 id=&#39;mocked_method_behaviour&#39;&gt;Mocked method behaviour&lt;/h3&gt;
+
+&lt;p&gt;Giving mocked methods &amp;#8216;intelligent&amp;#8217; behaviour cam be accomplished in 2 ways.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Changing the behaviour based on argument&lt;/li&gt;
+
+&lt;li&gt;Changing behavious based on number of invocations&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;when(mockObject.method(1)).thenReturn(1)
+when(mockObject.method(2)).thenReturn(2)&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The second&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
+mockObject.method() // =&amp;gt; 1
+mockObject.method() // =&amp;gt; 2&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mockito returns the mocked method for each &lt;code&gt;then*&lt;/code&gt; invocation, so you can chain the &lt;code&gt;then*&lt;/code&gt; methods together like in this example.&lt;/p&gt;
+
+&lt;p&gt;My tests all have the mocks written into them. Jason suggested I try removing this hardcoding of objects, allowing myself to inject either mocks or a concrete implementation which will the focus of my next post; that is once I&amp;#8217;ve managed to do it, and write it up.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>TDD rectangles</title>
