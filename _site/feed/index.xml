@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-09-02T23:26:25+01:00</updated>
+ <updated>2013-09-03T09:52:56+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -74,7 +74,6 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 &lt;pre&gt;&lt;code&gt;    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
 	Performance mockPerformance = mock(Performance.class);
-	when(mockPerformance.checkSeatReservation(anyString())).thenReturn(&amp;quot;&amp;quot;);
 	HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
 	performances.put(&amp;quot;Cats&amp;quot;, mockPerformance);
 	boxOffice = new BoxOffice(performances);
@@ -84,7 +83,7 @@ protected Performance createBoxOfficeWithMockPerformance() {
 @Test
 public void findsPerformanceOfCats() {
 	Performance mockPerformance = createBoxOfficeWithMockPerformance();
-	assertEquals(mockPerformance, boxOffice.findPerformance(&amp;quot;Cats&amp;quot;));;
+	assertEquals(mockPerformance, boxOffice.findPerformance(&amp;quot;Cats&amp;quot;));
 }&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application:&lt;/p&gt;
