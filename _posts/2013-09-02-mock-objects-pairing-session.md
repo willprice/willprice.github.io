@@ -73,7 +73,6 @@ for it (because for this test behaviour is superfluous).
         // BoxOffice is a field in the test class
 	protected Performance createBoxOfficeWithMockPerformance() {
 		Performance mockPerformance = mock(Performance.class);
-		when(mockPerformance.checkSeatReservation(anyString())).thenReturn("");
 		HashMap<String, Performance> performances = new HashMap<>();
 		performances.put("Cats", mockPerformance);
 		boxOffice = new BoxOffice(performances);
@@ -83,7 +82,7 @@ for it (because for this test behaviour is superfluous).
 	@Test
 	public void findsPerformanceOfCats() {
 		Performance mockPerformance = createBoxOfficeWithMockPerformance();
-		assertEquals(mockPerformance, boxOffice.findPerformance("Cats"));;
+		assertEquals(mockPerformance, boxOffice.findPerformance("Cats"));
 	}
 
 I thought the responsibility of reserving a seat should belong to a `Seat` class that would be at the bottom of the class hierarchy of the finished application: 
