@@ -12,10 +12,10 @@ categories: [meta]
 
 ## Sites I like:
 ### Technology: 
-- [Hacker News](news.ycombinator.com)
-- [Coursera](www.coursera.org) 
-- [Udacity](www.udacity.com)
-- [edX](www.edx.org)
+- [Hacker News](http://news.ycombinator.com)
+- [Coursera](http://www.coursera.org) 
+- [Udacity](http://www.udacity.com)
+- [edX](http://www.edx.org)
 
 ### Wood work:
 - [Sean Hellman](http://seanhellman.blogspot.co.uk/)
