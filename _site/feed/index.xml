@@ -4,13 +4,27 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-09-03T09:52:56+01:00</updated>
+ <updated>2013-10-09T16:15:14+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Unit testing is evil</title>
+   <link href="http://willprice.org//2013/10/09/unit-testing-is-evil.html"/>
+   <updated>2013-10-09T00:00:00+01:00</updated>
+   <id>http://willprice.org/2013/10/09/unit-testing-is-evil</id>
+   <content type="html">&lt;p&gt;I&amp;#8217;m currently reading &amp;#8216;Autotools&amp;#8217;, a book about, yes you guessed it, Autotools! This passage made me laugh:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they can come up with for not doing it is laziness. Proper unit testing is hard work, but it pays off in the end. Those who do it have learned a lesson (usually in childhood) about the value of delayed gratification.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I&amp;#8217;m only reading the book so I can use the C unit testing framework &lt;a href=&#39;check.sourceforge.net&#39;&gt;check&lt;/a&gt;&amp;#8230; so yes. I have certainly learned a lesson in the value of delayed gratification. Sometimes I wonder whether It&amp;#8217;s a bad thing. Who knows whether I&amp;#8217;ll get my homework done before it&amp;#8217;s due date :)&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Mock objects: The BoxOffice example</title>
