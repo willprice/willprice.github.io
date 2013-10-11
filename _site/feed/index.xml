@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-10-09T16:15:14+01:00</updated>
+ <updated>2013-10-11T13:35:21+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -24,6 +24,86 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;I&amp;#8217;m only reading the book so I can use the C unit testing framework &lt;a href=&#39;check.sourceforge.net&#39;&gt;check&lt;/a&gt;&amp;#8230; so yes. I have certainly learned a lesson in the value of delayed gratification. Sometimes I wonder whether It&amp;#8217;s a bad thing. Who knows whether I&amp;#8217;ll get my homework done before it&amp;#8217;s due date :)&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>First weeks of university</title>
+   <link href="http://willprice.org//2013/10/05/first-week-of-university.html"/>
+   <updated>2013-10-05T00:00:00+01:00</updated>
+   <id>http://willprice.org/2013/10/05/first-week-of-university</id>
+   <content type="html">&lt;p&gt;Having settled in here at Bristol, I&amp;#8217;ve started my lectures, topics include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Mathematical methods for computer scientists&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Logic&lt;/li&gt;
+
+&lt;li&gt;Objects&lt;/li&gt;
+
+&lt;li&gt;Proofs&lt;/li&gt;
+
+&lt;li&gt;Counting &amp;amp; Probability&lt;/li&gt;
+
+&lt;li&gt;Analysis&lt;/li&gt;
+
+&lt;li&gt;Linear Algebra&lt;/li&gt;
+
+&lt;li&gt;Probability &amp;amp; distributions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Programming and Algorithms:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Learning C&lt;/li&gt;
+
+&lt;li&gt;Probably some algorithms too&amp;#8230;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;
+
+&lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure what comes next)&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Origins of Computer Science&lt;/p&gt;
+
+&lt;p&gt;From early machines through various programming languages, and OSes to the future of computer science.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#39;evolutionary_design_and_waterfall&#39;&gt;Evolutionary design and Waterfall&lt;/h2&gt;
+
+&lt;p&gt;In a programming and algorithms lecture, waterfall was mentioned as the development technique, and evolutionary design was said to be a bad way of building systems. This came with the suggestion that systems should be redesigned from the ground up when a system had sufficiently solved the problem addressed. Jason vehemently opposed this view, saying evolutionary design was about the only way to design programs as requirements are forever changing. He said the key too succeeding was to continuously refactor your code to stop cruft from encroaching on your software.&lt;/p&gt;
+
+&lt;h2 id=&#39;pairing&#39;&gt;Pairing&lt;/h2&gt;
+
+&lt;p&gt;Jason and I also discussed what sort of problems we could tackle whilst pairing. He suggested that we try and TDD algorithms, next week we&amp;#8217;ll be doing &lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I&amp;#8217;m going to try and get up and running with C testing frameworks. So far I&amp;#8217;ve had a look at:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#39;http://check.sourceforge.net/&#39;&gt;Check&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&#39;http://www.jera.com/techinfo/jtns/jtn002.html&#39;&gt;Minunit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I haven&amp;#8217;t managed to get either of these working yet. Check suggests the use of autotools&amp;#8211;something I haven&amp;#8217;t learnt yet. Minunit throws a segfault when I try and compile my test code. Currently I&amp;#8217;m leaning towards minunit for it&amp;#8217;s simplicity.&lt;/p&gt;
+
+&lt;p&gt;Eric Radman has a good post on &lt;a href=&#39;http://eradman.com/posts/tdd-in-c.html&#39;&gt;unit testing C&lt;/a&gt;. I haven&amp;#8217;t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
+
+&lt;p&gt;If TDDing algorithms is a good exercise we&amp;#8217;ll try and compile a wiki where we explain the algorithm, and show the steps to a TDD implementation.&lt;/p&gt;
+
+&lt;h2 id=&#39;screen_recording&#39;&gt;Screen recording&lt;/h2&gt;
+
+&lt;p&gt;Next week we&amp;#8217;ll record our pairing session and put it on youtube. I&amp;#8217;m using &lt;a href=&#39;http://www.maartenbaert.be/simplescreenrecorder/&#39;&gt;SimpleScreenRecorder&lt;/a&gt; to capture the screen and audio. It&amp;#8217;s a lot better than Gtk-RecordMyDesktop. I also tried to check out &lt;a href=&#39;http://freeseer.github.io/&#39;&gt;FreeSeer&lt;/a&gt;, however I couldn&amp;#8217;t get it to compile.&lt;/p&gt;
+
+&lt;h2 id=&#39;apprenticeships_as_a_complement_to_a_degree&#39;&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
+
+&lt;p&gt;Jason feels confident that what I&amp;#8217;ll learn in my degree will not overlap too much with what he wishes to teach me. Hopefully an apprenticeship will cover the more practical aspects of software development that seem to take a backseat in a CS degree, and understandably so given that it is CS, and not software development. The problem is that most CS graduates will just go on to do software development, and so it might not be a bad idea for CS students to learn a decent amount of software development too. It looks as if we&amp;#8217;ll learn agile in the 2nd year&amp;#8230; I would have thought by then it&amp;#8217;d be too late&amp;#8230;&lt;/p&gt;</content>
  </entry>
  
  <entry>

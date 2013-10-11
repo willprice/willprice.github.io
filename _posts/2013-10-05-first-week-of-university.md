@@ -4,6 +4,7 @@ title: "First weeks of university"
 ---
 
 Having settled in here at Bristol, I've started my lectures, topics include:
+
 * Mathematical methods for computer scientists
   * Logic
   * Objects
@@ -12,13 +13,16 @@ Having settled in here at Bristol, I've started my lectures, topics include:
   * Analysis
   * Linear Algebra
   * Probability & distributions
+
 * Programming and Algorithms:
   * Learning C
   * Probably some algorithms too... 
+
 * Introduction to Computer Architecture
 
   From Boolean logic to RAM and ROM (for the first half of this year, not sure
   what comes next)
+
 * Origins of Computer Science
 
   From early machines through various programming languages, and OSes to the
