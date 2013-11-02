@@ -4,13 +4,22 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-10-11T13:35:21+01:00</updated>
+ <updated>2013-11-02T11:32:26+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Bubble sort done the TDD way</title>
+   <link href="http://willprice.org//2013/11/02/bubble-sort-done-the-tdd-way.html"/>
+   <updated>2013-11-02T00:00:00+00:00</updated>
+   <id>http://willprice.org/2013/11/02/bubble-sort-done-the-tdd-way</id>
+   <content type="html">&lt;p&gt;I had a bash at writing Bubble sort in Java. I filmed my screen, and gave an overview of my reasons for the steps I was taking.&lt;/p&gt;
+&lt;iframe frameborder=&#39;0&#39; height=&#39;315&#39; src=&#39;http://www.youtube.com/embed/AraZURpk_YA&#39; width=&#39;560&#39; /&gt;</content>
+ </entry>
  
  <entry>
    <title>Unit testing is evil</title>
