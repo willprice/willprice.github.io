@@ -74,50 +74,63 @@
       <div class="content">
     <div id="post">
         <h2>Pulseaudio network streaming</h2>
-        <p>I&#8217;ve tried setting up pulseaudio before to stream music from my laptop to my desktop without much success. I attribute my past failures to my lack of understanding of the client/server model that pulseaudio follows. Trust me when I say it&#8217;s important to learn the necessery terminology to setup pulseaudio, you&#8217;ll end up quite confused otherwise!</p>
+        <p>I've tried setting up pulseaudio before to stream music from my laptop to my
+desktop without much success. I attribute my past failures to my lack of
+understanding of the client/server model that pulseaudio follows. Trust me when
+I say it's important to learn the necessery terminology to setup pulseaudio,
+  you'll end up quite confused otherwise!</p>
 
 <ul>
-<li><code>server</code> - A pulseaudio server or daemon accepts <code>sources</code> and outputs audio on a <code>sink</code></li>
-
-<li><code>source</code> - Any process that outputs audio, for example chromium playing music from <a href='http://hypem.com/willprice'>hypem.com</a>. In the client/server relationship a <em>source</em> is a <em>client</em>.</li>
-
-<li><code>sink</code> - A soundcard, a remote pulseaudio server (with soundcards) and some other niche things (think /dev/null, visualisers).</li>
+<li><code>server</code> - A pulseaudio server or daemon accepts <code>sources</code> and outputs audio
+on a <code>sink</code></li>
+<li><code>source</code> - Any process that outputs audio, for example chromium playing music
+from <a href="http://hypem.com/willprice">hypem.com</a>. In the client/server relationship a <em>source</em> is a <em>client</em>.</li>
+<li><code>sink</code> - A soundcard, a remote pulseaudio server (with soundcards) and some
+other niche things (think /dev/null, visualisers).</li>
 </ul>
 
-<p>This diagram represents the setup we&#8217;re creating:</p>
 
-<p><img alt='Diagram of PA network streaming setup' src='/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg' /></p>
+<p>This diagram represents the setup we're creating:</p>
 
-<h2 id='setup_the_server_the_machine_that_is_attached_to_an_audio_device'>Setup the server (the machine that is attached to an audio device):</h2>
+<p><img src="/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg" alt="Diagram of PA network streaming setup" /></p>
 
-<p>Add the following lines to <code>/etc/pulse/default.pa</code></p>
+<h2>Setup the server (the machine that is attached to an audio device):</h2>
+
+<p>  Add the following lines to <code>/etc/pulse/default.pa</code></p>
 
 <pre><code>  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
-  load-module module-zeroconf-publish</code></pre>
+  load-module module-zeroconf-publish
+</code></pre>
 
-<p>The first line sets up a TCP server for pulseaudio allowing remote sound sources to be utilized (clients can be anonymous as well). The second line sets up <code>zerconf</code> publishing by the <code>avahi
+<p>  The first line sets up a TCP server for pulseaudio allowing remote sound sources
+  to be utilized (clients can be anonymous as well). The second line sets up <code>zerconf</code> publishing by the <code>avahi
   daemon</code> (enable with <code>systemctl enable avahi-daemon &amp;&amp; systemctl start
-          avahi-daemon</code> on Arch), the clients that will attach to the server will also need the <code>avahi deamon</code> running to be informed of the pulseaudio server you&#8217;ve just set up.</p>
+          avahi-daemon</code> on Arch), the clients that will attach to the server will also
+  need the <code>avahi deamon</code> running to be informed of the pulseaudio server you've
+  just set up.</p>
 
-<h2 id='setup_the_client_the_machine_that_you_want_audio_to_be_streamed_from'>Setup the client (the machine that you want audio to be streamed from)</h2>
+<h2>Setup the client (the machine that you want audio to be streamed from)</h2>
 
-<p>Add the following lines to <code>/etc/pulse/default.pa</code> load-module module-zeroconf-discover Understandably this module searches out for other pulseaudio servers on the LAN.</p>
+<p>  Add the following lines to <code>/etc/pulse/default.pa</code>
+  load-module module-zeroconf-discover
+  Understandably this module searches out for other pulseaudio servers on the LAN.</p>
 
-<pre><code>load-module module-zeroconf-discover</code></pre>
+<pre><code>load-module module-zeroconf-discover
+</code></pre>
 
-<p>Restart pulseaudio and install <code>pasystray</code> or <code>padevchooser</code> to set your sink (desktop) on the client/source (laptop).</p>
+<p>  Restart pulseaudio and install <code>pasystray</code> or <code>padevchooser</code> to set your sink
+  (desktop) on the client/source (laptop).</p>
 
-<h2 id='sources'>Sources</h2>
+<h2>Sources</h2>
 
 <ul>
-<li><a href='http://en.wikipedia.org/wiki/PulseAudio'>Pulseaudio on Wikipedia</a></li>
-
-<li><a href='http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/'>Sound on Linux is confusing part 1: ALSA</a></li>
-
-<li><a href='http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/'>Sound on Linux is confusing part 2: Pulseaudio</a></li>
-
-<li><a href='https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network'>Pulseaudio examples | Arch Wiki</a></li>
+<li><a href="http://en.wikipedia.org/wiki/PulseAudio">Pulseaudio on Wikipedia</a></li>
+<li><a href="http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/">Sound on Linux is confusing part 1: ALSA</a></li>
+<li><a href="http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/">Sound on Linux is confusing part 2: Pulseaudio</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network">Pulseaudio examples | Arch Wiki</a></li>
 </ul>
+
+
     </div>
 </div>
 

@@ -74,20 +74,31 @@
       <div class="content">
     <div id="post">
         <h2>Processing and XMonad</h2>
-        <p>After having put up with problems with the Processing IDE for quite a while, I could no longer take not being able to focus the text area without clicking on the stop button.</p>
+        <p>After having put up with problems with the Processing IDE for quite a
+while, I could no longer take not being able to focus the text area
+without clicking on the stop button.</p>
 
-<p>It transpires this is an issue caused by XMonad&#8217;s handling of Java swing applications as noted by Krzysztof Krason in a <a href='http://youtrack.jetbrains.com/issue/IDEA-65637'>thread</a> in regard to the IDEA IDE (which also uses Java swing).</p>
+<p>It transpires this is an issue caused by XMonad's handling of Java swing
+applications as noted by Krzysztof Krason in a <a href="http://youtrack.jetbrains.com/issue/IDEA-65637">thread</a>
+in regard to the IDEA IDE (which also uses Java swing).</p>
 
-<blockquote>
-<p>It&#8217;s not a problem with Intellij but with XMonad, it has problems with java swing applications. The solution is to use something like this in to add &#8220;import XMonad.Hooks.ICCCMFocus&#8221; and in your logHook add &#8220;takeTopFocus&#8221;.</p>
-</blockquote>
+<blockquote><p>It's not a problem with Intellij but with XMonad, it has problems with
+java swing applications.
+The solution is to use something like this in to add "import
+XMonad.Hooks.ICCCMFocus" and in your logHook add "takeTopFocus".</p></blockquote>
 
-<p>So the solution is remarkable simple. Just add these lines to your xmonad.hs file:</p>
-<div class='highlight'><pre><code class='haskell'><span class='kr'>import</span> <span class='nn'>XMonad.Hooks.ICCCMFocus</span>
+<p>So the solution is remarkable simple. Just add these lines to your
+xmonad.hs file:</p>
 
-<span class='nf'>main</span> <span class='ow'>=</span> <span class='kr'>do</span>
-<span class='nf'>logHook</span> <span class='ow'>=</span> <span class='o'>...</span> <span class='o'>&amp;</span><span class='n'>gt</span><span class='p'>;</span><span class='o'>&amp;</span><span class='n'>gt</span><span class='p'>;</span> <span class='n'>takeTopFocus</span> 
+<div class="highlight"><pre><code class="haskell"><span class="kr">import</span> <span class="nn">XMonad.Hooks.ICCCMFocus</span>
+
+<span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+<span class="nf">logHook</span> <span class="ow">=</span> <span class="o">...</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">takeTopFocus</span> 
 </code></pre></div>
+
+
+
+
     </div>
 </div>
 

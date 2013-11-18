@@ -72,14 +72,15 @@
 
       <section>
       <ul>
-<li>When using ICSP headers for programming, remember that the pinout diagrams are from looking above, the chip, whereas you&#8217;re most likely sticking jumpers from underneath.</li>
-
-<li><a href='http://www.instructables.com/id/Adding-ICSP-header-to-your-ArduinoAVR-board/step3/ICSP-header-pinout/'>ICSP pinout</a>, SCK is next to the notched part of the connector.</li>
-
-<li>(Arch) make sure that avrdude can access the USBTinyISP, also with arduino, you have to be in the <code>uucp</code> group (<code>gpasswd -a will uucp</code>). It may also be the case with systemd that you can&#8217;t lock /run/lock, this is because incorrect permissions are set, copy <code>/usr/lib/tmpfiles.d/legacy.conf</code> to <code>/etc/tmpfiles.d/</code> and edit it, changing the permissions to 0777 for /run/lock. (good notes <a href='http://perhof.wordpress.com/tag/usbtinyisp/'>here</a>)</li>
-
+<li>When using ICSP headers for programming, remember that the pinout diagrams are from looking above, the chip, whereas you're most likely sticking jumpers from underneath.</li>
+<li><a href="http://www.instructables.com/id/Adding-ICSP-header-to-your-ArduinoAVR-board/step3/ICSP-header-pinout/">ICSP pinout</a>, SCK is next to the notched part of the connector.</li>
+<li>(Arch) make sure that avrdude can access the USBTinyISP, also with arduino, you have to be in the <code>uucp</code> group (<code>gpasswd -a will uucp</code>). It may also be the case
+with systemd that you can't lock /run/lock, this is because incorrect permissions are set, copy <code>/usr/lib/tmpfiles.d/legacy.conf</code> to <code>/etc/tmpfiles.d/</code> and edit it, changing
+the permissions to 0777 for /run/lock. (good notes <a href="http://perhof.wordpress.com/tag/usbtinyisp/">here</a>)</li>
 <li>When programming atmega chips, hook up ALL GROUNDS and ALL VOLTAGE SOURCES.</li>
 </ul>
+
+
       </section>
     </div>
 	</div><!-- container -->

@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-11-02T11:32:26+00:00</updated>
+ <updated>2013-11-18T21:00:55+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -13,12 +13,33 @@
 
  
  <entry>
+   <title>Binary Search</title>
+   <link href="http://willprice.org//2013/11/18/binary-search.html"/>
+   <updated>2013-11-18T00:00:00+00:00</updated>
+   <id>http://willprice.org/2013/11/18/binary-search</id>
+   <content type="html">&lt;p&gt;This week I&#39;ve been working on binary search. Like last week I did it in Java
+with JUnit, but I&#39;ve also got a video executing my test cases with books as a
+supplement.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/6oC7YU4TrvU&quot;&gt;&lt;/iframe&gt;
+
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/bsfadoOOggY&quot;&gt;&lt;/iframe&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
    <title>Bubble sort done the TDD way</title>
    <link href="http://willprice.org//2013/11/02/bubble-sort-done-the-tdd-way.html"/>
    <updated>2013-11-02T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/02/bubble-sort-done-the-tdd-way</id>
-   <content type="html">&lt;p&gt;I had a bash at writing Bubble sort in Java. I filmed my screen, and gave an overview of my reasons for the steps I was taking.&lt;/p&gt;
-&lt;iframe frameborder=&#39;0&#39; height=&#39;315&#39; src=&#39;http://www.youtube.com/embed/AraZURpk_YA&#39; width=&#39;560&#39; /&gt;</content>
+   <content type="html">&lt;p&gt;I had a bash at writing Bubble sort in Java. I filmed my screen, and gave an
+overview of my reasons for the steps I was taking.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/AraZURpk_YA&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+</content>
  </entry>
  
  <entry>
@@ -26,13 +47,19 @@
    <link href="http://willprice.org//2013/10/09/unit-testing-is-evil.html"/>
    <updated>2013-10-09T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/10/09/unit-testing-is-evil</id>
-   <content type="html">&lt;p&gt;I&amp;#8217;m currently reading &amp;#8216;Autotools&amp;#8217;, a book about, yes you guessed it, Autotools! This passage made me laugh:&lt;/p&gt;
+   <content type="html">&lt;p&gt;I&#39;m currently reading &#39;Autotools&#39;, a book about, yes you guessed it, Autotools!
+This passage made me laugh:&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they can come up with for not doing it is laziness. Proper unit testing is hard work, but it pays off in the end. Those who do it have learned a lesson (usually in childhood) about the value of delayed gratification.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they
+can come up with for not doing it is laziness. Proper unit testing is hard work,
+but it pays off in the end. Those who do it have learned a lesson (usually in
+childhood) about the value of delayed gratification.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;I&amp;#8217;m only reading the book so I can use the C unit testing framework &lt;a href=&#39;check.sourceforge.net&#39;&gt;check&lt;/a&gt;&amp;#8230; so yes. I have certainly learned a lesson in the value of delayed gratification. Sometimes I wonder whether It&amp;#8217;s a bad thing. Who knows whether I&amp;#8217;ll get my homework done before it&amp;#8217;s due date :)&lt;/p&gt;</content>
+&lt;p&gt;I&#39;m only reading the book so I can use the C unit testing framework
+&lt;a href=&quot;check.sourceforge.net&quot;&gt;check&lt;/a&gt;... so yes. I have certainly learned a lesson in
+the value of delayed gratification. Sometimes I wonder whether It&#39;s a bad
+thing. Who knows whether I&#39;ll get my homework done before it&#39;s due date :)&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -40,79 +67,89 @@
    <link href="http://willprice.org//2013/10/05/first-week-of-university.html"/>
    <updated>2013-10-05T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/10/05/first-week-of-university</id>
-   <content type="html">&lt;p&gt;Having settled in here at Bristol, I&amp;#8217;ve started my lectures, topics include:&lt;/p&gt;
+   <content type="html">&lt;p&gt;Having settled in here at Bristol, I&#39;ve started my lectures, topics include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Mathematical methods for computer scientists&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Mathematical methods for computer scientists&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Logic&lt;/li&gt;
-
 &lt;li&gt;Objects&lt;/li&gt;
-
 &lt;li&gt;Proofs&lt;/li&gt;
-
 &lt;li&gt;Counting &amp;amp; Probability&lt;/li&gt;
-
 &lt;li&gt;Analysis&lt;/li&gt;
-
 &lt;li&gt;Linear Algebra&lt;/li&gt;
-
 &lt;li&gt;Probability &amp;amp; distributions&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Programming and Algorithms:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Programming and Algorithms:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Learning C&lt;/li&gt;
-
-&lt;li&gt;Probably some algorithms too&amp;#8230;&lt;/li&gt;
+&lt;li&gt;Probably some algorithms too...&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;
 
-&lt;li&gt;
-&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;
+&lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure
+what comes next)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Origins of Computer Science&lt;/p&gt;
 
-&lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure what comes next)&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;li&gt;
-&lt;p&gt;Origins of Computer Science&lt;/p&gt;
-
-&lt;p&gt;From early machines through various programming languages, and OSes to the future of computer science.&lt;/p&gt;
-&lt;/li&gt;
+&lt;p&gt;From early machines through various programming languages, and OSes to the
+future of computer science.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#39;evolutionary_design_and_waterfall&#39;&gt;Evolutionary design and Waterfall&lt;/h2&gt;
 
-&lt;p&gt;In a programming and algorithms lecture, waterfall was mentioned as the development technique, and evolutionary design was said to be a bad way of building systems. This came with the suggestion that systems should be redesigned from the ground up when a system had sufficiently solved the problem addressed. Jason vehemently opposed this view, saying evolutionary design was about the only way to design programs as requirements are forever changing. He said the key too succeeding was to continuously refactor your code to stop cruft from encroaching on your software.&lt;/p&gt;
+&lt;h2&gt;Evolutionary design and Waterfall&lt;/h2&gt;
 
-&lt;h2 id=&#39;pairing&#39;&gt;Pairing&lt;/h2&gt;
+&lt;p&gt;In a programming and algorithms lecture, waterfall was mentioned as the
+development technique, and evolutionary design was said to be a bad way of
+building systems. This came with the suggestion that systems should be
+redesigned from the ground up when a system had sufficiently solved the problem
+addressed. Jason vehemently opposed this view, saying evolutionary design was
+about the only way to design programs as requirements are forever changing. He
+said the key too succeeding was to continuously refactor your code to stop cruft
+from encroaching on your software.&lt;/p&gt;
 
-&lt;p&gt;Jason and I also discussed what sort of problems we could tackle whilst pairing. He suggested that we try and TDD algorithms, next week we&amp;#8217;ll be doing &lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I&amp;#8217;m going to try and get up and running with C testing frameworks. So far I&amp;#8217;ve had a look at:&lt;/p&gt;
+&lt;h2&gt;Pairing&lt;/h2&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#39;http://check.sourceforge.net/&#39;&gt;Check&lt;/a&gt;&lt;/li&gt;
+&lt;p&gt;Jason and I also discussed what sort of problems we could tackle whilst
+pairing. He suggested that we try and TDD algorithms, next week we&#39;ll be doing
+&lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I&#39;m going to try and get up
+and running with C testing frameworks. So far I&#39;ve had a look at:
+* &lt;a href=&quot;http://check.sourceforge.net/&quot;&gt;Check&lt;/a&gt;
+* &lt;a href=&quot;http://www.jera.com/techinfo/jtns/jtn002.html&quot;&gt;Minunit&lt;/a&gt;&lt;/p&gt;
 
-&lt;li&gt;&lt;a href=&#39;http://www.jera.com/techinfo/jtns/jtn002.html&#39;&gt;Minunit&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;I haven&#39;t managed to get either of these working yet. Check suggests the use of
+autotools--something I haven&#39;t learnt yet. Minunit throws a segfault when I try
+and compile my test code. Currently I&#39;m leaning towards minunit for it&#39;s
+simplicity.&lt;/p&gt;
 
-&lt;p&gt;I haven&amp;#8217;t managed to get either of these working yet. Check suggests the use of autotools&amp;#8211;something I haven&amp;#8217;t learnt yet. Minunit throws a segfault when I try and compile my test code. Currently I&amp;#8217;m leaning towards minunit for it&amp;#8217;s simplicity.&lt;/p&gt;
+&lt;p&gt;Eric Radman has a good post on &lt;a href=&quot;http://eradman.com/posts/tdd-in-c.html&quot;&gt;unit testing C&lt;/a&gt;.
+I haven&#39;t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
 
-&lt;p&gt;Eric Radman has a good post on &lt;a href=&#39;http://eradman.com/posts/tdd-in-c.html&#39;&gt;unit testing C&lt;/a&gt;. I haven&amp;#8217;t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
+&lt;p&gt;If TDDing algorithms is a good exercise we&#39;ll try and compile a wiki where we
+explain the algorithm, and show the steps to a TDD implementation.&lt;/p&gt;
 
-&lt;p&gt;If TDDing algorithms is a good exercise we&amp;#8217;ll try and compile a wiki where we explain the algorithm, and show the steps to a TDD implementation.&lt;/p&gt;
+&lt;h2&gt;Screen recording&lt;/h2&gt;
 
-&lt;h2 id=&#39;screen_recording&#39;&gt;Screen recording&lt;/h2&gt;
+&lt;p&gt;Next week we&#39;ll record our pairing session and put it on youtube. I&#39;m using
+&lt;a href=&quot;http://www.maartenbaert.be/simplescreenrecorder/&quot;&gt;SimpleScreenRecorder&lt;/a&gt; to
+capture the screen and audio. It&#39;s a lot better than Gtk-RecordMyDesktop. I also
+tried to check out &lt;a href=&quot;http://freeseer.github.io/&quot;&gt;FreeSeer&lt;/a&gt;, however I couldn&#39;t
+get it to compile.&lt;/p&gt;
 
-&lt;p&gt;Next week we&amp;#8217;ll record our pairing session and put it on youtube. I&amp;#8217;m using &lt;a href=&#39;http://www.maartenbaert.be/simplescreenrecorder/&#39;&gt;SimpleScreenRecorder&lt;/a&gt; to capture the screen and audio. It&amp;#8217;s a lot better than Gtk-RecordMyDesktop. I also tried to check out &lt;a href=&#39;http://freeseer.github.io/&#39;&gt;FreeSeer&lt;/a&gt;, however I couldn&amp;#8217;t get it to compile.&lt;/p&gt;
+&lt;h2&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
 
-&lt;h2 id=&#39;apprenticeships_as_a_complement_to_a_degree&#39;&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
-
-&lt;p&gt;Jason feels confident that what I&amp;#8217;ll learn in my degree will not overlap too much with what he wishes to teach me. Hopefully an apprenticeship will cover the more practical aspects of software development that seem to take a backseat in a CS degree, and understandably so given that it is CS, and not software development. The problem is that most CS graduates will just go on to do software development, and so it might not be a bad idea for CS students to learn a decent amount of software development too. It looks as if we&amp;#8217;ll learn agile in the 2nd year&amp;#8230; I would have thought by then it&amp;#8217;d be too late&amp;#8230;&lt;/p&gt;</content>
+&lt;p&gt;Jason feels confident that what I&#39;ll learn in my degree will not overlap too
+much with what he wishes to teach me. Hopefully an apprenticeship will cover the
+more practical aspects of software development that seem to take a backseat in a
+CS degree, and understandably so given that it is CS, and not software
+development. The problem is that most CS graduates will just go on to do
+software development, and so it might not be a bad idea for CS students to learn
+a decent amount of software development too. It looks as if we&#39;ll learn agile in
+the 2nd year... I would have thought by then it&#39;d be too late...&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -122,27 +159,29 @@
    <id>http://willprice.org/2013/09/02/mock-objects-pairing-session</id>
    <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)&lt;/p&gt;
 
-&lt;h3 id=&#39;introduction_why_mock_objects&#39;&gt;Introduction: Why mock objects&lt;/h3&gt;
+&lt;h3&gt;Introduction: Why mock objects&lt;/h3&gt;
 
-&lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things changed; trying to write each test so it fails for only one reason; triangulating a solution, rather than just dumping it all in one fell swoop, I thought it was about time to learn what mock objects are, and what they are used for.&lt;/p&gt;
+&lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things
+changed; trying to write each test so it fails for only one reason;
+triangulating a solution, rather than just dumping it all in one fell swoop, I
+thought it was about time to learn what mock objects are, and what they are used
+for.&lt;/p&gt;
 
-&lt;h3 id=&#39;useful_terminology&#39;&gt;Useful Terminology:&lt;/h3&gt;
+&lt;h3&gt;Useful Terminology:&lt;/h3&gt;
 
-&lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.&lt;/p&gt;
+&lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
+* &lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result
+* &lt;code&gt;Mock&lt;/code&gt; - A class with the assertion that a certain method was called.&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result&lt;/li&gt;
+&lt;p&gt;Don&#39;t expect my usage of terminology to be spot on; I&#39;m still learning!&lt;/p&gt;
 
-&lt;li&gt;&lt;code&gt;Mock&lt;/code&gt; - A class with the assertion that a certain method was called.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3&gt;The Problem:&lt;/h3&gt;
 
-&lt;p&gt;Don&amp;#8217;t expect my usage of terminology to be spot on; I&amp;#8217;m still learning!&lt;/p&gt;
+&lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book
+tickets for a specific play. After a discussion we wrote an acceptance test (in
+English) to outline what our end result should be able to do:&lt;/p&gt;
 
-&lt;h3 id=&#39;the_problem&#39;&gt;The Problem:&lt;/h3&gt;
-
-&lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book tickets for a specific play. After a discussion we wrote an acceptance test (in English) to outline what our end result should be able to do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Given that the seat A6 is available for a performance of &amp;#39;Cats&amp;#39;
+&lt;pre&gt;&lt;code&gt;Given that the seat A6 is available for a performance of &#39;Cats&#39;
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -161,80 +200,106 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 * Marked as reserved for `[credit card number] (Seat)`
 * Cannot be booked/Unavailable (Seat)
 
-1. Customer tells box office to reserve seat A6 at performance of &amp;#39;Cats&amp;#39; using credit card number 1234
-2. Box office finds performance of &amp;#39;Cats&amp;#39; and tells performance to reserve Seat A6 using credit card number 1234
-3. &amp;#39;Cats&amp;#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
-4. Seat A6 records the credit card number of the reserver.&lt;/code&gt;&lt;/pre&gt;
+1. Customer tells box office to reserve seat A6 at performance of &#39;Cats&#39; using credit card number 1234
+2. Box office finds performance of &#39;Cats&#39; and tells performance to reserve Seat A6 using credit card number 1234
+3. &#39;Cats&#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
+4. Seat A6 records the credit card number of the reserver.
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#39;building_outside_in&#39;&gt;Building Outside in:&lt;/h3&gt;
+&lt;h3&gt;Building Outside in:&lt;/h3&gt;
 
-&lt;p&gt;When building an application from the outside in, we need some way of testing the interaction between what we&amp;#8217;re writing and the next layer in which hasn&amp;#8217;t been written yet. That&amp;#8217;s were mocks and stubs come in&amp;#8230;&lt;/p&gt;
+&lt;p&gt;When building an application from the outside in, we need some way of testing
+the interaction between what we&#39;re writing and the next layer in which hasn&#39;t
+been written yet. That&#39;s were mocks and stubs come in...&lt;/p&gt;
 
-&lt;p&gt;To start off Jason suggested that we design the program as a simple web service&amp;#8211;a query would come in with a performance name, credit card number, and seat identifier. We&amp;#8217; d then reserve the seat if it was available, otherwise throw and exception indicating the unavailability of that seat.&lt;/p&gt;
+&lt;p&gt;To start off Jason suggested that we design the program as a simple web
+service--a query would come in with a performance name, credit card number, and
+seat identifier. We&#39; d then reserve the seat if it was available, otherwise
+throw and exception indicating the unavailability of that seat.&lt;/p&gt;
 
-&lt;p&gt;The simplest thing I could think of testing was &lt;strong&gt;finding a specific performance&lt;/strong&gt;, the implementation is pretty simple, define a method on &lt;code&gt;BoxOffice&lt;/code&gt; that finds a performance in a &lt;code&gt;HashMap&amp;lt;String, Performance&amp;gt;&lt;/code&gt;. Testing this is more complicated than simply asserting that the correct performance was found using the search. Mocks to the rescue! We can write an interface (&lt;code&gt;Mockito&lt;/code&gt; can also mock classes too, Jason showed me the traditional way, before mocking classes was possible) for performance and then mock it using &lt;code&gt;mock(Performance.class)&lt;/code&gt;, this returns a mock object of the type &lt;code&gt;Performance&lt;/code&gt;. It has no functionality, but we can call any method on it that is defined in the interface, the methods will not do anything as we haven&amp;#8217;t defined any behaviour for it (because for this test behaviour is superfluous).&lt;/p&gt;
+&lt;p&gt;The simplest thing I could think of testing was &lt;strong&gt;finding a specific
+performance&lt;/strong&gt;, the implementation is pretty simple, define a method on
+&lt;code&gt;BoxOffice&lt;/code&gt; that finds a performance in a &lt;code&gt;HashMap&amp;lt;String, Performance&amp;gt;&lt;/code&gt;.
+Testing this is more complicated than simply asserting that the correct
+performance was found using the search. Mocks to the rescue! We can write an
+interface (&lt;code&gt;Mockito&lt;/code&gt; can also mock classes too, Jason showed me the traditional
+way, before mocking classes was possible) for performance and then mock it using
+&lt;code&gt;mock(Performance.class)&lt;/code&gt;, this returns a mock object of the type &lt;code&gt;Performance&lt;/code&gt;.
+It has no functionality, but we can call any method on it that is defined in the
+interface, the methods will not do anything as we haven&#39;t defined any behaviour
+for it (because for this test behaviour is superfluous).&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
-	Performance mockPerformance = mock(Performance.class);
-	HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
-	performances.put(&amp;quot;Cats&amp;quot;, mockPerformance);
-	boxOffice = new BoxOffice(performances);
-	return mockPerformance;
+    Performance mockPerformance = mock(Performance.class);
+    HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
+    performances.put(&quot;Cats&quot;, mockPerformance);
+    boxOffice = new BoxOffice(performances);
+    return mockPerformance;
 }
 
 @Test
 public void findsPerformanceOfCats() {
-	Performance mockPerformance = createBoxOfficeWithMockPerformance();
-	assertEquals(mockPerformance, boxOffice.findPerformance(&amp;quot;Cats&amp;quot;));
-}&lt;/code&gt;&lt;/pre&gt;
+    Performance mockPerformance = createBoxOfficeWithMockPerformance();
+    assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));
+}
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;// mockPerformance is a performance of &amp;quot;Cats&amp;quot; in the box office
-boxOffice.reserveSeat(&amp;quot;Cats&amp;quot;, &amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
-verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;// mockPerformance is a performance of &quot;Cats&quot; in the box office
+boxOffice.reserveSeat(&quot;Cats&quot;, &quot;A6&quot;, &quot;1234&quot;)
+verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#39;mocking_&#39;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+&lt;h3&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
 
-&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&amp;#8217;t working. Mockito&amp;#8217;s &lt;code&gt;when&lt;/code&gt; method doesn&amp;#8217;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&#39;t working. Mockito&#39;s &lt;code&gt;when&lt;/code&gt; method doesn&#39;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;This helped me mock &lt;code&gt;Performance&lt;/code&gt; so that I could throw an &lt;code&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test.&lt;/p&gt;
 
-&lt;h3 id=&#39;mocked_method_behaviour&#39;&gt;Mocked method behaviour&lt;/h3&gt;
+&lt;h3&gt;Mocked method behaviour&lt;/h3&gt;
 
-&lt;p&gt;Giving mocked methods &amp;#8216;intelligent&amp;#8217; behaviour cam be accomplished in 2 ways.&lt;/p&gt;
+&lt;p&gt;Giving mocked methods &#39;intelligent&#39; behaviour cam be accomplished in 2 ways.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Changing the behaviour based on argument&lt;/li&gt;
-
 &lt;li&gt;Changing behavious based on number of invocations&lt;/li&gt;
 &lt;/ol&gt;
+
 
 &lt;p&gt;The first:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;when(mockObject.method(1)).thenReturn(1)
-when(mockObject.method(2)).thenReturn(2)&lt;/code&gt;&lt;/pre&gt;
+when(mockObject.method(2)).thenReturn(2)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The second&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&amp;gt; 1
-mockObject.method() // =&amp;gt; 2&lt;/code&gt;&lt;/pre&gt;
+mockObject.method() // =&amp;gt; 2
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Mockito returns the mocked method for each &lt;code&gt;then*&lt;/code&gt; invocation, so you can chain the &lt;code&gt;then*&lt;/code&gt; methods together like in this example.&lt;/p&gt;
 
-&lt;p&gt;My tests all have the mocks written into them. Jason suggested I try removing this hardcoding of objects, allowing myself to inject either mocks or a concrete implementation which will the focus of my next post; that is once I&amp;#8217;ve managed to do it, and write it up.&lt;/p&gt;</content>
+&lt;p&gt;My tests all have the mocks written into them. Jason suggested I try removing
+this hardcoding of objects, allowing myself to inject either mocks or a concrete
+implementation which will the focus of my next post; that is once I&#39;ve managed
+to do it, and write it up.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -242,31 +307,45 @@ mockObject.method() // =&amp;gt; 2&lt;/code&gt;&lt;/pre&gt;
    <link href="http://willprice.org//2013/06/02/tdd-rectangles.html"/>
    <updated>2013-06-02T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/06/02/tdd-rectangles</id>
-   <content type="html">&lt;p&gt;&lt;a href=&#39;http://www.codemanship.co.uk/parlezuml/blog/index.php&#39;&gt;Jason&lt;/a&gt; and I had a rather interesting pair programming session last week where we tackled a problem that I found on &lt;a href=&#39;http://topcoder.com&#39;&gt;Topcoder&lt;/a&gt;. It is in fact a slight twist (easier) on the actual topcoder problem as I didn&amp;#8217;t have it to hand when we were pairing.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.codemanship.co.uk/parlezuml/blog/index.php&quot;&gt;Jason&lt;/a&gt; and I had a
+rather interesting pair programming session last week where we tackled a problem
+that I found on &lt;a href=&quot;http://topcoder.com&quot;&gt;Topcoder&lt;/a&gt;. It is in fact a slight twist
+(easier) on the actual topcoder problem as I didn&#39;t have it to hand when we were
+pairing.&lt;/p&gt;
 
-&lt;h2 id=&#39;the_problem&#39;&gt;The Problem:&lt;/h2&gt;
+&lt;h2&gt;The Problem:&lt;/h2&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of sub rectangles that can be composed from the unit rectangles. Remember squares are rectangles&amp;#8230;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
+sub rectangles that can be composed from the unit rectangles. Remember squares
+are rectangles...&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;If that&amp;#8217;s not clear enough, this diagram should help articulate what the problem is.&lt;/p&gt;
+&lt;p&gt;If that&#39;s not clear enough, this diagram should help articulate what the problem
+is.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt=&#39;Diagram of 2x2 rectangles and its 9 subrectangles&#39; src=&#39;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&quot; alt=&quot;Diagram of 2x2 rectangles and it&#39;s 9 subrectangles&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.&lt;/p&gt;
 
-&lt;h2 id=&#39;the_design&#39;&gt;The Design:&lt;/h2&gt;
+&lt;h2&gt;The Design:&lt;/h2&gt;
 
-&lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of test cases. The simplest test case seemed to be a invalid rectangle, 0 rectangles high or wide, or both.&lt;/p&gt;
+&lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of
+test cases. The simplest test case seemed to be a invalid rectangle,
+0 rectangles high or wide, or both.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Test cases:
 -----------
-1. Do not accept geometrically impossible rectangle&lt;/code&gt;&lt;/pre&gt;
+1. Do not accept geometrically impossible rectangle
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We&amp;#8217;d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason stressed that we were just sketching out a path we &lt;em&gt;might&lt;/em&gt; take, it may not have been neccessary to use all the test cases, or maybe we&amp;#8217;d need more; the list seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
+&lt;p&gt;We&#39;d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason
+stressed that we were just sketching out a path we &lt;em&gt;might&lt;/em&gt; take, it may not have
+been neccessary to use all the test cases, or maybe we&#39;d need more; the list
+seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
 
-&lt;p&gt;The next step was to figure out how many subrectangles there were in each composite rectangle, this involved a bit of drawing and tallying. In the end I think I only miscounted one test case which we noticed fairly quickly when coding.&lt;/p&gt;
+&lt;p&gt;The next step was to figure out how many subrectangles there were in each
+composite rectangle, this involved a bit of drawing and tallying. In the end I
+think I only miscounted one test case which we noticed fairly quickly when
+coding.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Test cases:
 -----------
@@ -277,42 +356,87 @@ mockObject.method() // =&amp;gt; 2&lt;/code&gt;&lt;/pre&gt;
 5. 3x1 has 6 subrectangles
 6. 1x3 has 6 subrectangles
 7. 2x2 has 9 subrectangles
-8. 3x2 has 18 subrectangles&lt;/code&gt;&lt;/pre&gt;
+8. 3x2 has 18 subrectangles
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Having written our roadmap it was now time to start tackling this problem. We used Java, and JUnit with Eclipse.&lt;/p&gt;
+&lt;p&gt;Having written our roadmap it was now time to start tackling this problem. We
+used Java, and JUnit with Eclipse.&lt;/p&gt;
 
-&lt;p&gt;The implementation up to 3x1 was fairly simple, however it started to get a little more tricky after that stage, it wasn&amp;#8217;t immediately obvious what formula we should have been using, &lt;code&gt;\(xy + (x-1)y + (y-1)x\)&lt;/code&gt; seemed like a promising start, passing all the previous tests up until that point, addition of another term sounded like it might hold the solution, however it was difficult to think of what it could be, we didn&amp;#8217;t come up with anything in the end.&lt;/p&gt;
+&lt;p&gt;The implementation up to 3x1 was fairly simple, however it started to get a little
+more tricky after that stage, it wasn&#39;t immediately obvious what formula we
+should have been using, &lt;code&gt;\(xy + (x-1)y + (y-1)x\)&lt;/code&gt; seemed like a promising
+start, passing all the previous tests up until that point, addition of another
+term sounded like it might hold the solution, however it was difficult to think
+of what it could be, we didn&#39;t come up with anything in the end.&lt;/p&gt;
 
-&lt;p&gt;Our design up until this point had been heading towards a solution in the form of &lt;code&gt;return some_algebraic_formula&lt;/code&gt;, we changed tack and started looking at it in terms of combinations as we thought it might be a more successful avenue of attack. Jason suggested it might be as simple as a factorial, given that there are &lt;code&gt;\(^n C_r\)&lt;/code&gt; ways of ordering &lt;code&gt;\(r\)&lt;/code&gt; items from a sample of size &lt;code&gt;\(n\)&lt;/code&gt; and&amp;#8230; &lt;code&gt;\[^n C_r = \frac{n!}{r!(n-r)!}\]&lt;/code&gt; Maybe not as simple as a single factorial, but we were definitely dealing with sequences and/or combinations. The problem with combinations is that they calculate all possible combinations including non-contiguous options (think first and last subrectangle of a 3x1). We didn&amp;#8217;t discuss this at the time because a simpler solution presented itself.&lt;/p&gt;
+&lt;p&gt;Our design up until this point had been heading towards a solution in the form
+of &lt;code&gt;return some_algebraic_formula&lt;/code&gt;, we changed tack and started looking at it in
+terms of combinations as we thought it might be a more successful avenue of
+attack. Jason suggested it might be as simple as a factorial, given that there
+are &lt;code&gt;\(^n C_r\)&lt;/code&gt; ways of ordering &lt;code&gt;\(r\)&lt;/code&gt; items from a sample of size &lt;code&gt;\(n\)&lt;/code&gt;
+and...
+&lt;code&gt;\[^n C_r = \frac{n!}{r!(n-r)!}\]&lt;/code&gt;
+Maybe not as simple as a single factorial, but we were definitely dealing with
+sequences and/or combinations. The problem with combinations is that they
+calculate all possible combinations including non-contiguous options (think
+first and last subrectangle of a 3x1). We didn&#39;t discuss this at the time
+because a simpler solution presented itself.&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt=&#39;Diagram demonstrating how many of each size of subrectangle are present in a 3x1 rectangle&#39; src=&#39;/media/img/diagrams/tdd-rectangles/combination-1.svg&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/combination-1.svg&quot; alt=&quot;Diagram demonstrating how many of each size of subrectangle are present in a
+3x1 rectangle&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Being Test Driven in design, we looked at our current test case, a 3x1 rectangle (I&amp;#8217;ve illustrated a 1x3, imagine it&amp;#8217;s just rotated!), after a bit of drawing and colouring it was evident that the number of subrectangles present in a column decreased by 1 for each unit increase in subrectangle length (refer to diagram). In the general case you have &lt;code&gt;\(n + (n-1) + (n-2) + \ldots + 1\)&lt;/code&gt; subrectangles per column where &lt;code&gt;\(n\)&lt;/code&gt; is the length of the column. We could iterate over each column and add either the general result of this formula (&lt;code&gt;\(\Sigma_0^nr\)&lt;/code&gt;), or generate it on the fly with another loop. Initially it was simplest to just loop over columns and rows separately, instead of trying to take the larger step and implement the actual solution.&lt;/p&gt;
+&lt;p&gt;Being Test Driven in design, we looked at our current test case, a 3x1 rectangle
+(I&#39;ve illustrated a 1x3, imagine it&#39;s just rotated!), after a bit of drawing and
+colouring it was evident that the number of subrectangles present in a column
+decreased by 1 for each unit increase in subrectangle length (refer to diagram).
+In the general case you have &lt;code&gt;\(n + (n-1) + (n-2) + \ldots + 1\)&lt;/code&gt; subrectangles
+per column where &lt;code&gt;\(n\)&lt;/code&gt; is the length of the column. We could iterate over each
+column and add either the general result of this formula (&lt;code&gt;\(\Sigma_0^nr\)&lt;/code&gt;), or
+generate it on the fly with another loop. Initially it was simplest to just loop
+over columns and rows separately, instead of trying to take the larger step and
+implement the actual solution.&lt;/p&gt;
 
 &lt;p&gt;Our implementation now took the form:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;java&#39;&gt;&lt;span class=&#39;kd&#39;&gt;public&lt;/span&gt; &lt;span class=&#39;kt&#39;&gt;long&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;getSubrectangles&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;()&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-    &lt;span class=&#39;kt&#39;&gt;long&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;0&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
-    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getSubrectangles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
-    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
-    &lt;span class=&#39;c1&#39;&gt;// We count the top left 1x1 rectangle twice with this method&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;-&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
-&lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// We count the top left 1x1 rectangle twice with this method&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous implementation yields 5 subrectangles instead of 9. We looked at which ones it was counting, just the first row and first column &amp;#8211; time to loop over the whole thing. Enclosing each loop with an outer loop iterating over either column or row depending on the inner loop and removing duplicates was a possibility, a very messy one, probably unlikely to succeed in being the general solution either. The algorithm needed to loop over both columns and rows (a nested loop?) and then calculate the number of possibilities, hopefully without counting duplicates.&lt;/p&gt;
+
+
+&lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others
+had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous
+implementation yields 5 subrectangles instead of 9. We looked at which ones it
+was counting, just the first row and first column -- time to loop over the whole
+thing. Enclosing each loop with an outer loop iterating over either column or
+row depending on the inner loop and removing duplicates was a possibility, a
+very messy one, probably unlikely to succeed in being the general solution
+either. The algorithm needed to loop over both columns and rows (a nested loop?)
+and then calculate the number of possibilities, hopefully without counting
+duplicates.&lt;/p&gt;
 
 &lt;p&gt;After a bit of trial and error we managed to reach the general solution:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;java&#39;&gt;&lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;*&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
-    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
-&lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I like this, it&amp;#8217;s rather clever. It&amp;#8217;s easiest to understand given an example, let&amp;#8217;s use the 2x2 rectangle we were trying to solve. The first column has 3 subrectangles, here&amp;#8217;s what the code excecutes:&lt;/p&gt;
+
+
+&lt;p&gt;I like this, it&#39;s rather clever. It&#39;s easiest to understand given an example,
+let&#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
+subrectangles, here&#39;s what the code excecutes:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;i = 1:
     j = 1:
@@ -320,7 +444,8 @@ mockObject.method() // =&amp;gt; 2&lt;/code&gt;&lt;/pre&gt;
         // numberOfSubrectangles = 1;
     j = 2:
         numberOfSubrectangles += 2;
-        // numberOfSubrectangles = 3;&lt;/code&gt;&lt;/pre&gt;
+        // numberOfSubrectangles = 3;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Looping over the first column we get 3 subrectangles, so good so far.&lt;/p&gt;
 
@@ -332,20 +457,31 @@ mockObject.method() // =&amp;gt; 2&lt;/code&gt;&lt;/pre&gt;
         numberOfSubrectangles += 4
         // numberOfSubrectangles = 9
 
-return 9&lt;/code&gt;&lt;/pre&gt;
+return 9
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Through the second column, the subrectangles found in &lt;code&gt;i = 1&lt;/code&gt; are found again in this next column, however, we also need to take into account the rectangles that are formed along the rows, which there are 3 of, giving us a total of 6 additional subrectangles.&lt;/p&gt;
+&lt;p&gt;Through the second column, the subrectangles found in &lt;code&gt;i = 1&lt;/code&gt; are found again in
+this next column, however, we also need to take into account the rectangles that
+are formed along the rows, which there are 3 of, giving us a total of 6
+additional subrectangles.&lt;/p&gt;
 
-&lt;h2 id=&#39;algebraic_solution&#39;&gt;Algebraic solution:&lt;/h2&gt;
+&lt;h2&gt;Algebraic solution:&lt;/h2&gt;
 
-&lt;p&gt;We had a solution! I like maths so I&amp;#8217;ve found the algebraic solution from the code. Reasoning about loops of loops in mathematics is particularly aesthetically pleasing to me.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;java&#39;&gt;&lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;x&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;kt&#39;&gt;int&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;y&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;++)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;{&lt;/span&gt;
-        &lt;span class=&#39;n&#39;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;i&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;*&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;j&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;;&lt;/span&gt;
-    &lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
-&lt;span class=&#39;o&#39;&gt;}&lt;/span&gt;
+&lt;p&gt;We had a solution! I like maths so I&#39;ve found the algebraic solution from the
+code. Reasoning about loops of loops in mathematics is particularly
+aesthetically pleasing to me.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I&amp;#8217;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths easier. &lt;code&gt;\[\begin{aligned}
+
+
+&lt;p&gt;I&#39;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
+easier.
+&lt;code&gt;\[\begin{aligned}
  z &amp;amp;= \sum_{i=1}^x (\sum_{j=1}^y(ij)) \\
  z &amp;amp;= \sum_{i=1}^x i(\sum_{j=1}^y(j)) \\
  z &amp;amp;= \sum_{i=1}^xi(\frac{1}{2}y(y+1)) \\
@@ -355,7 +491,14 @@ return 9&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;You can literally change the Java code to return &lt;code&gt;\(z\)&lt;/code&gt;, how pleasing :)&lt;/p&gt;
 
-&lt;p&gt;After tackling the problem with Jason, I had a go solving it mathematically a few days after and by then I&amp;#8217;d forgotten the solution; I didn&amp;#8217;t have much success at all. In this case I think developing in this way helped us to reach the insight that we should add &lt;code&gt;i*j&lt;/code&gt; inside our nested loops. I don&amp;#8217;t have the problem solving skills to incrementally build a solution mathematically, although I&amp;#8217;m starting to aquire them in the domain of programming (very slowly), perhaps if I try and apply a TDD approach to maths I may get further with hard mathematical problems?&lt;/p&gt;</content>
+&lt;p&gt;After tackling the problem with Jason, I had a go solving it mathematically a
+few days after and by then I&#39;d forgotten the solution; I didn&#39;t have much success at all.
+In this case I think developing in this way helped us to reach the insight that
+we should add &lt;code&gt;i*j&lt;/code&gt; inside our nested loops. I don&#39;t have the problem solving
+skills to incrementally build a solution mathematically, although I&#39;m starting
+to aquire them in the domain of programming (very slowly), perhaps if I try and
+apply a TDD approach to maths I may get further with hard mathematical problems?&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -363,50 +506,63 @@ return 9&lt;/code&gt;&lt;/pre&gt;
    <link href="http://willprice.org//2013/05/10/pulseaudio-network-streaming.html"/>
    <updated>2013-05-10T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/05/10/pulseaudio-network-streaming</id>
-   <content type="html">&lt;p&gt;I&amp;#8217;ve tried setting up pulseaudio before to stream music from my laptop to my desktop without much success. I attribute my past failures to my lack of understanding of the client/server model that pulseaudio follows. Trust me when I say it&amp;#8217;s important to learn the necessery terminology to setup pulseaudio, you&amp;#8217;ll end up quite confused otherwise!&lt;/p&gt;
+   <content type="html">&lt;p&gt;I&#39;ve tried setting up pulseaudio before to stream music from my laptop to my
+desktop without much success. I attribute my past failures to my lack of
+understanding of the client/server model that pulseaudio follows. Trust me when
+I say it&#39;s important to learn the necessery terminology to setup pulseaudio,
+  you&#39;ll end up quite confused otherwise!&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code&gt;sources&lt;/code&gt; and outputs audio on a &lt;code&gt;sink&lt;/code&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music from &lt;a href=&#39;http://hypem.com/willprice&#39;&gt;hypem.com&lt;/a&gt;. In the client/server relationship a &lt;em&gt;source&lt;/em&gt; is a &lt;em&gt;client&lt;/em&gt;.&lt;/li&gt;
-
-&lt;li&gt;&lt;code&gt;sink&lt;/code&gt; - A soundcard, a remote pulseaudio server (with soundcards) and some other niche things (think /dev/null, visualisers).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code&gt;sources&lt;/code&gt; and outputs audio
+on a &lt;code&gt;sink&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music
+from &lt;a href=&quot;http://hypem.com/willprice&quot;&gt;hypem.com&lt;/a&gt;. In the client/server relationship a &lt;em&gt;source&lt;/em&gt; is a &lt;em&gt;client&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sink&lt;/code&gt; - A soundcard, a remote pulseaudio server (with soundcards) and some
+other niche things (think /dev/null, visualisers).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This diagram represents the setup we&amp;#8217;re creating:&lt;/p&gt;
 
-&lt;p&gt;&lt;img alt=&#39;Diagram of PA network streaming setup&#39; src=&#39;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&#39; /&gt;&lt;/p&gt;
+&lt;p&gt;This diagram represents the setup we&#39;re creating:&lt;/p&gt;
 
-&lt;h2 id=&#39;setup_the_server_the_machine_that_is_attached_to_an_audio_device&#39;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
+
+&lt;p&gt;  Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
-  load-module module-zeroconf-publish&lt;/code&gt;&lt;/pre&gt;
+  load-module module-zeroconf-publish
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The first line sets up a TCP server for pulseaudio allowing remote sound sources to be utilized (clients can be anonymous as well). The second line sets up &lt;code&gt;zerconf&lt;/code&gt; publishing by the &lt;code&gt;avahi
+&lt;p&gt;  The first line sets up a TCP server for pulseaudio allowing remote sound sources
+  to be utilized (clients can be anonymous as well). The second line sets up &lt;code&gt;zerconf&lt;/code&gt; publishing by the &lt;code&gt;avahi
   daemon&lt;/code&gt; (enable with &lt;code&gt;systemctl enable avahi-daemon &amp;amp;&amp;amp; systemctl start
-          avahi-daemon&lt;/code&gt; on Arch), the clients that will attach to the server will also need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&amp;#8217;ve just set up.&lt;/p&gt;
+          avahi-daemon&lt;/code&gt; on Arch), the clients that will attach to the server will also
+  need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&#39;ve
+  just set up.&lt;/p&gt;
 
-&lt;h2 id=&#39;setup_the_client_the_machine_that_you_want_audio_to_be_streamed_from&#39;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
+&lt;h2&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
 
-&lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt; load-module module-zeroconf-discover Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
+&lt;p&gt;  Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;
+  load-module module-zeroconf-discover
+  Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;load-module module-zeroconf-discover&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;load-module module-zeroconf-discover
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink (desktop) on the client/source (laptop).&lt;/p&gt;
+&lt;p&gt;  Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink
+  (desktop) on the client/source (laptop).&lt;/p&gt;
 
-&lt;h2 id=&#39;sources&#39;&gt;Sources&lt;/h2&gt;
+&lt;h2&gt;Sources&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#39;http://en.wikipedia.org/wiki/PulseAudio&#39;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/PulseAudio&quot;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/&quot;&gt;Sound on Linux is confusing part 1: ALSA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/&quot;&gt;Sound on Linux is confusing part 2: Pulseaudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network&quot;&gt;Pulseaudio examples | Arch Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;li&gt;&lt;a href=&#39;http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/&#39;&gt;Sound on Linux is confusing part 1: ALSA&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#39;http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/&#39;&gt;Sound on Linux is confusing part 2: Pulseaudio&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;a href=&#39;https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network&#39;&gt;Pulseaudio examples | Arch Wiki&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
+</content>
  </entry>
  
  <entry>
@@ -414,40 +570,47 @@ return 9&lt;/code&gt;&lt;/pre&gt;
    <link href="http://willprice.org//2013/02/08/beginners-steps-with-tdd.html"/>
    <updated>2013-02-08T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/02/08/beginners-steps-with-tdd</id>
-   <content type="html">&lt;p&gt;&lt;a href=&#39;http://www.codemanship.co.uk/parlezuml/&#39;&gt;Jason Gorman&lt;/a&gt; has agreed to mentor me in the subject of TDD (Test Driven Development). I plan to document my progress as I learn the principles behind this philosophy.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.codemanship.co.uk/parlezuml/&quot;&gt;Jason Gorman&lt;/a&gt; has agreed to mentor me
+in the subject of TDD (Test Driven Development). I plan to document my progress
+as I learn the principles behind this philosophy.&lt;/p&gt;
 
-&lt;p&gt;TDD can be roughly outlined as follows:&lt;/p&gt;
+&lt;p&gt;TDD can be roughly outlined as follows:
+- Write a failing test for the desired functionality.
+- Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test pass.
+- Refactor you code, making sure your changes don&#39;t break functionality (keep
+  running the tests)&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Write a failing test for the desired functionality.&lt;/li&gt;
+&lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I
+implemented a simple Fibonacci function, this enabled me to see how the general
+principle worked: &quot;Test a little, program a little&quot;, and see what sort of
+obstacles I might come across, such as &quot;What&#39;s the next test going to be where
+there is no linear progression to follow&quot;.&lt;/p&gt;
 
-&lt;li&gt;Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test pass.&lt;/li&gt;
+&lt;p&gt;I&#39;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can
+commit every time I write a test or a piece of code. The history of the code
+can be viewed using &lt;code&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code&gt;git log --follow --all -p
+filename&lt;/code&gt;[1].&lt;/p&gt;
 
-&lt;li&gt;Refactor you code, making sure your changes don&amp;#8217;t break functionality (keep running the tests)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;I don&#39;t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise
+I did, however I&#39;ve got my third attempt at it (it&#39;s  pretty similar to the
+first, I&#39;ve just been trying to internalize the concepts I&#39;ve met so far).&lt;/p&gt;
 
-&lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I implemented a simple Fibonacci function, this enabled me to see how the general principle worked: &amp;#8220;Test a little, program a little&amp;#8221;, and see what sort of obstacles I might come across, such as &amp;#8220;What&amp;#8217;s the next test going to be where there is no linear progression to follow&amp;#8221;.&lt;/p&gt;
-
-&lt;p&gt;I&amp;#8217;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can commit every time I write a test or a piece of code. The history of the code can be viewed using &lt;code&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code&gt;git log --follow --all -p
-filename&lt;/code&gt;&lt;span&gt;1&lt;/span&gt;.&lt;/p&gt;
-
-&lt;p&gt;I don&amp;#8217;t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise I did, however I&amp;#8217;ve got my third attempt at it (it&amp;#8217;s pretty similar to the first, I&amp;#8217;ve just been trying to internalize the concepts I&amp;#8217;ve met so far).&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;diff&#39;&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;diff&quot;&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
 Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
 Date:   Tue Jan 29 17:56:42 2013 +0000
 
     Rename testLengthOf51 -&amp;gt; testLengthOfFiftyOne for consistency
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index b6d3197..dc28f8c 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -39,7 +39,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index b6d3197..dc28f8c 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -39,7 +39,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testLengthOfSeven(self):
          self.assertRaises(ValueError, self.fibonacciGenerator, 7)
  
-&lt;span class=&#39;gd&#39;&gt;-    def testLengthOf51(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+    def testLengthOfFiftyOne(self):&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-    def testLengthOf51(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testLengthOfFiftyOne(self):&lt;/span&gt;
          self.assertRaises(ValueError, self.fibonacciGenerator, 51)
  
  if __name__ == &amp;#39;__main__&amp;#39;:
@@ -458,26 +621,26 @@ Date:   Tue Jan 29 17:56:13 2013 +0000
 
     Code to pass testLengthOf51
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index d3df5a9..b6d3197 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index d3df5a9..b6d3197 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
  
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&#39;gd&#39;&gt;-        if (length &amp;lt; 8):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        if (length &amp;lt; 8 or length &amp;gt; 50):&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-        if (length &amp;lt; 8):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        if (length &amp;lt; 8 or length &amp;gt; 50):&lt;/span&gt;
              raise ValueError
  
          fibonacciSequence = [0, 1]
-&lt;span class=&#39;gu&#39;&gt;@@ -39,5 +39,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -39,5 +39,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testLengthOfSeven(self):
          self.assertRaises(ValueError, self.fibonacciGenerator, 7)
  
-&lt;span class=&#39;gi&#39;&gt;+    def testLengthOf51(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 51)&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testLengthOf51(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 51)&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -487,17 +650,17 @@ Date:   Tue Jan 29 17:54:41 2013 +0000
 
     Code to pass TestLengthOfSeven
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index fcd695d..d3df5a9 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -4,6 +4,9 @@ import unittest&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index fcd695d..d3df5a9 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -4,6 +4,9 @@ import unittest&lt;/span&gt;
  
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&#39;gi&#39;&gt;+        if (length &amp;lt; 8):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+            raise ValueError&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        if (length &amp;lt; 8):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+            raise ValueError&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
          fibonacciSequence = [0, 1]
  
          for i in range(2, length):
@@ -508,17 +671,17 @@ Date:   Tue Jan 29 17:53:56 2013 +0000
 
     Test for length of 7 (invalid)
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index 274d12b..fcd695d 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -33,5 +33,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 274d12b..fcd695d 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -33,5 +33,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testValidLength(self):
          self.assertEquals(8, len(self.fibonacciGenerator(8)))
  
-&lt;span class=&#39;gi&#39;&gt;+    def testLengthOfSeven(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 7)&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testLengthOfSeven(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 7)&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -528,18 +691,18 @@ Date:   Tue Jan 29 17:50:05 2013 +0000
 
     Changed testLength to testValidLength for clarity
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index 61f6f9a..274d12b 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -30,7 +30,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 61f6f9a..274d12b 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -30,7 +30,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testSixthNumber(self):
          self.assertEquals(5, self.fibonacciGenerator(8)[5])
  
-&lt;span class=&#39;gd&#39;&gt;-    def testLength(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+    def testValidLength(self):&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-    def testLength(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testValidLength(self):&lt;/span&gt;
          self.assertEquals(8, len(self.fibonacciGenerator(8)))
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -549,26 +712,26 @@ Date:   Tue Jan 29 17:49:13 2013 +0000
 
     Test length of list
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index 783b800..61f6f9a 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -7,7 +7,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 783b800..61f6f9a 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -7,7 +7,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
          fibonacciSequence = [0, 1]
  
          for i in range(2, length):
-&lt;span class=&#39;gd&#39;&gt;-            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+            fibonacciSequence.append(fibonacciSequence[i - 2] + fibonacciSequence[i - 1])&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(fibonacciSequence[i - 2] + fibonacciSequence[i - 1])&lt;/span&gt;
  
          return fibonacciSequence
  
-&lt;span class=&#39;gu&#39;&gt;@@ -29,5 +29,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -29,5 +29,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
  
      def testSixthNumber(self):
          self.assertEquals(5, self.fibonacciGenerator(8)[5])
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+    def testLength(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(8, len(self.fibonacciGenerator(8)))&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testLength(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(8, len(self.fibonacciGenerator(8)))&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -578,29 +741,29 @@ Date:   Tue Jan 29 17:47:05 2013 +0000
 
     Test 6th number + code for that
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index f1b21d9..783b800 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -5,8 +5,10 @@ import unittest&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index f1b21d9..783b800 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -5,8 +5,10 @@ import unittest&lt;/span&gt;
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
          fibonacciSequence = [0, 1]
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
          for i in range(2, length):
-&lt;span class=&#39;gd&#39;&gt;-            fibonacciSequence.append(i - 1)&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-            fibonacciSequence.append(i - 1)&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
          return fibonacciSequence
  
      # TESTS
-&lt;span class=&#39;gu&#39;&gt;@@ -24,5 +26,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -24,5 +26,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
  
      def testFifthNumber(self):
          self.assertEquals(3, self.fibonacciGenerator(8)[4])
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+    def testSixthNumber(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(5, self.fibonacciGenerator(8)[5])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testSixthNumber(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(5, self.fibonacciGenerator(8)[5])&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -610,16 +773,16 @@ Date:   Tue Jan 29 17:40:18 2013 +0000
 
     Test fifth number, no code needed to pass
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index 3400d82..f1b21d9 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -22,5 +22,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 3400d82..f1b21d9 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -22,5 +22,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testFourthNumber(self):
          self.assertEquals(2, self.fibonacciGenerator(8)[3])
  
-&lt;span class=&#39;gi&#39;&gt;+    def testFifthNumber(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(3, self.fibonacciGenerator(8)[4])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testFifthNumber(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(3, self.fibonacciGenerator(8)[4])&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -629,17 +792,17 @@ Date:   Tue Jan 29 17:36:11 2013 +0000
 
     Test fourth number, no code needed to pass
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index c43b118..3400d82 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -19,5 +19,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index c43b118..3400d82 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -19,5 +19,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testThirdNumber(self):
          self.assertEquals(1, self.fibonacciGenerator(8)[2])
  
-&lt;span class=&#39;gi&#39;&gt;+    def testFourthNumber(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(2, self.fibonacciGenerator(8)[3])&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testFourthNumber(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(2, self.fibonacciGenerator(8)[3])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
 
@@ -649,21 +812,21 @@ Date:   Tue Jan 29 17:35:02 2013 +0000
 
     Code for third test
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index 28ed083..c43b118 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -4,8 +4,12 @@ import unittest&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 28ed083..c43b118 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -4,8 +4,12 @@ import unittest&lt;/span&gt;
  
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&#39;gd&#39;&gt;-        return [0, 1]&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        fibonacciSequence = [0, 1]&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        for i in range(2, length):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+            fibonacciSequence.append(i - 1)&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        return fibonacciSequence&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-        return [0, 1]&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        fibonacciSequence = [0, 1]&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        for i in range(2, length):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(i - 1)&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        return fibonacciSequence&lt;/span&gt;
  
-&lt;span class=&#39;gi&#39;&gt;+    # TESTS&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    # TESTS&lt;/span&gt;
      def testFirstNumber(self):
          self.assertEquals(0, self.fibonacciGenerator(8)[0])
  
@@ -674,25 +837,25 @@ Date:   Tue Jan 29 14:59:51 2013 +0000
 
     Add code for passing second test, test for third number
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index c9d28f3..28ed083 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index c9d28f3..28ed083 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
  
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&#39;gd&#39;&gt;-        return [0]&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        return [0, 1]&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-        return [0]&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        return [0, 1]&lt;/span&gt;
  
      def testFirstNumber(self):
          self.assertEquals(0, self.fibonacciGenerator(8)[0])
-&lt;span class=&#39;gu&#39;&gt;@@ -12,6 +12,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -12,6 +12,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
      def testSecondNumber(self):
          self.assertEquals(1, self.fibonacciGenerator(8)[1])
  
-&lt;span class=&#39;gi&#39;&gt;+    def testThirdNumber(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[2])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testThirdNumber(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[2])&lt;/span&gt;
  
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
@@ -703,23 +866,23 @@ Date:   Tue Jan 29 14:58:04 2013 +0000
 
     Code to pass first test, test for second number
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index 54fe5bf..c9d28f3 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -4,11 +4,14 @@ import unittest&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 54fe5bf..c9d28f3 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -4,11 +4,14 @@ import unittest&lt;/span&gt;
  
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&#39;gd&#39;&gt;-        return [None]&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        return [0]&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;-        return [None]&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        return [0]&lt;/span&gt;
  
      def testFirstNumber(self):
          self.assertEquals(0, self.fibonacciGenerator(8)[0])
  
-&lt;span class=&#39;gi&#39;&gt;+    def testSecondNumber(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[1])&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testSecondNumber(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[1])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
@@ -730,22 +893,22 @@ Date:   Tue Jan 29 14:51:39 2013 +0000
 
     Testing first fibonacci number, implemented fibonacciGenerator function
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gh&#39;&gt;index f4dfbd8..54fe5bf 100755&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -1,7 +1,14 @@&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index f4dfbd8..54fe5bf 100755&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -1,7 +1,14 @@&lt;/span&gt;
  #!/usr/bin/env python2
  import unittest
  
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  class TestFibonacciGenerator(unittest.TestCase):
-&lt;span class=&#39;gi&#39;&gt;+    def fibonacciGenerator(self, length):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        return [None]&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+    def testFirstNumber(self):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+        self.assertEquals(0, self.fibonacciGenerator(8)[0])&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def fibonacciGenerator(self, length):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        return [None]&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    def testFirstNumber(self):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(0, self.fibonacciGenerator(8)[0])&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
  
  if __name__ == &amp;#39;__main__&amp;#39;:
      unittest.main()
@@ -756,23 +919,32 @@ Date:   Tue Jan 29 10:16:20 2013 +0000
 
     Skeleton
 
-&lt;span class=&#39;gh&#39;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
 new file mode 100755
-&lt;span class=&#39;gh&#39;&gt;index 0000000..f4dfbd8&lt;/span&gt;
-&lt;span class=&#39;gd&#39;&gt;--- /dev/null&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&#39;gu&#39;&gt;@@ -0,0 +1,7 @@&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+#!/usr/bin/env python2&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+import unittest&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+if __name__ == &amp;#39;__main__&amp;#39;:&lt;/span&gt;
-&lt;span class=&#39;gi&#39;&gt;+    unittest.main()&lt;/span&gt;
+&lt;span class=&quot;gh&quot;&gt;index 0000000..f4dfbd8&lt;/span&gt;
+&lt;span class=&quot;gd&quot;&gt;--- /dev/null&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
+&lt;span class=&quot;gu&quot;&gt;@@ -0,0 +1,7 @@&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+#!/usr/bin/env python2&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+import unittest&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+if __name__ == &amp;#39;__main__&amp;#39;:&lt;/span&gt;
+&lt;span class=&quot;gi&quot;&gt;+    unittest.main()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#8217;m just getting started with the tools and methodologies so hopefully in 6 months time I&amp;#8217;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#8217;ve been using &lt;code&gt;tmux&lt;/code&gt; to organise my work, &lt;code&gt;vim&lt;/code&gt; to edit it, &lt;code&gt;git&lt;/code&gt; to save progress and &lt;code&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I&amp;#8217;m reasonably pleased with this workflow, it&amp;#8217;s both simple and flexible. &lt;span&gt;1&lt;/span&gt; - &amp;#8217;&amp;#8211;follow&amp;#8217; handles renames, &amp;#8217;&amp;#8211;all&amp;#8217; shows commits on all branches, &amp;#8216;-p&amp;#8217; shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;</content>
+
+&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&#39;m just
+getting started with the tools and methodologies so hopefully in 6 months time
+I&#39;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
+
+&lt;p&gt;I&#39;ve been using &lt;code&gt;tmux&lt;/code&gt; to organise my work, &lt;code&gt;vim&lt;/code&gt; to edit it, &lt;code&gt;git&lt;/code&gt; to save
+progress and &lt;code&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I&#39;m
+reasonably pleased with this workflow, it&#39;s both simple and flexible.
+[1] - &#39;--follow&#39; handles renames, &#39;--all&#39; shows commits on all branches, &#39;-p&#39;
+shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -780,18 +952,18 @@ new file mode 100755
    <link href="http://willprice.org//2012/11/19/CS101-Homework-4-splitting-strings.html"/>
    <updated>2012-11-19T00:00:00+00:00</updated>
    <id>http://willprice.org/2012/11/19/CS101-Homework-4-splitting-strings</id>
-   <content type="html">&lt;p&gt;I&amp;#8217;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&amp;#8217;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&amp;#8217;ll explain the question and how the solution is reached for those that didn&amp;#8217;t find the video particularly clear.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I&#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&#39;ll explain the question and how the solution is reached for those that didn&#39;t find the video particularly clear.&lt;/p&gt;
 
 &lt;p&gt;The question:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; # 1 Gold Star
- 
+
  # The built-in &amp;lt;string&amp;gt;.split() procedure works
  # okay, but fails to find all the words on a page
  # because it only uses whitespace to split the
  # string. To do better, we should also use punctuation
  # marks to split the page into words.
- 
+
  # Define a procedure, split_string, that takes two
  # inputs: the string to split and a string containing
  # all of the characters considered separators. The
@@ -799,43 +971,51 @@ new file mode 100755
  # the source string up by the characters in the
  # splitlist.
  #
- # def split_string(source,splitlist)&lt;/code&gt;&lt;/pre&gt;
+ # def split_string(source,splitlist)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;There are also some examples and expected behaviour given:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; out = split_string(&amp;quot;This is a test-of the,string separation-code!&amp;quot;,&amp;quot; ,!-&amp;quot;)
+&lt;pre&gt;&lt;code&gt; out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
  print out
- #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]
- 
- out = split_string(&amp;quot;After  the flood   ...  all the colors came out.&amp;quot;, &amp;quot; .&amp;quot;)
+ #&amp;gt;&amp;gt;&amp;gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]
+
+ out = split_string(&quot;After  the flood   ...  all the colors came out.&quot;, &quot; .&quot;)
  print out
- #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;After&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;flood&amp;#39;, &amp;#39;all&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;colors&amp;#39;, &amp;#39;came&amp;#39;, &amp;#39;out&amp;#39;]&lt;/code&gt;&lt;/pre&gt;
+ #&amp;gt;&amp;gt;&amp;gt; [&#39;After&#39;, &#39;the&#39;, &#39;flood&#39;, &#39;all&#39;, &#39;the&#39;, &#39;colors&#39;, &#39;came&#39;, &#39;out&#39;]
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&amp;#8217;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&#39;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;Let&amp;#8217;s define a list,&lt;code&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code&gt;source&lt;/code&gt; adding characters to a string present in &lt;code&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&amp;#8217;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&amp;#8217;ll need to start a new entry in the word_list list otherwise we&amp;#8217;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
+&lt;p&gt;Let&#39;s define a list,&lt;code&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code&gt;source&lt;/code&gt; adding characters to a string present in &lt;code&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&#39;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&#39;ll need to start a new entry in the word_list list otherwise we&#39;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
 
 &lt;p&gt;Now we have a better of idea of the problem and how to implement the solution we can start writing code:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;py&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;):&lt;/span&gt;
-    &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[]&lt;/span&gt;
 
-    &lt;span class=&#39;c&#39;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So we&amp;#8217;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&amp;#8217;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;py&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;):&lt;/span&gt;
-    &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[]&lt;/span&gt;
 
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;str&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;char&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
 
-    &lt;span class=&#39;c&#39;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;
+&lt;p&gt;So we&#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#39;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
 
-&lt;span class=&#39;n&#39;&gt;out&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot; ,!-.&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;out&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; ,!-.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;This code results in:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;  this char:   is in splitlist
@@ -846,72 +1026,84 @@ new file mode 100755
   this char: , is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
-  this char: ! is in splitlist&lt;/code&gt;&lt;/pre&gt;
+  this char: ! is in splitlist
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;We&amp;#8217;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&amp;#8217;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&amp;#8217;ll end up with one great list of words without spaces. First we&amp;#8217;ll acheive this unwanted behaviour as it&amp;#8217;s a step in the right direction, then we&amp;#8217;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;py&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;):&lt;/span&gt;
-    &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt;
+&lt;p&gt;We&#39;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&#39;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&#39;ll end up with one great list of words without spaces. First we&#39;ll acheive this unwanted behaviour as it&#39;s a step in the right direction, then we&#39;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
 
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;nb&#39;&gt;str&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;char&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;else&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt;
-    &lt;span class=&#39;c&#39;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-&lt;span class=&#39;n&#39;&gt;out&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;out&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;code&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
 
-&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&amp;#8217;ve already got a block of code that deals with this situation, it&amp;#8217;s simply printing lines at the moment, not doing anything useful, we&amp;#8217;ll change that so we know when we&amp;#8217;ve reached a splitting character.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;py&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;):&lt;/span&gt;
-    &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt;
+&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&#39;ve already got a block of code that deals with this situation, it&#39;s simply printing lines at the moment, not doing anything useful, we&#39;ll change that so we know when we&#39;ve reached a splitting character.&lt;/p&gt;
 
-    &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;bp&#39;&gt;False&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;bp&#39;&gt;True&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;else&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;bp&#39;&gt;False&lt;/span&gt;
-            &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt;
-    &lt;span class=&#39;c&#39;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
-&lt;span class=&#39;n&#39;&gt;out&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;out&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Here we&amp;#8217;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&amp;#8217;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&amp;#8217;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&amp;#8217;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;py&#39;&gt;&lt;span class=&#39;k&#39;&gt;def&lt;/span&gt; &lt;span class=&#39;nf&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;):&lt;/span&gt;
-    &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt;
 
-    &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;bp&#39;&gt;False&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;for&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;source&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;in&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;splitlist&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;bp&#39;&gt;True&lt;/span&gt;
-        &lt;span class=&#39;k&#39;&gt;else&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-            &lt;span class=&#39;k&#39;&gt;if&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-                &lt;span class=&#39;c&#39;&gt;# We&amp;#39;ve now reached the start of the word, time to make a new element in the list&lt;/span&gt;
-                &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;.&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;append&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;char&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt; &lt;span class=&#39;c&#39;&gt;# This creates a new element in the array with the value of &amp;#39;char&amp;#39;&lt;/span&gt;
-                &lt;span class=&#39;c&#39;&gt;# Reset at_split so no more elements are created until we reach a new word&lt;/span&gt;
-                &lt;span class=&#39;n&#39;&gt;at_split&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;bp&#39;&gt;False&lt;/span&gt;
-            &lt;span class=&#39;k&#39;&gt;else&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;:&lt;/span&gt;
-                &lt;span class=&#39;c&#39;&gt;# Char is not in splitlist, and we&amp;#39;re not at the start of a word, so simply concatenate&lt;/span&gt;
-                &lt;span class=&#39;c&#39;&gt;# char with the last entry in word_list&lt;/span&gt;
-                &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;[&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;-&lt;/span&gt;&lt;span class=&#39;mi&#39;&gt;1&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;]&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;+&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;char&lt;/span&gt;
 
-    &lt;span class=&#39;c&#39;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&#39;k&#39;&gt;return&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;word_list&lt;/span&gt;
+&lt;p&gt;Here we&#39;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#39;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
 
-&lt;span class=&#39;n&#39;&gt;out&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;split_string&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;(&lt;/span&gt;&lt;span class=&#39;s&#39;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;,&lt;/span&gt; &lt;span class=&#39;s&#39;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;)&lt;/span&gt;
-&lt;span class=&#39;k&#39;&gt;print&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;out&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;# We&amp;#39;ve now reached the start of the word, time to make a new element in the list&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# This creates a new element in the array with the value of &amp;#39;char&amp;#39;&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;# Reset at_split so no more elements are created until we reach a new word&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;# Char is not in splitlist, and we&amp;#39;re not at the start of a word, so simply concatenate&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;# char with the last entry in word_list&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Finally, we have the behaviour, the code above prints: &lt;span&gt;&amp;#8216;This&amp;#8217;, &amp;#8216;is&amp;#8217;, &amp;#8216;a&amp;#8217;, &amp;#8216;test&amp;#8217;, &amp;#8216;of&amp;#8217;, &amp;#8216;the&amp;#8217;, &amp;#8216;string&amp;#8217;, &amp;#8216;separation&amp;#8217;, &amp;#8216;code&amp;#8217;&lt;/span&gt;&lt;/p&gt;
+
+
+&lt;p&gt;Finally, we have the behaviour, the code above prints:
+      [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]&lt;/p&gt;
 
 &lt;p&gt;Mission accomplished.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#8217;ve also used Python Tutor&amp;#8217;s visualise program to show how the code is executed: &lt;a href=&#39;http://goo.gl/GSRHJ&#39;&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;</content>
+&lt;p&gt;I&#39;ve also used Python Tutor&#39;s visualise program to show how the code is executed: &lt;a href=&quot;http://goo.gl/GSRHJ&quot;&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -919,20 +1111,31 @@ new file mode 100755
    <link href="http://willprice.org//2012/11/07/processing-and-xmonad.html"/>
    <updated>2012-11-07T00:00:00+00:00</updated>
    <id>http://willprice.org/2012/11/07/processing-and-xmonad</id>
-   <content type="html">&lt;p&gt;After having put up with problems with the Processing IDE for quite a while, I could no longer take not being able to focus the text area without clicking on the stop button.&lt;/p&gt;
+   <content type="html">&lt;p&gt;After having put up with problems with the Processing IDE for quite a
+while, I could no longer take not being able to focus the text area
+without clicking on the stop button.&lt;/p&gt;
 
-&lt;p&gt;It transpires this is an issue caused by XMonad&amp;#8217;s handling of Java swing applications as noted by Krzysztof Krason in a &lt;a href=&#39;http://youtrack.jetbrains.com/issue/IDEA-65637&#39;&gt;thread&lt;/a&gt; in regard to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
+&lt;p&gt;It transpires this is an issue caused by XMonad&#39;s handling of Java swing
+applications as noted by Krzysztof Krason in a &lt;a href=&quot;http://youtrack.jetbrains.com/issue/IDEA-65637&quot;&gt;thread&lt;/a&gt;
+in regard to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;It&amp;#8217;s not a problem with Intellij but with XMonad, it has problems with java swing applications. The solution is to use something like this in to add &amp;#8220;import XMonad.Hooks.ICCCMFocus&amp;#8221; and in your logHook add &amp;#8220;takeTopFocus&amp;#8221;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;It&#39;s not a problem with Intellij but with XMonad, it has problems with
+java swing applications.
+The solution is to use something like this in to add &quot;import
+XMonad.Hooks.ICCCMFocus&quot; and in your logHook add &quot;takeTopFocus&quot;.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;So the solution is remarkable simple. Just add these lines to your xmonad.hs file:&lt;/p&gt;
-&lt;div class=&#39;highlight&#39;&gt;&lt;pre&gt;&lt;code class=&#39;haskell&#39;&gt;&lt;span class=&#39;kr&#39;&gt;import&lt;/span&gt; &lt;span class=&#39;nn&#39;&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt;
+&lt;p&gt;So the solution is remarkable simple. Just add these lines to your
+xmonad.hs file:&lt;/p&gt;
 
-&lt;span class=&#39;nf&#39;&gt;main&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;kr&#39;&gt;do&lt;/span&gt;
-&lt;span class=&#39;nf&#39;&gt;logHook&lt;/span&gt; &lt;span class=&#39;ow&#39;&gt;=&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;...&lt;/span&gt; &lt;span class=&#39;o&#39;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;gt&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt;&lt;span class=&#39;o&#39;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#39;n&#39;&gt;gt&lt;/span&gt;&lt;span class=&#39;p&#39;&gt;;&lt;/span&gt; &lt;span class=&#39;n&#39;&gt;takeTopFocus&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;haskell&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+</content>
  </entry>
  
  <entry>
@@ -963,7 +1166,8 @@ Nice work.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.jayconsystems.com&
    <link href="http://willprice.org//2011/12/27/tp-link-wr703n-openwrt-mpd.html"/>
    <updated>2011-12-27T00:00:00+00:00</updated>
    <id>http://willprice.org/2011/12/27/tp-link-wr703n-openwrt-mpd</id>
-   <content type="html"></content>
+   <content type="html">
+</content>
  </entry>
  
  <entry>
