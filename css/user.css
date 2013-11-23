@@ -56,6 +56,7 @@ pre {
   color: #93a1a1;
   font-family: monospace;
   font-style: normal;
+  max-height: 500px;
   overflow: auto;
 }
 
