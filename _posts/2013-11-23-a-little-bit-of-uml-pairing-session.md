@@ -30,7 +30,8 @@ a bit of title). Satisfying *2* involved adding a title to the library, and then
 returning the first element of the list holding our titles. The assertions we
 were writing to check the title was correct were very horrible, lots of getters
 on title--poor emergent design. Next week we'll have a look at how to go from
-our current implementation 
+our current implementation to something a little cleaner doing lots of
+refactoring!
 
 # LibraryTests.java
 {% highlight java %}

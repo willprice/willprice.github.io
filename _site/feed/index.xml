@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-11-23T22:01:24+00:00</updated>
+ <updated>2013-11-23T22:33:05+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -51,7 +51,8 @@ a bit of title). Satisfying &lt;em&gt;2&lt;/em&gt; involved adding a title to th
 returning the first element of the list holding our titles. The assertions we
 were writing to check the title was correct were very horrible, lots of getters
 on title--poor emergent design. Next week we&#39;ll have a look at how to go from
-our current implementation&lt;/p&gt;
+our current implementation to something a little cleaner doing lots of
+refactoring!&lt;/p&gt;
 
 &lt;h1&gt;LibraryTests.java&lt;/h1&gt;
 
