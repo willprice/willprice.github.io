@@ -4,13 +4,36 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-12-01T12:17:08+00:00</updated>
+ <updated>2013-12-15T00:10:45+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>The Bowling Game Kata</title>
+   <link href="http://willprice.org//2013/12/14/the-bowling-game-kata.html"/>
+   <updated>2013-12-14T00:00:00+00:00</updated>
+   <id>http://willprice.org/2013/12/14/the-bowling-game-kata</id>
+   <content type="html">&lt;p&gt;One of the classic Katas: &lt;a href=&quot;http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata&quot;&gt;The Bowling
+Game&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&#39;ve pretty much reproduced Uncle Bob&#39;s solution as I had a huge amount of
+trouble tackling this in an OO way. Jason has suggested I use linked lists to
+keep track of the next frame and get the score from that, I&#39;d avoided doing
+something like that as I thought that would produce the &#39;inappropriate intimacy&#39;
+design smell, but I suppose it&#39;s better than having responsibilities in the
+wrong place.&lt;/p&gt;
+
+&lt;p&gt;I finish Uni this week so I&#39;ll have some more time to look at this problem. I&#39;ll
+try and post a video where I refactor what I have into an OO solution :)&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/7RJM3pcMNyo&quot;&gt;&lt;/iframe&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>OO Design: Addiction app</title>
