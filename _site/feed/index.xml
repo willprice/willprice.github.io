@@ -4,13 +4,102 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2013-12-15T00:10:45+00:00</updated>
+ <updated>2014-01-10T16:00:17+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>LaTeX fails... and fixes!</title>
+   <link href="http://willprice.org//2014/01/10/latex-fails.html"/>
+   <updated>2014-01-10T00:00:00+00:00</updated>
+   <id>http://willprice.org/2014/01/10/latex-fails</id>
+   <content type="html">&lt;p&gt;I thought it might be a good idea to brush up my LaTeX skills by writing my
+maths homework in it... big mistake... lots of time wasted! I&#39;m much more
+informed on LaTeX now, so here&#39;s some of the things I struggled with in the
+hopes it will help future me from spending hours figuring out how to put
+multiple tables on one line!&lt;/p&gt;
+
+&lt;h2&gt;Referencing figures and tables&lt;/h2&gt;
+
+&lt;p&gt;You must put the label &lt;em&gt;after the caption&lt;/em&gt; in a figure or table:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;tex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;% Don&amp;#39;t put labels before the caption, like here&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+        ...
+    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;A table of things&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:things&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Multiple tables on a single line&lt;/h2&gt;
+
+&lt;p&gt;Use the &lt;code&gt;subcaption&lt;/code&gt; package, this allows you to specify the width of subtables
+and subfigures.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;tex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[h]
+    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[b]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;1.3&lt;span class=&quot;k&quot;&gt;\linewidth&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\centering&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;c|cccc&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\circ&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;%replace \quad with a new line if you don&amp;#39;t want it on the same line&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\quad&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[b]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;0.4&lt;span class=&quot;k&quot;&gt;\linewidth&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\centering&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;c|cc&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;nb&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\circ&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
+
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;Only valid &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; subgroup: &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; and it&amp;#39;s subgroup &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;nb&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Specify the location of tables&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;[specifier]&lt;/code&gt; takes one of the following &lt;code&gt;{h,t,b,p}&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;h&lt;/code&gt; - Here&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;t&lt;/code&gt; - Top&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;b&lt;/code&gt; - Bottom&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;p&lt;/code&gt; - Own page&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;These can be combined like &lt;code&gt;hbp&lt;/code&gt;, close to the place in the text on it&#39;s own
+separate page at the bottom&lt;/p&gt;
+
+&lt;h2&gt;Spacing and measures&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\quad&lt;/code&gt; - space&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\linewidth&lt;/code&gt; - width of page, use this with the &lt;code&gt;subtable&lt;/code&gt; environment when
+you&#39;re setting the width of a subtable.&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>The Bowling Game Kata</title>
