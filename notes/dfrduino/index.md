@@ -69,18 +69,19 @@ void flash() {
 {% endhighlight %}
 
 ## Outline of the workshop:
-1. [PRIMER: Introduction to Arduino and C (IMPORTANT for beginners with little
-   experience)](intro.html), if you're already familiar with programming, just
+1. [**PRIMER**: Introduction to Arduino and C](intro.html) **(IMPORTANT for beginners with little experience)**, if you're already familiar with programming, just
    take a brief look and then move on to the workshop material.
 2. [Introduction to the DFDuino robot platform](intro-dfduino.html)
 3. [Making your robot move](moving.html)
 4. [Sensing distance](sensing.html)
 5. [Avoiding obstacles](avoiding.html)
-6. [Debugging (when you have problems)](debugging.html)
+
+Also see [Debugging (fixing problems)](debugging.html)
 
 ## Helpful links
 Throughout the workshop you may find you have gaps in your knowledge. You should
 be able to find out everything you need to know at these links:
+
 * [Arduino](http://www.arduino.cc/)
 * [Arduino bare minimum program](http://arduino.cc/en/Tutorial/BareMinimum)
 * [Arduino blink an LED](http://arduino.cc/en/Tutorial/Blink)
@@ -88,5 +89,5 @@ be able to find out everything you need to know at these links:
 * [Arduino getting started](http://arduino.cc/en/Guide/HomePage)
 * [Arduino programming reference](http://arduino.cc/en/Reference/HomePage)
 * [DFRduino](http://www.dfrobot.com/wiki/index.php/DFRduino_Romeo-All_in_one_Controller_(SKU:DFR0004\))
-* [DFRduino Library Reference](reference)
+* [DFRduino Library Reference](doc/classDFRduino.html)
 * [DFRduino Github repository](http://github.com/willprice/DFRduino)

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dfduino',['DFDuino',['../classDFDuino.html',1,'']]]
+  ['dfrduino',['DFRduino',['../classDFRduino.html',1,'']]]
 ];
