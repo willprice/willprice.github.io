@@ -88,4 +88,5 @@ be able to find out everything you need to know at these links:
 * [Arduino getting started](http://arduino.cc/en/Guide/HomePage)
 * [Arduino programming reference](http://arduino.cc/en/Reference/HomePage)
 * [DFRduino](http://www.dfrobot.com/wiki/index.php/DFRduino_Romeo-All_in_one_Controller_(SKU:DFR0004\))
-
+* [DFRduino Library Reference](reference)
+* [DFRduino Github repository](http://github.com/willprice/DFRduino)
