@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <h1>Arduino Introduction</h1>
+
+<p>So, at what level of expertise are you? Absolute beginner? No worries, It might
+be tough going, but I'm sure a smart person like yourself should be able to follow along
+! :D</p>
+
+<p>WARNING: There are code snippets throughout the text, I won't have introduced
+the language in which you program until later, just take a look and see whether
+you can understand any of the code. It's meant to be somewhat understandable to
+non programmers. Once you've finished the introduction you should be able to
+understand any of the code snippets throughout.</p>
+
+<p>When I introduce the syntax for the language I use a name inside quare brackets
+to represent some that should be replaced. For example <code>[type] [name];</code> could be
+realised as <code>int x</code> when I tell you that an <code>int</code> is a <code>type</code>, and a <code>name</code> can be
+anything in English that doesn't have spaces in it or special characters other
+than an underscore.</p>
+
+<h2>Hardware</h2>
+
+<p>The Arduino is a microcontroller, this is essentially like a mini-computer. In
+one sense it's rather like any laptop, tablet or PC you use in that at the
+lowest level they manipulate 1s and 0s. However, the way you use them couldn't
+be more different!</p>
+
+<p>Microcontrollers aren't particularly clever, you have to instruct them on how to
+do things, they're fundamentally stupid. You're the one who programs the
+brains; you're the clever one.</p>
+
+<p>We'll go over the basic features of the Arduino, how they are used, and what you
+can use them for.</p>
+
+<h3>Pins and Ports</h3>
+
+<p>Pins are a part of a port, you can plug things into them. Once you've plugged
+something in to them, you can use them as:</p>
+
+<ul>
+<li>An input: take in information from the real world</li>
+<li>An output: control things like lights, motors etc.</li>
+</ul>
+
+
+<p><img src="ArduinoMegaAnnotatedSmall.jpg" alt="Arduino Mega Pins" /></p>
+
+<p>To use a pin you have to tell the Arduino whether you'll use it as an input or
+an output. We use the <code>pinMode</code> function to do this.</p>
+
+<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Set pin 10 as an output</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>On the Arduino there are two types of pins:</p>
+
+<ul>
+<li>Analog pins (they can read a large range of values: from 0-1023)</li>
+<li>Digital pins (they can only read two values: 0 and 1)</li>
+</ul>
+
+
+<p>A digital value is one of two values: 0 or 1, false or true. In contrast, Analog
+values make up a range, in theory this range is infinitely large, in practice
+the Arduino can only handle 1024 values (this is a limit of it's hardware). This
+is plenty for most applications, so don't despair...</p>
+
+<p>Once we've set up the mode for a pin, we can go ahead and actually read input
+from it, or write some output to it.</p>
+
+<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Both of these pins are digital pins, analog pins are assumed to be inputs</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Depending on how you want to think about it:</span>
+    <span class="c1">// Turn pin 10 on</span>
+    <span class="c1">// Set pin 10 to the value: HIGH</span>
+    <span class="c1">// Set pin 10 to the value: True</span>
+    <span class="c1">// Set pin 10 to the value: 1</span>
+    <span class="c1">// they all mean the same thing.</span>
+    <span class="c1">// If we hook up an LED to pin 10, it&#39;d be lit up</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+
+
+    <span class="c1">// This will be either 0 or 1 depending on the voltage on pin 3.</span>
+    <span class="c1">// If the voltage on pin 3 is 5v then digitalRead(3) will be 1</span>
+    <span class="c1">// If the voltage on pin 3 is 0v then digitalRead(3) will be 0</span>
+    <span class="kt">int</span> <span class="n">pinThreeValue</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+
+    <span class="c1">// Here we&#39;re reading the analog value from pin 1 on the analog port</span>
+    <span class="c1">// This will be a value in the range 0--1023.</span>
+    <span class="c1">// Notice we didn&#39;t have to set this up in &#39;setup()&#39; as it&#39;s an analog pin.</span>
+    <span class="c1">// They can only act as inputs.</span>
+    <span class="kt">int</span> <span class="n">analogPinOneValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2>Programing Language</h2>
+
+<p>The Arduino is programmed in a language called <code>C</code>. It's rather low level, this
+means that it doesn't hold your hand that much; you have to do a lot of things
+yourself that other languages would automatically do for you. This is a good
+thing for microcontrollers as it gives you very fine control over them.</p>
+
+<p>Throughout this section I'll refer to the syntax of <code>C</code>, by 'syntax' I'm talking
+about the grammar; how you can construct valid sentences. If you violate <code>C</code>s syntax
+you will receive errors in the Arduino program, and your code won't run. You
+have to correctly state what you want the Arduino to do, if you don't it will
+complain that it doesn't understand how to interpret what you wrote.</p>
+
+<h3>Variables</h3>
+
+<p>A variable is a bit of memory that stores a value. All values are stored as 1s
+and 0s, so for <code>C</code> to know how to interpret the 1s and 0s you have to state what
+you're storing in your variable.</p>
+
+<p>The syntax for declaring variables is: <code>[type] [name] = [value];</code></p>
+
+<p>I'll declare some variables to give you a taste of what's possible:</p>
+
+<div class="highlight"><pre><code class="c"><span class="c1">// int is a type that holds an integer, a whole number</span>
+<span class="kt">int</span> <span class="n">wholeNumber</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="c1">// float is a type that holds a decimal number, one with a decimal point</span>
+<span class="kt">float</span> <span class="n">decimal</span> <span class="o">=</span> <span class="mf">23.4123</span><span class="p">;</span>
+
+<span class="c1">// There are other types like &#39;byte&#39;, &#39;short&#39;, &#39;long&#39;, &#39;double&#39;</span>
+<span class="c1">// these are out of the scope of this introduction, but they do</span>
+<span class="c1">// very similar things to the above but can store larger or smaller numbers</span>
+<span class="c1">// they&#39;re mainly used when you&#39;re dealing with BIG numbers, or need to save</span>
+<span class="c1">// lots of memory space</span>
+</code></pre></div>
+
+
+<h3>Statements and Expressions</h3>
+
+<p>A statement takes the form: <code>expression;</code>, expressions are things like:</p>
+
+<ul>
+<li><code>3 + 1</code></li>
+<li><code>a = 3</code> Assign 3 to the variable 'a'</li>
+<li><code>pinMode(3, INPUT)</code> 'Set pin 3 as an input'</li>
+</ul>
+
+
+<p>They become statements when you put a semi-colon on the end. Expressions will
+evaluate to values:</p>
+
+<ul>
+<li><code>3 + 1</code> evaluates to 4</li>
+<li><code>a = 3</code> evaluates to 3</li>
+<li><code>pinMode(3, INPUT)</code> evaluates to something (maybe 0, maybe 13? We just don't
+know!), whatever it evaluates to, it doesn't matter because we don't care
+about what it returns; we care about what it does: set a pin as an input.</li>
+</ul>
+
+
+<h3>Functions</h3>
+
+<p>Functions are an incredibly useful tool. They allow you to wrap up a set of
+statements and give them a name. I'm going to show you how to write a function
+<code>flash()</code> that turns an LED on and off.</p>
+
+<p>Functions take the form <code>[return type] [name]()</code></p>
+
+<div class="highlight"><pre><code class="c"><span class="c1">// We define the function flash </span>
+<span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Pin 13 is the on board LED on an Arduino</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="c1">// Leave the LED on for 0.5s = 500 microseconds</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="c1">// Turn the LED off</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="c1">// Leave it off for 0.5s</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>We can now 'call' (run) the function:</p>
+
+<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Functions are run by writing their name followed by ()</span>
+    <span class="n">flash</span><span class="p">();</span>    
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Pin 13 is the on board LED on an Arduino</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="c1">// Leave the LED on for 0.5s = 500 microseconds</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="c1">// Turn the LED off</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="c1">// Leave it off for 0.5s</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>I haven't been entirely honest with you. Functions can also take <em>parameters</em>,
+these allow you to take values into the function. I'll show you a simple
+function with a parameter, it should make the concept clearer.</p>
+
+<div class="highlight"><pre><code class="c"><span class="c1">// double returns an int (a whole number), we could assign this to a variable if</span>
+<span class="c1">// we wanted</span>
+<span class="kt">int</span> <span class="nf">double</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Remember I said that everything evaluates to a value, well functions with</span>
+    <span class="c1">// return types that aren&#39;t `void` return a meaningful value, in this</span>
+    <span class="c1">// function we&#39;ve decided that it will return the double of the number we</span>
+    <span class="c1">// pass into it</span>
+    <span class="k">return</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Functions with parameters are run much like those without:</span>
+<span class="c1">// [name]([value]);</span>
+<span class="c1">// double(2) will return 4;</span>
+<span class="c1">// double(10) will return 20;</span>
+<span class="c1">// x is 2</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1">// we reassign x to be double(2) which evaluates to 4.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</code></pre></div>
+
+
+<h2>Conditionals: "if this, then do that, else do this"</h2>
+
+<p>Conditionals are one of the great things about programming, they're a way to
+make your code a little more human, make it decide things! I found it to be one
+of the most exciting things when I first learnt to program.</p>
+
+<p>The idea looks like this:</p>
+
+<pre><code>if (something is true)
+    then do this
+else
+    do this instead
+</code></pre>
+
+<p>There's nothing mysterious about this, you do it all the time when you talk to
+people: "If I get up on time, I'll eat breakfast, otherwise I'll skip it"</p>
+
+<p>Let's put that logic into the above form:
+    if (i get up on time)
+        then eat breakfast
+    else
+        skip breakfast</p>
+
+<p>We can transform that to the equivalent <code>C</code> code, imagine we had some functions:
+<code>eatBreakfast()</code>, <code>skipBreakfast()</code> and a variable <code>gotUpOnTime</code> that is <code>1</code> if
+you got up on time, otherwise is <code>0</code>.</p>
+
+<pre><code>// 1 means True
+if (gotUpOnTime == 1) {
+   // Invoke a function that 'eats breakfast'
+   eatBreakfast();
+} else {
+   skipBreakfast();
+}
+</code></pre>
+
+<p>So we've looked at some examples that you might face in reality, but how can we
+use this tool to leverage the features of a microcontroller? Well. We'll use it
+to interact with the world of course! Lets do something simple to begin with.
+Imagine you have a light sensor hooked up that gives a <code>1</code> when there is light
+shining on it, and <code>0</code> when it's dark. We'll also hook up and LED to the
+microcontroller so that it can respond to the input from the light sensor.</p>
+
+<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// if it&#39;s light</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Turn the LED off</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Turn the LED on</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>Ta Da! We now have a very simple porch light. When it's dark the LED will turn
+on. If it's light, then the LED will turn off. There are loads of really
+simple problems that can be solved like this, you just have to have the creative
+to see the applications of microcontrollers. Just because something is simple
+it doesn't mean you're not clever for solving it. In fact, I'd go as far as
+saying if you see something that hasn't been solved that is simple, you're
+clever! Others would just shrug and put up with the problem.</p>
+
+<p>That's probably enough for the moment. You should be sufficiently equipped to do
+well in the workshop if you understood the material. You can find more on the
+<a href="http://www.arduino.cc">Arduino website</a>.</p>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

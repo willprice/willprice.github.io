@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <h1>DFRduino Robot Workshop</h1>
+
+<p>Hello everyone! I hope we do have an enjoyable workshop. If you find anything
+this difficult to understand, find me at the end of the session and please do
+say, it'll help me make it clearer for the next run of the workshop.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Some knowledge of Arduino programming (if lacking see <a href="intro.html">tutorial</a>).</li>
+<li>A laptop with wifi and the <a href="http://arduino.cc/en/Main/Software">Arduino IDE</a>.</li>
+<li>A DFDuino robot <em>(provided by us at the workshop)</em></li>
+</ul>
+
+
+<p>If you're unsure of whether you have a sufficient level of programming skill,
+see whether you can understand the code below. I've commented it to try and help
+you understand it. If you have trouble, try reading my introduction and
+following the Arduino links at the bottom of the page.</p>
+
+<div class="highlight"><pre><code class="c"><span class="c1">// Declare the variables we&#39;ll use in the sketch</span>
+<span class="c1">// Definitions of variables come in the form:</span>
+<span class="c1">// [type] [name] = [value];</span>
+<span class="c1">// int stands for integer (a whole number, not a decimal)</span>
+<span class="kt">int</span> <span class="n">delayTimeInMiliSeconds</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+<span class="c1">// LEDs are a type of light</span>
+<span class="c1">// A pin is a port on the arduino in which we can plug wires into and control</span>
+<span class="c1">// things</span>
+<span class="kt">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+
+<span class="c1">// setup() runs only once</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Set the ledPin (13) to be an output</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Loop runs continuously, when it&#39;s finished, it reruns itself</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Here we run the &#39;flash()&#39; function over and over again</span>
+    <span class="n">flash</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// This is the &#39;flash()&#39; function definition</span>
+<span class="c1">// Function definitions look like this:</span>
+<span class="c1">// [type] [name]() {</span>
+<span class="c1">//      [code]</span>
+<span class="c1">// }</span>
+<span class="c1">// &#39;type&#39; is the type of value returned if you use any &#39;return&#39; statments in</span>
+<span class="c1">// your function. E.g. &#39;void&#39; if you don&#39;t return anything.</span>
+<span class="c1">// &#39;name&#39; is the name you use to run the code, e.g. &#39;flash&#39;</span>
+<span class="c1">// &#39;code&#39; is the code that your function will run when you &#39;call&#39; is by writing</span>
+<span class="c1">// the code &#39;name()&#39;</span>
+<span class="c1">//</span>
+<span class="c1">// The curly braces: &#39;{&#39; and &#39;}&#39; enclose the code that runs when</span>
+<span class="c1">// &#39;flash()&#39; is run.</span>
+<span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// digitalWrite allows us to control a pin (in this case, pin 13) and change</span>
+    <span class="c1">// it&#39;s value.</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="c1">// delay for the amount of time we declared at the start of the sketch</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">delayTimeInMiliSeconds</span><span class="p">);</span>
+    <span class="c1">// output a LOW (0V) signal on the ledPin</span>
+    <span class="c1">// this turns the LED off, as it will no longer have a current flowing</span>
+    <span class="c1">// through it</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="c1">// Again, delay like last time</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">delayTimeInMiliSeconds</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h2>Outline of the workshop:</h2>
+
+<ol>
+<li><a href="intro.html">PRIMER: Introduction to Arduino and C (IMPORTANT for beginners with little
+experience)</a>, if you're already familiar with programming, just
+take a brief look and then move on to the workshop material.</li>
+<li><a href="intro-dfduino.html">Introduction to the DFDuino robot platform</a></li>
+<li><a href="moving.html">Making your robot move</a></li>
+<li><a href="sensing.html">Sensing distance</a></li>
+<li><a href="avoiding.html">Avoiding obstacles</a></li>
+<li><a href="debugging.html">Debugging (when you have problems)</a></li>
+</ol>
+
+
+<h2>Helpful links</h2>
+
+<p>Throughout the workshop you may find you have gaps in your knowledge. You should
+be able to find out everything you need to know at these links:
+* <a href="http://www.arduino.cc/">Arduino</a>
+* <a href="http://arduino.cc/en/Tutorial/BareMinimum">Arduino bare minimum program</a>
+* <a href="http://arduino.cc/en/Tutorial/Blink">Arduino blink an LED</a>
+* <a href="http://arduino.cc/en/Guide/Introduction">Arduino introduction</a>
+* <a href="http://arduino.cc/en/Guide/HomePage">Arduino getting started</a>
+* <a href="http://arduino.cc/en/Reference/HomePage">Arduino programming reference</a>
+* <a href="http://www.dfrobot.com/wiki/index.php/DFRduino_Romeo-All_in_one_Controller_(SKU:DFR0004)">DFRduino</a>
+* <a href="reference">DFRduino Library Reference</a>
+* <a href="http://github.com/willprice/DFRduino">DFRduino Github repository</a></p>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
