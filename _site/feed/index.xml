@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-01-11T01:57:04+00:00</updated>
+ <updated>2014-01-17T23:16:23+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -18,12 +18,12 @@
    <updated>2014-01-10T00:00:00+00:00</updated>
    <id>http://willprice.org/2014/01/10/latex-fails</id>
    <content type="html">&lt;p&gt;I thought it might be a good idea to brush up my LaTeX skills by writing my
-maths homework in it... big mistake... lots of time wasted! I&#39;m much more
-informed on LaTeX now, so here&#39;s some of the things I struggled with in the
+maths homework in it... big mistake... lots of time wasted! I&amp;#39;m much more
+informed on LaTeX now, so here&amp;#39;s some of the things I struggled with in the
 hopes it will help future me from spending hours figuring out how to put
 multiple tables on one line!&lt;/p&gt;
 
-&lt;h2&gt;Referencing figures and tables&lt;/h2&gt;
+&lt;h2 id=&quot;toc_0&quot;&gt;Referencing figures and tables&lt;/h2&gt;
 
 &lt;p&gt;You must put the label &lt;em&gt;after the caption&lt;/em&gt; in a figure or table:&lt;/p&gt;
 
@@ -37,8 +37,7 @@ multiple tables on one line!&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;h2&gt;Multiple tables on a single line&lt;/h2&gt;
+&lt;h2 id=&quot;toc_1&quot;&gt;Multiple tables on a single line&lt;/h2&gt;
 
 &lt;p&gt;Use the &lt;code&gt;subcaption&lt;/code&gt; package, this allows you to specify the width of subtables
 and subfigures.&lt;/p&gt;
@@ -74,8 +73,7 @@ and subfigures.&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;h2&gt;Specify the location of tables&lt;/h2&gt;
+&lt;h2 id=&quot;toc_2&quot;&gt;Specify the location of tables&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;[specifier]&lt;/code&gt; takes one of the following &lt;code&gt;{h,t,b,p}&lt;/code&gt;&lt;/p&gt;
 
@@ -86,18 +84,16 @@ and subfigures.&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;p&lt;/code&gt; - Own page&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;p&gt;These can be combined like &lt;code&gt;hbp&lt;/code&gt;, close to the place in the text on it&#39;s own
+&lt;p&gt;These can be combined like &lt;code&gt;hbp&lt;/code&gt;, close to the place in the text on it&amp;#39;s own
 separate page at the bottom&lt;/p&gt;
 
-&lt;h2&gt;Spacing and measures&lt;/h2&gt;
+&lt;h2 id=&quot;toc_3&quot;&gt;Spacing and measures&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;\quad&lt;/code&gt; - space&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;\linewidth&lt;/code&gt; - width of page, use this with the &lt;code&gt;subtable&lt;/code&gt; environment when
-you&#39;re setting the width of a subtable.&lt;/li&gt;
+you&amp;#39;re setting the width of a subtable.&lt;/li&gt;
 &lt;/ul&gt;
-
 </content>
  </entry>
  
@@ -109,18 +105,17 @@ you&#39;re setting the width of a subtable.&lt;/li&gt;
    <content type="html">&lt;p&gt;One of the classic Katas: &lt;a href=&quot;http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata&quot;&gt;The Bowling
 Game&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I&#39;ve pretty much reproduced Uncle Bob&#39;s solution as I had a huge amount of
+&lt;p&gt;I&amp;#39;ve pretty much reproduced Uncle Bob&amp;#39;s solution as I had a huge amount of
 trouble tackling this in an OO way. Jason has suggested I use linked lists to
-keep track of the next frame and get the score from that, I&#39;d avoided doing
-something like that as I thought that would produce the &#39;inappropriate intimacy&#39;
-design smell, but I suppose it&#39;s better than having responsibilities in the
-wrong place.&lt;/p&gt;
+keep track of the next frame and get the score from that, I&amp;#39;d avoided doing
+something like that as I thought that would produce the &amp;#39;inappropriate intimacy&amp;#39;
+design smell, but I suppose it&amp;#39;s better than having responsibilities in the
+wrong place. &lt;/p&gt;
 
-&lt;p&gt;I finish Uni this week so I&#39;ll have some more time to look at this problem. I&#39;ll
+&lt;p&gt;I finish Uni this week so I&amp;#39;ll have some more time to look at this problem. I&amp;#39;ll
 try and post a video where I refactor what I have into an OO solution :)&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/7RJM3pcMNyo&quot;&gt;&lt;/iframe&gt;
-
 </content>
  </entry>
  
@@ -129,30 +124,30 @@ try and post a video where I refactor what I have into an OO solution :)&lt;/p&g
    <link href="http://willprice.org//2013/11/30/oo-design-addiction-app.html"/>
    <updated>2013-11-30T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/30/oo-design-addiction-app</id>
-   <content type="html">&lt;p&gt;From last week&#39;s pairing session. Jason suggested I try and design my own
+   <content type="html">&lt;p&gt;From last week&amp;#39;s pairing session. Jason suggested I try and design my own
 application from the principles he showed me (and demonstrates in his youtube
-video). I decided I&#39;d go for something a little simpler to make sure if I did
-screw up, it wouldn&#39;t be too time consuming to restart.&lt;/p&gt;
+video). I decided I&amp;#39;d go for something a little simpler to make sure if I did
+screw up, it wouldn&amp;#39;t be too time consuming to restart.&lt;/p&gt;
 
 &lt;p&gt;My application is going to be for smartphones, it will allow people to record
-their &#39;indulgences&#39; in their vices. For example, an alcoholic will be able to
+their &amp;#39;indulgences&amp;#39; in their vices. For example, an alcoholic will be able to
 record how often, and how much he/she drinks, then chart that to see whether they
 are decreasing their consumption or not. A pretty simple idea, but especially as
-this will be my first Android app, I thought I&#39;d go for something reasonably
+this will be my first Android app, I thought I&amp;#39;d go for something reasonably
 simple.&lt;/p&gt;
 
 &lt;p&gt;I wrote my user stories in Trello, acceptance tests around these user stories
 are comments on the cards. I think I may have been pushing it, but I also used
-it for my CRC cards; I wouldn&#39;t recommend it for this though! Look at the boards
+it for my CRC cards; I wouldn&amp;#39;t recommend it for this though! Look at the boards
 on &lt;a href=&quot;https://trello.com/b/5QErUdSy/addiciton-app&quot;&gt;Trello&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I also made a
-&lt;a href=&quot;https://docs.google.com/drawings/d/1np58VnMyYzhps_SrOcwW7bjJ2_tOr1R-aEpwweXU5tc/edit?usp=sharing&quot;&gt;diagram&lt;/a&gt; of the interactions between classes on google docs. I&#39;m
-not sure how complete it is. I spent quite a while trying to see whether I&#39;d
-missed any relationships, but I couldn&#39;t spot any. At the same time it still
-felt incomplete. Once I&#39;ve done quite a few of these I hope I&#39;ll be able to
+&lt;a href=&quot;https://docs.google.com/drawings/d/1np58VnMyYzhps_SrOcwW7bjJ2_tOr1R-aEpwweXU5tc/edit?usp=sharing&quot;&gt;diagram&lt;/a&gt; of the interactions between classes on google docs. I&amp;#39;m
+not sure how complete it is. I spent quite a while trying to see whether I&amp;#39;d
+missed any relationships, but I couldn&amp;#39;t spot any. At the same time it still
+felt incomplete. Once I&amp;#39;ve done quite a few of these I hope I&amp;#39;ll be able to
 churn them out quicker, currently I find them quite difficult and constantly
-have to refer to examples to see whether I&#39;m on the right path.&lt;/p&gt;
+have to refer to examples to see whether I&amp;#39;m on the right path.&lt;/p&gt;
 </content>
  </entry>
  
@@ -161,30 +156,26 @@ have to refer to examples to see whether I&#39;m on the right path.&lt;/p&gt;
    <link href="http://willprice.org//2013/11/23/a-little-bit-of-uml-pairing-session.html"/>
    <updated>2013-11-23T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/23/a-little-bit-of-uml-pairing-session</id>
-   <content type="html">&lt;p&gt;Jason&#39;s video on the subject:&lt;/p&gt;
-
+   <content type="html">&lt;p&gt;Jason&amp;#39;s video on the subject:
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/U7X6EswilYc&quot;&gt;&lt;/iframe&gt;
-
-
-&lt;p&gt;&lt;a href=&quot;http://www.codemanship.co.uk/files/littleuml.pdf&quot;&gt;Slide source&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;http://www.codemanship.co.uk/files/littleuml.pdf&quot;&gt;Slide source&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Jason and I went through the slides discussing OO design as we went. After
 looking at the user cases, acceptance tests and CRC cards, we started writing an
 implementation of the software.&lt;/p&gt;
 
-&lt;h2&gt;Tests&lt;/h2&gt;
+&lt;h2 id=&quot;toc_0&quot;&gt;Tests&lt;/h2&gt;
 
 &lt;p&gt;This is as far as we got:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;add a new title&lt;/li&gt;
-&lt;li&gt;donating a copy of a title that isn&#39;t in the library add the title to the
+&lt;li&gt;donating a copy of a title that isn&amp;#39;t in the library add the title to the
 library&lt;/li&gt;
-&lt;li&gt;donating a copy of a different title that isn&#39;t in the library adds the title
+&lt;li&gt;donating a copy of a different title that isn&amp;#39;t in the library adds the title
 to the library&lt;/li&gt;
-&lt;li&gt;finding a title that doesn&#39;t exist in the library returns null.&lt;/li&gt;
+&lt;li&gt;finding a title that doesn&amp;#39;t exist in the library returns null.&lt;/li&gt;
 &lt;/ol&gt;
-
 
 &lt;p&gt;To satisfy &lt;em&gt;1&lt;/em&gt; we mocked the title class and wrote a method &lt;code&gt;addToNewTitles&lt;/code&gt; on
 library to add that title to library. The assertion used a &lt;code&gt;getNewTitles&lt;/code&gt; method
@@ -194,11 +185,11 @@ sorting and searching algorithms (that would also require us to implement quite
 a bit of title). Satisfying &lt;em&gt;2&lt;/em&gt; involved adding a title to the library, and then
 returning the first element of the list holding our titles. The assertions we
 were writing to check the title was correct were very horrible, lots of getters
-on title--poor emergent design. Next week we&#39;ll have a look at how to go from
+on title--poor emergent design. Next week we&amp;#39;ll have a look at how to go from
 our current implementation to something a little cleaner doing lots of
 refactoring!&lt;/p&gt;
 
-&lt;h1&gt;LibraryTests.java&lt;/h1&gt;
+&lt;h1 id=&quot;toc_1&quot;&gt;LibraryTests.java&lt;/h1&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -256,8 +247,7 @@ refactoring!&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;h1&gt;Library.java&lt;/h1&gt;
+&lt;h1 id=&quot;toc_2&quot;&gt;Library.java&lt;/h1&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -296,8 +286,7 @@ refactoring!&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;h1&gt;Title.java&lt;/h1&gt;
+&lt;h1 id=&quot;toc_3&quot;&gt;Title.java&lt;/h1&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -328,16 +317,15 @@ refactoring!&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;h1&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
+&lt;h1 id=&quot;toc_4&quot;&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
 
 &lt;p&gt;Jason wants me to have ago applying the principles that we covered in the
 pairing session on a different example, so I have free reign over what I want to
-do. I&#39;m quite interested in writing an app that allows users to track how often
-they indulge in their vices. In my case: alcohol, I&#39;d like to cut down on my
-consumption, but I&#39;m not quite sure how much I&#39;m drinking, having an app to
+do. I&amp;#39;m quite interested in writing an app that allows users to track how often
+they indulge in their vices. In my case: alcohol, I&amp;#39;d like to cut down on my
+consumption, but I&amp;#39;m not quite sure how much I&amp;#39;m drinking, having an app to
 record this information would be very helpful. Graphing it would be even more
-helpful to see whether I&#39;m decreasing my intake or not.&lt;/p&gt;
+helpful to see whether I&amp;#39;m decreasing my intake or not.&lt;/p&gt;
 </content>
  </entry>
  
@@ -346,15 +334,13 @@ helpful to see whether I&#39;m decreasing my intake or not.&lt;/p&gt;
    <link href="http://willprice.org//2013/11/18/binary-search.html"/>
    <updated>2013-11-18T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/18/binary-search</id>
-   <content type="html">&lt;p&gt;This week I&#39;ve been working on binary search. Like last week I did it in Java
-with JUnit, but I&#39;ve also got a video executing my test cases with books as a
+   <content type="html">&lt;p&gt;This week I&amp;#39;ve been working on binary search. Like last week I did it in Java
+with JUnit, but I&amp;#39;ve also got a video executing my test cases with books as a
 supplement.&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/6oC7YU4TrvU&quot;&gt;&lt;/iframe&gt;
 
-
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/bsfadoOOggY&quot;&gt;&lt;/iframe&gt;
-
 </content>
  </entry>
  
@@ -367,7 +353,6 @@ supplement.&lt;/p&gt;
 overview of my reasons for the steps I was taking.&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/AraZURpk_YA&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
-
 </content>
  </entry>
  
@@ -376,18 +361,20 @@ overview of my reasons for the steps I was taking.&lt;/p&gt;
    <link href="http://willprice.org//2013/10/09/unit-testing-is-evil.html"/>
    <updated>2013-10-09T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/10/09/unit-testing-is-evil</id>
-   <content type="html">&lt;p&gt;I&#39;m currently reading &#39;Autotools&#39;, a book about, yes you guessed it, Autotools!
+   <content type="html">&lt;p&gt;I&amp;#39;m currently reading &amp;#39;Autotools&amp;#39;, a book about, yes you guessed it, Autotools!
 This passage made me laugh:&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they
+&lt;blockquote&gt;
+&lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they
 can come up with for not doing it is laziness. Proper unit testing is hard work,
 but it pays off in the end. Those who do it have learned a lesson (usually in
-childhood) about the value of delayed gratification.&lt;/p&gt;&lt;/blockquote&gt;
+childhood) about the value of delayed gratification.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;I&#39;m only reading the book so I can use the C unit testing framework
+&lt;p&gt;I&amp;#39;m only reading the book so I can use the C unit testing framework
 &lt;a href=&quot;check.sourceforge.net&quot;&gt;check&lt;/a&gt;... so yes. I have certainly learned a lesson in
-the value of delayed gratification. Sometimes I wonder whether It&#39;s a bad
-thing. Who knows whether I&#39;ll get my homework done before it&#39;s due date :)&lt;/p&gt;
+the value of delayed gratification. Sometimes I wonder whether It&amp;#39;s a bad
+thing. Who knows whether I&amp;#39;ll get my homework done before it&amp;#39;s due date :)&lt;/p&gt;
 </content>
  </entry>
  
@@ -396,7 +383,7 @@ thing. Who knows whether I&#39;ll get my homework done before it&#39;s due date 
    <link href="http://willprice.org//2013/10/05/first-week-of-university.html"/>
    <updated>2013-10-05T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/10/05/first-week-of-university</id>
-   <content type="html">&lt;p&gt;Having settled in here at Bristol, I&#39;ve started my lectures, topics include:&lt;/p&gt;
+   <content type="html">&lt;p&gt;Having settled in here at Bristol, I&amp;#39;ve started my lectures, topics include:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Mathematical methods for computer scientists&lt;/p&gt;
@@ -409,15 +396,13 @@ thing. Who knows whether I&#39;ll get my homework done before it&#39;s due date 
 &lt;li&gt;Analysis&lt;/li&gt;
 &lt;li&gt;Linear Algebra&lt;/li&gt;
 &lt;li&gt;Probability &amp;amp; distributions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Programming and Algorithms:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Learning C&lt;/li&gt;
-&lt;li&gt;Probably some algorithms too...&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;Probably some algorithms too... &lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;
 
 &lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure
@@ -428,8 +413,7 @@ what comes next)&lt;/p&gt;&lt;/li&gt;
 future of computer science.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-&lt;h2&gt;Evolutionary design and Waterfall&lt;/h2&gt;
+&lt;h2 id=&quot;toc_0&quot;&gt;Evolutionary design and Waterfall&lt;/h2&gt;
 
 &lt;p&gt;In a programming and algorithms lecture, waterfall was mentioned as the
 development technique, and evolutionary design was said to be a bad way of
@@ -440,44 +424,44 @@ about the only way to design programs as requirements are forever changing. He
 said the key too succeeding was to continuously refactor your code to stop cruft
 from encroaching on your software.&lt;/p&gt;
 
-&lt;h2&gt;Pairing&lt;/h2&gt;
+&lt;h2 id=&quot;toc_1&quot;&gt;Pairing&lt;/h2&gt;
 
 &lt;p&gt;Jason and I also discussed what sort of problems we could tackle whilst
-pairing. He suggested that we try and TDD algorithms, next week we&#39;ll be doing
-&lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I&#39;m going to try and get up
-and running with C testing frameworks. So far I&#39;ve had a look at:
+pairing. He suggested that we try and TDD algorithms, next week we&amp;#39;ll be doing
+&lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I&amp;#39;m going to try and get up
+and running with C testing frameworks. So far I&amp;#39;ve had a look at:
 * &lt;a href=&quot;http://check.sourceforge.net/&quot;&gt;Check&lt;/a&gt;
 * &lt;a href=&quot;http://www.jera.com/techinfo/jtns/jtn002.html&quot;&gt;Minunit&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;I haven&#39;t managed to get either of these working yet. Check suggests the use of
-autotools--something I haven&#39;t learnt yet. Minunit throws a segfault when I try
-and compile my test code. Currently I&#39;m leaning towards minunit for it&#39;s
+&lt;p&gt;I haven&amp;#39;t managed to get either of these working yet. Check suggests the use of
+autotools--something I haven&amp;#39;t learnt yet. Minunit throws a segfault when I try
+and compile my test code. Currently I&amp;#39;m leaning towards minunit for it&amp;#39;s
 simplicity.&lt;/p&gt;
 
-&lt;p&gt;Eric Radman has a good post on &lt;a href=&quot;http://eradman.com/posts/tdd-in-c.html&quot;&gt;unit testing C&lt;/a&gt;.
-I haven&#39;t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
+&lt;p&gt;Eric Radman has a good post on &lt;a href=&quot;http://eradman.com/posts/tdd-in-c.html&quot;&gt;unit testing C&lt;/a&gt;. 
+I haven&amp;#39;t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
 
-&lt;p&gt;If TDDing algorithms is a good exercise we&#39;ll try and compile a wiki where we
+&lt;p&gt;If TDDing algorithms is a good exercise we&amp;#39;ll try and compile a wiki where we
 explain the algorithm, and show the steps to a TDD implementation.&lt;/p&gt;
 
-&lt;h2&gt;Screen recording&lt;/h2&gt;
+&lt;h2 id=&quot;toc_2&quot;&gt;Screen recording&lt;/h2&gt;
 
-&lt;p&gt;Next week we&#39;ll record our pairing session and put it on youtube. I&#39;m using
+&lt;p&gt;Next week we&amp;#39;ll record our pairing session and put it on youtube. I&amp;#39;m using 
 &lt;a href=&quot;http://www.maartenbaert.be/simplescreenrecorder/&quot;&gt;SimpleScreenRecorder&lt;/a&gt; to
-capture the screen and audio. It&#39;s a lot better than Gtk-RecordMyDesktop. I also
-tried to check out &lt;a href=&quot;http://freeseer.github.io/&quot;&gt;FreeSeer&lt;/a&gt;, however I couldn&#39;t
+capture the screen and audio. It&amp;#39;s a lot better than Gtk-RecordMyDesktop. I also
+tried to check out &lt;a href=&quot;http://freeseer.github.io/&quot;&gt;FreeSeer&lt;/a&gt;, however I couldn&amp;#39;t
 get it to compile.&lt;/p&gt;
 
-&lt;h2&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
+&lt;h2 id=&quot;toc_3&quot;&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
 
-&lt;p&gt;Jason feels confident that what I&#39;ll learn in my degree will not overlap too
+&lt;p&gt;Jason feels confident that what I&amp;#39;ll learn in my degree will not overlap too
 much with what he wishes to teach me. Hopefully an apprenticeship will cover the
 more practical aspects of software development that seem to take a backseat in a
 CS degree, and understandably so given that it is CS, and not software
 development. The problem is that most CS graduates will just go on to do
 software development, and so it might not be a bad idea for CS students to learn
-a decent amount of software development too. It looks as if we&#39;ll learn agile in
-the 2nd year... I would have thought by then it&#39;d be too late...&lt;/p&gt;
+a decent amount of software development too. It looks as if we&amp;#39;ll learn agile in
+the 2nd year... I would have thought by then it&amp;#39;d be too late...&lt;/p&gt;
 </content>
  </entry>
  
@@ -488,7 +472,7 @@ the 2nd year... I would have thought by then it&#39;d be too late...&lt;/p&gt;
    <id>http://willprice.org/2013/09/02/mock-objects-pairing-session</id>
    <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)&lt;/p&gt;
 
-&lt;h3&gt;Introduction: Why mock objects&lt;/h3&gt;
+&lt;h3 id=&quot;toc_0&quot;&gt;Introduction: Why mock objects&lt;/h3&gt;
 
 &lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things
 changed; trying to write each test so it fails for only one reason;
@@ -496,21 +480,20 @@ triangulating a solution, rather than just dumping it all in one fell swoop, I
 thought it was about time to learn what mock objects are, and what they are used
 for.&lt;/p&gt;
 
-&lt;h3&gt;Useful Terminology:&lt;/h3&gt;
+&lt;h3 id=&quot;toc_1&quot;&gt;Useful Terminology:&lt;/h3&gt;
 
 &lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
 * &lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result
 * &lt;code&gt;Mock&lt;/code&gt; - A class with the assertion that a certain method was called.&lt;/p&gt;
 
-&lt;p&gt;Don&#39;t expect my usage of terminology to be spot on; I&#39;m still learning!&lt;/p&gt;
+&lt;p&gt;Don&amp;#39;t expect my usage of terminology to be spot on; I&amp;#39;m still learning!&lt;/p&gt;
 
-&lt;h3&gt;The Problem:&lt;/h3&gt;
+&lt;h3 id=&quot;toc_2&quot;&gt;The Problem:&lt;/h3&gt;
 
 &lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book
 tickets for a specific play. After a discussion we wrote an acceptance test (in
 English) to outline what our end result should be able to do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Given that the seat A6 is available for a performance of &#39;Cats&#39;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Given that the seat A6 is available for a performance of &amp;#39;Cats&amp;#39;
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -529,21 +512,20 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 * Marked as reserved for `[credit card number] (Seat)`
 * Cannot be booked/Unavailable (Seat)
 
-1. Customer tells box office to reserve seat A6 at performance of &#39;Cats&#39; using credit card number 1234
-2. Box office finds performance of &#39;Cats&#39; and tells performance to reserve Seat A6 using credit card number 1234
-3. &#39;Cats&#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
+1. Customer tells box office to reserve seat A6 at performance of &amp;#39;Cats&amp;#39; using credit card number 1234
+2. Box office finds performance of &amp;#39;Cats&amp;#39; and tells performance to reserve Seat A6 using credit card number 1234
+3. &amp;#39;Cats&amp;#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
 4. Seat A6 records the credit card number of the reserver.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;Building Outside in:&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;toc_3&quot;&gt;Building Outside in:&lt;/h3&gt;
 
 &lt;p&gt;When building an application from the outside in, we need some way of testing
-the interaction between what we&#39;re writing and the next layer in which hasn&#39;t
-been written yet. That&#39;s were mocks and stubs come in...&lt;/p&gt;
+the interaction between what we&amp;#39;re writing and the next layer in which hasn&amp;#39;t
+been written yet. That&amp;#39;s were mocks and stubs come in...&lt;/p&gt;
 
 &lt;p&gt;To start off Jason suggested that we design the program as a simple web
 service--a query would come in with a performance name, credit card number, and
-seat identifier. We&#39; d then reserve the seat if it was available, otherwise
+seat identifier. We&amp;#39; d then reserve the seat if it was available, otherwise
 throw and exception indicating the unavailability of that seat.&lt;/p&gt;
 
 &lt;p&gt;The simplest thing I could think of testing was &lt;strong&gt;finding a specific
@@ -555,14 +537,13 @@ interface (&lt;code&gt;Mockito&lt;/code&gt; can also mock classes too, Jason sho
 way, before mocking classes was possible) for performance and then mock it using
 &lt;code&gt;mock(Performance.class)&lt;/code&gt;, this returns a mock object of the type &lt;code&gt;Performance&lt;/code&gt;.
 It has no functionality, but we can call any method on it that is defined in the
-interface, the methods will not do anything as we haven&#39;t defined any behaviour
-for it (because for this test behaviour is superfluous).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    // BoxOffice is a field in the test class
+interface, the methods will not do anything as we haven&amp;#39;t defined any behaviour
+for it (because for this test behaviour is superfluous). &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
     Performance mockPerformance = mock(Performance.class);
     HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
-    performances.put(&quot;Cats&quot;, mockPerformance);
+    performances.put(&amp;quot;Cats&amp;quot;, mockPerformance);
     boxOffice = new BoxOffice(performances);
     return mockPerformance;
 }
@@ -570,63 +551,51 @@ protected Performance createBoxOfficeWithMockPerformance() {
 @Test
 public void findsPerformanceOfCats() {
     Performance mockPerformance = createBoxOfficeWithMockPerformance();
-    assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));
+    assertEquals(mockPerformance, boxOffice.findPerformance(&amp;quot;Cats&amp;quot;));
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;. &lt;/p&gt;
 
-&lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// mockPerformance is a performance of &amp;quot;Cats&amp;quot; in the box office
+boxOffice.reserveSeat(&amp;quot;Cats&amp;quot;, &amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;toc_4&quot;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;// mockPerformance is a performance of &quot;Cats&quot; in the box office
-boxOffice.reserveSeat(&quot;Cats&quot;, &quot;A6&quot;, &quot;1234&quot;)
-verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&amp;#39;t working. Mockito&amp;#39;s &lt;code&gt;when&lt;/code&gt; method doesn&amp;#39;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
 
-&lt;h3&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+&lt;p&gt;This helped me mock &lt;code&gt;Performance&lt;/code&gt; so that I could throw an &lt;code&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test. &lt;/p&gt;
 
-&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&#39;t working. Mockito&#39;s &lt;code&gt;when&lt;/code&gt; method doesn&#39;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;toc_5&quot;&gt;Mocked method behaviour&lt;/h3&gt;
 
-&lt;p&gt;This helped me mock &lt;code&gt;Performance&lt;/code&gt; so that I could throw an &lt;code&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test.&lt;/p&gt;
-
-&lt;h3&gt;Mocked method behaviour&lt;/h3&gt;
-
-&lt;p&gt;Giving mocked methods &#39;intelligent&#39; behaviour cam be accomplished in 2 ways.&lt;/p&gt;
+&lt;p&gt;Giving mocked methods &amp;#39;intelligent&amp;#39; behaviour cam be accomplished in 2 ways. &lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Changing the behaviour based on argument&lt;/li&gt;
 &lt;li&gt;Changing behavious based on number of invocations&lt;/li&gt;
 &lt;/ol&gt;
 
-
 &lt;p&gt;The first:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;when(mockObject.method(1)).thenReturn(1)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method(1)).thenReturn(1)
 when(mockObject.method(2)).thenReturn(2)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The second&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&amp;gt; 1
 mockObject.method() // =&amp;gt; 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Mockito returns the mocked method for each &lt;code&gt;then*&lt;/code&gt; invocation, so you can chain the &lt;code&gt;then*&lt;/code&gt; methods together like in this example.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mockito returns the mocked method for each &lt;code&gt;then*&lt;/code&gt; invocation, so you can chain the &lt;code&gt;then*&lt;/code&gt; methods together like in this example. &lt;/p&gt;
 
 &lt;p&gt;My tests all have the mocks written into them. Jason suggested I try removing
 this hardcoding of objects, allowing myself to inject either mocks or a concrete
-implementation which will the focus of my next post; that is once I&#39;ve managed
+implementation which will the focus of my next post; that is once I&amp;#39;ve managed
 to do it, and write it up.&lt;/p&gt;
 </content>
  </entry>
@@ -639,44 +608,43 @@ to do it, and write it up.&lt;/p&gt;
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.codemanship.co.uk/parlezuml/blog/index.php&quot;&gt;Jason&lt;/a&gt; and I had a
 rather interesting pair programming session last week where we tackled a problem
 that I found on &lt;a href=&quot;http://topcoder.com&quot;&gt;Topcoder&lt;/a&gt;. It is in fact a slight twist
-(easier) on the actual topcoder problem as I didn&#39;t have it to hand when we were
+(easier) on the actual topcoder problem as I didn&amp;#39;t have it to hand when we were
 pairing.&lt;/p&gt;
 
-&lt;h2&gt;The Problem:&lt;/h2&gt;
+&lt;h2 id=&quot;toc_0&quot;&gt;The Problem:&lt;/h2&gt;
 
-&lt;blockquote&gt;&lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
+&lt;blockquote&gt;
+&lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
 sub rectangles that can be composed from the unit rectangles. Remember squares
-are rectangles...&lt;/p&gt;&lt;/blockquote&gt;
+are rectangles...&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;If that&#39;s not clear enough, this diagram should help articulate what the problem
+&lt;p&gt;If that&amp;#39;s not clear enough, this diagram should help articulate what the problem
 is.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&quot; alt=&quot;Diagram of 2x2 rectangles and it&#39;s 9 subrectangles&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&quot; alt=&quot;Diagram of 2x2 rectangles and it&amp;#39;s 9 subrectangles&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.&lt;/p&gt;
 
-&lt;h2&gt;The Design:&lt;/h2&gt;
+&lt;h2 id=&quot;toc_1&quot;&gt;The Design:&lt;/h2&gt;
 
 &lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of
 test cases. The simplest test case seemed to be a invalid rectangle,
 0 rectangles high or wide, or both.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Test cases:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We&#39;d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We&amp;#39;d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason
 stressed that we were just sketching out a path we &lt;em&gt;might&lt;/em&gt; take, it may not have
-been neccessary to use all the test cases, or maybe we&#39;d need more; the list
+been neccessary to use all the test cases, or maybe we&amp;#39;d need more; the list
 seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
 
 &lt;p&gt;The next step was to figure out how many subrectangles there were in each
 composite rectangle, this involved a bit of drawing and tallying. In the end I
 think I only miscounted one test case which we noticed fairly quickly when
 coding.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Test cases:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 2. 1x1 has 1 subrectangle
@@ -686,17 +654,16 @@ coding.&lt;/p&gt;
 6. 1x3 has 6 subrectangles
 7. 2x2 has 9 subrectangles
 8. 3x2 has 18 subrectangles
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Having written our roadmap it was now time to start tackling this problem. We
 used Java, and JUnit with Eclipse.&lt;/p&gt;
 
 &lt;p&gt;The implementation up to 3x1 was fairly simple, however it started to get a little
-more tricky after that stage, it wasn&#39;t immediately obvious what formula we
+more tricky after that stage, it wasn&amp;#39;t immediately obvious what formula we
 should have been using, &lt;code&gt;\(xy + (x-1)y + (y-1)x\)&lt;/code&gt; seemed like a promising
 start, passing all the previous tests up until that point, addition of another
 term sounded like it might hold the solution, however it was difficult to think
-of what it could be, we didn&#39;t come up with anything in the end.&lt;/p&gt;
+of what it could be, we didn&amp;#39;t come up with anything in the end.&lt;/p&gt;
 
 &lt;p&gt;Our design up until this point had been heading towards a solution in the form
 of &lt;code&gt;return some_algebraic_formula&lt;/code&gt;, we changed tack and started looking at it in
@@ -708,16 +675,16 @@ and...
 Maybe not as simple as a single factorial, but we were definitely dealing with
 sequences and/or combinations. The problem with combinations is that they
 calculate all possible combinations including non-contiguous options (think
-first and last subrectangle of a 3x1). We didn&#39;t discuss this at the time
+first and last subrectangle of a 3x1). We didn&amp;#39;t discuss this at the time
 because a simpler solution presented itself.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/combination-1.svg&quot; alt=&quot;Diagram demonstrating how many of each size of subrectangle are present in a
-3x1 rectangle&quot; /&gt;&lt;/p&gt;
+3x1 rectangle&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;Being Test Driven in design, we looked at our current test case, a 3x1 rectangle
-(I&#39;ve illustrated a 1x3, imagine it&#39;s just rotated!), after a bit of drawing and
+(I&amp;#39;ve illustrated a 1x3, imagine it&amp;#39;s just rotated!), after a bit of drawing and
 colouring it was evident that the number of subrectangles present in a column
-decreased by 1 for each unit increase in subrectangle length (refer to diagram).
+decreased by 1 for each unit increase in subrectangle length (refer to diagram). 
 In the general case you have &lt;code&gt;\(n + (n-1) + (n-2) + \ldots + 1\)&lt;/code&gt; subrectangles
 per column where &lt;code&gt;\(n\)&lt;/code&gt; is the length of the column. We could iterate over each
 column and add either the general result of this formula (&lt;code&gt;\(\Sigma_0^nr\)&lt;/code&gt;), or
@@ -741,7 +708,6 @@ implement the actual solution.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others
 had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous
 implementation yields 5 subrectangles instead of 9. We looked at which ones it
@@ -762,23 +728,19 @@ duplicates.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;p&gt;I like this, it&#39;s rather clever. It&#39;s easiest to understand given an example,
-let&#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
-subrectangles, here&#39;s what the code excecutes:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;i = 1:
+&lt;p&gt;I like this, it&amp;#39;s rather clever. It&amp;#39;s easiest to understand given an example,
+let&amp;#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
+subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;i = 1:
     j = 1:
         numberOfSubrectangles += 1;
         // numberOfSubrectangles = 1;
     j = 2:
         numberOfSubrectangles += 2;
         // numberOfSubrectangles = 3;
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Looping over the first column we get 3 subrectangles, so good so far.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;i = 2:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;i = 2:
     j = 1:
         numberOfSubrectangles += 2
         // numberOfSubrectangles = 5
@@ -787,16 +749,15 @@ subrectangles, here&#39;s what the code excecutes:&lt;/p&gt;
         // numberOfSubrectangles = 9
 
 return 9
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Through the second column, the subrectangles found in &lt;code&gt;i = 1&lt;/code&gt; are found again in
 this next column, however, we also need to take into account the rectangles that
 are formed along the rows, which there are 3 of, giving us a total of 6
 additional subrectangles.&lt;/p&gt;
 
-&lt;h2&gt;Algebraic solution:&lt;/h2&gt;
+&lt;h2 id=&quot;toc_2&quot;&gt;Algebraic solution:&lt;/h2&gt;
 
-&lt;p&gt;We had a solution! I like maths so I&#39;ve found the algebraic solution from the
+&lt;p&gt;We had a solution! I like maths so I&amp;#39;ve found the algebraic solution from the
 code. Reasoning about loops of loops in mathematics is particularly
 aesthetically pleasing to me.&lt;/p&gt;
 
@@ -807,8 +768,7 @@ aesthetically pleasing to me.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;p&gt;I&#39;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
+&lt;p&gt;I&amp;#39;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
 easier.
 &lt;code&gt;\[\begin{aligned}
  z &amp;amp;= \sum_{i=1}^x (\sum_{j=1}^y(ij)) \\
@@ -821,10 +781,10 @@ easier.
 &lt;p&gt;You can literally change the Java code to return &lt;code&gt;\(z\)&lt;/code&gt;, how pleasing :)&lt;/p&gt;
 
 &lt;p&gt;After tackling the problem with Jason, I had a go solving it mathematically a
-few days after and by then I&#39;d forgotten the solution; I didn&#39;t have much success at all.
+few days after and by then I&amp;#39;d forgotten the solution; I didn&amp;#39;t have much success at all.
 In this case I think developing in this way helped us to reach the insight that
-we should add &lt;code&gt;i*j&lt;/code&gt; inside our nested loops. I don&#39;t have the problem solving
-skills to incrementally build a solution mathematically, although I&#39;m starting
+we should add &lt;code&gt;i*j&lt;/code&gt; inside our nested loops. I don&amp;#39;t have the problem solving
+skills to incrementally build a solution mathematically, although I&amp;#39;m starting
 to aquire them in the domain of programming (very slowly), perhaps if I try and
 apply a TDD approach to maths I may get further with hard mathematical problems?&lt;/p&gt;
 </content>
@@ -835,11 +795,11 @@ apply a TDD approach to maths I may get further with hard mathematical problems?
    <link href="http://willprice.org//2013/05/10/pulseaudio-network-streaming.html"/>
    <updated>2013-05-10T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/05/10/pulseaudio-network-streaming</id>
-   <content type="html">&lt;p&gt;I&#39;ve tried setting up pulseaudio before to stream music from my laptop to my
+   <content type="html">&lt;p&gt;I&amp;#39;ve tried setting up pulseaudio before to stream music from my laptop to my
 desktop without much success. I attribute my past failures to my lack of
 understanding of the client/server model that pulseaudio follows. Trust me when
-I say it&#39;s important to learn the necessery terminology to setup pulseaudio,
-  you&#39;ll end up quite confused otherwise!&lt;/p&gt;
+I say it&amp;#39;s important to learn the necessery terminology to setup pulseaudio,
+  you&amp;#39;ll end up quite confused otherwise!&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code&gt;sources&lt;/code&gt; and outputs audio
@@ -850,47 +810,41 @@ from &lt;a href=&quot;http://hypem.com/willprice&quot;&gt;hypem.com&lt;/a&gt;. I
 other niche things (think /dev/null, visualisers).&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;This diagram represents the setup we&amp;#39;re creating:&lt;/p&gt;
 
-&lt;p&gt;This diagram represents the setup we&#39;re creating:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot;&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;toc_0&quot;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
 
-&lt;h2&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
-
-&lt;p&gt;  Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
+&lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
   load-module module-zeroconf-publish
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;  The first line sets up a TCP server for pulseaudio allowing remote sound sources
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The first line sets up a TCP server for pulseaudio allowing remote sound sources
   to be utilized (clients can be anonymous as well). The second line sets up &lt;code&gt;zerconf&lt;/code&gt; publishing by the &lt;code&gt;avahi
   daemon&lt;/code&gt; (enable with &lt;code&gt;systemctl enable avahi-daemon &amp;amp;&amp;amp; systemctl start
           avahi-daemon&lt;/code&gt; on Arch), the clients that will attach to the server will also
-  need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&#39;ve
-  just set up.&lt;/p&gt;
+  need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&amp;#39;ve
+  just set up. &lt;/p&gt;
 
-&lt;h2&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
+&lt;h2 id=&quot;toc_1&quot;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
 
-&lt;p&gt;  Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;
+&lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;
   load-module module-zeroconf-discover
   Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;load-module module-zeroconf-discover
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;  Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;load-module module-zeroconf-discover
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink
   (desktop) on the client/source (laptop).&lt;/p&gt;
 
-&lt;h2&gt;Sources&lt;/h2&gt;
+&lt;h2 id=&quot;toc_2&quot;&gt;Sources&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/PulseAudio&quot;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/&quot;&gt;Sound on Linux is confusing part 1: ALSA&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/&quot;&gt;Sound on Linux is confusing part 2: Pulseaudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network&quot;&gt;Pulseaudio examples | Arch Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/PulseAudio&quot;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/&quot;&gt;Sound on Linux is confusing part 1: ALSA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/&quot;&gt;Sound on Linux is confusing part 2: Pulseaudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt; &lt;a href=&quot;https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network&quot;&gt;Pulseaudio examples | Arch Wiki&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 </content>
  </entry>
  
@@ -906,23 +860,23 @@ as I learn the principles behind this philosophy.&lt;/p&gt;
 &lt;p&gt;TDD can be roughly outlined as follows:
 - Write a failing test for the desired functionality.
 - Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test pass.
-- Refactor you code, making sure your changes don&#39;t break functionality (keep
+- Refactor you code, making sure your changes don&amp;#39;t break functionality (keep
   running the tests)&lt;/p&gt;
 
 &lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I
 implemented a simple Fibonacci function, this enabled me to see how the general
-principle worked: &quot;Test a little, program a little&quot;, and see what sort of
-obstacles I might come across, such as &quot;What&#39;s the next test going to be where
-there is no linear progression to follow&quot;.&lt;/p&gt;
+principle worked: &amp;quot;Test a little, program a little&amp;quot;, and see what sort of
+obstacles I might come across, such as &amp;quot;What&amp;#39;s the next test going to be where
+there is no linear progression to follow&amp;quot;. &lt;/p&gt;
 
-&lt;p&gt;I&#39;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can
+&lt;p&gt;I&amp;#39;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can
 commit every time I write a test or a piece of code. The history of the code
 can be viewed using &lt;code&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code&gt;git log --follow --all -p
 filename&lt;/code&gt;[1].&lt;/p&gt;
 
-&lt;p&gt;I don&#39;t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise
-I did, however I&#39;ve got my third attempt at it (it&#39;s  pretty similar to the
-first, I&#39;ve just been trying to internalize the concepts I&#39;ve met so far).&lt;/p&gt;
+&lt;p&gt;I don&amp;#39;t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise
+I did, however I&amp;#39;ve got my third attempt at it (it&amp;#39;s  pretty similar to the
+first, I&amp;#39;ve just been trying to internalize the concepts I&amp;#39;ve met so far).&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;diff&quot;&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
 Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
@@ -1263,15 +1217,14 @@ new file mode 100755
 &lt;span class=&quot;gi&quot;&gt;+    unittest.main()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&#39;m just
+&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#39;m just
 getting started with the tools and methodologies so hopefully in 6 months time
-I&#39;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
+I&amp;#39;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
 
-&lt;p&gt;I&#39;ve been using &lt;code&gt;tmux&lt;/code&gt; to organise my work, &lt;code&gt;vim&lt;/code&gt; to edit it, &lt;code&gt;git&lt;/code&gt; to save
-progress and &lt;code&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I&#39;m
-reasonably pleased with this workflow, it&#39;s both simple and flexible.
-[1] - &#39;--follow&#39; handles renames, &#39;--all&#39; shows commits on all branches, &#39;-p&#39;
+&lt;p&gt;I&amp;#39;ve been using &lt;code&gt;tmux&lt;/code&gt; to organise my work, &lt;code&gt;vim&lt;/code&gt; to edit it, &lt;code&gt;git&lt;/code&gt; to save
+progress and &lt;code&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I&amp;#39;m
+reasonably pleased with this workflow, it&amp;#39;s both simple and flexible.
+[1] - &amp;#39;--follow&amp;#39; handles renames, &amp;#39;--all&amp;#39; shows commits on all branches, &amp;#39;-p&amp;#39;
 shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;
 </content>
  </entry>
@@ -1281,11 +1234,10 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
    <link href="http://willprice.org//2012/11/19/CS101-Homework-4-splitting-strings.html"/>
    <updated>2012-11-19T00:00:00+00:00</updated>
    <id>http://willprice.org/2012/11/19/CS101-Homework-4-splitting-strings</id>
-   <content type="html">&lt;p&gt;I&#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&#39;ll explain the question and how the solution is reached for those that didn&#39;t find the video particularly clear.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I&amp;#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&amp;#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&amp;#39;ll explain the question and how the solution is reached for those that didn&amp;#39;t find the video particularly clear.&lt;/p&gt;
 
 &lt;p&gt;The question:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; # 1 Gold Star
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt; # 1 Gold Star
 
  # The built-in &amp;lt;string&amp;gt;.split() procedure works
  # okay, but fails to find all the words on a page
@@ -1301,22 +1253,19 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
  # splitlist.
  #
  # def split_string(source,splitlist)
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There are also some examples and expected behaviour given:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt; out = split_string(&amp;quot;This is a test-of the,string separation-code!&amp;quot;,&amp;quot; ,!-&amp;quot;)
  print out
- #&amp;gt;&amp;gt;&amp;gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]
+ #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]
 
- out = split_string(&quot;After  the flood   ...  all the colors came out.&quot;, &quot; .&quot;)
+ out = split_string(&amp;quot;After  the flood   ...  all the colors came out.&amp;quot;, &amp;quot; .&amp;quot;)
  print out
- #&amp;gt;&amp;gt;&amp;gt; [&#39;After&#39;, &#39;the&#39;, &#39;flood&#39;, &#39;all&#39;, &#39;the&#39;, &#39;colors&#39;, &#39;came&#39;, &#39;out&#39;]
-&lt;/code&gt;&lt;/pre&gt;
+ #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;After&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;flood&amp;#39;, &amp;#39;all&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;colors&amp;#39;, &amp;#39;came&amp;#39;, &amp;#39;out&amp;#39;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&amp;#39;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;). &lt;/p&gt;
 
-&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&#39;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;Let&#39;s define a list,&lt;code&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code&gt;source&lt;/code&gt; adding characters to a string present in &lt;code&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&#39;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&#39;ll need to start a new entry in the word_list list otherwise we&#39;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s define a list,&lt;code&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code&gt;source&lt;/code&gt; adding characters to a string present in &lt;code&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&amp;#39;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&amp;#39;ll need to start a new entry in the word_list list otherwise we&amp;#39;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
 
 &lt;p&gt;Now we have a better of idea of the problem and how to implement the solution we can start writing code:&lt;/p&gt;
 
@@ -1327,8 +1276,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;p&gt;So we&#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#39;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
+&lt;p&gt;So we&amp;#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&amp;#39;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
@@ -1344,10 +1292,8 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;This code results in:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  this char:   is in splitlist
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;  this char:   is in splitlist
   this char:   is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
@@ -1356,9 +1302,8 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
   this char:   is in splitlist
   this char: - is in splitlist
   this char: ! is in splitlist
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We&#39;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&#39;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&#39;ll end up with one great list of words without spaces. First we&#39;ll acheive this unwanted behaviour as it&#39;s a step in the right direction, then we&#39;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We&amp;#39;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&amp;#39;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&amp;#39;ll end up with one great list of words without spaces. First we&amp;#39;ll acheive this unwanted behaviour as it&amp;#39;s a step in the right direction, then we&amp;#39;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -1375,10 +1320,9 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;&lt;code&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
 
-&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&#39;ve already got a block of code that deals with this situation, it&#39;s simply printing lines at the moment, not doing anything useful, we&#39;ll change that so we know when we&#39;ve reached a splitting character.&lt;/p&gt;
+&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&amp;#39;ve already got a block of code that deals with this situation, it&amp;#39;s simply printing lines at the moment, not doing anything useful, we&amp;#39;ll change that so we know when we&amp;#39;ve reached a splitting character.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -1397,8 +1341,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
-&lt;p&gt;Here we&#39;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#39;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
+&lt;p&gt;Here we&amp;#39;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&amp;#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&amp;#39;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&amp;#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -1425,13 +1368,12 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-
 &lt;p&gt;Finally, we have the behaviour, the code above prints:
-      [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]&lt;/p&gt;
+      [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]&lt;/p&gt;
 
 &lt;p&gt;Mission accomplished.&lt;/p&gt;
 
-&lt;p&gt;I&#39;ve also used Python Tutor&#39;s visualise program to show how the code is executed: &lt;a href=&quot;http://goo.gl/GSRHJ&quot;&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;ve also used Python Tutor&amp;#39;s visualise program to show how the code is executed: &lt;a href=&quot;http://goo.gl/GSRHJ&quot;&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;
 </content>
  </entry>
  
@@ -1444,14 +1386,16 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 while, I could no longer take not being able to focus the text area
 without clicking on the stop button.&lt;/p&gt;
 
-&lt;p&gt;It transpires this is an issue caused by XMonad&#39;s handling of Java swing
+&lt;p&gt;It transpires this is an issue caused by XMonad&amp;#39;s handling of Java swing
 applications as noted by Krzysztof Krason in a &lt;a href=&quot;http://youtrack.jetbrains.com/issue/IDEA-65637&quot;&gt;thread&lt;/a&gt;
 in regard to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
 
-&lt;blockquote&gt;&lt;p&gt;It&#39;s not a problem with Intellij but with XMonad, it has problems with
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;#39;s not a problem with Intellij but with XMonad, it has problems with
 java swing applications.
-The solution is to use something like this in to add &quot;import
-XMonad.Hooks.ICCCMFocus&quot; and in your logHook add &quot;takeTopFocus&quot;.&lt;/p&gt;&lt;/blockquote&gt;
+The solution is to use something like this in to add &amp;quot;import
+XMonad.Hooks.ICCCMFocus&amp;quot; and in your logHook add &amp;quot;takeTopFocus&amp;quot;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;So the solution is remarkable simple. Just add these lines to your
 xmonad.hs file:&lt;/p&gt;
@@ -1461,9 +1405,6 @@ xmonad.hs file:&lt;/p&gt;
 &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
 &lt;span class=&quot;nf&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
 </content>
  </entry>
  
@@ -1495,8 +1436,7 @@ Nice work.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.jayconsystems.com&
    <link href="http://willprice.org//2011/12/27/tp-link-wr703n-openwrt-mpd.html"/>
    <updated>2011-12-27T00:00:00+00:00</updated>
    <id>http://willprice.org/2011/12/27/tp-link-wr703n-openwrt-mpd</id>
-   <content type="html">
-</content>
+   <content type="html"></content>
  </entry>
  
  <entry>

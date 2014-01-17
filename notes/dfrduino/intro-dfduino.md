@@ -69,15 +69,15 @@ obstacle avoiding robot.
 * `[char]` can be any character inside of single quotes, e.g. `'f'`.
 
 ### Functions
-* `setDirection([char])`:
+* `void setDirection([char])`:
   * `'f'` - forward.
   * `'b'` - backward.
   * `'l'` - spin left (spins on the spot).
   * `'r'` - spin right (spins on the spot).
-* `setMotors([left percentage], [right percentage])` -  Set the motor speed by
-  percentage of maximum speed, e.g. `setMotors(100, 100)` is full thrust
-  forward.
-* `setVerticalHeadPosition([angle])` Sets the vertical angle of the IR sensor
-  (we call this the head). For me looking straight ahead was 130, you'll have to
-  play around with this to figure out which values do what.
-* `
+
+| `[return type]` | `[name]` | `[parameters]` | Explanation | 
+|-----------------|----------|----------------|-------------|
+| `void`          | `setMotors` |  `([left percentage], [right percentage])` |  Set the motor speed by percentage of maximum speed, e.g. `setMotors(100, 100)` is full thrust forward. |
+| `void`          | `setVerticalHeadPosition` | `([angle])` | Sets the vertical angle of the IR sensor (we call this the head). For me looking straight ahead was 130, you'll have to play around with this to figure out which values do what. |
+| `void`          | `setHorizontalHeadPosition` | `([angle])` | Sets the horizontal angle of the head. 0 for left, 90 for forward, 180 for right. |
+| `int` | `readDistanceInCentimeters` | NONE  | Reads the distance from the IR sensor and returns the distance in centimeters. |

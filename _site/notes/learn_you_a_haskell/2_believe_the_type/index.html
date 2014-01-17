@@ -71,20 +71,19 @@
       </div>
 
       <section>
-      <h1>Type classes:</h1>
+      <h1 id="toc_0">Type classes:</h1>
 
 <ul>
 <li><em>Eq</em>: Any objects that can be compared for equality</li>
 <li><em>Ord</em>: Any objects that can be ordered</li>
-<li><em>Show</em>: Any objects that can be shown as a string (most types bar functions) (show :: (Show a) => a -> String)</li>
-<li><em>Read</em>: Any objects that can be shown as a string ( read :: (Read a) => String -> a)</li>
+<li><em>Show</em>: Any objects that can be shown as a string (most types bar functions) (show :: (Show a) =&gt; a -&gt; String)</li>
+<li><em>Read</em>: Any objects that can be shown as a string ( read :: (Read a) =&gt; String -&gt; a)</li>
 <li><em>Enum</em>: Any objects whose value can be enumerated (anything a/b you can use in [a..b]</li>
-<li><em>Bounded</em>: Int, Char, Bool</li>
+<li><em>Bounded</em>: Int, Char, Bool </li>
 <li><em>Num</em>: Int, Integer, Float, Double</li>
 <li><em>Floating</em>: Float, Double</li>
 <li><em>Integral</em>: Int, Integer</li>
 </ul>
-
 
 <p>Types can be instances of multiple type classes as some type classes cover subset of other type classes.</p>
 

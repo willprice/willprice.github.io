@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <h1 id="toc_0">Nodding and moving your robot&#39;s head</h1>
+
+<p>Notice how your robot&#39;s IR sensor is mounted on a frame that can move in 2
+planes? Try moving it with your hand, don&#39;t be too vigorous with them, they&#39;re
+rather flimsy and plastic!</p>
+
+<p>So it&#39;s all well and good moving the head by hand, but it would be much more
+userful doing this programmatically. There are two <a href="http://youtu.be/bMXx25Q5s24">servo
+motors</a> attached to each bracket, allow 180 degrees
+of control. We can make the robot look left and right; and up and down, so let&#39;s
+do just that:</p>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<span class="cp">#include &lt;DFRduino.h&gt;</span>
+
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Look forward</span>
+  <span class="c1">// Unfortunately my robot&#39;s vertical servo is not calibrated very</span>
+  <span class="c1">// well, so looking ahead is 130 degrees, less points it up, more</span>
+  <span class="c1">// makes it click a lot -- if your&#39;s clicks a lot, pull out the cable,</span>
+  <span class="c1">// and rewrite your code so that it won&#39;t put it to such extreme a</span>
+  <span class="c1">// position</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="c1">// Look upwards</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>You may find that your robot&#39;s head isn&#39;t pointing forward, so we can modify the
+sketch above to do that using <code>setHorizontalHeadPosition</code>, this works as you&#39;d
+expected, unlike <code>setVerticalHeadPosition</code>: </p>
+
+<ul>
+<li>0 degrees   - Right</li>
+<li>90 degrees  - Centre</li>
+<li>180 degrees - Left</li>
+</ul>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<span class="cp">#include &lt;DFRduino.h&gt;</span>
+
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// We set the horizontal head position just once.</span>
+  <span class="c1">// There&#39;s no point repeatedly doing it as we&#39;re not changing it in</span>
+  <span class="c1">// our loop.</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Look forward</span>
+  <span class="c1">// Unfortunately my robot&#39;s vertical servo is not calibrated very</span>
+  <span class="c1">// well, so looking ahead is 130 degrees, less points it up, more</span>
+  <span class="c1">// makes it click a lot -- if your&#39;s clicks a lot, pull out the cable,</span>
+  <span class="c1">// and rewrite your code so that it won&#39;t put it to such extreme a</span>
+  <span class="c1">// position</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="c1">// Look upwards</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We could do something more interesting...</p>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<span class="cp">#include &lt;DFRduino.h&gt;</span>
+
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">xIncrement</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">yIncrement</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// &#39;||&#39; means OR</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="o">||</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">xIncrement</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// The furthest down y can go is 160 degrees. If it tries to go more</span>
+  <span class="c1">// than that the library will print out an error in the serial monitor</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">160</span> <span class="o">||</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// </span>
+    <span class="n">yIncrement</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">x</span> <span class="o">+=</span> <span class="n">xIncrement</span><span class="p">;</span>
+  <span class="n">y</span> <span class="o">+=</span> <span class="n">yIncrement</span><span class="p">;</span>
+
+  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>See if you can figure this out by reading the code, If not, read on!</p>
+
+<ol>
+<li>Set <code>x = 0</code>, <code>y = 0</code>.</li>
+<li>Each time we loop check to see if <code>x &gt; 180</code> or <code>x &lt; 0</code>, if this is the case,
+then change the sign of <code>xIncrement</code> (so we either increase, or decrease our
+angle)</li>
+<li>Each time we loop check to see if <code>y &gt; 160</code> or <code>y &lt; 0</code>, if this is the case,
+then change the sign of <code>yIncrement</code> (so we either increase, or decrease our
+angle)</li>
+<li>Add <code>xIncrement</code> to <code>x</code> and add <code>yIncrement</code> to <code>y</code>.</li>
+<li>Set our angles by <code>x</code> and <code>y</code>.</li>
+<li>Delay for 20ms, this gives our servo a bit of time to move 1 degree. Play
+around with this value, see how fast it can go before it doesn&#39;t operate
+correctly. Can you explain what happens when you leave the delay out?</li>
+</ol>
+
+<p>Time to move on and use everything you&#39;ve learnt to <a href="avoiding.html">write an obstacle avoidance
+program for your robot</a></p>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

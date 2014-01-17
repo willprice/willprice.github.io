@@ -78,14 +78,16 @@
 while, I could no longer take not being able to focus the text area
 without clicking on the stop button.</p>
 
-<p>It transpires this is an issue caused by XMonad's handling of Java swing
+<p>It transpires this is an issue caused by XMonad&#39;s handling of Java swing
 applications as noted by Krzysztof Krason in a <a href="http://youtrack.jetbrains.com/issue/IDEA-65637">thread</a>
 in regard to the IDEA IDE (which also uses Java swing).</p>
 
-<blockquote><p>It's not a problem with Intellij but with XMonad, it has problems with
+<blockquote>
+<p>It&#39;s not a problem with Intellij but with XMonad, it has problems with
 java swing applications.
-The solution is to use something like this in to add "import
-XMonad.Hooks.ICCCMFocus" and in your logHook add "takeTopFocus".</p></blockquote>
+The solution is to use something like this in to add &quot;import
+XMonad.Hooks.ICCCMFocus&quot; and in your logHook add &quot;takeTopFocus&quot;.</p>
+</blockquote>
 
 <p>So the solution is remarkable simple. Just add these lines to your
 xmonad.hs file:</p>
@@ -95,9 +97,6 @@ xmonad.hs file:</p>
 <span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
 <span class="nf">logHook</span> <span class="ow">=</span> <span class="o">...</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">takeTopFocus</span> 
 </code></pre></div>
-
-
-
 
     </div>
 </div>

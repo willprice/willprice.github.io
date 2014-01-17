@@ -81,23 +81,23 @@ as I learn the principles behind this philosophy.</p>
 <p>TDD can be roughly outlined as follows:
 - Write a failing test for the desired functionality.
 - Write the smallest amount of code that can make <em>that</em> test pass.
-- Refactor you code, making sure your changes don't break functionality (keep
+- Refactor you code, making sure your changes don&#39;t break functionality (keep
   running the tests)</p>
 
 <p>As my first introduction to TDD Jason and I did some pair programming where I
 implemented a simple Fibonacci function, this enabled me to see how the general
-principle worked: "Test a little, program a little", and see what sort of
-obstacles I might come across, such as "What's the next test going to be where
-there is no linear progression to follow".</p>
+principle worked: &quot;Test a little, program a little&quot;, and see what sort of
+obstacles I might come across, such as &quot;What&#39;s the next test going to be where
+there is no linear progression to follow&quot;. </p>
 
-<p>I've given my self a quick crash course in <em>git</em> to document my progress, I can
+<p>I&#39;ve given my self a quick crash course in <em>git</em> to document my progress, I can
 commit every time I write a test or a piece of code. The history of the code
 can be viewed using <code>gitk filename</code> using a GUI or <code>git log --follow --all -p
 filename</code>[1].</p>
 
-<p>I don't have the commit history for the <em>very</em> first Fibonacci sequence exercise
-I did, however I've got my third attempt at it (it's  pretty similar to the
-first, I've just been trying to internalize the concepts I've met so far).</p>
+<p>I don&#39;t have the commit history for the <em>very</em> first Fibonacci sequence exercise
+I did, however I&#39;ve got my third attempt at it (it&#39;s  pretty similar to the
+first, I&#39;ve just been trying to internalize the concepts I&#39;ve met so far).</p>
 
 <div class="highlight"><pre><code class="diff">commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
 Author: Will Price &lt;will.price94@gmail.com&gt;
@@ -438,15 +438,14 @@ new file mode 100755
 <span class="gi">+    unittest.main()</span>
 </code></pre></div>
 
-
-<p>You might disagree with my steps, or marvel at my crap commit messages; I'm just
+<p>You might disagree with my steps, or marvel at my crap commit messages; I&#39;m just
 getting started with the tools and methodologies so hopefully in 6 months time
-I'll be able to look back at this and correct all my mistakes.</p>
+I&#39;ll be able to look back at this and correct all my mistakes.</p>
 
-<p>I've been using <code>tmux</code> to organise my work, <code>vim</code> to edit it, <code>git</code> to save
-progress and <code>watch</code> to continually test my code (this is very handy!). I'm
-reasonably pleased with this workflow, it's both simple and flexible.
-[1] - '--follow' handles renames, '--all' shows commits on all branches, '-p'
+<p>I&#39;ve been using <code>tmux</code> to organise my work, <code>vim</code> to edit it, <code>git</code> to save
+progress and <code>watch</code> to continually test my code (this is very handy!). I&#39;m
+reasonably pleased with this workflow, it&#39;s both simple and flexible.
+[1] - &#39;--follow&#39; handles renames, &#39;--all&#39; shows commits on all branches, &#39;-p&#39;
 shows the changes in patch form (otherwise you just get commit messages)</p>
 
     </div>

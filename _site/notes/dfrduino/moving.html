@@ -71,7 +71,138 @@
       </div>
 
       <section>
-      
+      <h1 id="toc_0">Moving your robot</h1>
+
+<p>I should imagine you&#39;ll probably want to get your robot moving, no? Well
+let&#39;s see how to do that:</p>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<span class="cp">#include &lt;DFRduino.h&gt;</span>
+
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Set the robot&#39;s direction forward</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Compile and upload the code to your robot, hopefully it should go
+forward. Now, if your robot is anything like mine (I hope it isn&#39;t, it&#39;s
+had many many problems!) it may drift to the left, or perhaps to the
+right. Now the function <code>setDirection</code> is not of much use as you can&#39;t
+compensate for this hardware asymmetry. You&#39;ll have to write your own
+function that replicates <code>setDirection</code> to make your robot go straight.
+To set the speed of the left and right motors, I&#39;ve provided you with
+another function called <code>setMotors(int left, int right)</code>. Here I show
+<em>my</em> version of <code>setDirection</code>:</p>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<span class="cp">#include &lt;DFRduino.h&gt;</span>
+
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Set the robot&#39;s direction forward</span>
+  <span class="n">mySetDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">mySetDirection</span><span class="p">(</span><span class="kt">char</span> <span class="n">direction</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="sc">&#39;f&#39;</span>:
+      <span class="c1">// Compensate for drifting left by reducing</span>
+      <span class="c1">// the power of the right motor.</span>
+      <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
+      <span class="c1">// If you don&#39;t break out of your switch statements,</span>
+      <span class="c1">//  all the other cases will also be run.</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="sc">&#39;b&#39;</span>:
+      <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="sc">&#39;r&#39;</span>:
+      <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="sc">&#39;l&#39;</span>:
+      <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default:</span>
+      <span class="c1">// Provide some way of checking for errors in your </span>
+      <span class="c1">// calling code. This will be called if you don&#39;t call your</span>
+      <span class="c1">// function with &#39;f&#39;, &#39;b&#39;, &#39;r&#39; or &#39;l&#39;.</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Direction not recognised&quot;</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>You can set your motor power between -100 (maximum speed backwards) and
+100 (maximum speed forwards).</p>
+
+<p>If you&#39;re not comfortable with <code>switch</code> statements, you could have 4
+separate functions that do forward, backward, left, and right instead.</p>
+
+<div class="highlight"><pre><code class="c"><span class="c1">// Write four functions like this</span>
+<span class="kt">void</span> <span class="nf">setMotorsForward</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>It&#39;s up to you which style you prefer, I have a slight preference for
+keeping very similar behaviour all within one function.</p>
+
+<p>Now you&#39;ve written a function to get your robot moving, or perhaps your
+robot works perfectly fine and you didn&#39;t need to write any of your own
+functions, we can start making the robot do something a little more
+interesting. </p>
+
+<p>Let&#39;s make the robot trace out a square on the floor. </p>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<span class="cp">#include &lt;DFRduino.h&gt;</span>
+
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+<span class="c1">// How long shall we move forward for? (in milliseconds)</span>
+<span class="kt">int</span> <span class="n">delayTime</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="c1">// This depends on how charged your batteries are. This works for me on </span>
+<span class="c1">// new batteries</span>
+<span class="kt">int</span> <span class="n">timeTakenToMoveNinetyDegrees</span> <span class="o">=</span> <span class="mi">350</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Move forward</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="n">delayTime</span><span class="p">);</span>
+  <span class="c1">// Turn right</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;r&#39;</span><span class="p">);</span>
+  <span class="c1">// wait until we&#39;ve rotated 90 degrees</span>
+  <span class="n">delay</span><span class="p">(</span><span class="n">timeTakenToMoveNinetyDegrees</span><span class="p">);</span>
+  <span class="c1">// When we loop again, we&#39;ll go forward</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>As you may have noticed when modifying <code>timeTakenToMoveNinetyDegrees</code>
+your robot will have traced out different polygons on the floor. Your
+robot wouldn&#39;t have been turning 90 degrees, it would have been more or
+less, so it might have traced out octagons (if you had very uncharged
+batteries) or maybe even a triangle with charged batteries.</p>
+
+<p>Take some time to play around with the functions I&#39;ve provided you:
+<code>setMotors</code> and <code>setDirection</code>; and any you have written yourself like
+<code>mySetDirection</code>. </p>
+
+<p>Once you&#39;re comfortable directing your robot you should move on to
+<a href="sensing.html"><strong>sensing</strong></a>.</p>
 
       </section>
     </div>

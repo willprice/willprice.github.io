@@ -74,30 +74,26 @@
       <div class="content">
     <div id="post">
         <h2>A little bit of UML pairing session</h2>
-        <p>Jason's video on the subject:</p>
-
+        <p>Jason&#39;s video on the subject:
 <iframe width="560" height="315" src="//www.youtube.com/embed/U7X6EswilYc"></iframe>
-
-
-<p><a href="http://www.codemanship.co.uk/files/littleuml.pdf">Slide source</a></p>
+<a href="http://www.codemanship.co.uk/files/littleuml.pdf">Slide source</a></p>
 
 <p>Jason and I went through the slides discussing OO design as we went. After
 looking at the user cases, acceptance tests and CRC cards, we started writing an
 implementation of the software.</p>
 
-<h2>Tests</h2>
+<h2 id="toc_0">Tests</h2>
 
 <p>This is as far as we got:</p>
 
 <ol>
 <li>add a new title</li>
-<li>donating a copy of a title that isn't in the library add the title to the
+<li>donating a copy of a title that isn&#39;t in the library add the title to the
 library</li>
-<li>donating a copy of a different title that isn't in the library adds the title
+<li>donating a copy of a different title that isn&#39;t in the library adds the title
 to the library</li>
-<li>finding a title that doesn't exist in the library returns null.</li>
+<li>finding a title that doesn&#39;t exist in the library returns null.</li>
 </ol>
-
 
 <p>To satisfy <em>1</em> we mocked the title class and wrote a method <code>addToNewTitles</code> on
 library to add that title to library. The assertion used a <code>getNewTitles</code> method
@@ -107,11 +103,11 @@ sorting and searching algorithms (that would also require us to implement quite
 a bit of title). Satisfying <em>2</em> involved adding a title to the library, and then
 returning the first element of the list holding our titles. The assertions we
 were writing to check the title was correct were very horrible, lots of getters
-on title--poor emergent design. Next week we'll have a look at how to go from
+on title--poor emergent design. Next week we&#39;ll have a look at how to go from
 our current implementation to something a little cleaner doing lots of
 refactoring!</p>
 
-<h1>LibraryTests.java</h1>
+<h1 id="toc_1">LibraryTests.java</h1>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
@@ -169,8 +165,7 @@ refactoring!</p>
 <span class="o">}</span>
 </code></pre></div>
 
-
-<h1>Library.java</h1>
+<h1 id="toc_2">Library.java</h1>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
@@ -209,8 +204,7 @@ refactoring!</p>
 <span class="o">}</span>
 </code></pre></div>
 
-
-<h1>Title.java</h1>
+<h1 id="toc_3">Title.java</h1>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
@@ -241,16 +235,15 @@ refactoring!</p>
 <span class="o">}</span>
 </code></pre></div>
 
-
-<h1>The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem</h1>
+<h1 id="toc_4">The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem</h1>
 
 <p>Jason wants me to have ago applying the principles that we covered in the
 pairing session on a different example, so I have free reign over what I want to
-do. I'm quite interested in writing an app that allows users to track how often
-they indulge in their vices. In my case: alcohol, I'd like to cut down on my
-consumption, but I'm not quite sure how much I'm drinking, having an app to
+do. I&#39;m quite interested in writing an app that allows users to track how often
+they indulge in their vices. In my case: alcohol, I&#39;d like to cut down on my
+consumption, but I&#39;m not quite sure how much I&#39;m drinking, having an app to
 record this information would be very helpful. Graphing it would be even more
-helpful to see whether I'm decreasing my intake or not.</p>
+helpful to see whether I&#39;m decreasing my intake or not.</p>
 
     </div>
 </div>

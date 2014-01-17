@@ -48,8 +48,8 @@ void loop() {
 // 'type' is the type of value returned if you use any 'return' statments in
 // your function. E.g. 'void' if you don't return anything.
 // 'name' is the name you use to run the code, e.g. 'flash'
-// 'code' is the code that your function will run when you 'call' is by writing
-// the code 'name()'
+// 'code' is the code that your function will run when you call it. 'call'ing a
+// function is achieved by writing 'name()'
 //
 // The curly braces: '{' and '}' enclose the code that runs when
 // 'flash()' is run.

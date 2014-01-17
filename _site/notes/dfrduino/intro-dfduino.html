@@ -71,8 +71,8 @@
       </div>
 
       <section>
-      <p>The DFRduino is an Arduino based robot. It's programmed through the Arduino
-IDE program. You'll be using a library I wrote that saves you from having to
+      <p>The DFRduino is an Arduino based robot. It&#39;s programmed through the Arduino
+IDE program. You&#39;ll be using a library I wrote that saves you from having to
 write code like this:</p>
 
 <div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -94,17 +94,16 @@ write code like this:</p>
 <span class="p">}</span>
 </code></pre></div>
 
-
-<p>This is rather slow way to develop code, so I've encapsulated (hidden the low
+<p>This is rather slow way to develop code, so I&#39;ve encapsulated (hidden the low
 level details) the robot dependent things and given you a library called
 <code>DFRduino</code> that allows you to control the robot at a higher level through the
 use of some functions. This will allow us to design an obstacle avoiding robot
 in a few hours without getting stuck trying to figure out how to get the robot
 to go forward! <em>(although, if people are interested in approaching robots at a
-lower level of detail talk to me at the end of the workshop and I'll see if i
+lower level of detail talk to me at the end of the workshop and I&#39;ll see if i
 can arrange one for next DigiMakers)</em>.</p>
 
-<p>Instead of the above code, you'll be writing something like:</p>
+<p>Instead of the above code, you&#39;ll be writing something like:</p>
 
 <div class="highlight"><pre><code class="c"><span class="c1">// Import the DFRduino library and Servo library</span>
 <span class="cp">#include &lt;DFRduino.h&gt;</span>
@@ -122,8 +121,7 @@ can arrange one for next DigiMakers)</em>.</p>
 <span class="p">}</span>
 </code></pre></div>
 
-
-<h2>Features of the DFRduino robot</h2>
+<h2 id="toc_0">Features of the DFRduino robot</h2>
 
 <ul>
 <li>2 wheel drive.</li>
@@ -131,42 +129,65 @@ can arrange one for next DigiMakers)</em>.</p>
 servo head.</li>
 </ul>
 
-
-<h2>Library functions</h2>
+<h2 id="toc_1">Library functions</h2>
 
 <p>The library I have written contains a set of functions to help you develop your
 obstacle avoiding robot.</p>
 
-<h3>Types of parameters</h3>
+<h3 id="toc_2">Types of parameters</h3>
 
 <ul>
 <li><code>[percentage]</code> can be -100 to 100.</li>
 <li><code>[angle]</code> can be 0 to 180.</li>
-<li><code>[char]</code> can be any character inside of single quotes, e.g. <code>'f'</code>.</li>
+<li><code>[char]</code> can be any character inside of single quotes, e.g. <code>&#39;f&#39;</code>.</li>
 </ul>
 
-
-<h3>Functions</h3>
+<h3 id="toc_3">Functions</h3>
 
 <ul>
-<li><code>setDirection([char])</code>:
+<li><code>void setDirection([char])</code>:
 
 <ul>
-<li><code>'f'</code> - forward.</li>
-<li><code>'b'</code> - backward.</li>
-<li><code>'l'</code> - spin left (spins on the spot).</li>
-<li><code>'r'</code> - spin right (spins on the spot).</li>
-</ul>
-</li>
-<li><code>setMotors([left percentage], [right percentage])</code> -  Set the motor speed by
-percentage of maximum speed, e.g. <code>setMotors(100, 100)</code> is full thrust
-forward.</li>
-<li><code>setVerticalHeadPosition([angle])</code> Sets the vertical angle of the IR sensor
-(we call this the head). For me looking straight ahead was 130, you'll have to
-play around with this to figure out which values do what.</li>
-<li>`</li>
+<li><code>&#39;f&#39;</code> - forward.</li>
+<li><code>&#39;b&#39;</code> - backward.</li>
+<li><code>&#39;l&#39;</code> - spin left (spins on the spot).</li>
+<li><code>&#39;r&#39;</code> - spin right (spins on the spot).</li>
+</ul></li>
 </ul>
 
+<table><thead>
+<tr>
+<th><code>[return type]</code></th>
+<th><code>[name]</code></th>
+<th><code>[parameters]</code></th>
+<th>Explanation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>void</code></td>
+<td><code>setMotors</code></td>
+<td><code>([left percentage], [right percentage])</code></td>
+<td>Set the motor speed by percentage of maximum speed, e.g. <code>setMotors(100, 100)</code> is full thrust forward.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>setVerticalHeadPosition</code></td>
+<td><code>([angle])</code></td>
+<td>Sets the vertical angle of the IR sensor (we call this the head). For me looking straight ahead was 130, you&#39;ll have to play around with this to figure out which values do what.</td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>setHorizontalHeadPosition</code></td>
+<td><code>([angle])</code></td>
+<td>Sets the horizontal angle of the head. 0 for left, 90 for forward, 180 for right.</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>readDistanceInCentimeters</code></td>
+<td>NONE</td>
+<td>Reads the distance from the IR sensor and returns the distance in centimeters.</td>
+</tr>
+</tbody></table>
 
       </section>
     </div>

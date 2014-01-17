@@ -71,7 +71,88 @@
       </div>
 
       <section>
-      
+      <h1 id="toc_0">Avoiding obstacles</h1>
+
+<p>You&#39;ve learnt lots! We&#39;ve covered all the functions in the library, you can
+bring all this functionality together to make an obstacle avoiding robot. I&#39;ve
+purposefully left this very open ended. I shall give you an example of some code
+I wrote to do obstacle avoidance, it&#39;s not very good, please improve it! Better
+yet define some new heuristics and try them out!</p>
+
+<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;DFRduino.h&gt;</span>
+<span class="cp">#include &lt;Servo.h&gt;</span>
+
+<span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+  <span class="n">resetHeadPosition</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">explore</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">explore</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">robot</span><span class="p">.</span><span class="n">readDistanceInCentimeters</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//Don&#39;t move while we survey the obstacles!</span>
+    <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">leftDistance</span> <span class="o">=</span> <span class="n">lookLeft</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">rightDistance</span> <span class="o">=</span> <span class="n">lookRight</span><span class="p">();</span>
+    <span class="n">makeDecisionOnWhereToTurnNext</span><span class="p">(</span><span class="n">leftDistance</span><span class="p">,</span> <span class="n">rightDistance</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">makeDecisionOnWhereToTurnNext</span><span class="p">(</span><span class="kt">int</span> <span class="n">leftDistance</span><span class="p">,</span> <span class="kt">int</span> <span class="n">rightDistance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">leftDistance</span> <span class="o">&gt;</span> <span class="n">rightDistance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;l&#39;</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;r&#39;</span><span class="p">);</span>
+  <span class="p">}</span> 
+  <span class="k">if</span> <span class="p">(</span><span class="n">analogRead</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;b&#39;</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">lookLeft</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="mi">150</span><span class="p">);</span>
+  <span class="n">waitForServoToReachPosition</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">robot</span><span class="p">.</span><span class="n">readDistanceInCentimeters</span><span class="p">();</span>
+  <span class="n">resetHeadPosition</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">distance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">lookRight</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+  <span class="n">waitForServoToReachPosition</span><span class="p">();</span>
+  <span class="kt">int</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">robot</span><span class="p">.</span><span class="n">readDistanceInCentimeters</span><span class="p">();</span>
+  <span class="n">resetHeadPosition</span><span class="p">();</span>
+  <span class="k">return</span> <span class="n">distance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">resetHeadPosition</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
+  <span class="n">waitForServoToReachPosition</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">waitForServoToReachPosition</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>A few tips:</p>
+
+<ul>
+<li>Break all your complex behaviour into functions, as you can see I&#39;ve got
+<code>lookLeft</code> and <code>lookRight</code> to get the distance when looking left and right.</li>
+<li>Use the serial port to print out values when you&#39;re not sure why your robot is
+doing something unexpected</li>
+<li>Tilting the head down can cause the IR sensor to pick up the floor, you may or
+may not want this; it could be part of quite a good heuristic.</li>
+</ul>
 
       </section>
     </div>
