@@ -11,13 +11,23 @@ layout: layout
 |------|------|------|------|
 | **xxxD** | **xxDC** | **xxxB** | **xxBA** |
 
-## Using the 4 pins as inputs
+## Merge (4 inputs)
+![Example merge image](img/merge.jpg)
+
+This example seems to demonstrate an error in the merge code. Decompiling 
+yields some rather strange code that updates the outputs. Perhaps this is
+undefined behaviour!? This is the problem of not having any official
+documentation.
+
 This is quite simple. Each of the 4 inputs represents a bit of a 4 bit word. A
 is the LSB and D the MSB. The 4 bit word is constructed in output A.
 
 Output B will only produce a word of the form `xxDC` or `xxC2C1` where `D` is the LSB of
 input D; the same goes for input C.
-## Using the 4 pins as outputs
+
+## Split (4 outputs)
+![Example split image](img/split.jpg)
+
 Port A splits out each bit to the LSB of the output in order (A from port A -> LSB of output
 A), however it is not quite this simple as on output A and C the 2nd and 4th
 bits from port A are also present in the 2nd LSB. so 00BA into Port A yields
@@ -26,9 +36,13 @@ to get at A, or perform a bit of shifting. Refer to the top table if this
 explanation is crap.
 
 # 4 Way Fanout
+![Example 4 way fanout image](img/fanout.jpg)
+
 Takes an input and repeats it to four outputs
 
 # REG - Register
+![Example register image](img/reg.jpg)
+
 These store their inputs when enabled, and constantly output whatever is stored
 in them. The control input takes the following form:
 
@@ -39,10 +53,14 @@ in them. The control input takes the following form:
 | 2   | Enable   | 0 - no change, 1 - read input if clock=1 |
 
 # CLK - Clock
+![Example clock image](img/clock.jpg)
+
 Outputs `010x` to two outputs where one will be `0101` and the other `0100`.
 This is used to alternately enable registers.
 
 # LSH - Left Shift
+![Example left shift image](img/left_shift.jpg)
+
 NOTE: Only the 2 LSBs of *control input* are handled
 
 Take and input and shift it left by the number of places in the *control input*. No
@@ -50,12 +68,16 @@ idea what the chain in and outs do. If you do know, please email me and I'll add
 it in.
 
 # RSH - Right Shift
+![Example right shift image](img/right_shift.jpg)
+
 NOTE: Only the 2 LSBs of *control input* are handled
 
 Take the input and shift it right by the number of places in the *control
 input*. No idea what the chain in and outs do.
 
 # MUX - Multiplexer
+![Example mux image](img/mux.jpg)
+
 The multiplexer takes 4 inputs and selects one of them based on the 2 LSBs of
 the *Control in*, which is also fed out to *Control out*.
 
@@ -67,6 +89,8 @@ the *Control in*, which is also fed out to *Control out*.
 | xx11          | D              |
 
 # DMX - Demultiplexer
+![Example demux image](img/demux.jpg)
+
 The demultiplexer takes an input and then based on the *Control input* selects
 which output to route it to.
 
@@ -78,6 +102,8 @@ which output to route it to.
 | xx11          | D               |
 
 # AU - Arithmetic Unit
+![Example au image](img/au.jpg)
+
 Performs arithmetic operations on two inputs.
 
 | Control Inputs (right input) | Function selected | Comparison selected | 
@@ -94,4 +120,6 @@ The left output is the *Control out* that instructs another chained AU that
 overflow has occured so you can chain AUs to handle more than 4 bit numbers.
 
 # LU - Logic Unit
+![Example lu image](img/lu.jpg)
+
 Performs logical operations on two inputs.

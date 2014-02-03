@@ -94,7 +94,14 @@
 </tr>
 </tbody></table>
 
-<h2 id="toc_1">Using the 4 pins as inputs</h2>
+<h2 id="toc_1">Merge (4 inputs)</h2>
+
+<p><img src="img/merge.jpg" alt="Example merge image"></p>
+
+<p>This example seems to demonstrate an error in the merge code. Decompiling 
+yields some rather strange code that updates the outputs. Perhaps this is
+undefined behaviour!? This is the problem of not having any official
+documentation.</p>
 
 <p>This is quite simple. Each of the 4 inputs represents a bit of a 4 bit word. A
 is the LSB and D the MSB. The 4 bit word is constructed in output A.</p>
@@ -102,7 +109,9 @@ is the LSB and D the MSB. The 4 bit word is constructed in output A.</p>
 <p>Output B will only produce a word of the form <code>xxDC</code> or <code>xxC2C1</code> where <code>D</code> is the LSB of
 input D; the same goes for input C.</p>
 
-<h2 id="toc_2">Using the 4 pins as outputs</h2>
+<h2 id="toc_2">Split (4 outputs)</h2>
+
+<p><img src="img/split.jpg" alt="Example split image"></p>
 
 <p>Port A splits out each bit to the LSB of the output in order (A from port A -&gt; LSB of output
 A), however it is not quite this simple as on output A and C the 2nd and 4th
@@ -113,9 +122,13 @@ explanation is crap.</p>
 
 <h1 id="toc_3">4 Way Fanout</h1>
 
+<p><img src="img/fanout.jpg" alt="Example 4 way fanout image"></p>
+
 <p>Takes an input and repeats it to four outputs</p>
 
 <h1 id="toc_4">REG - Register</h1>
+
+<p><img src="img/reg.jpg" alt="Example register image"></p>
 
 <p>These store their inputs when enabled, and constantly output whatever is stored
 in them. The control input takes the following form:</p>
@@ -146,10 +159,14 @@ in them. The control input takes the following form:</p>
 
 <h1 id="toc_5">CLK - Clock</h1>
 
+<p><img src="img/clock.jpg" alt="Example clock image"></p>
+
 <p>Outputs <code>010x</code> to two outputs where one will be <code>0101</code> and the other <code>0100</code>.
 This is used to alternately enable registers.</p>
 
 <h1 id="toc_6">LSH - Left Shift</h1>
+
+<p><img src="img/left_shift.jpg" alt="Example left shift image"></p>
 
 <p>NOTE: Only the 2 LSBs of <em>control input</em> are handled</p>
 
@@ -159,12 +176,16 @@ it in.</p>
 
 <h1 id="toc_7">RSH - Right Shift</h1>
 
+<p><img src="img/right_shift.jpg" alt="Example right shift image"></p>
+
 <p>NOTE: Only the 2 LSBs of <em>control input</em> are handled</p>
 
 <p>Take the input and shift it right by the number of places in the <em>control
 input</em>. No idea what the chain in and outs do.</p>
 
 <h1 id="toc_8">MUX - Multiplexer</h1>
+
+<p><img src="img/mux.jpg" alt="Example mux image"></p>
 
 <p>The multiplexer takes 4 inputs and selects one of them based on the 2 LSBs of
 the <em>Control in</em>, which is also fed out to <em>Control out</em>.</p>
@@ -195,6 +216,8 @@ the <em>Control in</em>, which is also fed out to <em>Control out</em>.</p>
 
 <h1 id="toc_9">DMX - Demultiplexer</h1>
 
+<p><img src="img/demux.jpg" alt="Example demux image"></p>
+
 <p>The demultiplexer takes an input and then based on the <em>Control input</em> selects
 which output to route it to.</p>
 
@@ -223,6 +246,8 @@ which output to route it to.</p>
 </tbody></table>
 
 <h1 id="toc_10">AU - Arithmetic Unit</h1>
+
+<p><img src="img/au.jpg" alt="Example au image"></p>
 
 <p>Performs arithmetic operations on two inputs.</p>
 
@@ -262,6 +287,8 @@ the two&#39;s complement system.</p>
 overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
 
 <h1 id="toc_11">LU - Logic Unit</h1>
+
+<p><img src="img/lu.jpg" alt="Example lu image"></p>
 
 <p>Performs logical operations on two inputs.</p>
 
