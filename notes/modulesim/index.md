@@ -2,7 +2,8 @@
 title: ModuleSim user notes
 layout: layout
 ---
-`x`s indicate that the binary digit doesn't matter, it can be 1 or 0.
+* `x`s indicate that the binary digit doesn't matter, it can be 1 or 0.
+* [Examples of components](module-sim-examples.modsim)
 
 # Split Merge
 
