@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>ModuleSim user notes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <p><code>x</code>s indicate that the binary digit doesn&#39;t matter, it can be 1 or 0.</p>
+
+<h1 id="toc_0">Split Merge</h1>
+
+<table><thead>
+<tr>
+<th>CDxx</th>
+<th></th>
+<th></th>
+<th>ABCD</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>xxxD</strong></td>
+<td><strong>xxDC</strong></td>
+<td><strong>xxxB</strong></td>
+<td><strong>xxBA</strong></td>
+</tr>
+</tbody></table>
+
+<h2 id="toc_1">Using the 4 pins as inputs</h2>
+
+<p>This is quite simple. Each of the 4 inputs represents a bit of a 4 bit word. A
+is the LSB and D the MSB. The 4 bit word is constructed in output A.</p>
+
+<p>Output B will only produce a word of the form <code>xxDC</code> or <code>xxC2C1</code> where <code>D</code> is the LSB of
+input D; the same goes for input C.</p>
+
+<h2 id="toc_2">Using the 4 pins as outputs</h2>
+
+<p>Port A splits out each bit to the LSB of the output in order (A from port A -&gt; LSB of output
+A), however it is not quite this simple as on output A and C the 2nd and 4th
+bits from port A are also present in the 2nd LSB. so 00BA into Port A yields
+00BA on output A. This is a bit irritating meaning you&#39;ll have to use a bit mask
+to get at A, or perform a bit of shifting. Refer to the top table if this
+explanation is crap.</p>
+
+<h1 id="toc_3">4 Way Fanout</h1>
+
+<p>Takes an input and repeats it to four outputs</p>
+
+<h1 id="toc_4">REG - Register</h1>
+
+<p>These store their inputs when enabled, and constantly output whatever is stored
+in them. The control input takes the following form:</p>
+
+<table><thead>
+<tr>
+<th>Bit</th>
+<th>Function</th>
+<th>Values and outputs</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>Clock</td>
+<td>0 - no change, 1 - read input if enable=1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Reset</td>
+<td>Reset the register to 0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enable</td>
+<td>0 - no change, 1 - read input if clock=1</td>
+</tr>
+</tbody></table>
+
+<h1 id="toc_5">CLK - Clock</h1>
+
+<p>Outputs <code>010x</code> to two outputs where one will be <code>0101</code> and the other <code>0100</code>.
+This is used to alternately enable registers.</p>
+
+<h1 id="toc_6">LSH - Left Shift</h1>
+
+<p>NOTE: Only the 2 LSBs of <em>control input</em> are handled</p>
+
+<p>Take and input and shift it left by the number of places in the <em>control input</em>. No
+idea what the chain in and outs do. If you do know, please email me and I&#39;ll add
+it in.</p>
+
+<h1 id="toc_7">RSH - Right Shift</h1>
+
+<p>NOTE: Only the 2 LSBs of <em>control input</em> are handled</p>
+
+<p>Take the input and shift it right by the number of places in the <em>control
+input</em>. No idea what the chain in and outs do.</p>
+
+<h1 id="toc_8">MUX - Multiplexer</h1>
+
+<p>The multiplexer takes 4 inputs and selects one of them based on the 2 LSBs of
+the <em>Control in</em>, which is also fed out to <em>Control out</em>.</p>
+
+<table><thead>
+<tr>
+<th>Control input</th>
+<th>Input selected</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>xx00</td>
+<td>A</td>
+</tr>
+<tr>
+<td>xx01</td>
+<td>B</td>
+</tr>
+<tr>
+<td>xx10</td>
+<td>C</td>
+</tr>
+<tr>
+<td>xx11</td>
+<td>D</td>
+</tr>
+</tbody></table>
+
+<h1 id="toc_9">DMX - Demultiplexer</h1>
+
+<p>The demultiplexer takes an input and then based on the <em>Control input</em> selects
+which output to route it to.</p>
+
+<table><thead>
+<tr>
+<th>Control input</th>
+<th>Output selected</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>xx00</td>
+<td>A</td>
+</tr>
+<tr>
+<td>xx01</td>
+<td>B</td>
+</tr>
+<tr>
+<td>xx10</td>
+<td>C</td>
+</tr>
+<tr>
+<td>xx11</td>
+<td>D</td>
+</tr>
+</tbody></table>
+
+<h1 id="toc_10">AU - Arithmetic Unit</h1>
+
+<p>Performs arithmetic operations on two inputs.</p>
+
+<table><thead>
+<tr>
+<th>Control Inputs (right input)</th>
+<th>Function selected</th>
+<th>Comparison selected</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x000</td>
+<td>Addition</td>
+<td>Output = 0</td>
+</tr>
+<tr>
+<td>x001</td>
+<td>Pass through A</td>
+<td>Output = 0</td>
+</tr>
+<tr>
+<td>x110</td>
+<td>A - B</td>
+<td>A = B</td>
+</tr>
+<tr>
+<td>x111</td>
+<td>A - B</td>
+<td>A &lt; B</td>
+</tr>
+</tbody></table>
+
+<p>Subtraction is carried out by performing <code>(A + ¬B) + 1</code> since <code>-B = ¬B + 1</code> in
+the two&#39;s complement system.</p>
+
+<p>The left output is the <em>Control out</em> that instructs another chained AU that
+overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
+
+<h1 id="toc_11">LU - Logic Unit</h1>
+
+<p>Performs logical operations on two inputs.</p>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
