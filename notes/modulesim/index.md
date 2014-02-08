@@ -13,7 +13,7 @@ layout: layout
 
 | **xxBA** | **xxxB** | **xxDC** | **xxxD** |
 |------|------|------|------|
-| ABCD |      |      | xxDC |
+| **ABCD** |      |      | **xxDC** |
 
 ## Merge (4 inputs)
 ![Example merge image](img/merge.jpg)
