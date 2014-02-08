@@ -7,9 +7,13 @@ layout: layout
 
 # Split Merge
 
-| CDxx |      |      | ABCD |
+| xxDC |      |      | ABCD |
 |------|------|------|------|
 | **xxxD** | **xxDC** | **xxxB** | **xxBA** |
+
+| **xxBA** | **xxxB** | **xxDC** | **xxxD** |
+|------|------|------|------|
+| ABCD |      |      | xxDC |
 
 ## Merge (4 inputs)
 ![Example merge image](img/merge.jpg)
