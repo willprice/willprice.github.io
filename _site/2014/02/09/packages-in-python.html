@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Packages and modules in Python</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h2>Packages and modules in Python</h2>
+        <p>Previously, and now currently, packages in Python have been a source of much woe
+to me. Plagued by hundred of &quot;No module named xxx&quot;, &quot;Attempted relative import
+in non-package&quot; etc, it is now time to write myself a little guide to refer to
+in future.</p>
+
+<h1 id="toc_0">Packages and Modules</h1>
+
+<p>A <strong>package</strong> is a collection of modules with a <code>__init__.py</code> file inside the
+package directory and a <strong>module</strong> is simply a python file.</p>
+
+<p>Say I have the layout:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">* core:
+    * __init__.py
+    * queue.py
+    * tests:
+        * queue_tests.py
+</code></pre></div>
+<p>and I want the <code>Queue</code> class from <code>core.queue</code>. How do I import this in
+<code>queue_tests.py</code>?</p>
+
+<p>You&#39;d think</p>
+
+<div class="highlight"><pre><code class="python"><span class="kn">from</span> <span class="nn">..queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="k">def</span> <span class="nf">blah</span><span class="p">():</span>
+    <span class="n">stuff</span><span class="p">()</span>
+</code></pre></div>
+
+<p>would do it; and you&#39;d be correct. But check how you&#39;re running the file. If
+you&#39;re running it directly like <code>python tests/queue_tests.py</code>, then the name of the file will
+be <code>__main__</code> which breaks relative imports. You have to run it like so: <code>python
+-m tests.queue_tests</code>. This runs the module <code>queue_tests</code> as a script, but fixes
+the <code>__name__</code> issue.</p>
+
+    </div>
+</div>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

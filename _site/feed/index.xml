@@ -4,13 +4,54 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-02-08T20:07:47+00:00</updated>
+ <updated>2014-02-09T21:34:09+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Packages and modules in Python</title>
+   <link href="http://willprice.org//2014/02/09/packages-in-python.html"/>
+   <updated>2014-02-09T00:00:00+00:00</updated>
+   <id>http://willprice.org/2014/02/09/packages-in-python</id>
+   <content type="html">&lt;p&gt;Previously, and now currently, packages in Python have been a source of much woe
+to me. Plagued by hundred of &amp;quot;No module named xxx&amp;quot;, &amp;quot;Attempted relative import
+in non-package&amp;quot; etc, it is now time to write myself a little guide to refer to
+in future.&lt;/p&gt;
+
+&lt;h1 id=&quot;toc_0&quot;&gt;Packages and Modules&lt;/h1&gt;
+
+&lt;p&gt;A &lt;strong&gt;package&lt;/strong&gt; is a collection of modules with a &lt;code&gt;__init__.py&lt;/code&gt; file inside the
+package directory and a &lt;strong&gt;module&lt;/strong&gt; is simply a python file.&lt;/p&gt;
+
+&lt;p&gt;Say I have the layout:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;* core:
+    * __init__.py
+    * queue.py
+    * tests:
+        * queue_tests.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and I want the &lt;code&gt;Queue&lt;/code&gt; class from &lt;code&gt;core.queue&lt;/code&gt;. How do I import this in
+&lt;code&gt;queue_tests.py&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;d think&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;..queue&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;would do it; and you&amp;#39;d be correct. But check how you&amp;#39;re running the file. If
+you&amp;#39;re running it directly like &lt;code&gt;python tests/queue_tests.py&lt;/code&gt;, then the name of the file will
+be &lt;code&gt;__main__&lt;/code&gt; which breaks relative imports. You have to run it like so: &lt;code&gt;python
+-m tests.queue_tests&lt;/code&gt;. This runs the module &lt;code&gt;queue_tests&lt;/code&gt; as a script, but fixes
+the &lt;code&gt;__name__&lt;/code&gt; issue.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Are all comments bad?</title>
