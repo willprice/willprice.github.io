@@ -105,6 +105,19 @@ which output to route it to.
 | xx10          | C               |
 | xx11          | D               |
 
+# Chained Or
+![Example Or on image](img/or_on.png)
+![Example Or off image](img/or_off.png)
+
+The chained Or is triggered in one of two ways:
+1. If the control in has it's LSB set
+2. If any of the inputs have their LSB set
+otherwise the output will be 0000.
+
+The chained or is so called as along the top of the module you get the inputs
+just as you fed them in, this means you can pass the lowest bits around quite a
+lot.
+
 # AU - Arithmetic Unit
 ![Example au image](img/au.jpg)
 

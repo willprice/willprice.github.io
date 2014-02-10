@@ -261,7 +261,21 @@ which output to route it to.</p>
 </tr>
 </tbody></table>
 
-<h1 id="toc_10">AU - Arithmetic Unit</h1>
+<h1 id="toc_10">Chained Or</h1>
+
+<p><img src="img/or_on.png" alt="Example Or on image">
+<img src="img/or_off.png" alt="Example Or off image"></p>
+
+<p>The chained Or is triggered in one of two ways:
+1. If the control in has it&#39;s LSB set
+2. If any of the inputs have their LSB set
+otherwise the output will be 0000.</p>
+
+<p>The chained or is so called as along the top of the module you get the inputs
+just as you fed them in, this means you can pass the lowest bits around quite a
+lot.</p>
+
+<h1 id="toc_11">AU - Arithmetic Unit</h1>
 
 <p><img src="img/au.jpg" alt="Example au image"></p>
 
@@ -302,7 +316,7 @@ the two&#39;s complement system.</p>
 <p>The left output is the <em>Control out</em> that instructs another chained AU that
 overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
 
-<h1 id="toc_11">LU - Logic Unit</h1>
+<h1 id="toc_12">LU - Logic Unit</h1>
 
 <p><img src="img/lu.jpg" alt="Example lu image"></p>
 
