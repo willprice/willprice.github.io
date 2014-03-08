@@ -140,3 +140,16 @@ overflow has occured so you can chain AUs to handle more than 4 bit numbers.
 ![Example lu image](img/lu.jpg)
 
 Performs logical operations on two inputs.
+
+# RAM - Memory unit
+The RAM unit holds 65,536 bytes of memory. These are accessed through the 4
+*Address inputs* that take a nibble each. Inputs take the form of nibbles;
+the same goes for outputs. 
+
+| Bit | Function |
+|-----|----------|
+| 0   | Clock    |
+| 2   | Enable   |
+
+
+![Example RAM image](img/ram.jpg)
