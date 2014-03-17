@@ -4,13 +4,143 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-03-08T22:44:04+00:00</updated>
+ <updated>2014-03-17T16:53:01+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Eduroam on the raspberry pi</title>
+   <link href="http://willprice.org//2014/03/17/eduroam-on-the-raspberry-pi.html"/>
+   <updated>2014-03-17T00:00:00+00:00</updated>
+   <id>http://willprice.org/2014/03/17/eduroam-on-the-raspberry-pi</id>
+   <content type="html">&lt;p&gt;For far too long have I not documented the process of getting to connected to
+eduroam with a raspberry pi. This time I endeavour to document the process.`&lt;/p&gt;
+
+&lt;p&gt;The general process of getting up and running with wireless (on the command
+line) on Raspbian is as follows:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Disable network service&lt;/li&gt;
+&lt;li&gt;Write a &lt;code&gt;wpa_supplicant&lt;/code&gt; configuration file with your username and password.&lt;/li&gt;
+&lt;li&gt;Connect to the wireless network using &lt;code&gt;wpa_supplicant&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Request an IP address with &lt;code&gt;dhclient&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;toc_0&quot;&gt;Disable network service&lt;/h1&gt;
+
+&lt;p&gt;Raspbian&amp;#39;s network service needs to be stopped to connect using the method
+we&amp;#39;re going to use. To do this run &lt;code&gt;service networking stop&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;toc_1&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
+
+&lt;p&gt;I&amp;#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
+authentication, if you&amp;#39;re at a different university this may well be different
+and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; file accordingly&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;network={
+    # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
+
+    # The &amp;#39;identity&amp;#39; is the username actually used for authentication.
+    # This must be your Bristol username, all lowercase.
+        identity=&amp;quot;ab1234&amp;quot;
+
+    # Your normal Bristol password (so make sure the permissions on
+    # your wpa_supplicant config file are not world readable!)
+        password=&amp;quot;myUOBpassword&amp;quot;
+
+    # CA cert from here:
+    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.crt
+    # Change the path to where you downloaded the file
+        ca_cert=&amp;quot;/etc/certs/uob-net-ca.pem&amp;quot;
+
+    # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
+    # --- OF THE UNIVERSITY OF BRISTOL, UK          --
+
+    # Bristol supports PEAP and TTLS.
+        eap=PEAP TTLS
+
+    # The &amp;#39;anonymous_identity&amp;#39; is the identity used for routing
+    # the authentication to Bristol. It must end with &amp;#39;@bris.ac.uk&amp;#39;
+    # or &amp;#39;@bristol.ac.uk&amp;#39;. It must be all lowercase. If you have 
+    # anything preceding the @ it must be all lowercase letters or 
+    # a hyphen (no spaces, punctuation etc) 
+    # e.g. &amp;quot;wireless-user@bristol.ac.uk&amp;quot; would be ok
+        anonymous_identity=&amp;quot;@bristol.ac.uk&amp;quot;
+
+    # Bristol use MS-CHAPv2 as the inner authentication scheme,
+    # with the traditional label
+    phase1=&amp;quot;peaplabel=0&amp;quot;
+    phase2=&amp;quot;auth=MSCHAPV2&amp;quot;
+
+    # Set priority to a big number
+    priority=999
+
+    # --- DONT CHANGE THE REST OF THIS BLOCK --
+
+    # Enable this network block
+    disabled=0
+
+    # eduroam please
+        ssid=&amp;quot;eduroam&amp;quot;
+
+    # SSID should be broadcast, so don&amp;#39;t scan.
+    scan_ssid=0
+
+    # Infrastructure mode
+    mode=0
+
+    # WPA/WPA2 require OPEN
+    auth_alg=OPEN
+
+    # WPA and WPA2 (RSN) are both used for eduroam 
+    # (depending on which organisation you are at)
+    # In the future &amp;#39;WPA&amp;#39; can be removed (WPA2 only).
+    proto=WPA RSN
+
+    # CCMP (AES) is stronger, but some organisations use TKIP.
+    # In the future &amp;#39;TKIP&amp;#39; can be removed.
+    pairwise=CCMP TKIP
+
+    # Use EAP
+        key_mgmt=WPA-EAP
+
+    # Use PMKSA caching
+        proactive_key_caching=1
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Thanks to
+&lt;a href=&quot;http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/&quot;&gt;wirless.bris.ac.uk&lt;/a&gt; for the file!&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code&gt;wpa_supplicant&lt;/code&gt;: &lt;code&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B&lt;/code&gt;
+You&amp;#39;ll also need the PEM file &lt;code&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code&gt;/etc/ssl/certs/&lt;/code&gt;
+which is located at
+&lt;a href=&quot;https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem&quot;&gt;https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Problems you may encounter at this stage include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The certificate being invalid as the raspberry pi&amp;#39;s time is set to a time
+before the certificate is valid (run wpa_supplicant with the &lt;code&gt;-dd&lt;/code&gt; flag for
+verbose debugging).&lt;/li&gt;
+&lt;li&gt;You&amp;#39;re as thick as me and you accidentally rename the certificate&lt;/li&gt;
+&lt;li&gt;Something else has control of the wireless interface preventing you from
+connecting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;toc_2&quot;&gt;Request an IP address&lt;/h1&gt;
+
+&lt;p&gt;Once you&amp;#39;ve connected to eduroam which you can verify by running &lt;code&gt;iwconfig&lt;/code&gt;. You
+should now request an ip address with the command &lt;code&gt;sudo dhclient wlan0&lt;/code&gt;. To verify
+that you have got an ip address run &lt;code&gt;ifconfig&lt;/code&gt; and make sure your wireless
+interface (usually wlan0) has been assigned an address.&lt;/p&gt;
+
+&lt;p&gt;You should now have a wireless connection!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Packages and modules in Python</title>

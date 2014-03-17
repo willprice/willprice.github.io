@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Eduroam on the raspberry pi</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h2>Eduroam on the raspberry pi</h2>
+        <p>For far too long have I not documented the process of getting to connected to
+eduroam with a raspberry pi. This time I endeavour to document the process.`</p>
+
+<p>The general process of getting up and running with wireless (on the command
+line) on Raspbian is as follows:</p>
+
+<ol>
+<li>Disable network service</li>
+<li>Write a <code>wpa_supplicant</code> configuration file with your username and password.</li>
+<li>Connect to the wireless network using <code>wpa_supplicant</code></li>
+<li>Request an IP address with <code>dhclient</code>.</li>
+</ol>
+
+<h1 id="toc_0">Disable network service</h1>
+
+<p>Raspbian&#39;s network service needs to be stopped to connect using the method
+we&#39;re going to use. To do this run <code>service networking stop</code>.</p>
+
+<h1 id="toc_1">Connect using wpa_supplicant</h1>
+
+<p>I&#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
+authentication, if you&#39;re at a different university this may well be different
+and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">network={
+    # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
+
+    # The &#39;identity&#39; is the username actually used for authentication.
+    # This must be your Bristol username, all lowercase.
+        identity=&quot;ab1234&quot;
+
+    # Your normal Bristol password (so make sure the permissions on
+    # your wpa_supplicant config file are not world readable!)
+        password=&quot;myUOBpassword&quot;
+
+    # CA cert from here:
+    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.crt
+    # Change the path to where you downloaded the file
+        ca_cert=&quot;/etc/certs/uob-net-ca.pem&quot;
+
+    # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
+    # --- OF THE UNIVERSITY OF BRISTOL, UK          --
+
+    # Bristol supports PEAP and TTLS.
+        eap=PEAP TTLS
+
+    # The &#39;anonymous_identity&#39; is the identity used for routing
+    # the authentication to Bristol. It must end with &#39;@bris.ac.uk&#39;
+    # or &#39;@bristol.ac.uk&#39;. It must be all lowercase. If you have 
+    # anything preceding the @ it must be all lowercase letters or 
+    # a hyphen (no spaces, punctuation etc) 
+    # e.g. &quot;wireless-user@bristol.ac.uk&quot; would be ok
+        anonymous_identity=&quot;@bristol.ac.uk&quot;
+
+    # Bristol use MS-CHAPv2 as the inner authentication scheme,
+    # with the traditional label
+    phase1=&quot;peaplabel=0&quot;
+    phase2=&quot;auth=MSCHAPV2&quot;
+
+    # Set priority to a big number
+    priority=999
+
+    # --- DONT CHANGE THE REST OF THIS BLOCK --
+
+    # Enable this network block
+    disabled=0
+
+    # eduroam please
+        ssid=&quot;eduroam&quot;
+
+    # SSID should be broadcast, so don&#39;t scan.
+    scan_ssid=0
+
+    # Infrastructure mode
+    mode=0
+
+    # WPA/WPA2 require OPEN
+    auth_alg=OPEN
+
+    # WPA and WPA2 (RSN) are both used for eduroam 
+    # (depending on which organisation you are at)
+    # In the future &#39;WPA&#39; can be removed (WPA2 only).
+    proto=WPA RSN
+
+    # CCMP (AES) is stronger, but some organisations use TKIP.
+    # In the future &#39;TKIP&#39; can be removed.
+    pairwise=CCMP TKIP
+
+    # Use EAP
+        key_mgmt=WPA-EAP
+
+    # Use PMKSA caching
+        proactive_key_caching=1
+
+}
+</code></pre></div>
+<p>Thanks to
+<a href="http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/">wirless.bris.ac.uk</a> for the file!</p>
+
+<p>Run <code>wpa_supplicant</code>: <code>sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B</code>
+You&#39;ll also need the PEM file <code>uob-net-ca.pem</code> to put into <code>/etc/ssl/certs/</code>
+which is located at
+<a href="https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem">https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem</a></p>
+
+<p>Problems you may encounter at this stage include:</p>
+
+<ul>
+<li>The certificate being invalid as the raspberry pi&#39;s time is set to a time
+before the certificate is valid (run wpa_supplicant with the <code>-dd</code> flag for
+verbose debugging).</li>
+<li>You&#39;re as thick as me and you accidentally rename the certificate</li>
+<li>Something else has control of the wireless interface preventing you from
+connecting.</li>
+</ul>
+
+<h1 id="toc_2">Request an IP address</h1>
+
+<p>Once you&#39;ve connected to eduroam which you can verify by running <code>iwconfig</code>. You
+should now request an ip address with the command <code>sudo dhclient wlan0</code>. To verify
+that you have got an ip address run <code>ifconfig</code> and make sure your wireless
+interface (usually wlan0) has been assigned an address.</p>
+
+<p>You should now have a wireless connection!</p>
+
+    </div>
+</div>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

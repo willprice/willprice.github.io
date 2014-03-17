@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Theory of computation notes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <h1 id="toc_0">Context-free languages</h1>
+
+<p>A context-free grammar consists of a set of <strong>substitution rules</strong>, otherwise
+known as <strong>productions</strong>. <strong>Variables</strong> map to more variables and/or
+<strong>terminals</strong>. A word in the language consists entirely of terminals. One
+variable in the grammar is chosen as the <strong>start variable</strong> from which all words
+of the language are produced.</p>
+
+<p>The general steps of deriving a word in a CFL:
+1. Write down start variable <strong>S</strong>.
+2. Find a rule that maps <strong>S</strong> and write down the right-hand side.
+3. Goto <em>2</em> until no variable remains.</p>
+
+<p>The set of strings that can be <em>derived</em> from a set of rules is called the
+<em>language of the grammar</em>.</p>
+
+<p>A <strong>CFG</strong> is defined as a 4 tuple: <code>$$\right(V, \Sgima, R, S \left)$$</code>. 
+* <code>$$V$$</code> - A finite set: <strong>variables</strong>.
+* <code>$$\Sigma$$</code> - A finite set s.t <code>$$\Sigma \cap V = \emptyset$$</code> the
+  <strong>terminals</strong>.
+* <code>$$R$$</code> - A finite set of rules, with each rule being a variable and a string
+  of variables and terminals.
+* <code>$$S$$</code> - The start variable s.t. <code>$$S \in V$$</code>.</p>
+
+<h2 id="toc_1">Designing CFLs</h2>
+
+<p>Many CFLs are the union of simpler CFLs. Merging simpler CFLs into a more
+complex CFL is achieved by merging their grammars and adding a new start
+variable that maps to the union of all the old start variables from the simpler
+CFLs.</p>
+
+<h3 id="toc_2">DFA to CFG</h3>
+
+<p>For each state in the machine add a rule <code>$$R_i \Rightarrow aR_j$$</code> for every
+transition from state <code>$$R_i$$</code> to state <code>$$R_j$$</code> when reading the symbol
+<code>$$a$$</code>. </p>
+
+<h2 id="toc_3">Ambiguity</h2>
+
+<p>Some CFGs will allow derivation of strings in a few different ways. This leads
+to the idea of <strong>ambiguity</strong> in derivation. A grammar is ambiguous if you can
+derive any string ambiguously. </p>
+
+<ul>
+<li><strong>Leftmost derivations</strong>  are derivations in which the <strong>Leftmost</strong> variable
+is always replaced.</li>
+</ul>
+
+<p>Some languages can only be defined ambiguously, those grammars are known as
+<strong>inherently ambiguous</strong>.</p>
+
+<h2 id="toc_4">Chomsky normal form</h2>
+
+<p>All CFGs can be expressed in <strong>Chomsky normal form</strong> where all rules are of the
+form:</p>
+
+<ul>
+<li><code>$$A \Rightarrow BC$$</code></li>
+<li><code>$$A \Rightarrow a$$</code></li>
+<li><code>$$S \Rightarrow \epsilon</code> is the only mapping to <code>$$epsilon$$</code> permitted in
+the grammar. (<code>$$S$$</code> is the start variable)</li>
+</ul>
+
+<h1 id="toc_5">Pushdown Automata</h1>
+
+      </section>
+    </div>
+	</div><!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
