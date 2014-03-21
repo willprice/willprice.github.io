@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-03-21T22:55:27+00:00</updated>
+ <updated>2014-03-21T22:58:52+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -33,8 +33,9 @@ line) on Raspbian is as follows:&lt;/p&gt;
 &lt;h1 id=&quot;toc_0&quot;&gt;Disable network service&lt;/h1&gt;
 
 &lt;p&gt;Raspbian&amp;#39;s network service needs to be stopped to connect using the method
-we&amp;#39;re going to use. To do this run &lt;code&gt;service networking stop&lt;/code&gt;.&lt;/p&gt;
-
+we&amp;#39;re going to use. To do this run &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;sudo service networking stop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id=&quot;toc_1&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
 
 &lt;p&gt;I&amp;#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
@@ -52,9 +53,9 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
         password=&amp;quot;myUOBpassword&amp;quot;
 
     # CA cert from here:
-    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.crt
+    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
     # Change the path to where you downloaded the file
-        ca_cert=&amp;quot;/etc/certs/uob-net-ca.pem&amp;quot;
+        ca_cert=&amp;quot;/etc/ssl/certs/uob-net-ca.pem&amp;quot;
 
     # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
     # --- OF THE UNIVERSITY OF BRISTOL, UK          --
@@ -115,8 +116,10 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
 &lt;p&gt;Thanks to
 &lt;a href=&quot;http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/&quot;&gt;wirless.bris.ac.uk&lt;/a&gt; for the file!&lt;/p&gt;
 
-&lt;p&gt;Run &lt;code&gt;wpa_supplicant&lt;/code&gt;: &lt;code&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B&lt;/code&gt;
-You&amp;#39;ll also need the PEM file &lt;code&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code&gt;/etc/ssl/certs/&lt;/code&gt;
+&lt;p&gt;Run &lt;code&gt;wpa_supplicant&lt;/code&gt;: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You&amp;#39;ll also need the PEM file &lt;code&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code&gt;/etc/ssl/certs/&lt;/code&gt;
 which is located at
 &lt;a href=&quot;https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem&quot;&gt;https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem&lt;/a&gt;&lt;/p&gt;
 
@@ -134,9 +137,11 @@ connecting.&lt;/li&gt;
 &lt;h1 id=&quot;toc_2&quot;&gt;Request an IP address&lt;/h1&gt;
 
 &lt;p&gt;Once you&amp;#39;ve connected to eduroam which you can verify by running &lt;code&gt;iwconfig&lt;/code&gt;. You
-should now request an ip address with the command &lt;code&gt;sudo dhclient wlan0&lt;/code&gt;. To verify
-that you have got an ip address run &lt;code&gt;ifconfig&lt;/code&gt; and make sure your wireless
-interface (usually wlan0) has been assigned an address.&lt;/p&gt;
+should now request an ip address with the command &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;sudo dhclient wlan0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To verify that you have got an ip address run &lt;code&gt;ifconfig&lt;/code&gt; and make sure your
+wireless interface (usually wlan0) has been assigned an address.&lt;/p&gt;
 
 &lt;p&gt;You should now have a wireless connection!&lt;/p&gt;
 </content>

@@ -16,7 +16,9 @@ line) on Raspbian is as follows:
 
 # Disable network service
 Raspbian's network service needs to be stopped to connect using the method
-we're going to use. To do this run `service networking stop`.
+we're going to use. To do this run 
+
+    sudo service networking stop
 
 # Connect using wpa_supplicant
 
@@ -37,9 +39,9 @@ network={
         password="myUOBpassword"
 
 	# CA cert from here:
-	# https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.crt
+    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
 	# Change the path to where you downloaded the file
-        ca_cert="/etc/certs/uob-net-ca.pem"
+        ca_cert="/etc/ssl/certs/uob-net-ca.pem"
 
 	# --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
 	# --- OF THE UNIVERSITY OF BRISTOL, UK          --
@@ -100,7 +102,10 @@ network={
 Thanks to
 [wirless.bris.ac.uk](http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/) for the file!
 
-Run `wpa_supplicant`: `sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B`
+Run `wpa_supplicant`: 
+
+    sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+
 You'll also need the PEM file `uob-net-ca.pem` to put into `/etc/ssl/certs/`
 which is located at
 [https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem](https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem)
@@ -118,8 +123,11 @@ Problems you may encounter at this stage include:
 # Request an IP address
 
 Once you've connected to eduroam which you can verify by running `iwconfig`. You
-should now request an ip address with the command `sudo dhclient wlan0`. To verify
-that you have got an ip address run `ifconfig` and make sure your wireless
-interface (usually wlan0) has been assigned an address.
+should now request an ip address with the command 
+
+    sudo dhclient wlan0
+
+To verify that you have got an ip address run `ifconfig` and make sure your
+wireless interface (usually wlan0) has been assigned an address.
 
 You should now have a wireless connection!

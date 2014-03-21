@@ -90,8 +90,9 @@ line) on Raspbian is as follows:</p>
 <h1 id="toc_0">Disable network service</h1>
 
 <p>Raspbian&#39;s network service needs to be stopped to connect using the method
-we&#39;re going to use. To do this run <code>service networking stop</code>.</p>
-
+we&#39;re going to use. To do this run </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service networking stop
+</code></pre></div>
 <h1 id="toc_1">Connect using wpa_supplicant</h1>
 
 <p>I&#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
@@ -109,9 +110,9 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
         password=&quot;myUOBpassword&quot;
 
     # CA cert from here:
-    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.crt
+    # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
     # Change the path to where you downloaded the file
-        ca_cert=&quot;/etc/certs/uob-net-ca.pem&quot;
+        ca_cert=&quot;/etc/ssl/certs/uob-net-ca.pem&quot;
 
     # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
     # --- OF THE UNIVERSITY OF BRISTOL, UK          --
@@ -172,8 +173,10 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
 <p>Thanks to
 <a href="http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/">wirless.bris.ac.uk</a> for the file!</p>
 
-<p>Run <code>wpa_supplicant</code>: <code>sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B</code>
-You&#39;ll also need the PEM file <code>uob-net-ca.pem</code> to put into <code>/etc/ssl/certs/</code>
+<p>Run <code>wpa_supplicant</code>: </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+</code></pre></div>
+<p>You&#39;ll also need the PEM file <code>uob-net-ca.pem</code> to put into <code>/etc/ssl/certs/</code>
 which is located at
 <a href="https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem">https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem</a></p>
 
@@ -191,9 +194,11 @@ connecting.</li>
 <h1 id="toc_2">Request an IP address</h1>
 
 <p>Once you&#39;ve connected to eduroam which you can verify by running <code>iwconfig</code>. You
-should now request an ip address with the command <code>sudo dhclient wlan0</code>. To verify
-that you have got an ip address run <code>ifconfig</code> and make sure your wireless
-interface (usually wlan0) has been assigned an address.</p>
+should now request an ip address with the command </p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo dhclient wlan0
+</code></pre></div>
+<p>To verify that you have got an ip address run <code>ifconfig</code> and make sure your
+wireless interface (usually wlan0) has been assigned an address.</p>
 
 <p>You should now have a wireless connection!</p>
 
