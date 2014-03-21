@@ -12,19 +12,19 @@ you can understand any of the code. It's meant to be somewhat understandable to
 non programmers. Once you've finished the introduction you should be able to
 understand any of the code snippets throughout.
 
-When I introduce the syntax for the language I use a name inside quare brackets
-to represent some that should be replaced. For example `[type] [name];` could be
+When I introduce the syntax for the language I use a name inside square brackets
+to represent something that should be replaced. For example `[type] [name];` could be
 realised as `int x` when I tell you that an `int` is a `type`, and a `name` can be
-anything in English that doesn't have spaces in it or special characters other
+anything in English that doesn't have spaces in it or punctuation characters other
 than an underscore.
 
 ## Hardware
 The Arduino is a microcontroller, this is essentially like a mini-computer. In
-one sense it's rather like any laptop, tablet or PC you use in that at the
-lowest level they manipulate 1s and 0s. However, the way you use them couldn't
+one sense it's rather like any laptop, tablet or PC you use, in that at the
+lowest level they turn things on and off. However, the way you use them couldn't
 be more different!
 
-Microcontrollers aren't particularly clever, you have to instruct them on how to
+Microcontrollers aren't clever, you have to instruct them on how to
 do things, they're fundamentally stupid. You're the one who programs the
 brains; you're the clever one.
 
@@ -32,11 +32,11 @@ We'll go over the basic features of the Arduino, how they are used, and what you
 can use them for.
 
 ### Pins and Ports
-Pins are a part of a port, you can plug things into them. Once you've plugged
+Pins are part of a port, you can plug things into them. Once you've plugged
 something in to them, you can use them as:
 
-* An input: take in information from the real world
-* An output: control things like lights, motors etc.
+* Input: take in information from the real world.
+* Output: control things like lights, motors etc.
 
 ![Arduino Mega Pins](ArduinoMegaAnnotatedSmall.jpg)
 
@@ -73,8 +73,11 @@ void setup() {
 void loop() {
     // Depending on how you want to think about it:
     // Turn pin 10 on
+    // or
     // Set pin 10 to the value: HIGH
+    // or
     // Set pin 10 to the value: True
+    // or
     // Set pin 10 to the value: 1
     // they all mean the same thing.
     // If we hook up an LED to pin 10, it'd be lit up
@@ -82,14 +85,14 @@ void loop() {
 
 
     // This will be either 0 or 1 depending on the voltage on pin 3.
-    // If the voltage on pin 3 is 5v then digitalRead(3) will be 1
-    // If the voltage on pin 3 is 0v then digitalRead(3) will be 0
+    // If the voltage on pin 3 is 5v then digitalRead(3) will be 1/true
+    // If the voltage on pin 3 is 0v then digitalRead(3) will be 0/off
     int pinThreeValue = digitalRead(3);
 
     // Here we're reading the analog value from pin 1 on the analog port
     // This will be a value in the range 0--1023.
     // Notice we didn't have to set this up in 'setup()' as it's an analog pin.
-    // They can only act as inputs.
+    // Analog pins can only act as inputs.
     int analogPinOneValue = analogRead(1);
 }
 {% endhighlight %}
@@ -98,7 +101,7 @@ void loop() {
 The Arduino is programmed in a language called `C`. It's rather low level, this
 means that it doesn't hold your hand that much; you have to do a lot of things
 yourself that other languages would automatically do for you. This is a good
-thing for microcontrollers as it gives you very fine control over them.
+thing for microcontrollers as it gives you very fine control.
 
 Throughout this section I'll refer to the syntax of `C`, by 'syntax' I'm talking
 about the grammar; how you can construct valid sentences. If you violate `C`s syntax
@@ -111,7 +114,7 @@ A variable is a bit of memory that stores a value. All values are stored as 1s
 and 0s, so for `C` to know how to interpret the 1s and 0s you have to state what
 you're storing in your variable.
 
-The syntax for declaring variables is: `[type] [name] = [value];`
+The syntax for defining variables is: `[type] [name] = [value];`
 
 I'll declare some variables to give you a taste of what's possible:
 {% highlight c %}

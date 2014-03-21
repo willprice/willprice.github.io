@@ -83,20 +83,20 @@ you can understand any of the code. It&#39;s meant to be somewhat understandable
 non programmers. Once you&#39;ve finished the introduction you should be able to
 understand any of the code snippets throughout.</p>
 
-<p>When I introduce the syntax for the language I use a name inside quare brackets
-to represent some that should be replaced. For example <code>[type] [name];</code> could be
+<p>When I introduce the syntax for the language I use a name inside square brackets
+to represent something that should be replaced. For example <code>[type] [name];</code> could be
 realised as <code>int x</code> when I tell you that an <code>int</code> is a <code>type</code>, and a <code>name</code> can be
-anything in English that doesn&#39;t have spaces in it or special characters other
+anything in English that doesn&#39;t have spaces in it or punctuation characters other
 than an underscore.</p>
 
 <h2 id="toc_1">Hardware</h2>
 
 <p>The Arduino is a microcontroller, this is essentially like a mini-computer. In
-one sense it&#39;s rather like any laptop, tablet or PC you use in that at the
-lowest level they manipulate 1s and 0s. However, the way you use them couldn&#39;t
+one sense it&#39;s rather like any laptop, tablet or PC you use, in that at the
+lowest level they turn things on and off. However, the way you use them couldn&#39;t
 be more different!</p>
 
-<p>Microcontrollers aren&#39;t particularly clever, you have to instruct them on how to
+<p>Microcontrollers aren&#39;t clever, you have to instruct them on how to
 do things, they&#39;re fundamentally stupid. You&#39;re the one who programs the
 brains; you&#39;re the clever one.</p>
 
@@ -105,12 +105,12 @@ can use them for.</p>
 
 <h3 id="toc_2">Pins and Ports</h3>
 
-<p>Pins are a part of a port, you can plug things into them. Once you&#39;ve plugged
+<p>Pins are part of a port, you can plug things into them. Once you&#39;ve plugged
 something in to them, you can use them as:</p>
 
 <ul>
-<li>An input: take in information from the real world</li>
-<li>An output: control things like lights, motors etc.</li>
+<li>Input: take in information from the real world.</li>
+<li>Output: control things like lights, motors etc.</li>
 </ul>
 
 <p><img src="ArduinoMegaAnnotatedSmall.jpg" alt="Arduino Mega Pins"></p>
@@ -149,8 +149,11 @@ from it, or write some output to it.</p>
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Depending on how you want to think about it:</span>
     <span class="c1">// Turn pin 10 on</span>
+    <span class="c1">// or</span>
     <span class="c1">// Set pin 10 to the value: HIGH</span>
+    <span class="c1">// or</span>
     <span class="c1">// Set pin 10 to the value: True</span>
+    <span class="c1">// or</span>
     <span class="c1">// Set pin 10 to the value: 1</span>
     <span class="c1">// they all mean the same thing.</span>
     <span class="c1">// If we hook up an LED to pin 10, it&#39;d be lit up</span>
@@ -158,14 +161,14 @@ from it, or write some output to it.</p>
 
 
     <span class="c1">// This will be either 0 or 1 depending on the voltage on pin 3.</span>
-    <span class="c1">// If the voltage on pin 3 is 5v then digitalRead(3) will be 1</span>
-    <span class="c1">// If the voltage on pin 3 is 0v then digitalRead(3) will be 0</span>
+    <span class="c1">// If the voltage on pin 3 is 5v then digitalRead(3) will be 1/true</span>
+    <span class="c1">// If the voltage on pin 3 is 0v then digitalRead(3) will be 0/off</span>
     <span class="kt">int</span> <span class="n">pinThreeValue</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
     <span class="c1">// Here we&#39;re reading the analog value from pin 1 on the analog port</span>
     <span class="c1">// This will be a value in the range 0--1023.</span>
     <span class="c1">// Notice we didn&#39;t have to set this up in &#39;setup()&#39; as it&#39;s an analog pin.</span>
-    <span class="c1">// They can only act as inputs.</span>
+    <span class="c1">// Analog pins can only act as inputs.</span>
     <span class="kt">int</span> <span class="n">analogPinOneValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -175,7 +178,7 @@ from it, or write some output to it.</p>
 <p>The Arduino is programmed in a language called <code>C</code>. It&#39;s rather low level, this
 means that it doesn&#39;t hold your hand that much; you have to do a lot of things
 yourself that other languages would automatically do for you. This is a good
-thing for microcontrollers as it gives you very fine control over them.</p>
+thing for microcontrollers as it gives you very fine control.</p>
 
 <p>Throughout this section I&#39;ll refer to the syntax of <code>C</code>, by &#39;syntax&#39; I&#39;m talking
 about the grammar; how you can construct valid sentences. If you violate <code>C</code>s syntax
@@ -189,7 +192,7 @@ complain that it doesn&#39;t understand how to interpret what you wrote.</p>
 and 0s, so for <code>C</code> to know how to interpret the 1s and 0s you have to state what
 you&#39;re storing in your variable.</p>
 
-<p>The syntax for declaring variables is: <code>[type] [name] = [value];</code></p>
+<p>The syntax for defining variables is: <code>[type] [name] = [value];</code></p>
 
 <p>I&#39;ll declare some variables to give you a taste of what&#39;s possible:</p>
 
