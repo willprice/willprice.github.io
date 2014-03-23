@@ -78,6 +78,9 @@ void flash() {
 
 Also see [Debugging (fixing problems)](debugging.html)
 
+
+If you were smitten with the robot and want to build one yourself then you can
+find a list of components [here](parts.html)
 ## Helpful links
 Throughout the workshop you may find you have gaps in your knowledge. You should
 be able to find out everything you need to know at these links:
