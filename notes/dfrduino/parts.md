@@ -35,9 +35,8 @@ Pan and tilt servo bracket for mounting the IR distance sensor
 
 ![Servo motor](res/parts/servo_motor.jpg)
 
-Servo motor to turn the servo bracket. I assume this one fits as they generally
-come in a few standard sizes. I will try and check next week (24/03/2014) and
-update this page to find out whether this is correct.
+Servo motor to turn the servo bracket. These can be had for much cheaper
+elsewhere.
 
 * [Cool components](http://www.coolcomponents.co.uk/servo-motor-hs-422.html)
 
