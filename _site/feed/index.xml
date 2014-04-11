@@ -4,13 +4,148 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-03-26T22:49:09+00:00</updated>
+ <updated>2014-04-11T20:49:19+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Testing client side javascript</title>
+   <link href="http://willprice.org//2014/04/11/testing-client-side-js.html"/>
+   <updated>2014-04-11T00:00:00+01:00</updated>
+   <id>http://willprice.org/2014/04/11/testing-client-side-js</id>
+   <content type="html">&lt;p&gt;I&amp;#39;ve recently had to look at writing some client-side javascript for an
+application I&amp;#39;m developing. Since I love testing, I had to have a look at what
+testing framework I should use. Javascript is not Java, there are lots and lots
+of testing frameworks. After browsing the most popular projects I decided on
+using &lt;a href=&quot;http://visionmedia.github.io/mocha/&quot;&gt;Mocha&lt;/a&gt; to handle test running and
+suite generation with &lt;a href=&quot;http://chaijs.com&quot;&gt;Chai&lt;/a&gt; which is used to provide a rich
+library of assertions.&lt;/p&gt;
+
+&lt;p&gt;These tools can be run on the browser and manipulate the DOM to show outputs. I
+personally think this method is quite ugly and slow so I looked into running
+things headlessly. A few immediate choices came to mind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Rhino&quot;&gt;Rhino&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These projects all run javascript off the browser and hence some don&amp;#39;t support
+DOM manipulation (e.g. Rhino).&lt;/p&gt;
+
+&lt;p&gt;PhantomJS supports DOM manipulation which is quite a nice feature
+if you are eventually going to run your javascript client-side.&lt;/p&gt;
+
+&lt;p&gt;Having recently used node for a university project, I thought I&amp;#39;d try something
+else that isn&amp;#39;t built on an asynchronous model since I found this made testing
+quite difficult. In the end I chose PhantomJS as I running Rhino regularly
+sounded quite unpleasant given the time it takes the JVM to start.&lt;/p&gt;
+
+&lt;p&gt;Mocha is well supported under PhantomJS and already has a &lt;a href=&quot;https://github.com/metaskills/mocha-phantomjs&quot;&gt;runner
+availabe&lt;/a&gt;. I&amp;#39;ll give a few
+examples of how to get all these libraries cooperating.&lt;/p&gt;
+
+&lt;p&gt;First up you&amp;#39;ll need &lt;code&gt;node&lt;/code&gt; installed to give you access to the &lt;code&gt;npm&lt;/code&gt; package
+manager. It seems like most js projects have adopted it as a package manager
+irrespective of whether they target Node.js or the browser.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo npm install -g mocha-phantomjs phantomjs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;will pull in PhantomJS, Mocha and the PhantomJS Mocha runner that we&amp;#39;ll use to
+run our tests in the command line.&lt;/p&gt;
+
+&lt;p&gt;Start a new project somewhere and add a source and tests directory.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ mkdir tests src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since we&amp;#39;re PhantomJS we need an HTML page that will be run in the headless
+browser, this is mainly just a shell that will include all the javascript code
+that we wish to run. The advantage of using a platform like Node.js or Rhino
+means you can skip this extra step, but then you also lose the ability to
+perform DOM manipulation.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ touch tests.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This file will be used to included all your test suites, this might get pretty
+ugly/slow if you&amp;#39;ve got many and large test suites, but you can always break
+them up, or you could use python and jinja2 to dynamically create HTML pages
+based on the js files you have in your tests directory (I&amp;#39;m sure you could do
+this in js as well, but I&amp;#39;m not really familiar with the ecosystem).&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests.HTML &amp;lt;&amp;lt; EOF
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;../node_modules/mocha/mocha.css&amp;quot; /&amp;gt;
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;
+    &amp;lt;div id=&amp;quot;mocha&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;script src=&amp;quot;../node_modules/mocha/mocha.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;../node_modules/chai/chai.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+      mocha.ui(&amp;#39;tdd&amp;#39;);
+      mocha.reporter(&amp;#39;html&amp;#39;);
+      assert = chai.assert;
+    &amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;src/fibonacci.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;tests/fibonacci&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script&amp;gt;
+      if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+      else { mocha.run(); }
+    &amp;lt;/script&amp;gt;
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+EOF    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is just a simple document that will include the necessary libraries, setup
+Mocha appropriately:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Import Mocha and Chai&lt;/li&gt;
+&lt;li&gt;Use the TDD interface instead of BDD&lt;/li&gt;
+&lt;li&gt;Use the reporter &amp;#39;html&amp;#39;, this allows us to run open the page with a
+browser and check out the results in there too. We&amp;#39;ll specify a different
+reporter on the command line when developing code and running tests. &lt;/li&gt;
+&lt;li&gt;Alias &lt;code&gt;chai.assert&lt;/code&gt; as &lt;code&gt;assert&lt;/code&gt; for nicer looking test code&lt;/li&gt;
+&lt;li&gt;Finally check whether the tests are being executed in PhantomJS and use the
+mochaPhantomJS runner if they are, otherwise execute Mocha directly.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Evidently this HTML has some dependencies that need to be installed before the
+code can be run.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ npm install --save mocha chai
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;will install the necessary testing libraries and the &lt;code&gt;--save&lt;/code&gt; flag will produce
+a package.json file that can be distributed with your project for other users to
+automate downloading dependencies.&lt;/p&gt;
+
+&lt;p&gt;The HTML sources &lt;code&gt;tests/test_file.js&lt;/code&gt; which needs to be created, this is simply
+an example test file:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
+suite(&amp;#39;Recursive fibonacci tests&amp;#39;, function() {
+    test(&amp;#39;fib(0) = 0&amp;#39;, function() {
+        assert.equal(0, fib(0));
+    });
+    test(&amp;#39;fib(2) = 1&amp;#39;, function() {
+        assert.equal(1, fib(1));
+    });
+});
+EOF
+
+$ cat &amp;gt; src/fibonacci.js &amp;lt;&amp;lt; EOF
+function fib(n) {
+    if (n &amp;lt; 2) { return n; }
+    return fib(n - 1) + fib(n - 2);
+}
+EOF
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now everything is set up you can run your tests:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ mocha-phantomjs tests.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quite nice really. Look into Sinon.js for a nice mocking framework&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Eduroam on the raspberry pi</title>
