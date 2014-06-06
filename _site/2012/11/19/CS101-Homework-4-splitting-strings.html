@@ -77,7 +77,7 @@
         <p>I&#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&#39;ll explain the question and how the solution is reached for those that didn&#39;t find the video particularly clear.</p>
 
 <p>The question:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"> # 1 Gold Star
+<div class="highlight"><pre><code class="language-text" data-lang="text"> # 1 Gold Star
 
  # The built-in &lt;string&gt;.split() procedure works
  # okay, but fails to find all the words on a page
@@ -95,7 +95,7 @@
  # def split_string(source,splitlist)
 </code></pre></div>
 <p>There are also some examples and expected behaviour given:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"> out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
+<div class="highlight"><pre><code class="language-text" data-lang="text"> out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
  print out
  #&gt;&gt;&gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]
 
@@ -113,8 +113,7 @@
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c"># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
-    <span class="k">return</span> <span class="n">word_list</span>
-</code></pre></div>
+    <span class="k">return</span> <span class="n">word_list</span></code></pre></div>
 
 <p>So we&#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#39;ll now add functionality that loops through <code>source</code> and check which characters are members of split list</p>
 
@@ -129,11 +128,10 @@
     <span class="k">return</span> <span class="n">word_list</span>
 
 <span class="n">out</span> <span class="o">=</span> <span class="n">split_string</span><span class="p">(</span><span class="s">&quot;This is a test-of the,string separation-code!&quot;</span><span class="p">,</span><span class="s">&quot; ,!-.&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">out</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">out</span></code></pre></div>
 
 <p>This code results in:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">  this char:   is in splitlist
+<div class="highlight"><pre><code class="language-text" data-lang="text">  this char:   is in splitlist
   this char:   is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
@@ -157,8 +155,7 @@
     <span class="k">return</span> <span class="n">word_list</span>
 
 <span class="n">out</span> <span class="o">=</span> <span class="n">split_string</span><span class="p">(</span><span class="s">&quot;This is a test-of the,string separation-code!&quot;</span><span class="p">,</span> <span class="s">&quot; ,.!-&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">out</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">out</span></code></pre></div>
 
 <p><code>word_list</code>s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in <code>word_list</code>. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.</p>
 
@@ -178,8 +175,7 @@
     <span class="k">return</span> <span class="n">word_list</span>
 
 <span class="n">out</span> <span class="o">=</span> <span class="n">split_string</span><span class="p">(</span><span class="s">&quot;This is a test-of the,string separation-code!&quot;</span><span class="p">,</span> <span class="s">&quot; ,.!-&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">out</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">out</span></code></pre></div>
 
 <p>Here we&#39;ve intialised <code>at_split</code> outside of the for loop as it&#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#39;t affected the functionality of <code>split_string</code> yet, but it&#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.</p>
 
@@ -205,8 +201,7 @@
     <span class="k">return</span> <span class="n">word_list</span>
 
 <span class="n">out</span> <span class="o">=</span> <span class="n">split_string</span><span class="p">(</span><span class="s">&quot;This is a test-of the,string separation-code!&quot;</span><span class="p">,</span> <span class="s">&quot; ,.!-&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">out</span>
-</code></pre></div>
+<span class="k">print</span> <span class="n">out</span></code></pre></div>
 
 <p>Finally, we have the behaviour, the code above prints:
       [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]</p>

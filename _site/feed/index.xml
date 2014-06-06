@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-06-06T12:18:06+01:00</updated>
+ <updated>2014-06-06T12:25:24+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -148,27 +148,27 @@ examples of how to get all these libraries cooperating.&lt;/p&gt;
 &lt;p&gt;First up you&amp;#39;ll need &lt;code&gt;node&lt;/code&gt; installed to give you access to the &lt;code&gt;npm&lt;/code&gt; package
 manager. It seems like most js projects have adopted it as a package manager
 irrespective of whether they target Node.js or the browser.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo npm install -g mocha-phantomjs phantomjs
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo npm install -g mocha-phantomjs phantomjs
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;will pull in PhantomJS, Mocha and the PhantomJS Mocha runner that we&amp;#39;ll use to
 run our tests in the command line.&lt;/p&gt;
 
 &lt;p&gt;Start a new project somewhere and add a source and tests directory.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ mkdir tests src
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ mkdir tests src
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Since we&amp;#39;re PhantomJS we need an HTML page that will be run in the headless
 browser, this is mainly just a shell that will include all the javascript code
 that we wish to run. The advantage of using a platform like Node.js or Rhino
 means you can skip this extra step, but then you also lose the ability to
 perform DOM manipulation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ touch tests.html
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ touch tests.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This file will be used to included all your test suites, this might get pretty
 ugly/slow if you&amp;#39;ve got many and large test suites, but you can always break
 them up, or you could use python and jinja2 to dynamically create HTML pages
 based on the js files you have in your tests directory (I&amp;#39;m sure you could do
 this in js as well, but I&amp;#39;m not really familiar with the ecosystem).&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests.HTML &amp;lt;&amp;lt; EOF
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests.HTML &amp;lt;&amp;lt; EOF
 &amp;lt;html&amp;gt;
   &amp;lt;head&amp;gt;
     &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
@@ -209,7 +209,7 @@ mochaPhantomJS runner if they are, otherwise execute Mocha directly.&lt;/li&gt;
 
 &lt;p&gt;Evidently this HTML has some dependencies that need to be installed before the
 code can be run.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ npm install --save mocha chai
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ npm install --save mocha chai
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;will install the necessary testing libraries and the &lt;code&gt;--save&lt;/code&gt; flag will produce
 a package.json file that can be distributed with your project for other users to
@@ -217,7 +217,7 @@ automate downloading dependencies.&lt;/p&gt;
 
 &lt;p&gt;The HTML sources &lt;code&gt;tests/test_file.js&lt;/code&gt; which needs to be created, this is simply
 an example test file:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
 suite(&amp;#39;Recursive fibonacci tests&amp;#39;, function() {
     test(&amp;#39;fib(0) = 0&amp;#39;, function() {
         assert.equal(0, fib(0));
@@ -236,7 +236,7 @@ function fib(n) {
 EOF
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now everything is set up you can run your tests:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;$ mocha-phantomjs tests.html
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ mocha-phantomjs tests.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Quite nice really. Look into Sinon.js for a nice mocking framework&lt;/p&gt;
 </content>
@@ -260,18 +260,18 @@ line) on Raspbian is as follows:&lt;/p&gt;
 &lt;li&gt;Request an IP address with &lt;code&gt;dhclient&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;toc_0&quot;&gt;Disable network service&lt;/h1&gt;
+&lt;h1 id=&quot;disable-network-service&quot;&gt;Disable network service&lt;/h1&gt;
 
 &lt;p&gt;Raspbian&amp;#39;s network service needs to be stopped to connect using the method
 we&amp;#39;re going to use. To do this run &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;sudo service networking stop
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo service networking stop
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;toc_1&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
+&lt;h1 id=&quot;connect-using-wpa_supplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
 
 &lt;p&gt;I&amp;#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
 authentication, if you&amp;#39;re at a different university this may well be different
 and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; file accordingly&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;network={
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;network={
     # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
 
     # The &amp;#39;identity&amp;#39; is the username actually used for authentication.
@@ -347,7 +347,7 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
 &lt;a href=&quot;http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/&quot;&gt;wirless.bris.ac.uk&lt;/a&gt; for the file!&lt;/p&gt;
 
 &lt;p&gt;Run &lt;code&gt;wpa_supplicant&lt;/code&gt;: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You&amp;#39;ll also need the PEM file &lt;code&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code&gt;/etc/ssl/certs/&lt;/code&gt;
 which is located at
@@ -364,11 +364,11 @@ verbose debugging).&lt;/li&gt;
 connecting.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;toc_2&quot;&gt;Request an IP address&lt;/h1&gt;
+&lt;h1 id=&quot;request-an-ip-address&quot;&gt;Request an IP address&lt;/h1&gt;
 
 &lt;p&gt;Once you&amp;#39;ve connected to eduroam which you can verify by running &lt;code&gt;iwconfig&lt;/code&gt;. You
 should now request an ip address with the command &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;sudo dhclient wlan0
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo dhclient wlan0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To verify that you have got an ip address run &lt;code&gt;ifconfig&lt;/code&gt; and make sure your
 wireless interface (usually wlan0) has been assigned an address.&lt;/p&gt;
@@ -387,13 +387,13 @@ to me. Plagued by hundred of &amp;quot;No module named xxx&amp;quot;, &amp;quot;
 in non-package&amp;quot; etc, it is now time to write myself a little guide to refer to
 in future.&lt;/p&gt;
 
-&lt;h1 id=&quot;toc_0&quot;&gt;Packages and Modules&lt;/h1&gt;
+&lt;h1 id=&quot;packages-and-modules&quot;&gt;Packages and Modules&lt;/h1&gt;
 
 &lt;p&gt;A &lt;strong&gt;package&lt;/strong&gt; is a collection of modules with a &lt;code&gt;__init__.py&lt;/code&gt; file inside the
 package directory and a &lt;strong&gt;module&lt;/strong&gt; is simply a python file.&lt;/p&gt;
 
 &lt;p&gt;Say I have the layout:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;* core:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* core:
     * __init__.py
     * queue.py
     * tests:
@@ -407,8 +407,7 @@ package directory and a &lt;strong&gt;module&lt;/strong&gt; is simply a python f
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;..queue&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;would do it; and you&amp;#39;d be correct. But check how you&amp;#39;re running the file. If
 you&amp;#39;re running it directly like &lt;code&gt;python tests/queue_tests.py&lt;/code&gt;, then the name of the file will
@@ -465,8 +464,7 @@ function:&lt;/p&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now for a tail recursive implementation that is more efficient (but not in
 Python, as it doesn&amp;#39;t have tail call optimization! I should have done it in C,
@@ -507,8 +505,7 @@ but I couldn&amp;#39;t face writing the tests using &lt;code&gt;check&lt;/code&g
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I&amp;#39;ve tried my best to make this as self-explanatory as possible. I still feel
 that additional explanation would help for whoever has to maintain it. The first
@@ -524,7 +521,7 @@ difference!&lt;/p&gt;
 &lt;li&gt;When &lt;code&gt;n &amp;gt; 1&lt;/code&gt; then &lt;code&gt;counter == 2&lt;/code&gt; terminates the algorithm returning the
 accumulated value&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;A few examples: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;fib(3) -&amp;gt; fib_accumulator(3, 1, 0) -&amp;gt; fib_accumulator(2, (1 + 0), 1) -&amp;gt; return (1 + 0)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;fib(3) -&amp;gt; fib_accumulator(3, 1, 0) -&amp;gt; fib_accumulator(2, (1 + 0), 1) -&amp;gt; return (1 + 0)
 
 fib(5) -&amp;gt; fib_accumulator(5, 1, 0) -&amp;gt; fib_accumulator(4, (1 + 0), 1) -&amp;gt; 
           fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&amp;gt; fib_accumulator(2, (1 +
@@ -555,7 +552,7 @@ informed on LaTeX now, so here&amp;#39;s some of the things I struggled with in 
 hopes it will help future me from spending hours figuring out how to put
 multiple tables on one line!&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_0&quot;&gt;Referencing figures and tables&lt;/h2&gt;
+&lt;h2 id=&quot;referencing-figures-and-tables&quot;&gt;Referencing figures and tables&lt;/h2&gt;
 
 &lt;p&gt;You must put the label &lt;em&gt;after the caption&lt;/em&gt; in a figure or table:&lt;/p&gt;
 
@@ -566,10 +563,9 @@ multiple tables on one line!&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;A table of things&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:things&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;toc_1&quot;&gt;Multiple tables on a single line&lt;/h2&gt;
+&lt;h2 id=&quot;multiple-tables-on-a-single-line&quot;&gt;Multiple tables on a single line&lt;/h2&gt;
 
 &lt;p&gt;Use the &lt;code&gt;subcaption&lt;/code&gt; package, this allows you to specify the width of subtables
 and subfigures.&lt;/p&gt;
@@ -602,10 +598,9 @@ and subfigures.&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; and it&amp;#39;s subgroup &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;nb&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;toc_2&quot;&gt;Specify the location of tables&lt;/h2&gt;
+&lt;h2 id=&quot;specify-the-location-of-tables&quot;&gt;Specify the location of tables&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;[specifier]&lt;/code&gt; takes one of the following &lt;code&gt;{h,t,b,p}&lt;/code&gt;&lt;/p&gt;
 
@@ -619,7 +614,7 @@ and subfigures.&lt;/p&gt;
 &lt;p&gt;These can be combined like &lt;code&gt;hbp&lt;/code&gt;, close to the place in the text on it&amp;#39;s own
 separate page at the bottom&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_3&quot;&gt;Spacing and measures&lt;/h2&gt;
+&lt;h2 id=&quot;spacing-and-measures&quot;&gt;Spacing and measures&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;\quad&lt;/code&gt; - space&lt;/li&gt;
@@ -696,7 +691,7 @@ have to refer to examples to see whether I&amp;#39;m on the right path.&lt;/p&gt
 looking at the user cases, acceptance tests and CRC cards, we started writing an
 implementation of the software.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_0&quot;&gt;Tests&lt;/h2&gt;
+&lt;h2 id=&quot;tests&quot;&gt;Tests&lt;/h2&gt;
 
 &lt;p&gt;This is as far as we got:&lt;/p&gt;
 
@@ -721,7 +716,7 @@ on title--poor emergent design. Next week we&amp;#39;ll have a look at how to go
 our current implementation to something a little cleaner doing lots of
 refactoring!&lt;/p&gt;
 
-&lt;h1 id=&quot;toc_1&quot;&gt;LibraryTests.java&lt;/h1&gt;
+&lt;h1 id=&quot;librarytests.java&quot;&gt;LibraryTests.java&lt;/h1&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -776,10 +771,9 @@ refactoring!&lt;/p&gt;
         &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;The Abyss&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;assertNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;toc_2&quot;&gt;Library.java&lt;/h1&gt;
+&lt;h1 id=&quot;library.java&quot;&gt;Library.java&lt;/h1&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -815,10 +809,9 @@ refactoring!&lt;/p&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;toc_3&quot;&gt;Title.java&lt;/h1&gt;
+&lt;h1 id=&quot;title.java&quot;&gt;Title.java&lt;/h1&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -846,10 +839,9 @@ refactoring!&lt;/p&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;toc_4&quot;&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
+&lt;h1 id=&quot;the-homework:-user-stories,-acceptance-tests,-and-crc-cards-for-an-interesting-problem&quot;&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
 
 &lt;p&gt;Jason wants me to have ago applying the principles that we covered in the
 pairing session on a different example, so I have free reign over what I want to
@@ -935,17 +927,20 @@ thing. Who knows whether I&amp;#39;ll get my homework done before it&amp;#39;s d
 &lt;li&gt;Learning C&lt;/li&gt;
 &lt;li&gt;Probably some algorithms too... &lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;
-
-&lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure
-what comes next)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Origins of Computer Science&lt;/p&gt;
-
-&lt;p&gt;From early machines through various programming languages, and OSes to the
-future of computer science.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;toc_0&quot;&gt;Evolutionary design and Waterfall&lt;/h2&gt;
+&lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure
+  what comes next)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Origins of Computer Science&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;From early machines through various programming languages, and OSes to the
+  future of computer science.&lt;/p&gt;
+
+&lt;h2 id=&quot;evolutionary-design-and-waterfall&quot;&gt;Evolutionary design and Waterfall&lt;/h2&gt;
 
 &lt;p&gt;In a programming and algorithms lecture, waterfall was mentioned as the
 development technique, and evolutionary design was said to be a bad way of
@@ -956,7 +951,7 @@ about the only way to design programs as requirements are forever changing. He
 said the key too succeeding was to continuously refactor your code to stop cruft
 from encroaching on your software.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_1&quot;&gt;Pairing&lt;/h2&gt;
+&lt;h2 id=&quot;pairing&quot;&gt;Pairing&lt;/h2&gt;
 
 &lt;p&gt;Jason and I also discussed what sort of problems we could tackle whilst
 pairing. He suggested that we try and TDD algorithms, next week we&amp;#39;ll be doing
@@ -976,7 +971,7 @@ I haven&amp;#39;t looked into it too deeply yet, as my knowledge in C is rather 
 &lt;p&gt;If TDDing algorithms is a good exercise we&amp;#39;ll try and compile a wiki where we
 explain the algorithm, and show the steps to a TDD implementation.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_2&quot;&gt;Screen recording&lt;/h2&gt;
+&lt;h2 id=&quot;screen-recording&quot;&gt;Screen recording&lt;/h2&gt;
 
 &lt;p&gt;Next week we&amp;#39;ll record our pairing session and put it on youtube. I&amp;#39;m using 
 &lt;a href=&quot;http://www.maartenbaert.be/simplescreenrecorder/&quot;&gt;SimpleScreenRecorder&lt;/a&gt; to
@@ -984,7 +979,7 @@ capture the screen and audio. It&amp;#39;s a lot better than Gtk-RecordMyDesktop
 tried to check out &lt;a href=&quot;http://freeseer.github.io/&quot;&gt;FreeSeer&lt;/a&gt;, however I couldn&amp;#39;t
 get it to compile.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_3&quot;&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
+&lt;h2 id=&quot;apprenticeships-as-a-complement-to-a-degree&quot;&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
 
 &lt;p&gt;Jason feels confident that what I&amp;#39;ll learn in my degree will not overlap too
 much with what he wishes to teach me. Hopefully an apprenticeship will cover the
@@ -1004,7 +999,7 @@ the 2nd year... I would have thought by then it&amp;#39;d be too late...&lt;/p&g
    <id>http://willprice.org/2013/09/02/mock-objects-pairing-session</id>
    <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)&lt;/p&gt;
 
-&lt;h3 id=&quot;toc_0&quot;&gt;Introduction: Why mock objects&lt;/h3&gt;
+&lt;h3 id=&quot;introduction:-why-mock-objects&quot;&gt;Introduction: Why mock objects&lt;/h3&gt;
 
 &lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things
 changed; trying to write each test so it fails for only one reason;
@@ -1012,7 +1007,7 @@ triangulating a solution, rather than just dumping it all in one fell swoop, I
 thought it was about time to learn what mock objects are, and what they are used
 for.&lt;/p&gt;
 
-&lt;h3 id=&quot;toc_1&quot;&gt;Useful Terminology:&lt;/h3&gt;
+&lt;h3 id=&quot;useful-terminology:&quot;&gt;Useful Terminology:&lt;/h3&gt;
 
 &lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
 * &lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result
@@ -1020,12 +1015,12 @@ for.&lt;/p&gt;
 
 &lt;p&gt;Don&amp;#39;t expect my usage of terminology to be spot on; I&amp;#39;m still learning!&lt;/p&gt;
 
-&lt;h3 id=&quot;toc_2&quot;&gt;The Problem:&lt;/h3&gt;
+&lt;h3 id=&quot;the-problem:&quot;&gt;The Problem:&lt;/h3&gt;
 
 &lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book
 tickets for a specific play. After a discussion we wrote an acceptance test (in
 English) to outline what our end result should be able to do:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Given that the seat A6 is available for a performance of &amp;#39;Cats&amp;#39;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Given that the seat A6 is available for a performance of &amp;#39;Cats&amp;#39;
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -1049,7 +1044,7 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 3. &amp;#39;Cats&amp;#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
 4. Seat A6 records the credit card number of the reserver.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;toc_3&quot;&gt;Building Outside in:&lt;/h3&gt;
+&lt;h3 id=&quot;building-outside-in:&quot;&gt;Building Outside in:&lt;/h3&gt;
 
 &lt;p&gt;When building an application from the outside in, we need some way of testing
 the interaction between what we&amp;#39;re writing and the next layer in which hasn&amp;#39;t
@@ -1071,7 +1066,7 @@ way, before mocking classes was possible) for performance and then mock it using
 It has no functionality, but we can call any method on it that is defined in the
 interface, the methods will not do anything as we haven&amp;#39;t defined any behaviour
 for it (because for this test behaviour is superfluous). &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;    // BoxOffice is a field in the test class
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
     Performance mockPerformance = mock(Performance.class);
     HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
@@ -1087,25 +1082,25 @@ public void findsPerformanceOfCats() {
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;. &lt;/p&gt;
 
 &lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;// mockPerformance is a performance of &amp;quot;Cats&amp;quot; in the box office
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// mockPerformance is a performance of &amp;quot;Cats&amp;quot; in the box office
 boxOffice.reserveSeat(&amp;quot;Cats&amp;quot;, &amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
 verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;toc_4&quot;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+&lt;h3 id=&quot;mocking-voids:&quot;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
 
 &lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&amp;#39;t working. Mockito&amp;#39;s &lt;code&gt;when&lt;/code&gt; method doesn&amp;#39;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;This helped me mock &lt;code&gt;Performance&lt;/code&gt; so that I could throw an &lt;code&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test. &lt;/p&gt;
 
-&lt;h3 id=&quot;toc_5&quot;&gt;Mocked method behaviour&lt;/h3&gt;
+&lt;h3 id=&quot;mocked-method-behaviour&quot;&gt;Mocked method behaviour&lt;/h3&gt;
 
 &lt;p&gt;Giving mocked methods &amp;#39;intelligent&amp;#39; behaviour cam be accomplished in 2 ways. &lt;/p&gt;
 
@@ -1115,11 +1110,11 @@ verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;q
 &lt;/ol&gt;
 
 &lt;p&gt;The first:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method(1)).thenReturn(1)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method(1)).thenReturn(1)
 when(mockObject.method(2)).thenReturn(2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The second&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&amp;gt; 1
 mockObject.method() // =&amp;gt; 2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1143,7 +1138,7 @@ that I found on &lt;a href=&quot;http://topcoder.com&quot;&gt;Topcoder&lt;/a&gt;
 (easier) on the actual topcoder problem as I didn&amp;#39;t have it to hand when we were
 pairing.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_0&quot;&gt;The Problem:&lt;/h2&gt;
+&lt;h2 id=&quot;the-problem:&quot;&gt;The Problem:&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
@@ -1158,12 +1153,12 @@ is.&lt;/p&gt;
 
 &lt;p&gt;Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_1&quot;&gt;The Design:&lt;/h2&gt;
+&lt;h2 id=&quot;the-design:&quot;&gt;The Design:&lt;/h2&gt;
 
 &lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of
 test cases. The simplest test case seemed to be a invalid rectangle,
 0 rectangles high or wide, or both.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1176,7 +1171,7 @@ seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
 composite rectangle, this involved a bit of drawing and tallying. In the end I
 think I only miscounted one test case which we noticed fairly quickly when
 coding.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 2. 1x1 has 1 subrectangle
@@ -1237,8 +1232,7 @@ implement the actual solution.&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// We count the top left 1x1 rectangle twice with this method&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others
 had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous
@@ -1257,13 +1251,12 @@ duplicates.&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I like this, it&amp;#39;s rather clever. It&amp;#39;s easiest to understand given an example,
 let&amp;#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
 subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;i = 1:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;i = 1:
     j = 1:
         numberOfSubrectangles += 1;
         // numberOfSubrectangles = 1;
@@ -1272,7 +1265,7 @@ subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
         // numberOfSubrectangles = 3;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Looping over the first column we get 3 subrectangles, so good so far.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;i = 2:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;i = 2:
     j = 1:
         numberOfSubrectangles += 2
         // numberOfSubrectangles = 5
@@ -1287,7 +1280,7 @@ this next column, however, we also need to take into account the rectangles that
 are formed along the rows, which there are 3 of, giving us a total of 6
 additional subrectangles.&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_2&quot;&gt;Algebraic solution:&lt;/h2&gt;
+&lt;h2 id=&quot;algebraic-solution:&quot;&gt;Algebraic solution:&lt;/h2&gt;
 
 &lt;p&gt;We had a solution! I like maths so I&amp;#39;ve found the algebraic solution from the
 code. Reasoning about loops of loops in mathematics is particularly
@@ -1297,8 +1290,7 @@ aesthetically pleasing to me.&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I&amp;#39;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
 easier.
@@ -1346,10 +1338,10 @@ other niche things (think /dev/null, visualisers).&lt;/li&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot;&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_0&quot;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
+&lt;h2 id=&quot;setup-the-server-(the-machine-that-is-attached-to-an-audio-device):&quot;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
 
 &lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
   load-module module-zeroconf-publish
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The first line sets up a TCP server for pulseaudio allowing remote sound sources
@@ -1359,17 +1351,17 @@ other niche things (think /dev/null, visualisers).&lt;/li&gt;
   need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&amp;#39;ve
   just set up. &lt;/p&gt;
 
-&lt;h2 id=&quot;toc_1&quot;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
+&lt;h2 id=&quot;setup-the-client-(the-machine-that-you-want-audio-to-be-streamed-from)&quot;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
 
 &lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;
   load-module module-zeroconf-discover
   Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;load-module module-zeroconf-discover
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;load-module module-zeroconf-discover
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink
   (desktop) on the client/source (laptop).&lt;/p&gt;
 
-&lt;h2 id=&quot;toc_2&quot;&gt;Sources&lt;/h2&gt;
+&lt;h2 id=&quot;sources&quot;&gt;Sources&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/PulseAudio&quot;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
@@ -1746,8 +1738,7 @@ new file mode 100755
 &lt;span class=&quot;gi&quot;&gt;+class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
 &lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
 &lt;span class=&quot;gi&quot;&gt;+if __name__ == &amp;#39;__main__&amp;#39;:&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    unittest.main()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;gi&quot;&gt;+    unittest.main()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#39;m just
 getting started with the tools and methodologies so hopefully in 6 months time
@@ -1769,7 +1760,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
    <content type="html">&lt;p&gt;I&amp;#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&amp;#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&amp;#39;ll explain the question and how the solution is reached for those that didn&amp;#39;t find the video particularly clear.&lt;/p&gt;
 
 &lt;p&gt;The question:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt; # 1 Gold Star
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; # 1 Gold Star
 
  # The built-in &amp;lt;string&amp;gt;.split() procedure works
  # okay, but fails to find all the words on a page
@@ -1787,7 +1778,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
  # def split_string(source,splitlist)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There are also some examples and expected behaviour given:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt; out = split_string(&amp;quot;This is a test-of the,string separation-code!&amp;quot;,&amp;quot; ,!-&amp;quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; out = split_string(&amp;quot;This is a test-of the,string separation-code!&amp;quot;,&amp;quot; ,!-&amp;quot;)
  print out
  #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]
 
@@ -1805,8 +1796,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 
     &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;So we&amp;#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&amp;#39;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
 
@@ -1821,11 +1811,10 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; ,!-.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This code results in:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;  this char:   is in splitlist
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  this char:   is in splitlist
   this char:   is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
@@ -1849,8 +1838,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
 
@@ -1870,8 +1858,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here we&amp;#39;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&amp;#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&amp;#39;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&amp;#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
 
@@ -1897,8 +1884,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Finally, we have the behaviour, the code above prints:
       [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]&lt;/p&gt;
@@ -1935,8 +1921,7 @@ xmonad.hs file:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;haskell&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt;
 
 &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;nf&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </content>
  </entry>
  

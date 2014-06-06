@@ -82,7 +82,7 @@
 looking at the user cases, acceptance tests and CRC cards, we started writing an
 implementation of the software.</p>
 
-<h2 id="toc_0">Tests</h2>
+<h2 id="tests">Tests</h2>
 
 <p>This is as far as we got:</p>
 
@@ -107,7 +107,7 @@ on title--poor emergent design. Next week we&#39;ll have a look at how to go fro
 our current implementation to something a little cleaner doing lots of
 refactoring!</p>
 
-<h1 id="toc_1">LibraryTests.java</h1>
+<h1 id="librarytests.java">LibraryTests.java</h1>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
@@ -162,10 +162,9 @@ refactoring!</p>
         <span class="n">library</span><span class="o">.</span><span class="na">donate</span><span class="o">(</span><span class="s">&quot;The Abyss&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">);</span>
         <span class="n">assertNull</span><span class="o">(</span><span class="n">library</span><span class="o">.</span><span class="na">findTitle</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
-<h1 id="toc_2">Library.java</h1>
+<h1 id="library.java">Library.java</h1>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
@@ -201,10 +200,9 @@ refactoring!</p>
         <span class="k">return</span> <span class="n">titles</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
     <span class="o">}</span>
 
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
-<h1 id="toc_3">Title.java</h1>
+<h1 id="title.java">Title.java</h1>
 
 <div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
@@ -232,10 +230,9 @@ refactoring!</p>
         <span class="k">return</span> <span class="n">year</span><span class="o">;</span>
     <span class="o">}</span>
 
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
-<h1 id="toc_4">The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem</h1>
+<h1 id="the-homework:-user-stories,-acceptance-tests,-and-crc-cards-for-an-interesting-problem">The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem</h1>
 
 <p>Jason wants me to have ago applying the principles that we covered in the
 pairing session on a different example, so I have free reign over what I want to

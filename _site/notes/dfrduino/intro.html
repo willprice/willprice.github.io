@@ -71,7 +71,7 @@
       </div>
 
       <section>
-      <h1 id="toc_0">Arduino Introduction</h1>
+      <h1 id="arduino-introduction">Arduino Introduction</h1>
 
 <p>So, at what level of expertise are you? Absolute beginner? No worries, It might
 be tough going, but I&#39;m sure a smart person like yourself should be able to follow along
@@ -89,7 +89,7 @@ realised as <code>int x</code> when I tell you that an <code>int</code> is a <co
 anything in English that doesn&#39;t have spaces in it or punctuation characters other
 than an underscore.</p>
 
-<h2 id="toc_1">Hardware</h2>
+<h2 id="hardware">Hardware</h2>
 
 <p>The Arduino is a microcontroller, this is essentially like a mini-computer. In
 one sense it&#39;s rather like any laptop, tablet or PC you use, in that at the
@@ -103,7 +103,7 @@ brains; you&#39;re the clever one.</p>
 <p>We&#39;ll go over the basic features of the Arduino, how they are used, and what you
 can use them for.</p>
 
-<h3 id="toc_2">Pins and Ports</h3>
+<h3 id="pins-and-ports">Pins and Ports</h3>
 
 <p>Pins are part of a port, you can plug things into them. Once you&#39;ve plugged
 something in to them, you can use them as:</p>
@@ -122,8 +122,7 @@ an output. We use the <code>pinMode</code> function to do this.</p>
     <span class="c1">// Set pin 10 as an output</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>On the Arduino there are two types of pins:</p>
 
@@ -170,10 +169,9 @@ from it, or write some output to it.</p>
     <span class="c1">// Notice we didn&#39;t have to set this up in &#39;setup()&#39; as it&#39;s an analog pin.</span>
     <span class="c1">// Analog pins can only act as inputs.</span>
     <span class="kt">int</span> <span class="n">analogPinOneValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
-<h2 id="toc_3">Programing Language</h2>
+<h2 id="programing-language">Programing Language</h2>
 
 <p>The Arduino is programmed in a language called <code>C</code>. It&#39;s rather low level, this
 means that it doesn&#39;t hold your hand that much; you have to do a lot of things
@@ -186,7 +184,7 @@ you will receive errors in the Arduino program, and your code won&#39;t run. You
 have to correctly state what you want the Arduino to do, if you don&#39;t it will
 complain that it doesn&#39;t understand how to interpret what you wrote.</p>
 
-<h3 id="toc_4">Variables</h3>
+<h3 id="variables">Variables</h3>
 
 <p>A variable is a bit of memory that stores a value. All values are stored as 1s
 and 0s, so for <code>C</code> to know how to interpret the 1s and 0s you have to state what
@@ -205,10 +203,9 @@ you&#39;re storing in your variable.</p>
 <span class="c1">// these are out of the scope of this introduction, but they do</span>
 <span class="c1">// very similar things to the above but can store larger or smaller numbers</span>
 <span class="c1">// they&#39;re mainly used when you&#39;re dealing with BIG numbers, or need to save</span>
-<span class="c1">// lots of memory space</span>
-</code></pre></div>
+<span class="c1">// lots of memory space</span></code></pre></div>
 
-<h3 id="toc_5">Statements and Expressions</h3>
+<h3 id="statements-and-expressions">Statements and Expressions</h3>
 
 <p>A statement takes the form: <code>expression;</code>, expressions are things like:</p>
 
@@ -229,7 +226,7 @@ know!), whatever it evaluates to, it doesn&#39;t matter because we don&#39;t car
 about what it returns; we care about what it does: set a pin as an input.</li>
 </ul>
 
-<h3 id="toc_6">Functions</h3>
+<h3 id="functions">Functions</h3>
 
 <p>Functions are an incredibly useful tool. They allow you to wrap up a set of
 statements and give them a name. I&#39;m going to show you how to write a function
@@ -247,8 +244,7 @@ statements and give them a name. I&#39;m going to show you how to write a functi
     <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="c1">// Leave it off for 0.5s</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>We can now &#39;call&#39; (run) the function:</p>
 
@@ -269,8 +265,7 @@ statements and give them a name. I&#39;m going to show you how to write a functi
     <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="c1">// Leave it off for 0.5s</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>I haven&#39;t been entirely honest with you. Functions can also take <em>parameters</em>,
 these allow you to take values into the function. I&#39;ll show you a simple
@@ -293,17 +288,16 @@ function with a parameter, it should make the concept clearer.</p>
 <span class="c1">// x is 2</span>
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="c1">// we reassign x to be double(2) which evaluates to 4.</span>
-<span class="n">x</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-</code></pre></div>
+<span class="n">x</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">x</span><span class="p">);</span></code></pre></div>
 
-<h2 id="toc_7">Conditionals: &quot;if this, then do that, else do this&quot;</h2>
+<h2 id="conditionals:-&quot;if-this,-then-do-that,-else-do-this&quot;">Conditionals: &quot;if this, then do that, else do this&quot;</h2>
 
 <p>Conditionals are one of the great things about programming, they&#39;re a way to
 make your code a little more human, make it decide things! I found it to be one
 of the most exciting things when I first learnt to program.</p>
 
 <p>The idea looks like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">if (something is true)
+<div class="highlight"><pre><code class="language-text" data-lang="text">if (something is true)
     then do this
 else
     do this instead
@@ -320,7 +314,7 @@ people: &quot;If I get up on time, I&#39;ll eat breakfast, otherwise I&#39;ll sk
 <p>We can transform that to the equivalent <code>C</code> code, imagine we had some functions:
 <code>eatBreakfast()</code>, <code>skipBreakfast()</code> and a variable <code>gotUpOnTime</code> that is <code>1</code> if
 you got up on time, otherwise is <code>0</code>.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">// 1 means True
+<div class="highlight"><pre><code class="language-text" data-lang="text">// 1 means True
 if (gotUpOnTime == 1) {
    // Invoke a function that &#39;eats breakfast&#39;
    eatBreakfast();
@@ -349,8 +343,7 @@ microcontroller so that it can respond to the input from the light sensor.</p>
         <span class="c1">// Turn the LED on</span>
         <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Ta Da! We now have a very simple porch light. When it&#39;s dark the LED will turn
 on. If it&#39;s light, then the LED will turn off. There are loads of really

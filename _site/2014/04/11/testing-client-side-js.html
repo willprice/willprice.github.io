@@ -110,27 +110,27 @@ examples of how to get all these libraries cooperating.</p>
 <p>First up you&#39;ll need <code>node</code> installed to give you access to the <code>npm</code> package
 manager. It seems like most js projects have adopted it as a package manager
 irrespective of whether they target Node.js or the browser.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ sudo npm install -g mocha-phantomjs phantomjs
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ sudo npm install -g mocha-phantomjs phantomjs
 </code></pre></div>
 <p>will pull in PhantomJS, Mocha and the PhantomJS Mocha runner that we&#39;ll use to
 run our tests in the command line.</p>
 
 <p>Start a new project somewhere and add a source and tests directory.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ mkdir tests src
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ mkdir tests src
 </code></pre></div>
 <p>Since we&#39;re PhantomJS we need an HTML page that will be run in the headless
 browser, this is mainly just a shell that will include all the javascript code
 that we wish to run. The advantage of using a platform like Node.js or Rhino
 means you can skip this extra step, but then you also lose the ability to
 perform DOM manipulation.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ touch tests.html
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ touch tests.html
 </code></pre></div>
 <p>This file will be used to included all your test suites, this might get pretty
 ugly/slow if you&#39;ve got many and large test suites, but you can always break
 them up, or you could use python and jinja2 to dynamically create HTML pages
 based on the js files you have in your tests directory (I&#39;m sure you could do
 this in js as well, but I&#39;m not really familiar with the ecosystem).</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cat &gt; tests.HTML &lt;&lt; EOF
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cat &gt; tests.HTML &lt;&lt; EOF
 &lt;html&gt;
   &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -171,7 +171,7 @@ mochaPhantomJS runner if they are, otherwise execute Mocha directly.</li>
 
 <p>Evidently this HTML has some dependencies that need to be installed before the
 code can be run.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ npm install --save mocha chai
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ npm install --save mocha chai
 </code></pre></div>
 <p>will install the necessary testing libraries and the <code>--save</code> flag will produce
 a package.json file that can be distributed with your project for other users to
@@ -179,7 +179,7 @@ automate downloading dependencies.</p>
 
 <p>The HTML sources <code>tests/test_file.js</code> which needs to be created, this is simply
 an example test file:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cat &gt; tests/fibonacci.js &lt;&lt; EOF
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cat &gt; tests/fibonacci.js &lt;&lt; EOF
 suite(&#39;Recursive fibonacci tests&#39;, function() {
     test(&#39;fib(0) = 0&#39;, function() {
         assert.equal(0, fib(0));
@@ -198,7 +198,7 @@ function fib(n) {
 EOF
 </code></pre></div>
 <p>Now everything is set up you can run your tests:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ mocha-phantomjs tests.html
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ mocha-phantomjs tests.html
 </code></pre></div>
 <p>Quite nice really. Look into Sinon.js for a nice mocking framework</p>
 

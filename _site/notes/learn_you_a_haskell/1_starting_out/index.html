@@ -86,7 +86,7 @@ the tiling window manager I use.</p>
 light hearted manner with very good explanations and drawings to keep
 your attention. It&#39;s available to read free on the website.</p>
 
-<h4 id="toc_0">Haskell</h4>
+<h4 id="haskell">Haskell</h4>
 
 <p>Haskell is <em>referentially transparent</em> and as such you can&#39;t
 change variables (they&#39;re actually called <em>definitions</em> or <em>names</em> as they don&#39;t <em>vary</em>)after assigning a value; for example you can&#39;t say x = 5
@@ -107,7 +107,7 @@ this is not the case. Haskell has a <em>type inference</em> system that knows
 that when you perform the assignment a = 5 + 4, that a is also a number,
 and so on.</p>
 
-<h4 id="toc_1">Basic Operators</h4>
+<h4 id="basic-operators">Basic Operators</h4>
 
 <ul>
 <li>AND: &amp;&amp;</li>
@@ -127,10 +127,9 @@ so:</p>
 <div class="highlight"><pre><code class="haskell"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">div</span> <span class="mi">92</span> <span class="mi">10</span> 
 <span class="mi">9</span>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="mi">92</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">10</span>
-<span class="mi">9</span>
-</code></pre></div>
+<span class="mi">9</span></code></pre></div>
 
-<h5 id="toc_2">Operator Precedence</h5>
+<h5 id="operator-precedence">Operator Precedence</h5>
 
 <p>The order in which operators evaluated from first to last is:</p>
 
@@ -144,27 +143,24 @@ so:</p>
 expression:</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">4</span>
-<span class="mf">14.0</span>
-</code></pre></div>
+<span class="mf">14.0</span></code></pre></div>
 
 <p>operators are evaluated from <strong>right to left</strong></p>
 
-<h4 id="toc_3">Function definition</h4>
+<h4 id="function-definition">Function definition</h4>
 
 <p>Functions are defined in a very clean way in Haskell, like so:</p>
 
-<div class="highlight"><pre><code class="haskell"><span class="nf">doubleMe</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="haskell"><span class="nf">doubleMe</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span></code></pre></div>
 
 <p><em>doubleMe</em> is the function name, all the strings or characters after the name to the equals sign are parameters, parentheses are not used to bind parameters to functions like in C or Python. The expression after the equals sign is evaluated when the function is called and returned.</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">doubleMe</span> <span class="mi">7</span>
-<span class="mi">14</span>
-</code></pre></div>
+<span class="mi">14</span></code></pre></div>
 
 <p>Also remember that definitions are also functions so &#39;x = 8&#39; is a function that returns 8 when called and so on.</p>
 
-<h4 id="toc_4">Conditionals</h4>
+<h4 id="conditionals">Conditionals</h4>
 
 <p>Given that Haskell isn&#39;t imperative all &#39;if&#39;s must be accompanied by an &#39;else&#39;, if the predicate evaluates to false then the function won&#39;t know what to return otherwise.</p>
 
@@ -174,17 +170,15 @@ expression:</p>
 
 
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">amIawesome</span> <span class="s">&quot;Keith Devlin&quot;</span>
-<span class="s">&quot;Yes&quot;</span>
-</code></pre></div>
+<span class="s">&quot;Yes&quot;</span></code></pre></div>
 
-<h4 id="toc_5">Lists</h4>
+<h4 id="lists">Lists</h4>
 
 <p>Lists are <em>homogeneous</em>. Concatenation walks through the first list before appending the other list, this is computationally intensive on big lists. Prepend lists to avoid this issue.</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">list</span> <span class="ow">=</span> <span class="p">[</span><span class="s">&quot;this&quot;</span><span class="p">,</span><span class="s">&quot;is&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;list&quot;</span><span class="p">]</span>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">list</span>
-<span class="p">[</span><span class="s">&quot;this&quot;</span><span class="p">,</span><span class="s">&quot;is&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;list&quot;</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="s">&quot;this&quot;</span><span class="p">,</span><span class="s">&quot;is&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;list&quot;</span><span class="p">]</span></code></pre></div>
 
 <div class="highlight"><pre><code class="haskell"><span class="c1">-- General list operations</span>
 
@@ -257,16 +251,14 @@ expression:</p>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">elem</span> <span class="mi">2</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="kt">False</span>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="mi">2</span> <span class="p">`</span><span class="n">elem</span><span class="p">`</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="kt">Truce</span>
-</code></pre></div>
+<span class="kt">Truce</span></code></pre></div>
 
-<h4 id="toc_6">TEXAS RANGES</h4>
+<h4 id="texas-ranges">TEXAS RANGES</h4>
 
 <p>Texas ranges allow you to produce a list from an arithmetic sequence in any step size up to any number or it can even be infinite.</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span></code></pre></div>
 
 <p>This shows a simple Texas range, the default step size of 1, if you wanted to create an arithmetic list with a negative common difference then you must specify the step size as Haskell defaults to one. So [20..1] would evaluate to an empty list as 20 is greater than one.</p>
 
@@ -276,22 +268,19 @@ expression:</p>
 <span class="c1">-- Or you could always just reverse a list:</span>
 
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">reverse</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span></code></pre></div>
 
 <p>As the above example shows, step size is implicitly defined by writing the second term of the sequence. </p>
 
 <p>Any type of element that is enumerable can be used with Texas ranges. Letters for example are enumerable:</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">&#39;a&#39;</span><span class="o">..</span><span class="n">&#39;z&#39;</span><span class="p">]</span>
-<span class="s">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
-</code></pre></div>
+<span class="s">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></code></pre></div>
 
 <p>If you want to produce a list up to a certain number of members you can use &#39;take&#39; on an infinite list:</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">take</span> <span class="mi">12</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="o">..</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mi">72</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">42</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">66</span><span class="p">,</span><span class="mi">72</span><span class="p">]</span></code></pre></div>
 
 <p>&#39;cycle&#39; and &#39;repeat&#39; produce infinite lists which can be used with &#39;take&#39; to produce finite lists.</p>
 
@@ -299,18 +288,16 @@ expression:</p>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">take</span> <span class="mi">10</span> <span class="p">(</span><span class="n">repeat</span> <span class="mi">10</span><span class="p">)</span>
-<span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span></code></pre></div>
 
-<h4 id="toc_7">LIST COMPREHENSIONS</h4>
+<h4 id="list-comprehensions">LIST COMPREHENSIONS</h4>
 
 <p>List comprehensions are very similar to set comprehensions for mathematics (note: very cool). They allow you to generate lists of elements based on predicates. The example below will show a typical list comprehension:</p>
 
 <div class="highlight"><pre><code class="haskell"><span class="nf">example</span> <span class="n">xs</span> <span class="n">ubound</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">ubound</span><span class="p">)</span> <span class="p">]</span>
 
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">example</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">]</span> <span class="mi">5</span> 
-<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span></code></pre></div>
 
 <p><em>example</em> refers to the name of the function and the 2 variables afterward are the parameters: &#39;xs&#39; &#39;ubound&#39;. &#39;x&#39; is drawn from the list &#39;xs&#39;, then the predicate &#39;x &lt; ubound&#39; filters out the elements of the list greater than &#39;ubound&#39;, finally the stripped list is then passed to &#39;x*2&#39; where a new list is generated from the previous list x being mapped to x*2.</p>
 
@@ -319,17 +306,15 @@ expression:</p>
 <div class="highlight"><pre><code class="haskell"><span class="nf">square</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="o">\*\*</span><span class="mi">2</span> <span class="o">|</span> <span class="n">x</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">]</span>
 
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">square</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">]</span></code></pre></div>
 
-<h4 id="toc_8">TUPLES</h4>
+<h4 id="tuples">TUPLES</h4>
 
 <p>Tuples are a little bit like lists in that they store sets of data, however they differ in fundamental ways. Tuples store <em>heterogeneous</em> data and they cannot be extended in size. If you define a tuple to contain a <em>Char</em> and a <em>Bool</em> then it can only contains those 2 types in the correct order. Tuples are defined using the following notation:</p>
 
 <div class="highlight"><pre><code class="hs"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">tuple</span> <span class="ow">=</span> <span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">,</span> <span class="kt">True</span><span class="p">)</span>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">tuple</span>
-<span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">,</span> <span class="kt">True</span><span class="p">)</span>
-</code></pre></div>
+<span class="p">(</span><span class="s">&quot;Hi&quot;</span><span class="p">,</span> <span class="kt">True</span><span class="p">)</span></code></pre></div>
 
 <p><em>(&quot;Hi&quot;, True)&quot;</em> isn&#39;t the same type of tuple as <em>(True, &quot;Hi&quot;)</em>, order is important. </p>
 
@@ -338,21 +323,18 @@ expression:</p>
 <div class="highlight"><pre><code class="hs"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">fst</span> <span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="s">&quot;one&quot;</span>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">snd</span> <span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> 
-<span class="mi">2</span>
-</code></pre></div>
+<span class="mi">2</span></code></pre></div>
 
 <p>A list of tuples can be produced using the <em>zip</em> command that takes 2 lists as parameters and creates pairs based on those lists:</p>
 
 <div class="highlight"><pre><code class="hs"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">zip</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]</span> <span class="p">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="p">,</span> <span class="s">&quot;four&quot;</span><span class="p">]</span>
-<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">)]</span>
-</code></pre></div>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;one&quot;</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">)]</span></code></pre></div>
 
 <p>Tuples, as any other primitive can be used in list comprehension, they&#39;re useful for calculating things:</p>
 
 <div class="highlight"><pre><code class="hs"><span class="nf">ghci</span><span class="o">&gt;</span> <span class="kr">let</span> <span class="n">triangle</span> <span class="ow">=</span> <span class="p">[</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">|</span> <span class="n">c</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">],</span> <span class="n">a</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">],</span> <span class="n">b</span> <span class="ow">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">],</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="o">==</span><span class="mi">24</span><span class="p">,</span> <span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="o">==</span><span class="n">c</span><span class="o">^</span><span class="mi">2</span> <span class="p">]</span>
 <span class="nf">ghci</span><span class="o">&gt;</span> <span class="n">triangle</span>
-<span class="p">[(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span>
-</code></pre></div>
+<span class="p">[(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span></code></pre></div>
 
 <p>This is a simple function that calculates the sides of a triangle such that:
 - Perimeter = 24

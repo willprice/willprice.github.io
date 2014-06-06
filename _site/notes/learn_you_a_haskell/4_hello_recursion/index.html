@@ -74,17 +74,16 @@
       <p>Recursion involves a self-calling functions. Lots of functions in Haskell should be written like this as it allows
 for a very elegant representation of what a function does rather than how to compute it.</p>
 
-<div class="highlight"><pre><code class="hs">  <span class="c1">-- Maximum function</span>
+<div class="highlight"><pre><code class="hs"><span class="c1">-- Maximum function</span>
   <span class="n">maximum&#39;</span> <span class="n">xs</span> <span class="ow">=</span> <span class="kr">case</span> <span class="n">xs</span> <span class="kr">of</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="n">eror</span> <span class="s">&quot;Maximum of empty list&quot;</span>
                            <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span>
-                           <span class="n">x</span><span class="kt">:</span><span class="n">xs</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">x</span> <span class="p">(</span><span class="n">maximum&#39;</span> <span class="n">x</span><span class="p">)</span>
-</code></pre></div>
+                           <span class="n">x</span><span class="kt">:</span><span class="n">xs</span> <span class="ow">=</span> <span class="n">max</span> <span class="n">x</span> <span class="p">(</span><span class="n">maximum&#39;</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
 
 <p>When trying to define a function recursively, first start with the base case, then think about the algorithm in a trivial case and how that can be implemented in code, think about it abstractly, make sure all situations are covered.</p>
 
 <p>Quicksort:</p>
 
-<div class="highlight"><pre><code class="hs">  <span class="c1">-- this ones nice!</span>
+<div class="highlight"><pre><code class="hs"><span class="c1">-- this ones nice!</span>
   <span class="c1">-- quicksort only works on types which can be compared: i.e. are of the Ord type class</span>
   <span class="n">quicksort</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
   <span class="n">quicksort</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span> <span class="c1">-- base case</span>
@@ -93,8 +92,7 @@ for a very elegant representation of what a function does rather than how to com
   <span class="n">quicksort</span> <span class="n">x</span><span class="kt">:</span><span class="n">xs</span> <span class="ow">=</span> 
   <span class="kr">let</span> <span class="n">smallerOrEqual</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">a</span> <span class="o">|</span> <span class="n">a</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">]</span>
       <span class="n">larger</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">a</span> <span class="o">|</span> <span class="n">a</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">]</span>
-  <span class="kr">in</span> <span class="n">quicksort</span> <span class="n">smallerOrEqual</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">quicksort</span> <span class="n">larger</span>
-</code></pre></div>
+  <span class="kr">in</span> <span class="n">quicksort</span> <span class="n">smallerOrEqual</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">quicksort</span> <span class="n">larger</span></code></pre></div>
 
 <p>Ah beautiful.</p>
 

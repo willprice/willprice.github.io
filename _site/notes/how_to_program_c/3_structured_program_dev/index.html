@@ -76,7 +76,7 @@
 - selection structure (if, if/else, switch)
 - repetition structure (while, for)</p>
 
-<h1 id="toc_0">Flowcharting</h1>
+<h1 id="flowcharting">Flowcharting</h1>
 
 <ul>
 <li>Rectangle : action symbol : computation, IO</li>
@@ -84,7 +84,7 @@
 <li>Diamond : conditional symbol : if, if/else, switch</li>
 </ul>
 
-<h1 id="toc_1">Selection structure</h1>
+<h1 id="selection-structure">Selection structure</h1>
 
 <ul>
 <li>if : single-selection</li>
@@ -96,9 +96,9 @@
 <li><p><code>;</code> : empty statement.</p></li>
 </ul>
 
-<h1 id="toc_2">Repetition structures:</h1>
+<h1 id="repetition-structures:">Repetition structures:</h1>
 
-<h2 id="toc_3">Count-Controlled repetition</h2>
+<h2 id="count-controlled-repetition">Count-Controlled repetition</h2>
 
 <div class="highlight"><pre><code class="c"><span class="n">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">total</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">average</span><span class="p">;</span>
@@ -118,12 +118,11 @@
   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Class average is %d/n&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
-<h2 id="toc_4">Sentinel-Controlled repetition</h2>
+<h2 id="sentinel-controlled-repetition">Sentinel-Controlled repetition</h2>
 
-<h3 id="toc_5">Top-down, stepwise refinement</h3>
+<h3 id="top-down,-stepwise-refinement">Top-down, stepwise refinement</h3>
 
 <ol>
 <li>Determine class average for the quiz</li>
@@ -159,7 +158,7 @@
 <li>Now at a sufficiently high level of detail/low level of abstraction, rewrite in C.</li>
 </ol>
 
-<div class="highlight"><pre><code class="c">  <span class="cm">/*  Class average written using a top-down approach</span>
+<div class="highlight"><pre><code class="c"><span class="cm">/*  Class average written using a top-down approach</span>
 <span class="cm">      with sentinel-controlled reptition */</span>
 
   <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
@@ -187,8 +186,7 @@
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here we used (float) to <em>cast</em> <code>total</code> from an <code>int</code> to a <code>float</code>, allowing for floating point division.
 - <code>(float)</code> is the <em>unary cast operator</em>, this creates a floating point copy of it&#39;s argument for use in whatever calculation is being performed.

@@ -71,7 +71,7 @@
       </div>
 
       <section>
-      <h1 id="toc_0">Context-free languages</h1>
+      <h1 id="context-free-languages">Context-free languages</h1>
 
 <p>A context-free grammar consists of a set of <strong>substitution rules</strong>, otherwise
 known as <strong>productions</strong>. <strong>Variables</strong> map to more variables and/or
@@ -95,20 +95,20 @@ of the language are produced.</p>
   of variables and terminals.
 * <code>$$S$$</code> - The start variable s.t. <code>$$S \in V$$</code>.</p>
 
-<h2 id="toc_1">Designing CFLs</h2>
+<h2 id="designing-cfls">Designing CFLs</h2>
 
 <p>Many CFLs are the union of simpler CFLs. Merging simpler CFLs into a more
 complex CFL is achieved by merging their grammars and adding a new start
 variable that maps to the union of all the old start variables from the simpler
 CFLs.</p>
 
-<h3 id="toc_2">DFA to CFG</h3>
+<h3 id="dfa-to-cfg">DFA to CFG</h3>
 
 <p>For each state in the machine add a rule <code>$$R_i \Rightarrow aR_j$$</code> for every
 transition from state <code>$$R_i$$</code> to state <code>$$R_j$$</code> when reading the symbol
 <code>$$a$$</code>. </p>
 
-<h2 id="toc_3">Ambiguity</h2>
+<h2 id="ambiguity">Ambiguity</h2>
 
 <p>Some CFGs will allow derivation of strings in a few different ways. This leads
 to the idea of <strong>ambiguity</strong> in derivation. A grammar is ambiguous if you can
@@ -122,7 +122,7 @@ is always replaced.</li>
 <p>Some languages can only be defined ambiguously, those grammars are known as
 <strong>inherently ambiguous</strong>.</p>
 
-<h2 id="toc_4">Chomsky normal form</h2>
+<h2 id="chomsky-normal-form">Chomsky normal form</h2>
 
 <p>All CFGs can be expressed in <strong>Chomsky normal form</strong> where all rules are of the
 form:</p>
@@ -134,7 +134,7 @@ form:</p>
 the grammar. (<code>$$S$$</code> is the start variable)</li>
 </ul>
 
-<h1 id="toc_5">Pushdown Automata</h1>
+<h1 id="pushdown-automata">Pushdown Automata</h1>
 
       </section>
     </div>

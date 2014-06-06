@@ -75,7 +75,7 @@
 
 <p>Look at the <a href="../miscellaneous.md">Miscellaneous Notes</a> for a few general things I stumbled over + other things.</p>
 
-<h1 id="toc_0">Hexadecimal and Binary</h1>
+<h1 id="hexadecimal-and-binary">Hexadecimal and Binary</h1>
 
 <p>When dealing with binary numbers in C, it&#39;s quickest to type them out in hexadecimal, this is surprisingly easy due to a nice little trick allowing you to interpret a byte as 2 nibbles (four bit quantities):</p>
 
@@ -85,7 +85,7 @@
 
 <p>Simply take the first part of the hexadecimal number, for <code>0xaf</code> it&#39;s <code>a</code>, which in binary is <code>1010</code> and then take the second part <code>f</code> which in binary is <code>1111</code>, then join them together -&gt; <code>10101111</code>.</p>
 
-<h1 id="toc_1">Bitwise Operators</h1>
+<h1 id="bitwise-operators">Bitwise Operators</h1>
 
 <p>Refer to <a href="http://www.avrfreaks.net/index.php?name=PNphpBB2&amp;file=viewtopic&amp;t=37871">Programming 101</a> for an in-depth tutorial.</p>
 
@@ -105,9 +105,9 @@
 <code>0x01</code></li>
 </ul>
 
-<h1 id="toc_2">Blink code</h1>
+<h1 id="blink-code">Blink code</h1>
 
-<div class="highlight"><pre><code class="c">  <span class="cm">/*</span>
+<div class="highlight"><pre><code class="c"><span class="cm">/*</span>
 <span class="cm">  * Hackaday.com AVR Tutorial firmware</span>
 <span class="cm">  * written by: Mike Szczys (@szczys)</span>
 <span class="cm">  * 10/24/2010</span>
@@ -143,8 +143,7 @@
   <span class="n">ISR</span><span class="p">(</span><span class="n">TIMER1_COMPA_vect</span><span class="p">)</span>    <span class="c1">//Interrupt Service Routine</span>
   <span class="p">{</span>
     <span class="n">PORTD</span> <span class="o">^=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">//Use xor to toggle the LED</span>
-  <span class="p">}</span>  
-</code></pre></div>
+  <span class="p">}</span></code></pre></div>
 
 <p>Right, this to me looks like gobbledygook, regardless of having programmed in Processing...
 <code>int main(void)</code> is the start of the program, <code>main</code> is responsible for starting execution, it&#39;s just an arbitrary function name that is now used in every programming language. 

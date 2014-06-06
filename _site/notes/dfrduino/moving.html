@@ -71,7 +71,7 @@
       </div>
 
       <section>
-      <h1 id="toc_0">Moving your robot</h1>
+      <h1 id="moving-your-robot">Moving your robot</h1>
 
 <p>I should imagine you&#39;ll probably want to get your robot moving, no? Well
 let&#39;s see how to do that:</p>
@@ -88,8 +88,7 @@ let&#39;s see how to do that:</p>
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// Set the robot&#39;s direction forward</span>
   <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Compile and upload the code to your robot, hopefully it should go
 forward. Now, if your robot is anything like mine (I hope it isn&#39;t, it&#39;s
@@ -140,8 +139,7 @@ another function called <code>setMotors(int left, int right)</code>. Here I show
       <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Direction not recognised&quot;</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>You can set your motor power between -100 (maximum speed backwards) and
 100 (maximum speed forwards).</p>
@@ -152,8 +150,7 @@ separate functions that do forward, backward, left, and right instead.</p>
 <div class="highlight"><pre><code class="c"><span class="c1">// Write four functions like this</span>
 <span class="kt">void</span> <span class="nf">setMotorsForward</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>It&#39;s up to you which style you prefer, I have a slight preference for
 keeping very similar behaviour all within one function.</p>
@@ -188,8 +185,7 @@ interesting. </p>
   <span class="c1">// wait until we&#39;ve rotated 90 degrees</span>
   <span class="n">delay</span><span class="p">(</span><span class="n">timeTakenToMoveNinetyDegrees</span><span class="p">);</span>
   <span class="c1">// When we loop again, we&#39;ll go forward</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>As you may have noticed when modifying <code>timeTakenToMoveNinetyDegrees</code>
 your robot will have traced out different polygons on the floor. Your

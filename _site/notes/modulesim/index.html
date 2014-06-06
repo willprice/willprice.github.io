@@ -76,7 +76,7 @@
 <li><a href="module-sim-examples.modsim">Examples of components</a></li>
 </ul>
 
-<h1 id="toc_0">Split Merge</h1>
+<h1 id="split-merge">Split Merge</h1>
 
 <table><thead>
 <tr>
@@ -110,7 +110,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="toc_1">Merge (4 inputs)</h2>
+<h2 id="merge-(4-inputs)">Merge (4 inputs)</h2>
 
 <p><img src="img/merge.jpg" alt="Example merge image"></p>
 
@@ -125,7 +125,7 @@ is the LSB and D the MSB. The 4 bit word is constructed in output A.</p>
 <p>Output B will only produce a word of the form <code>xxDC</code> or <code>xxC2C1</code> where <code>D</code> is the LSB of
 input D; the same goes for input C.</p>
 
-<h2 id="toc_2">Split (4 outputs)</h2>
+<h2 id="split-(4-outputs)">Split (4 outputs)</h2>
 
 <p><img src="img/split.jpg" alt="Example split image"></p>
 
@@ -136,13 +136,13 @@ bits from port A are also present in the 2nd LSB. so 00BA into Port A yields
 to get at A, or perform a bit of shifting. Refer to the top table if this
 explanation is crap.</p>
 
-<h1 id="toc_3">4 Way Fanout</h1>
+<h1 id="4-way-fanout">4 Way Fanout</h1>
 
 <p><img src="img/fanout.jpg" alt="Example 4 way fanout image"></p>
 
 <p>Takes an input and repeats it to four outputs</p>
 
-<h1 id="toc_4">REG - Register</h1>
+<h1 id="reg---register">REG - Register</h1>
 
 <p><img src="img/reg.jpg" alt="Example register image"></p>
 
@@ -173,14 +173,14 @@ in them. The control input takes the following form:</p>
 </tr>
 </tbody></table>
 
-<h1 id="toc_5">CLK - Clock</h1>
+<h1 id="clk---clock">CLK - Clock</h1>
 
 <p><img src="img/clock.jpg" alt="Example clock image"></p>
 
 <p>Outputs <code>010x</code> to two outputs where one will be <code>0101</code> and the other <code>0100</code>.
 This is used to alternately enable registers.</p>
 
-<h1 id="toc_6">LSH - Left Shift</h1>
+<h1 id="lsh---left-shift">LSH - Left Shift</h1>
 
 <p><img src="img/left_shift.jpg" alt="Example left shift image"></p>
 
@@ -190,7 +190,7 @@ This is used to alternately enable registers.</p>
 idea what the chain in and outs do. If you do know, please email me and I&#39;ll add
 it in.</p>
 
-<h1 id="toc_7">RSH - Right Shift</h1>
+<h1 id="rsh---right-shift">RSH - Right Shift</h1>
 
 <p><img src="img/right_shift.jpg" alt="Example right shift image"></p>
 
@@ -199,7 +199,7 @@ it in.</p>
 <p>Take the input and shift it right by the number of places in the <em>control
 input</em>. No idea what the chain in and outs do.</p>
 
-<h1 id="toc_8">MUX - Multiplexer</h1>
+<h1 id="mux---multiplexer">MUX - Multiplexer</h1>
 
 <p><img src="img/mux.jpg" alt="Example mux image"></p>
 
@@ -230,7 +230,7 @@ the <em>Control in</em>, which is also fed out to <em>Control out</em>.</p>
 </tr>
 </tbody></table>
 
-<h1 id="toc_9">DMX - Demultiplexer</h1>
+<h1 id="dmx---demultiplexer">DMX - Demultiplexer</h1>
 
 <p><img src="img/demux.jpg" alt="Example demux image"></p>
 
@@ -261,7 +261,7 @@ which output to route it to.</p>
 </tr>
 </tbody></table>
 
-<h1 id="toc_10">Chained Or</h1>
+<h1 id="chained-or">Chained Or</h1>
 
 <p><img src="img/or_on.png" alt="Example Or on image">
 <img src="img/or_off.png" alt="Example Or off image"></p>
@@ -275,7 +275,7 @@ otherwise the output will be 0000.</p>
 just as you fed them in, this means you can pass the lowest bits around quite a
 lot.</p>
 
-<h1 id="toc_11">AU - Arithmetic Unit</h1>
+<h1 id="au---arithmetic-unit">AU - Arithmetic Unit</h1>
 
 <p><img src="img/au.jpg" alt="Example au image"></p>
 
@@ -316,7 +316,7 @@ the two&#39;s complement system.</p>
 <p>The left output is the <em>Control out</em> that instructs another chained AU that
 overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
 
-<h1 id="toc_12">LU - Logic Unit</h1>
+<h1 id="lu---logic-unit">LU - Logic Unit</h1>
 
 <p><img src="img/lu.jpg" alt="Example lu image"></p>
 
@@ -346,7 +346,7 @@ overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
 </tr>
 </tbody></table>
 
-<h1 id="toc_13">RAM - Memory unit</h1>
+<h1 id="ram---memory-unit">RAM - Memory unit</h1>
 
 <p>The RAM unit holds 65,536 bytes of memory. These are accessed through the 4
 <em>Address inputs</em> that take a nibble each. Inputs take the form of nibbles;

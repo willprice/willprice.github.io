@@ -87,18 +87,18 @@ line) on Raspbian is as follows:</p>
 <li>Request an IP address with <code>dhclient</code>.</li>
 </ol>
 
-<h1 id="toc_0">Disable network service</h1>
+<h1 id="disable-network-service">Disable network service</h1>
 
 <p>Raspbian&#39;s network service needs to be stopped to connect using the method
 we&#39;re going to use. To do this run </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service networking stop
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service networking stop
 </code></pre></div>
-<h1 id="toc_1">Connect using wpa_supplicant</h1>
+<h1 id="connect-using-wpa_supplicant">Connect using wpa_supplicant</h1>
 
 <p>I&#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
 authentication, if you&#39;re at a different university this may well be different
 and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">network={
+<div class="highlight"><pre><code class="language-text" data-lang="text">network={
     # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
 
     # The &#39;identity&#39; is the username actually used for authentication.
@@ -174,7 +174,7 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
 <a href="http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/">wirless.bris.ac.uk</a> for the file!</p>
 
 <p>Run <code>wpa_supplicant</code>: </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
 </code></pre></div>
 <p>You&#39;ll also need the PEM file <code>uob-net-ca.pem</code> to put into <code>/etc/ssl/certs/</code>
 which is located at
@@ -191,11 +191,11 @@ verbose debugging).</li>
 connecting.</li>
 </ul>
 
-<h1 id="toc_2">Request an IP address</h1>
+<h1 id="request-an-ip-address">Request an IP address</h1>
 
 <p>Once you&#39;ve connected to eduroam which you can verify by running <code>iwconfig</code>. You
 should now request an ip address with the command </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo dhclient wlan0
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo dhclient wlan0
 </code></pre></div>
 <p>To verify that you have got an ip address run <code>ifconfig</code> and make sure your
 wireless interface (usually wlan0) has been assigned an address.</p>

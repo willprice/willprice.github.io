@@ -88,7 +88,7 @@ that I found on <a href="http://topcoder.com">Topcoder</a>. It is in fact a slig
 (easier) on the actual topcoder problem as I didn&#39;t have it to hand when we were
 pairing.</p>
 
-<h2 id="toc_0">The Problem:</h2>
+<h2 id="the-problem:">The Problem:</h2>
 
 <blockquote>
 <p>Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
@@ -103,12 +103,12 @@ is.</p>
 
 <p>Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.</p>
 
-<h2 id="toc_1">The Design:</h2>
+<h2 id="the-design:">The Design:</h2>
 
 <p>Tackling this in a TDD-way we first had to decide on rough roadmap of
 test cases. The simplest test case seemed to be a invalid rectangle,
 0 rectangles high or wide, or both.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Test cases:
+<div class="highlight"><pre><code class="language-text" data-lang="text">Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 </code></pre></div>
@@ -121,7 +121,7 @@ seemed like it would probably be sufficient for a full implementation.</p>
 composite rectangle, this involved a bit of drawing and tallying. In the end I
 think I only miscounted one test case which we noticed fairly quickly when
 coding.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Test cases:
+<div class="highlight"><pre><code class="language-text" data-lang="text">Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 2. 1x1 has 1 subrectangle
@@ -182,8 +182,7 @@ implement the actual solution.</p>
     <span class="o">}</span>
     <span class="c1">// We count the top left 1x1 rectangle twice with this method</span>
     <span class="k">return</span> <span class="n">numberOfSubrectangles</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <p>The next test case: 2x2, introduced a new class of rectangles, 2D, the others
 had all been 1D in either the <code>\(x\)</code> or <code>\(y\)</code> axis. The previous
@@ -202,13 +201,12 @@ duplicates.</p>
     <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span><span class="n">y</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
         <span class="n">numberOfSubrectangles</span> <span class="o">+=</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <p>I like this, it&#39;s rather clever. It&#39;s easiest to understand given an example,
 let&#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
 subrectangles, here&#39;s what the code excecutes:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">i = 1:
+<div class="highlight"><pre><code class="language-text" data-lang="text">i = 1:
     j = 1:
         numberOfSubrectangles += 1;
         // numberOfSubrectangles = 1;
@@ -217,7 +215,7 @@ subrectangles, here&#39;s what the code excecutes:</p>
         // numberOfSubrectangles = 3;
 </code></pre></div>
 <p>Looping over the first column we get 3 subrectangles, so good so far.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">i = 2:
+<div class="highlight"><pre><code class="language-text" data-lang="text">i = 2:
     j = 1:
         numberOfSubrectangles += 2
         // numberOfSubrectangles = 5
@@ -232,7 +230,7 @@ this next column, however, we also need to take into account the rectangles that
 are formed along the rows, which there are 3 of, giving us a total of 6
 additional subrectangles.</p>
 
-<h2 id="toc_2">Algebraic solution:</h2>
+<h2 id="algebraic-solution:">Algebraic solution:</h2>
 
 <p>We had a solution! I like maths so I&#39;ve found the algebraic solution from the
 code. Reasoning about loops of loops in mathematics is particularly
@@ -242,8 +240,7 @@ aesthetically pleasing to me.</p>
     <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span><span class="n">y</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
         <span class="n">numberOfSubrectangles</span> <span class="o">+=</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 <p>I&#39;ll be using <code>\(z\)</code> as the <code>numberOfSubrectangles</code>, it makes writing the maths
 easier.

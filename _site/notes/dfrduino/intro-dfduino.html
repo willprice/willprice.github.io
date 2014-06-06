@@ -91,8 +91,7 @@ write code like this:</p>
     <span class="n">analogWrite</span><span class="p">(</span><span class="n">LEFT_MOTOR_SPEED_CONTROL</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RIGHT_MOTOR_DIRECTION_CONTROL</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="n">analogWrite</span><span class="p">(</span><span class="n">RIGHT_MOTOR_SPEED_CONTROL</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is rather slow way to develop code, so I&#39;ve encapsulated (hidden the low
 level details) the robot dependent things and given you a library called
@@ -118,10 +117,9 @@ can arrange one for next DigiMakers)</em>.</p>
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Make the robot go forward</span>
     <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
-<h2 id="toc_0">Features of the DFRduino robot</h2>
+<h2 id="features-of-the-dfrduino-robot">Features of the DFRduino robot</h2>
 
 <ul>
 <li>2 wheel drive.</li>
@@ -129,12 +127,12 @@ can arrange one for next DigiMakers)</em>.</p>
 servo head.</li>
 </ul>
 
-<h2 id="toc_1">Library functions</h2>
+<h2 id="library-functions">Library functions</h2>
 
 <p>The library I have written contains a set of functions to help you develop your
 obstacle avoiding robot.</p>
 
-<h3 id="toc_2">Types of parameters</h3>
+<h3 id="types-of-parameters">Types of parameters</h3>
 
 <ul>
 <li><code>[percentage]</code> can be -100 to 100.</li>
@@ -142,7 +140,7 @@ obstacle avoiding robot.</p>
 <li><code>[char]</code> can be any character inside of single quotes, e.g. <code>&#39;f&#39;</code>.</li>
 </ul>
 
-<h3 id="toc_3">Functions</h3>
+<h3 id="functions">Functions</h3>
 
 <ul>
 <li><code>void setDirection([char])</code>:
