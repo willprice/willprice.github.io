@@ -141,6 +141,14 @@ overflow has occured so you can chain AUs to handle more than 4 bit numbers.
 
 Performs logical operations on two inputs.
 
+| Control input | Function selected |
+|---------------|-------------------|
+|  xx00         | Not               |
+|  xx01         | And               |
+|  xx10         | Or                |
+|  xx11         | Xor               |
+
+
 # RAM - Memory unit
 The RAM unit holds 65,536 bytes of memory. These are accessed through the 4
 *Address inputs* that take a nibble each. Inputs take the form of nibbles;
