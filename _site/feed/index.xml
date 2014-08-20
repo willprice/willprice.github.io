@@ -4,13 +4,28 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2014-08-19T11:24:02+01:00</updated>
+ <updated>2014-08-20T13:02:15+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Errors pushing via git in PyCharm/IntelliJ</title>
+   <link href="http://willprice.org//2014/08/20/errors-pushing-via-git-in-pycharmintellij.html"/>
+   <updated>2014-08-20T00:00:00+01:00</updated>
+   <id>http://willprice.org/2014/08/20/errors-pushing-via-git-in-pycharmintellij</id>
+   <content type="html">&lt;p&gt;If you find yourself in the same position as I did where trying to push via an
+IntelliJ based IDE isn&amp;#39;t working (in my case PyCharm), and you&amp;#39;re getting the
+error: &lt;code&gt;Push failed: fatal: Could not read from remote repository&lt;/code&gt;. You might
+find that changing your SSH executable from the &lt;code&gt;built-in&lt;/code&gt; to the system
+&lt;code&gt;native&lt;/code&gt; will fix your woes. Pop into the preferences of your project and
+navigate to &lt;code&gt;Version Control/Git/SSH executable&lt;/code&gt; and flip that setting to
+&lt;code&gt;native&lt;/code&gt;.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Properties in python</title>
