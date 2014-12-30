@@ -79,8 +79,12 @@ pre code {
   border: none;
   background: transparent; 
 }
- 
 code.has-jax {
+  border: none;
+  background-color: inherit;
+}
+ 
+code.has-jax span.math span {
   font: inherit;
   color: black;
   font-size: 100%;
