@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>CS101 Unit 4: Homework 4: Splitting Strings</h2>
+        <h1>CS101 Unit 4: Homework 4: Splitting Strings</h1>
+        
         <p>I&#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&#39;ll explain the question and how the solution is reached for those that didn&#39;t find the video particularly clear.</p>
 
 <p>The question:</p>
@@ -109,7 +112,7 @@
 
 <p>Now we have a better of idea of the problem and how to implement the solution we can start writing code:</p>
 
-<div class="highlight"><pre><code class="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c"># Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words</span>
@@ -117,7 +120,7 @@
 
 <p>So we&#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#39;ll now add functionality that loops through <code>source</code> and check which characters are members of split list</p>
 
-<div class="highlight"><pre><code class="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
@@ -143,7 +146,7 @@
 </code></pre></div>
 <p>We&#39;ve got a code block that is executed when <code>char</code> is equal to a character from <code>splitlist</code>. We can now implement the code that will add the words to <code>word_list</code>. Remember that once we&#39;ve added a word to <code>word_list</code> and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&#39;ll end up with one great list of words without spaces. First we&#39;ll acheive this unwanted behaviour as it&#39;s a step in the right direction, then we&#39;ll add checks to create new list entries splitting the words properly.</p>
 
-<div class="highlight"><pre><code class="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
@@ -161,7 +164,7 @@
 
 <p>To acheive the functionality above, we need to know when we get to splitting characters, we&#39;ve already got a block of code that deals with this situation, it&#39;s simply printing lines at the moment, not doing anything useful, we&#39;ll change that so we know when we&#39;ve reached a splitting character.</p>
 
-<div class="highlight"><pre><code class="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">]</span>
 
     <span class="n">at_split</span> <span class="o">=</span> <span class="bp">False</span>
@@ -179,7 +182,7 @@
 
 <p>Here we&#39;ve intialised <code>at_split</code> outside of the for loop as it&#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#39;t affected the functionality of <code>split_string</code> yet, but it&#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.</p>
 
-<div class="highlight"><pre><code class="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">]</span>
 
     <span class="n">at_split</span> <span class="o">=</span> <span class="bp">False</span>
@@ -215,7 +218,13 @@
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -76,7 +78,7 @@
 <p>I should imagine you&#39;ll probably want to get your robot moving, no? Well
 let&#39;s see how to do that:</p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
 <span class="cp">#include &lt;DFRduino.h&gt;</span>
 
 
@@ -100,7 +102,7 @@ To set the speed of the left and right motors, I&#39;ve provided you with
 another function called <code>setMotors(int left, int right)</code>. Here I show
 <em>my</em> version of <code>setDirection</code>:</p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
 <span class="cp">#include &lt;DFRduino.h&gt;</span>
 
 
@@ -116,23 +118,23 @@ another function called <code>setMotors(int left, int right)</code>. Here I show
 
 <span class="kt">void</span> <span class="nf">mySetDirection</span><span class="p">(</span><span class="kt">char</span> <span class="n">direction</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">switch</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="sc">&#39;f&#39;</span>:
+    <span class="k">case</span> <span class="sc">&#39;f&#39;</span><span class="o">:</span>
       <span class="c1">// Compensate for drifting left by reducing</span>
       <span class="c1">// the power of the right motor.</span>
       <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
       <span class="c1">// If you don&#39;t break out of your switch statements,</span>
       <span class="c1">//  all the other cases will also be run.</span>
       <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="sc">&#39;b&#39;</span>:
+    <span class="k">case</span> <span class="sc">&#39;b&#39;</span><span class="o">:</span>
       <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="sc">&#39;r&#39;</span>:
+    <span class="k">case</span> <span class="sc">&#39;r&#39;</span><span class="o">:</span>
       <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="sc">&#39;l&#39;</span>:
+    <span class="k">case</span> <span class="sc">&#39;l&#39;</span><span class="o">:</span>
       <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
       <span class="k">break</span><span class="p">;</span>
-    <span class="nl">default:</span>
+    <span class="k">default</span><span class="o">:</span>
       <span class="c1">// Provide some way of checking for errors in your </span>
       <span class="c1">// calling code. This will be called if you don&#39;t call your</span>
       <span class="c1">// function with &#39;f&#39;, &#39;b&#39;, &#39;r&#39; or &#39;l&#39;.</span>
@@ -147,7 +149,7 @@ another function called <code>setMotors(int left, int right)</code>. Here I show
 <p>If you&#39;re not comfortable with <code>switch</code> statements, you could have 4
 separate functions that do forward, backward, left, and right instead.</p>
 
-<div class="highlight"><pre><code class="c"><span class="c1">// Write four functions like this</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Write four functions like this</span>
 <span class="kt">void</span> <span class="nf">setMotorsForward</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">robot</span><span class="p">.</span><span class="n">setMotors</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
 <span class="p">}</span></code></pre></div>
@@ -162,7 +164,7 @@ interesting. </p>
 
 <p>Let&#39;s make the robot trace out a square on the floor. </p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
 <span class="cp">#include &lt;DFRduino.h&gt;</span>
 
 
@@ -202,7 +204,13 @@ batteries) or maybe even a triangle with charged batteries.</p>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

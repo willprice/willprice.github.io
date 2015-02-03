@@ -2,3 +2,6 @@
 *.un
 *.swp
 *.swo
+vendor
+.bundle
+.ropeproject

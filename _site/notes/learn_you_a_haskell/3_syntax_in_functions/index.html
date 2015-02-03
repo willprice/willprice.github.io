@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,14 +75,14 @@
       <section>
       <h1 id="pattern-matching">Pattern Matching</h1>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">factorial</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">factorial</span> <span class="ow">::</span> <span class="kt">Int</span> <span class="ow">-&gt;</span> <span class="kt">Int</span>
   <span class="n">factorial</span> <span class="mi">1</span> <span class="ow">=</span> <span class="mi">1</span>
   <span class="n">factorial</span> <span class="n">n</span> <span class="ow">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 
 <p>All cases must be covered, using a placeholder at the end of the function definition will cover all other possible
 cases. Cases are checked from top to bottom of function definition, so the wildcard entry should be at the bottom.</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">charName</span> <span class="ow">::</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">charName</span> <span class="ow">::</span> <span class="kt">Char</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
   <span class="n">charName</span> <span class="n">&#39;a&#39;</span> <span class="ow">=</span> <span class="s">&quot;Albert&quot;</span>
   <span class="n">charName</span> <span class="n">&#39;b&#39;</span> <span class="ow">=</span> <span class="s">&quot;Billy&quot;</span>
   <span class="c1">-- x acts as a universal matcher and will match anything</span>
@@ -88,12 +90,12 @@ cases. Cases are checked from top to bottom of function definition, so the wildc
 
 <p>This wildcard matching pattern works very well as you can define functions very cleanly:</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">addVectors</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">addVectors</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span>
   <span class="n">addVectors</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">)</span> <span class="ow">=</span> <span class="p">(</span><span class="n">x1</span><span class="o">+</span><span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="o">+</span><span class="n">y2</span><span class="p">)</span></code></pre></div>
 
 <p><code>_</code> represents a generic variable in function definitions, something that we don&#39;t care about.</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">head&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">head&#39;</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
   <span class="n">head&#39;</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="ne">error</span> <span class="s">&quot;Can&#39;t call head&#39; on an empty list&quot;</span>
   <span class="n">head&#39;</span> <span class="p">(</span> <span class="n">x</span><span class="kt">:</span> <span class="kr">_</span> <span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="c1">-- there should be no spaces between the x and underscore, this is to fix md rendering</span></code></pre></div>
 
@@ -105,7 +107,7 @@ cases. Cases are checked from top to bottom of function definition, so the wildc
 definition. Syntax: <code>name@(list)</code>, name is used to refer to the <code>list</code>, and <code>list</code> is usually written like <code>x:y:xs</code>, allowing
 easy access to the first and second items of the list.</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">firstLetter</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">firstLetter</span> <span class="ow">::</span> <span class="kt">String</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
   <span class="n">firstLetter</span> <span class="s">&quot;&quot;</span> <span class="ow">=</span> <span class="s">&quot;Empty string, whoops!&quot;</span> <span class="c1">-- Match any empty strings</span>
   <span class="n">firstLetter</span> <span class="n">all</span><span class="o">@</span><span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="s">&quot;The first letter of &quot;</span> <span class="o">++</span> <span class="n">all</span> <span class="o">++</span> <span class="s">&quot; is &quot;</span> <span class="o">++</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span></code></pre></div>
 
@@ -114,7 +116,7 @@ easy access to the first and second items of the list.</p>
 <p>Guards are used for checking whether parameters satsify some predicate, they&#39;re like having a whole load of if and else
 statements, just must much prettier, <code>|</code> marks the start of a guard, <code>\n</code> ends it:</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">bmiTell</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">bmiTell</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
   <span class="n">bmiTell</span> <span class="n">bmi</span>
     <span class="o">|</span> <span class="n">bmi</span> <span class="o">&lt;=</span> <span class="mf">18.5</span> <span class="ow">=</span> <span class="s">&quot;You&#39;re underweight&quot;</span>
     <span class="o">|</span> <span class="n">bmi</span> <span class="o">&gt;=</span> <span class="mf">30.0</span> <span class="ow">=</span> <span class="s">&quot;You&#39;re fat&quot;</span>
@@ -130,7 +132,7 @@ Guards are evaluated like patterns, from top to bottom.</p>
 <p>In python you&#39;d calc something once like: <code>x = x * 10.0/13.0</code>, then use x for all our further calculations. Haskell
 doesn&#39;t have variable, only functions, or only immutable variables, depending on how you want to think of it.</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">bmiTell</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">bmiTell</span> <span class="ow">::</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">Double</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
   <span class="n">bmiTell</span> <span class="n">weight</span> <span class="n">height</span>
     <span class="o">|</span> <span class="n">bmi</span> <span class="o">&lt;=</span> <span class="n">skinny</span> <span class="ow">=</span> <span class="s">&quot;You&#39;re underweight, you emo&quot;</span>
     <span class="o">|</span> <span class="n">bmi</span> <span class="o">&lt;=</span> <span class="n">normal</span> <span class="ow">=</span> <span class="s">&quot;You&#39;re supposedly normal&quot;</span>
@@ -149,27 +151,33 @@ The vars lexical scope is the function.</p>
 <p>let expressions are very local, they&#39;re pretty much self-contained: <code>let &lt;bindings&gt; in &lt;expression&gt;</code>, they can be used anywhere
 other expressions can be used. The use of <code>where</code> just binds values to names whereas <code>let</code> actually is an expression itself.</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">calcBmis</span> <span class="ow">::</span> <span class="p">[(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Double</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">calcBmis</span> <span class="ow">::</span> <span class="p">[(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="kt">Double</span><span class="p">]</span>
   <span class="n">calcBmis</span> <span class="n">xs</span> <span class="ow">=</span> <span class="p">[</span> <span class="n">bmi</span> <span class="o">|</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">)</span> <span class="ow">&lt;-</span> <span class="n">xs</span><span class="p">,</span> <span class="kr">let</span> <span class="n">bmi</span> <span class="ow">=</span> <span class="n">w</span> <span class="o">/</span> <span class="n">h</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">bmi</span> <span class="o">&gt;</span> <span class="mf">25.0</span><span class="p">]</span></code></pre></div>
 
 <h2 id="case-expressions">Case expressions</h2>
 
 <p>case expressions follow the pattern:</p>
 
-<div class="highlight"><pre><code class="hs"><span class="kr">case</span> <span class="n">express</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="kr">case</span> <span class="n">express</span> <span class="kr">of</span> <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>
                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span>
                   <span class="n">pattern</span> <span class="ow">-&gt;</span> <span class="n">result</span></code></pre></div>
 
 <p>A more concrete example:</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">describeList</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">describeList</span> <span class="ow">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="kt">String</span>
   <span class="n">describeList</span> <span class="n">ls</span> <span class="ow">=</span> <span class="s">&quot;The list is &quot;</span> <span class="o">++</span> <span class="kr">case</span> <span class="n">ls</span> <span class="kr">of</span> <span class="kt">[]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Empty.&quot;</span>
                                                  <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="s">&quot;Singleton list&quot;</span>
                                                  <span class="n">xs</span> <span class="ow">-&gt;</span> <span class="s">&quot;Long list.&quot;</span></code></pre></div>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

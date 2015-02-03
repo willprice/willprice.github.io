@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>A little bit of UML pairing session</h2>
+        <h1>A little bit of UML pairing session</h1>
+        
         <p>Jason&#39;s video on the subject:
 <iframe width="560" height="315" src="//www.youtube.com/embed/U7X6EswilYc"></iframe>
 <a href="http://www.codemanship.co.uk/files/littleuml.pdf">Slide source</a></p>
@@ -109,7 +112,7 @@ refactoring!</p>
 
 <h1 id="librarytests.java">LibraryTests.java</h1>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.*;</span>
 
@@ -125,14 +128,14 @@ refactoring!</p>
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNewTitle</span><span class="o">()</span> <span class="o">{</span>
         <span class="n">Title</span> <span class="n">expectedTitle</span> <span class="o">=</span> <span class="n">mock</span><span class="o">(</span><span class="n">Title</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Library</span><span class="o">();</span>
+        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Library</span><span class="o">();</span>
         <span class="n">library</span><span class="o">.</span><span class="na">addToNewTitles</span><span class="o">(</span><span class="n">expectedTitle</span><span class="o">);</span>
         <span class="n">assertTrue</span><span class="o">(</span><span class="n">library</span><span class="o">.</span><span class="na">getNewTitles</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="n">expectedTitle</span><span class="o">));</span>
     <span class="o">}</span>
     
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">donatingCopyOfTitleThatIsntInLibraryAddsTitleToLibrary</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Library</span><span class="o">();</span>
+        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Library</span><span class="o">();</span>
         <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;The Abyss&quot;</span><span class="o">;</span>
         <span class="n">String</span> <span class="n">director</span> <span class="o">=</span> <span class="s">&quot;James Cameron&quot;</span><span class="o">;</span>
         <span class="n">String</span> <span class="n">yearOfRelease</span> <span class="o">=</span> <span class="s">&quot;1989&quot;</span><span class="o">;</span>
@@ -145,7 +148,7 @@ refactoring!</p>
     
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">donatingCopyOfOceansElevenThatIsntInLibraryAddsOceansElevenToLibrary</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Library</span><span class="o">();</span>
+        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Library</span><span class="o">();</span>
         <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Oceans Eleven&quot;</span><span class="o">;</span>
         <span class="n">String</span> <span class="n">director</span> <span class="o">=</span> <span class="s">&quot;Steven Soderbergh&quot;</span><span class="o">;</span>
         <span class="n">String</span> <span class="n">yearOfRelease</span> <span class="o">=</span> <span class="s">&quot;2002&quot;</span><span class="o">;</span>
@@ -158,7 +161,7 @@ refactoring!</p>
     
     <span class="nd">@Test</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">findingTitleThatDoesntExistInLibraryReturnsNull</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Library</span><span class="o">();</span>
+        <span class="n">Library</span> <span class="n">library</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Library</span><span class="o">();</span>
         <span class="n">library</span><span class="o">.</span><span class="na">donate</span><span class="o">(</span><span class="s">&quot;The Abyss&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">);</span>
         <span class="n">assertNull</span><span class="o">(</span><span class="n">library</span><span class="o">.</span><span class="na">findTitle</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">));</span>
     <span class="o">}</span>
@@ -166,7 +169,7 @@ refactoring!</p>
 
 <h1 id="library.java">Library.java</h1>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
@@ -191,7 +194,7 @@ refactoring!</p>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">donate</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">director</span><span class="o">,</span> <span class="n">String</span> <span class="n">year</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">titles</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Title</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">director</span><span class="o">,</span> <span class="n">year</span><span class="o">));</span>
+        <span class="n">titles</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">Title</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">director</span><span class="o">,</span> <span class="n">year</span><span class="o">));</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="n">Title</span> <span class="nf">findTitle</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
@@ -204,7 +207,7 @@ refactoring!</p>
 
 <h1 id="title.java">Title.java</h1>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">org</span><span class="o">.</span><span class="na">willprice</span><span class="o">.</span><span class="na">videolibrary</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Title</span> <span class="o">{</span>
 
@@ -247,7 +250,13 @@ helpful to see whether I&#39;m decreasing my intake or not.</p>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

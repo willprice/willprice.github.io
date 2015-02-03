@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>Unit testing is evil</h2>
+        <h1>Unit testing is evil</h1>
+        
         <p>I&#39;m currently reading &#39;Autotools&#39;, a book about, yes you guessed it, Autotools!
 This passage made me laugh:</p>
 
@@ -94,7 +97,13 @@ thing. Who knows whether I&#39;ll get my homework done before it&#39;s due date 
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

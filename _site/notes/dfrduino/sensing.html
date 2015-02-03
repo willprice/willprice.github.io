@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -87,7 +89,7 @@ guess what it does...?</p>
 
 <p>Ha... here&#39;s an example:</p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
 <span class="cp">#include &lt;DFRduino.h&gt;</span>
 
 
@@ -117,7 +119,7 @@ explain what happens when you cover up the left hand side of the sensor?</p>
 avoiding robot. Let&#39;s have a look at how we can move depending on the distance
 read by the sensor:</p>
 
-<div class="highlight"><pre><code class="c"><span class="cp">#include &lt;Servo.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
 <span class="cp">#include &lt;DFRduino.h&gt;</span>
 
 
@@ -160,7 +162,13 @@ to the next section: <a href="nodding.html"><strong>nodding</strong></a> </p>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

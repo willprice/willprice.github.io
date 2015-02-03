@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>Choosing a target platform</h2>
+        <h1>Choosing a target platform</h1>
+        
         <p>I&#39;m currently working on a project with my mentor. We first chose the simplest user
 story to work on that didn&#39;t depend on any other user stories.</p>
 
@@ -167,7 +170,13 @@ conference--It&#39;d be good to have some MVP to show off.</p>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

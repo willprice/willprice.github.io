@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -77,13 +79,19 @@
 
 <p>For example:</p>
 
-<div class="highlight"><pre><code class="hs"><span class="nf">is3</span> <span class="n">numb</span> <span class="ow">=</span> <span class="n">numb</span> <span class="o">==</span> <span class="mi">3</span></code></pre></div>
+<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">is3</span> <span class="n">numb</span> <span class="ow">=</span> <span class="n">numb</span> <span class="o">==</span> <span class="mi">3</span></code></pre></div>
 
 <p>is3 takes a number and compares it to the number 3, if they&#39;re equal, then it returns True. So starting from the function definition, numb must be of type Number as it&#39;s being compared with an Int (which can be generalised to the Number class and compared with any other number), is3 finally takes on the result of numb == 3, which will result in a Bool, so the type signature is is3 :: Number -&gt; </p>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>Pulseaudio network streaming</h2>
+        <h1>Pulseaudio network streaming</h1>
+        
         <p>I&#39;ve tried setting up pulseaudio before to stream music from my laptop to my
 desktop without much success. I attribute my past failures to my lack of
 understanding of the client/server model that pulseaudio follows. Trust me when
@@ -130,7 +133,13 @@ other niche things (think /dev/null, visualisers).</li>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

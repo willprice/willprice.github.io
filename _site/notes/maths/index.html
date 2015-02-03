@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Maths</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <h1 id="maths">Maths</h1>
+
+<h2 id="algorithms">Algorithms</h2>
+
+<h3 id="stable-roommate-problem">Stable Roommate problem</h3>
+
+<h4 id="terminology">Terminology</h4>
+
+<ul>
+<li><em>stable matching</em>: A solution where everyone is paired in such a way that no
+two roommates would prefer to be together, than in their current match.</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">INPUT: a map of roommates to their strict preferences
+OUTPUT: a map of roommates to their best match if possible, else nothing
+
+while there are unmatched people do:
+    let &#39;proposer&#39; be the earliest roommate in the input that hasn&#39;t been
+    matched.
+
+    &#39;proposer&#39; proposes to the highest preference roommate, the &#39;recipient&#39;, in
+    his preferences that hasn&#39;t already rejected him.
+
+    if the &#39;recipient&#39; has not received a proposal before then:
+        the &#39;recipient&#39; accepts the &#39;proposer&#39;
+    else if the &#39;recipient&#39; prefers the &#39;proposer&#39; over her current match then:
+        the &#39;recipient&#39; accepts the &#39;proposer&#39;
+    else:
+        the &#39;recipient&#39; rejects the &#39;proposer&#39;
+
+for all accepted proposals (&#39;proposer&#39; -&gt; &#39;recipient&#39;):
+    reject all pairings where (&#39;recipient&#39; -&gt; &#39;other_person&#39;) and &#39;other_person&#39;
+    has a lower ranking preference in the &#39;recipient&#39;s preferences compared to
+    &#39;proposer&#39;.
+
+for all cycles (&#39;person_1&#39;, ... , &#39;person_n&#39;) and associated second preferences
+(&#39;second_pref_1&#39;, ... , &#39;second_pref_n&#39;):
+    let &#39;second_pref_i&#39; be the second preference of &#39;person_(i-1)&#39;
+    for all pairs (&#39;person_(i+1)&#39;, &#39;second_pref_(i)&#39;):
+        &#39;second_pref_i&#39; rejects &#39;person_(i+1)&#39;
+</code></pre></div>
+<p>While this pseudo code may be a little obtuse at first, you may find that in
+addition to simple English description of how to perform the algorithm by hand
+the algorithm will become quite clear in how it works.</p>
+
+<p>We split the algorithm into three phases:</p>
+
+<ol>
+<li>Gale-Shapley algorithm.</li>
+<li>Remove lesser preferences from recipients.</li>
+<li>Eliminate remaining preferences by analysis of cycles.</li>
+</ol>
+
+<h4 id="rejecting-a-proposal">Rejecting a proposal</h4>
+
+<p>By rejecting a proposal <code>A -&gt; B</code>, you must cross off both <code>B</code> in <code>A</code>s
+preferences and <code>A</code> in <code>B</code>s preferences. In other words, every rejection
+consists of removing two preferences from the preferences table.</p>
+
+<h4 id="phase-1:-gale-shapley-algorithm">Phase 1: Gale-Shapley algorithm</h4>
+
+<p>The Gale-Shapley algorithm was designed for a very similar problem to the
+finding a stable matching for roommates, but instead of roommates the population
+was split into two halves, males, and females, each of whom had their own
+preferences. Only one gender would propose to the other to find a stable
+matching.</p>
+
+<p>We apply this algorithm to the roommates and their associated preferences. </p>
+
+<ol>
+<li>Pick the first roommate on the list that hasn&#39;t had one of their proposals
+accepted, we shall call her the <em>proposer</em></li>
+<li>The <em>proposer</em> proposes to her first preference, the <em>recipient</em>, that hasn&#39;t already rejected
+her. If the <em>recipient</em> hasn&#39;t had a proposal before, then he accepts,
+otherwise if the <em>proposer</em> is of a higher preference to the <em>recipient</em> than
+the <em>recipient</em> current match, the <em>recipient</em> accepts the proposal and
+reject his previous match.</li>
+<li>Go to 1 whilst there are still unmatched roommates.</li>
+</ol>
+
+<h4 id="phase-2:-removing-lesser-preferences">Phase 2: Removing lesser preferences</h4>
+
+<p>For every accepted proposal where <em>proposer</em> has been accepted by <em>recipient</em>,
+reject all lower preferences then the <em>proposer</em> in the <em>recipients</em> preference
+list</p>
+
+<h4 id="phase-3:-eliminating-remaining-preferences-by-analysis-of-cycles">Phase 3: Eliminating remaining preferences by analysis of cycles</h4>
+
+<p>For every roommate that has more than one preference left in the preferences
+table, write down a table where the top element is the roommate, and the one
+below it is the 2nd preference of the roommate, then the next top element is the
+last preference of the element one cell below and behind. Essentially in
+constructing the table:</p>
+
+<ol>
+<li>Fill in the cell below you current position with the 2nd preference of the
+current element</li>
+<li>Fill in the cell to the upper right of your current position with the last
+preference of the current element</li>
+</ol>
+
+<p>Or in other words: to go down, put the 2nd preference, and to go diagonally it&#39;s
+the last preference.</p>
+
+<p>Continue constructing the table until you reach a cycle in the top row. Then
+reject all diagonal pairs (bottom left to upper right).</p>
+
+<p>You should end up with a preferences table where each roommate has a single
+preference</p>
+
+<h4 id="exceptions">Exceptions</h4>
+
+<p>If you find that a roommate is rejected by everyone in a set of an even number
+of roommates, then there will be no stable matching.</p>
+
+      </section>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -118,7 +120,7 @@ something in to them, you can use them as:</p>
 <p>To use a pin you have to tell the Arduino whether you&#39;ll use it as an input or
 an output. We use the <code>pinMode</code> function to do this.</p>
 
-<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Set pin 10 as an output</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
@@ -139,7 +141,7 @@ is plenty for most applications, so don&#39;t despair...</p>
 <p>Once we&#39;ve set up the mode for a pin, we can go ahead and actually read input
 from it, or write some output to it.</p>
 
-<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Both of these pins are digital pins, analog pins are assumed to be inputs</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
@@ -194,7 +196,7 @@ you&#39;re storing in your variable.</p>
 
 <p>I&#39;ll declare some variables to give you a taste of what&#39;s possible:</p>
 
-<div class="highlight"><pre><code class="c"><span class="c1">// int is a type that holds an integer, a whole number</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// int is a type that holds an integer, a whole number</span>
 <span class="kt">int</span> <span class="n">wholeNumber</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
 <span class="c1">// float is a type that holds a decimal number, one with a decimal point</span>
 <span class="kt">float</span> <span class="n">decimal</span> <span class="o">=</span> <span class="mf">23.4123</span><span class="p">;</span>
@@ -234,7 +236,7 @@ statements and give them a name. I&#39;m going to show you how to write a functi
 
 <p>Functions take the form <code>[return type] [name]()</code></p>
 
-<div class="highlight"><pre><code class="c"><span class="c1">// We define the function flash </span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// We define the function flash </span>
 <span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Pin 13 is the on board LED on an Arduino</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
@@ -248,7 +250,7 @@ statements and give them a name. I&#39;m going to show you how to write a functi
 
 <p>We can now &#39;call&#39; (run) the function:</p>
 
-<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -271,7 +273,7 @@ statements and give them a name. I&#39;m going to show you how to write a functi
 these allow you to take values into the function. I&#39;ll show you a simple
 function with a parameter, it should make the concept clearer.</p>
 
-<div class="highlight"><pre><code class="c"><span class="c1">// double returns an int (a whole number), we could assign this to a variable if</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// double returns an int (a whole number), we could assign this to a variable if</span>
 <span class="c1">// we wanted</span>
 <span class="kt">int</span> <span class="nf">double</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Remember I said that everything evaluates to a value, well functions with</span>
@@ -329,7 +331,7 @@ Imagine you have a light sensor hooked up that gives a <code>1</code> when there
 shining on it, and <code>0</code> when it&#39;s dark. We&#39;ll also hook up and LED to the
 microcontroller so that it can respond to the input from the light sensor.</p>
 
-<div class="highlight"><pre><code class="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 <span class="p">}</span>
@@ -359,7 +361,13 @@ well in the workshop if you understood the material. You can find more on the
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

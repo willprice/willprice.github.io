@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>ATX Bench-top Power Supply</h2>
+        <h1>ATX Bench-top Power Supply</h1>
+        
         <div class='post'>
 <a href="https://lh5.googleusercontent.com/_tW3WwfDXALM/TZIk3rYI68I/AAAAAAAAARc/9M_7N8-v1A0/s800/DSCF3848.JPG" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img style="float: left; margin: 0pt 10px 10px 0pt; cursor: pointer; width: 606px; height: 454px;" src="https://lh5.googleusercontent.com/_tW3WwfDXALM/TZIk3rYI68I/AAAAAAAAARc/9M_7N8-v1A0/s800/DSCF3848.JPG" alt="" border="0" /></a><br /><div><br /></div><div><br /></div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />I made this on the weekend. It's a converted ATX PSU, I cut the cables off and added binding posts to use as a bench-top power supply, I could have simply bought one of those cheap ones on ebay from china for ~£40 however I had this lying about and it cost me about £6 in parts. <div>First I took apart the PSU and took the PCB out after marking the top heights of the components on the case so I could figure out how to arrange the binding posts &amp; fuses. I then drilled and sanded the holes (time to buy a hand reamer). </div><div><br /></div><div>The wires colours correspond to the voltages:</div><div><br /></div><div>Yellow - 12V </div><div>Yellow/Black - -12V</div><div>Orange - 3.3V</div><div>Red - 5V</div><div>Black - ground</div><div><br /></div><div>I desoldered a bunch of these which I didn't need clogging up the case, and then cut the others down to a reasonable length and heat-shrinked them (so far no shorts). I then soldered the leads corresponding to the voltages I wanted; 3.3V, 5V, 12V and ground to their corresponding fuse holders and then from the fuse holder I soldered wire with crimped connectors on the end (to be used with the binding posts), hooked them up and voila, all I had left to do was to attach a switch from ground to the thin green wire which turns the power supply on and off when it is plugged in.</div><div><br /></div><div>I mounted the fan the other way around as the binding post obstructed it from being in it's original position, I also put the fan guard on underneath as I didn't want the fan and the wires to hit each other. I used 5A quick blow fuses as these things can output ~20A and I'd rather not see my projects go up in flames if I can help it. </div><div><br /></div><div>If you're looking for a 'how-to' vs. an 'account' I suggest looking at these links, which I used when making this power supply, I see no need to saturate the web with another set of instructions!</div><div><br /></div><div><a href="http://letsmakerobots.com/node/1355">http://letsmakerobots.com/node/1355</a> (I'd like to note I do not use a load resistor, I didn't buy one and the supply seems to function ok without it)</div><div><br /></div><div><a href="http://www.instructables.com/id/ATX--%3E-Lab-Bench-Power-Supply-Conversion/">http://www.instructables.com/id/ATX--%3E-Lab-Bench-Power-Supply-Conversion/</a></div><div><br /></div><div><a href="http://www.instructables.com/id/Convert-an-ATX-Power-Supply-Into-a-Regular-DC-Powe/">http://www.instructables.com/id/Convert-an-ATX-Power-Supply-Into-a-Regular-DC-Powe/</a></div><div><br /></div><div>One final note, if you do undertake this project, be very careful of the power caps inside, I left my supply off for a week before touching it, I'd rather be on the safe side!</div><div><br /></div><div><br /></div><br /><embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="400" height="267" flashvars="host=picasaweb.google.com&hl=en_GB&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fwill.price94%2Falbumid%2F5589568641862132273%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_GB" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></div>
 
@@ -82,7 +85,13 @@
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

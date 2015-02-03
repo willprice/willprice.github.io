@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>Gmail Notifier</h2>
+        <h1>Gmail Notifier</h1>
+        
         <div class='post'>
 4 Years ago Tom Paton posted <a href="http://successlessness.blogspot.com/2007/07/ambient-email-notifier.html">this</a>&nbsp;and I asked him about his code, thus prompting him to post <a href="http://successlessness.blogspot.com/2008/02/ambient-email-notifier-some-code.html">this</a>. 4 Years later, now finally equipped with some know how and a little bit more experience with microcontrollers and programming, I thought this a fairly ideal project to have a bash at.<br /><div><br /></div><div>I adapted his python code to something a little more appropriate for my usage:<br /><div><br /></div><script src="https://gist.github.com/1579856.js"> </script></div><div>(replace <b>username </b>and <b>password</b>&nbsp;with your username and password. You might also need to fiddle with the serial port I've got mine setup as /dev/ttyUSB1)<br /><br />Here's the Arduino code:<br /><br /></div><div><script src="https://gist.github.com/1575531.js">  </script>I'll be updating this post as I go, with pictures and videos. I've currently put a servo in a little mailbox made out of card and when I have an email the flag is raised. I'm working on getting the right sized enclosure and am currently using a Arduino Pro Mini which has no USB interface and I have to work out how to remedy this. Admittedly, this is a total waste of an Arduino as it's overkill for this project, but at the moment I don't have enough time to learn how to write C code for AVR micros, but when I do, I'll make this a little less wasteful and hopefully use a micro with USB support built in. But for the time being -- Arduino and USB to UART Adapter.</div></div>
 <h2>Comments</h2>
@@ -95,7 +98,13 @@ Nice work.<br /><br /><a href="http://www.jayconsystems.com" rel="nofollow"> Ard
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

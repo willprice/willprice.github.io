@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -90,7 +92,7 @@ see whether you can understand the code below. I&#39;ve commented it to try and 
 you understand it. If you have trouble, try reading my introduction and
 following the Arduino links at the bottom of the page. </p>
 
-<div class="highlight"><pre><code class="c"><span class="c1">// Declare the variables we&#39;ll use in the sketch</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Declare the variables we&#39;ll use in the sketch</span>
 <span class="c1">// Definitions of variables come in the form:</span>
 <span class="c1">// [type] [name] = [value];</span>
 <span class="c1">// int stands for integer (a whole number, not a decimal)</span>
@@ -174,7 +176,13 @@ be able to find out everything you need to know at these links:</p>
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

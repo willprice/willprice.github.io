@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -73,7 +75,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>Learning Processing: Chapter 2</h2>
+        <h1>Learning Processing: Chapter 2</h1>
+        
         <div class='post'>
 Chapter 2 focusses on the topic of 'Processing':<br />- How to get the IDE<div>- Introducing the 'sketchbook'</div><div>- Interface</div><div>- The processing reference</div><div><br /></div><div>Essentially it is quite a dull chapter if you have already used the Processing IDE before but to those new to it, it will prove a nice introduction as to how to use the IDE and the reference.</div><div><br /></div><div>One problem I have found is with 'publishing' my programs, when I export them, and I have a folder containing the code and index.html, when I open index.html I don't see my program, the layout is how it should be but just a box where my program should display. I'm not sure what is causing this problem so I may have a browse on the processing forums to try and find a remedy to this problem!</div><div><br /></div></div>
 
@@ -82,7 +85,13 @@ Chapter 2 focusses on the topic of 'Processing':<br />- How to get the IDE<div>-
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

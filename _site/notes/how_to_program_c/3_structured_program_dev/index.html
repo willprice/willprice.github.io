@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -100,7 +102,7 @@
 
 <h2 id="count-controlled-repetition">Count-Controlled repetition</h2>
 
-<div class="highlight"><pre><code class="c"><span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">total</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">average</span><span class="p">;</span>
 
   <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -158,7 +160,7 @@
 <li>Now at a sufficiently high level of detail/low level of abstraction, rewrite in C.</li>
 </ol>
 
-<div class="highlight"><pre><code class="c"><span class="cm">/*  Class average written using a top-down approach</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cm">/*  Class average written using a top-down approach</span>
 <span class="cm">      with sentinel-controlled reptition */</span>
 
   <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
@@ -199,7 +201,13 @@
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

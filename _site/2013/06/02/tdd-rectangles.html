@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -81,7 +83,8 @@
       <section>
       <div class="content">
     <div id="post">
-        <h2>TDD rectangles</h2>
+        <h1>TDD rectangles</h1>
+        
         <p><a href="http://www.codemanship.co.uk/parlezuml/blog/index.php">Jason</a> and I had a
 rather interesting pair programming session last week where we tackled a problem
 that I found on <a href="http://topcoder.com">Topcoder</a>. It is in fact a slight twist
@@ -171,7 +174,7 @@ implement the actual solution.</p>
 
 <p>Our implementation now took the form:</p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kt">long</span> <span class="nf">getSubrectangles</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">long</span> <span class="nf">getSubrectangles</span><span class="o">()</span> <span class="o">{</span>
     <span class="kt">long</span> <span class="n">numberOfSubrectangles</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
     <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
         <span class="n">numberOfSubrectangles</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
@@ -197,7 +200,7 @@ duplicates.</p>
 
 <p>After a bit of trial and error we managed to reach the general solution:</p>
 
-<div class="highlight"><pre><code class="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
     <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span><span class="n">y</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
         <span class="n">numberOfSubrectangles</span> <span class="o">+=</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="o">;</span>
     <span class="o">}</span>
@@ -236,7 +239,7 @@ additional subrectangles.</p>
 code. Reasoning about loops of loops in mathematics is particularly
 aesthetically pleasing to me.</p>
 
-<div class="highlight"><pre><code class="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
     <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span><span class="n">y</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
         <span class="n">numberOfSubrectangles</span> <span class="o">+=</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="o">;</span>
     <span class="o">}</span>
@@ -267,7 +270,13 @@ apply a TDD approach to maths I may get further with hard mathematical problems?
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document

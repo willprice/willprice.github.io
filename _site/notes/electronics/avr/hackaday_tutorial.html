@@ -29,6 +29,8 @@
 
   <! -- SCRIPTS
   ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -107,7 +109,7 @@
 
 <h1 id="blink-code">Blink code</h1>
 
-<div class="highlight"><pre><code class="c"><span class="cm">/*</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cm">/*</span>
 <span class="cm">  * Hackaday.com AVR Tutorial firmware</span>
 <span class="cm">  * written by: Mike Szczys (@szczys)</span>
 <span class="cm">  * 10/24/2010</span>
@@ -118,10 +120,10 @@
 <span class="cm">  * http://hackaday.com/2010/10/25/avr-programming-02-the-hardware/</span>
 <span class="cm">  */</span>
 
-  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">avr</span><span class="o">/</span><span class="n">io</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
-  <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">avr</span><span class="o">/</span><span class="n">interrupt</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+  <span class="cp">#include &lt;avr/io.h&gt;</span>
+  <span class="cp">#include &lt;avr/interrupt.h&gt;</span>
 
-  <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
 
     <span class="c1">//Setup the clock</span>
@@ -156,7 +158,13 @@ useful functions available. The largest chunk of code which resides in main sets
 
       </section>
     </div>
-	</div><!-- container -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
 
 
 <!-- End Document
