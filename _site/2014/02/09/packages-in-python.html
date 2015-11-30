@@ -88,7 +88,7 @@ in future.</p>
 package directory and a <strong>module</strong> is simply a python file.</p>
 
 <p>Say I have the layout:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">* core:
+<div class="highlight"><pre><code class="language-" data-lang="">* core:
     * __init__.py
     * queue.py
     * tests:
@@ -99,10 +99,10 @@ package directory and a <strong>module</strong> is simply a python file.</p>
 
 <p>You&#39;d think</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">..queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">..queue</span> <span class="kn">import</span> <span class="n">Queue</span>
 
 <span class="k">def</span> <span class="nf">blah</span><span class="p">():</span>
-    <span class="n">stuff</span><span class="p">()</span></code></pre></div>
+    <span class="n">stuff</span><span class="p">()</span></code></pre></figure>
 
 <p>would do it; and you&#39;d be correct. But check how you&#39;re running the file. If
 you&#39;re running it directly like <code>python tests/queue_tests.py</code>, then the name of the file will

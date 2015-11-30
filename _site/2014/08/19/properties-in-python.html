@@ -93,6 +93,7 @@ call inside of that&quot;. Well no worries, you can transparently do this!</p>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
+
 </code></pre></div>
 <p>To this:</p>
 <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -102,7 +103,7 @@ call inside of that&quot;. Well no worries, you can transparently do this!</p>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">log</span><span class="p">(</span><span class="s">&quot;Password of user </span><span class="si">%s</span><span class="s">, was accessed&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">log</span><span class="p">(</span><span class="s">"Password of user </span><span class="si">%</span><span class="s">s, was accessed"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">_password</span>
 </code></pre></div>
 <p>Now any time someone calls <code>user.password</code>  it&#39;ll call the <code>password</code> function,

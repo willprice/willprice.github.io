@@ -98,11 +98,11 @@
 <li><p><code>;</code> : empty statement.</p></li>
 </ul>
 
-<h1 id="repetition-structures:">Repetition structures:</h1>
+<h1 id="repetition-structures">Repetition structures:</h1>
 
 <h2 id="count-controlled-repetition">Count-Controlled repetition</h2>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">total</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">average</span><span class="p">;</span>
 
   <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -110,21 +110,21 @@
 
   <span class="k">while</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
   
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter grade: &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">grade</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter grade: "</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">grade</span><span class="p">);</span>
     <span class="n">total</span> <span class="o">+=</span> <span class="n">grade</span><span class="p">;</span>
     <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
   
   <span class="n">average</span> <span class="o">=</span> <span class="n">total</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Class average is %d/n&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"Class average is %d/n"</span><span class="p">,</span> <span class="n">average</span><span class="p">);</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <h2 id="sentinel-controlled-repetition">Sentinel-Controlled repetition</h2>
 
-<h3 id="top-down,-stepwise-refinement">Top-down, stepwise refinement</h3>
+<h3 id="top-down-stepwise-refinement">Top-down, stepwise refinement</h3>
 
 <ol>
 <li>Determine class average for the quiz</li>
@@ -160,8 +160,8 @@
 <li>Now at a sufficiently high level of detail/low level of abstraction, rewrite in C.</li>
 </ol>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cm">/*  Class average written using a top-down approach</span>
-<span class="cm">      with sentinel-controlled reptition */</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c">  <span class="cm">/*  Class average written using a top-down approach
+      with sentinel-controlled reptition */</span>
 
   <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">float</span> <span class="n">average</span><span class="p">;</span>
@@ -170,25 +170,25 @@
     <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter grade, -1 to end: &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">grade</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Enter grade, -1 to end: "</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">grade</span><span class="p">);</span>
 
     <span class="k">while</span> <span class="p">(</span><span class="n">grade</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">total</span> <span class="o">+=</span> <span class="n">grade</span><span class="p">;</span>
       <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter grade, -1 to end: &quot;</span><span class="p">);</span>
-      <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">grade</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"Enter grade, -1 to end: "</span><span class="p">);</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">grade</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="n">total</span><span class="o">/</span><span class="n">counter</span><span class="p">;</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Class average is %.2f&quot;</span><span class="p">,</span> <span class="n">average</span><span class="p">);</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"Class average is %.2f"</span><span class="p">,</span> <span class="n">average</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;No grades were entered</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"No grades were entered</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>Here we used (float) to <em>cast</em> <code>total</code> from an <code>int</code> to a <code>float</code>, allowing for floating point division.
 - <code>(float)</code> is the <em>unary cast operator</em>, this creates a floating point copy of it&#39;s argument for use in whatever calculation is being performed.

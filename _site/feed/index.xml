@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2015-02-03T08:25:21+00:00</updated>
+ <updated>2015-11-30T23:31:44+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -26,18 +26,18 @@ variable &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We can annotate each line of code describe the properties of the variables (have
 a look into Hoare logic for more information).&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Subscripts denote the number of loops we have iterated through&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Since our input is a positive integer we know it is greater than 0&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// { x_0 &amp;gt; 0 }&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// { x_0 &amp;gt; 0, y_0 = x_0 }&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Subscripts denote the number of loops we have iterated through
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Since our input is a positive integer we know it is greater than 0
+// { x_0 &amp;gt; 0 }
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// { x_0 &amp;gt; 0, y_0 = x_0 }
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// { x_{i + 1} = x_i - 1, y_i = x_0 * x_1 * ... * x_i }&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// { x_j = 1 }&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;c1&quot;&gt;// { x_{i + 1} = x_i - 1, y_i = x_0 * x_1 * ... * x_i }
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// { x_j = 1 }
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We can prove validity using the following conditions&lt;/p&gt;
 
 &lt;ul&gt;
@@ -88,6 +88,7 @@ call inside of that&amp;quot;. Well no worries, you can transparently do this!&l
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To this:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
@@ -97,7 +98,7 @@ call inside of that&amp;quot;. Well no worries, you can transparently do this!&l
 
     &lt;span class=&quot;nd&quot;&gt;@property&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Password of user &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;, was accessed&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Password of user &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s, was accessed&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_password&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now any time someone calls &lt;code&gt;user.password&lt;/code&gt;  it&amp;#39;ll call the &lt;code&gt;password&lt;/code&gt; function,
@@ -241,49 +242,49 @@ examples of how to get all these libraries cooperating.&lt;/p&gt;
 &lt;p&gt;First up you&amp;#39;ll need &lt;code&gt;node&lt;/code&gt; installed to give you access to the &lt;code&gt;npm&lt;/code&gt; package
 manager. It seems like most js projects have adopted it as a package manager
 irrespective of whether they target Node.js or the browser.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo npm install -g mocha-phantomjs phantomjs
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ sudo npm install -g mocha-phantomjs phantomjs
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;will pull in PhantomJS, Mocha and the PhantomJS Mocha runner that we&amp;#39;ll use to
 run our tests in the command line.&lt;/p&gt;
 
 &lt;p&gt;Start a new project somewhere and add a source and tests directory.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ mkdir tests src
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ mkdir tests src
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Since we&amp;#39;re PhantomJS we need an HTML page that will be run in the headless
 browser, this is mainly just a shell that will include all the javascript code
 that we wish to run. The advantage of using a platform like Node.js or Rhino
 means you can skip this extra step, but then you also lose the ability to
 perform DOM manipulation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ touch tests.html
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ touch tests.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This file will be used to included all your test suites, this might get pretty
 ugly/slow if you&amp;#39;ve got many and large test suites, but you can always break
 them up, or you could use python and jinja2 to dynamically create HTML pages
 based on the js files you have in your tests directory (I&amp;#39;m sure you could do
 this in js as well, but I&amp;#39;m not really familiar with the ecosystem).&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests.HTML &amp;lt;&amp;lt; EOF
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;../node_modules/mocha/mocha.css&amp;quot; /&amp;gt;
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body&amp;gt;
-    &amp;lt;div id=&amp;quot;mocha&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-    &amp;lt;script src=&amp;quot;../node_modules/mocha/mocha.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;../node_modules/chai/chai.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script&amp;gt;
-      mocha.ui(&amp;#39;tdd&amp;#39;);
-      mocha.reporter(&amp;#39;html&amp;#39;);
-      assert = chai.assert;
-    &amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;src/fibonacci.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;tests/fibonacci&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script&amp;gt;
-      if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
-      else { mocha.run(); }
-    &amp;lt;/script&amp;gt;
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cat &amp;gt; tests.HTML &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt; EOF&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;../node_modules/mocha/mocha.css&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mocha&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;../node_modules/mocha/mocha.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;../node_modules/chai/chai.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;mocha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ui&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;tdd&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;mocha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reporter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;html&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chai&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;src/fibonacci.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tests/fibonacci&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mochaPhantomJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mochaPhantomJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mocha&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
 EOF    
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is just a simple document that will include the necessary libraries, setup
@@ -302,7 +303,7 @@ mochaPhantomJS runner if they are, otherwise execute Mocha directly.&lt;/li&gt;
 
 &lt;p&gt;Evidently this HTML has some dependencies that need to be installed before the
 code can be run.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ npm install --save mocha chai
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install --save mocha chai
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;will install the necessary testing libraries and the &lt;code&gt;--save&lt;/code&gt; flag will produce
 a package.json file that can be distributed with your project for other users to
@@ -310,12 +311,12 @@ automate downloading dependencies.&lt;/p&gt;
 
 &lt;p&gt;The HTML sources &lt;code&gt;tests/test_file.js&lt;/code&gt; which needs to be created, this is simply
 an example test file:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
-suite(&amp;#39;Recursive fibonacci tests&amp;#39;, function() {
-    test(&amp;#39;fib(0) = 0&amp;#39;, function() {
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
+suite(&#39;Recursive fibonacci tests&#39;, function() {
+    test(&#39;fib(0) = 0&#39;, function() {
         assert.equal(0, fib(0));
     });
-    test(&amp;#39;fib(2) = 1&amp;#39;, function() {
+    test(&#39;fib(2) = 1&#39;, function() {
         assert.equal(1, fib(1));
     });
 });
@@ -329,7 +330,7 @@ function fib(n) {
 EOF
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now everything is set up you can run your tests:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ mocha-phantomjs tests.html
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ mocha-phantomjs tests.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Quite nice really. Look into Sinon.js for a nice mocking framework&lt;/p&gt;
 </content>
@@ -357,28 +358,28 @@ line) on Raspbian is as follows:&lt;/p&gt;
 
 &lt;p&gt;Raspbian&amp;#39;s network service needs to be stopped to connect using the method
 we&amp;#39;re going to use. To do this run &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo service networking stop
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;sudo service networking stop
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id=&quot;connect-using-wpa_supplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
 
 &lt;p&gt;I&amp;#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
 authentication, if you&amp;#39;re at a different university this may well be different
 and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; file accordingly&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;network={
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;network={
     # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
 
-    # The &amp;#39;identity&amp;#39; is the username actually used for authentication.
+    # The &#39;identity&#39; is the username actually used for authentication.
     # This must be your Bristol username, all lowercase.
-        identity=&amp;quot;ab1234&amp;quot;
+        identity=&quot;ab1234&quot;
 
     # Your normal Bristol password (so make sure the permissions on
     # your wpa_supplicant config file are not world readable!)
-        password=&amp;quot;myUOBpassword&amp;quot;
+        password=&quot;myUOBpassword&quot;
 
     # CA cert from here:
     # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
     # Change the path to where you downloaded the file
-        ca_cert=&amp;quot;/etc/ssl/certs/uob-net-ca.pem&amp;quot;
+        ca_cert=&quot;/etc/ssl/certs/uob-net-ca.pem&quot;
 
     # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
     # --- OF THE UNIVERSITY OF BRISTOL, UK          --
@@ -386,18 +387,18 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
     # Bristol supports PEAP and TTLS.
         eap=PEAP TTLS
 
-    # The &amp;#39;anonymous_identity&amp;#39; is the identity used for routing
-    # the authentication to Bristol. It must end with &amp;#39;@bris.ac.uk&amp;#39;
-    # or &amp;#39;@bristol.ac.uk&amp;#39;. It must be all lowercase. If you have 
+    # The &#39;anonymous_identity&#39; is the identity used for routing
+    # the authentication to Bristol. It must end with &#39;@bris.ac.uk&#39;
+    # or &#39;@bristol.ac.uk&#39;. It must be all lowercase. If you have 
     # anything preceding the @ it must be all lowercase letters or 
     # a hyphen (no spaces, punctuation etc) 
-    # e.g. &amp;quot;wireless-user@bristol.ac.uk&amp;quot; would be ok
-        anonymous_identity=&amp;quot;@bristol.ac.uk&amp;quot;
+    # e.g. &quot;wireless-user@bristol.ac.uk&quot; would be ok
+        anonymous_identity=&quot;@bristol.ac.uk&quot;
 
     # Bristol use MS-CHAPv2 as the inner authentication scheme,
     # with the traditional label
-    phase1=&amp;quot;peaplabel=0&amp;quot;
-    phase2=&amp;quot;auth=MSCHAPV2&amp;quot;
+    phase1=&quot;peaplabel=0&quot;
+    phase2=&quot;auth=MSCHAPV2&quot;
 
     # Set priority to a big number
     priority=999
@@ -408,9 +409,9 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
     disabled=0
 
     # eduroam please
-        ssid=&amp;quot;eduroam&amp;quot;
+        ssid=&quot;eduroam&quot;
 
-    # SSID should be broadcast, so don&amp;#39;t scan.
+    # SSID should be broadcast, so don&#39;t scan.
     scan_ssid=0
 
     # Infrastructure mode
@@ -421,11 +422,11 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
 
     # WPA and WPA2 (RSN) are both used for eduroam 
     # (depending on which organisation you are at)
-    # In the future &amp;#39;WPA&amp;#39; can be removed (WPA2 only).
+    # In the future &#39;WPA&#39; can be removed (WPA2 only).
     proto=WPA RSN
 
     # CCMP (AES) is stronger, but some organisations use TKIP.
-    # In the future &amp;#39;TKIP&amp;#39; can be removed.
+    # In the future &#39;TKIP&#39; can be removed.
     pairwise=CCMP TKIP
 
     # Use EAP
@@ -440,7 +441,7 @@ and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; fi
 &lt;a href=&quot;http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/&quot;&gt;wirless.bris.ac.uk&lt;/a&gt; for the file!&lt;/p&gt;
 
 &lt;p&gt;Run &lt;code&gt;wpa_supplicant&lt;/code&gt;: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You&amp;#39;ll also need the PEM file &lt;code&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code&gt;/etc/ssl/certs/&lt;/code&gt;
 which is located at
@@ -461,7 +462,7 @@ connecting.&lt;/li&gt;
 
 &lt;p&gt;Once you&amp;#39;ve connected to eduroam which you can verify by running &lt;code&gt;iwconfig&lt;/code&gt;. You
 should now request an ip address with the command &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo dhclient wlan0
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;sudo dhclient wlan0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To verify that you have got an ip address run &lt;code&gt;ifconfig&lt;/code&gt; and make sure your
 wireless interface (usually wlan0) has been assigned an address.&lt;/p&gt;
@@ -486,7 +487,7 @@ in future.&lt;/p&gt;
 package directory and a &lt;strong&gt;module&lt;/strong&gt; is simply a python file.&lt;/p&gt;
 
 &lt;p&gt;Say I have the layout:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;* core:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;* core:
     * __init__.py
     * queue.py
     * tests:
@@ -497,10 +498,10 @@ package directory and a &lt;strong&gt;module&lt;/strong&gt; is simply a python f
 
 &lt;p&gt;You&amp;#39;d think&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;..queue&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;..queue&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;would do it; and you&amp;#39;d be correct. But check how you&amp;#39;re running the file. If
 you&amp;#39;re running it directly like &lt;code&gt;python tests/queue_tests.py&lt;/code&gt;, then the name of the file will
@@ -526,7 +527,7 @@ doesn&amp;#39;t work?&lt;/p&gt;
 &lt;p&gt;Let&amp;#39;s look at an example to emphasize my point. We&amp;#39;ll take the naive Fibonacci
 function:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
 
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;unittest&lt;/span&gt;
 
@@ -556,14 +557,14 @@ function:&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_sixth_fib_number_is_five&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;__main__&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now for a tail recursive implementation that is more efficient (but not in
 Python, as it doesn&amp;#39;t have tail call optimization! I should have done it in C,
 but I couldn&amp;#39;t face writing the tests using &lt;code&gt;check&lt;/code&gt;). &lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
 
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;unittest&lt;/span&gt;
 
@@ -597,8 +598,8 @@ but I couldn&amp;#39;t face writing the tests using &lt;code&gt;check&lt;/code&g
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_sixth_fib_number_is_five&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assertEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;__main__&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;I&amp;#39;ve tried my best to make this as self-explanatory as possible. I still feel
 that additional explanation would help for whoever has to maintain it. The first
@@ -614,7 +615,7 @@ difference!&lt;/p&gt;
 &lt;li&gt;When &lt;code&gt;n &amp;gt; 1&lt;/code&gt; then &lt;code&gt;counter == 2&lt;/code&gt; terminates the algorithm returning the
 accumulated value&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;A few examples: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;fib(3) -&amp;gt; fib_accumulator(3, 1, 0) -&amp;gt; fib_accumulator(2, (1 + 0), 1) -&amp;gt; return (1 + 0)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;fib(3) -&amp;gt; fib_accumulator(3, 1, 0) -&amp;gt; fib_accumulator(2, (1 + 0), 1) -&amp;gt; return (1 + 0)
 
 fib(5) -&amp;gt; fib_accumulator(5, 1, 0) -&amp;gt; fib_accumulator(4, (1 + 0), 1) -&amp;gt; 
           fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&amp;gt; fib_accumulator(2, (1 +
@@ -649,49 +650,49 @@ multiple tables on one line!&lt;/p&gt;
 
 &lt;p&gt;You must put the label &lt;em&gt;after the caption&lt;/em&gt; in a figure or table:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;% Don&amp;#39;t put labels before the caption, like here&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;% Don&#39;t put labels before the caption, like here&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;\begin{tabular}&lt;/span&gt;
         ...
-    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;A table of things&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:things&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;A table of things&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;table:things&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;multiple-tables-on-a-single-line&quot;&gt;Multiple tables on a single line&lt;/h2&gt;
 
 &lt;p&gt;Use the &lt;code&gt;subcaption&lt;/code&gt; package, this allows you to specify the width of subtables
 and subfigures.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[h]
-    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[b]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;1.3&lt;span class=&quot;k&quot;&gt;\linewidth&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;[h]
+    &lt;span class=&quot;nt&quot;&gt;\begin{subtable}&lt;/span&gt;[b]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;1.3&lt;span class=&quot;k&quot;&gt;\linewidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;\centering&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;c|cccc&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\circ&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;\begin{tabular}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;c|cccc&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\circ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;%replace \quad with a new line if you don&amp;#39;t want it on the same line&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$}&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;\end{subtable}&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;%replace \quad with a new line if you don&#39;t want it on the same line&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;\quad&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[b]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;0.4&lt;span class=&quot;k&quot;&gt;\linewidth&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;\begin{subtable}&lt;/span&gt;[b]&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;0.4&lt;span class=&quot;k&quot;&gt;\linewidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;\centering&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\begin&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;c|cc&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;nb&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\circ&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;\begin{tabular}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;c|cc&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;\circ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;\hline&lt;/span&gt;
 
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;tabular&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;Only valid &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; subgroup: &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;subtable&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt; and it&amp;#39;s subgroup &lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;nb&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;table&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;\\&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;\end{tabular}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;Only valid &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; subgroup: &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$}&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;\end{subtable}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\caption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$&lt;/span&gt; and it&#39;s subgroup &lt;span class=&quot;p&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;$}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;\label&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;table:z&lt;span class=&quot;p&quot;&gt;_&lt;/span&gt;4&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;specify-the-location-of-tables&quot;&gt;Specify the location of tables&lt;/h2&gt;
 
@@ -809,9 +810,9 @@ on title--poor emergent design. Next week we&amp;#39;ll have a look at how to go
 our current implementation to something a little cleaner doing lots of
 refactoring!&lt;/p&gt;
 
-&lt;h1 id=&quot;librarytests.java&quot;&gt;LibraryTests.java&lt;/h1&gt;
+&lt;h1 id=&quot;librarytests-java&quot;&gt;LibraryTests.java&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.*;&lt;/span&gt;
 
@@ -825,19 +826,19 @@ refactoring!&lt;/p&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LibraryTests&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
     &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addNewTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addNewTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     
     &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;donatingCopyOfTitleThatIsntInLibraryAddsTitleToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;The Abyss&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;James Cameron&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;1989&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donatingCopyOfTitleThatIsntInLibraryAddsTitleToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The Abyss&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;James Cameron&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1989&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
@@ -846,11 +847,11 @@ refactoring!&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     
     &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;donatingCopyOfOceansElevenThatIsntInLibraryAddsOceansElevenToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Oceans Eleven&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Steven Soderbergh&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;2002&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donatingCopyOfOceansElevenThatIsntInLibraryAddsOceansElevenToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oceans Eleven&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Steven Soderbergh&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;2002&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
@@ -859,16 +860,16 @@ refactoring!&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     
     &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findingTitleThatDoesntExistInLibraryReturnsNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;The Abyss&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findingTitleThatDoesntExistInLibraryReturnsNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The Abyss&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;assertNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h1 id=&quot;library.java&quot;&gt;Library.java&lt;/h1&gt;
+&lt;h1 id=&quot;library-java&quot;&gt;Library.java&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
@@ -880,33 +881,33 @@ refactoring!&lt;/p&gt;
     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h1 id=&quot;title.java&quot;&gt;Title.java&lt;/h1&gt;
+&lt;h1 id=&quot;title-java&quot;&gt;Title.java&lt;/h1&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
@@ -914,27 +915,27 @@ refactoring!&lt;/p&gt;
     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h1 id=&quot;the-homework:-user-stories,-acceptance-tests,-and-crc-cards-for-an-interesting-problem&quot;&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
+&lt;h1 id=&quot;the-homework-user-stories-acceptance-tests-and-crc-cards-for-an-interesting-problem&quot;&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
 
 &lt;p&gt;Jason wants me to have ago applying the principles that we covered in the
 pairing session on a different example, so I have free reign over what I want to
@@ -1092,7 +1093,7 @@ the 2nd year... I would have thought by then it&amp;#39;d be too late...&lt;/p&g
    <id>http://willprice.org/2013/09/02/mock-objects-pairing-session</id>
    <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)&lt;/p&gt;
 
-&lt;h3 id=&quot;introduction:-why-mock-objects&quot;&gt;Introduction: Why mock objects&lt;/h3&gt;
+&lt;h3 id=&quot;introduction-why-mock-objects&quot;&gt;Introduction: Why mock objects&lt;/h3&gt;
 
 &lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things
 changed; trying to write each test so it fails for only one reason;
@@ -1100,7 +1101,7 @@ triangulating a solution, rather than just dumping it all in one fell swoop, I
 thought it was about time to learn what mock objects are, and what they are used
 for.&lt;/p&gt;
 
-&lt;h3 id=&quot;useful-terminology:&quot;&gt;Useful Terminology:&lt;/h3&gt;
+&lt;h3 id=&quot;useful-terminology&quot;&gt;Useful Terminology:&lt;/h3&gt;
 
 &lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
 * &lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result
@@ -1108,12 +1109,12 @@ for.&lt;/p&gt;
 
 &lt;p&gt;Don&amp;#39;t expect my usage of terminology to be spot on; I&amp;#39;m still learning!&lt;/p&gt;
 
-&lt;h3 id=&quot;the-problem:&quot;&gt;The Problem:&lt;/h3&gt;
+&lt;h3 id=&quot;the-problem&quot;&gt;The Problem:&lt;/h3&gt;
 
 &lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book
 tickets for a specific play. After a discussion we wrote an acceptance test (in
 English) to outline what our end result should be able to do:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Given that the seat A6 is available for a performance of &amp;#39;Cats&amp;#39;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Given that the seat A6 is available for a performance of &#39;Cats&#39;
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -1132,12 +1133,12 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 * Marked as reserved for `[credit card number] (Seat)`
 * Cannot be booked/Unavailable (Seat)
 
-1. Customer tells box office to reserve seat A6 at performance of &amp;#39;Cats&amp;#39; using credit card number 1234
-2. Box office finds performance of &amp;#39;Cats&amp;#39; and tells performance to reserve Seat A6 using credit card number 1234
-3. &amp;#39;Cats&amp;#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
+1. Customer tells box office to reserve seat A6 at performance of &#39;Cats&#39; using credit card number 1234
+2. Box office finds performance of &#39;Cats&#39; and tells performance to reserve Seat A6 using credit card number 1234
+3. &#39;Cats&#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
 4. Seat A6 records the credit card number of the reserver.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;building-outside-in:&quot;&gt;Building Outside in:&lt;/h3&gt;
+&lt;h3 id=&quot;building-outside-in&quot;&gt;Building Outside in:&lt;/h3&gt;
 
 &lt;p&gt;When building an application from the outside in, we need some way of testing
 the interaction between what we&amp;#39;re writing and the next layer in which hasn&amp;#39;t
@@ -1159,11 +1160,11 @@ way, before mocking classes was possible) for performance and then mock it using
 It has no functionality, but we can call any method on it that is defined in the
 interface, the methods will not do anything as we haven&amp;#39;t defined any behaviour
 for it (because for this test behaviour is superfluous). &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    // BoxOffice is a field in the test class
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
     Performance mockPerformance = mock(Performance.class);
     HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
-    performances.put(&amp;quot;Cats&amp;quot;, mockPerformance);
+    performances.put(&quot;Cats&quot;, mockPerformance);
     boxOffice = new BoxOffice(performances);
     return mockPerformance;
 }
@@ -1171,23 +1172,23 @@ protected Performance createBoxOfficeWithMockPerformance() {
 @Test
 public void findsPerformanceOfCats() {
     Performance mockPerformance = createBoxOfficeWithMockPerformance();
-    assertEquals(mockPerformance, boxOffice.findPerformance(&amp;quot;Cats&amp;quot;));
+    assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;. &lt;/p&gt;
 
 &lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// mockPerformance is a performance of &amp;quot;Cats&amp;quot; in the box office
-boxOffice.reserveSeat(&amp;quot;Cats&amp;quot;, &amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
-verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;// mockPerformance is a performance of &quot;Cats&quot; in the box office
+boxOffice.reserveSeat(&quot;Cats&quot;, &quot;A6&quot;, &quot;1234&quot;)
+verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;mocking-voids:&quot;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+&lt;h3 id=&quot;mocking-voids&quot;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
 
 &lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&amp;#39;t working. Mockito&amp;#39;s &lt;code&gt;when&lt;/code&gt; method doesn&amp;#39;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
 
@@ -1203,11 +1204,11 @@ verify(mockPerformance).reserveSeat(&amp;quot;A6&amp;quot;, &amp;quot;1234&amp;q
 &lt;/ol&gt;
 
 &lt;p&gt;The first:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method(1)).thenReturn(1)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;when(mockObject.method(1)).thenReturn(1)
 when(mockObject.method(2)).thenReturn(2)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The second&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&amp;gt; 1
 mockObject.method() // =&amp;gt; 2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1231,7 +1232,7 @@ that I found on &lt;a href=&quot;http://topcoder.com&quot;&gt;Topcoder&lt;/a&gt;
 (easier) on the actual topcoder problem as I didn&amp;#39;t have it to hand when we were
 pairing.&lt;/p&gt;
 
-&lt;h2 id=&quot;the-problem:&quot;&gt;The Problem:&lt;/h2&gt;
+&lt;h2 id=&quot;the-problem&quot;&gt;The Problem:&lt;/h2&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
@@ -1246,12 +1247,12 @@ is.&lt;/p&gt;
 
 &lt;p&gt;Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.&lt;/p&gt;
 
-&lt;h2 id=&quot;the-design:&quot;&gt;The Design:&lt;/h2&gt;
+&lt;h2 id=&quot;the-design&quot;&gt;The Design:&lt;/h2&gt;
 
 &lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of
 test cases. The simplest test case seemed to be a invalid rectangle,
 0 rectangles high or wide, or both.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1264,7 +1265,7 @@ seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
 composite rectangle, this involved a bit of drawing and tallying. In the end I
 think I only miscounted one test case which we noticed fairly quickly when
 coding.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Test cases:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 2. 1x1 has 1 subrectangle
@@ -1314,7 +1315,7 @@ implement the actual solution.&lt;/p&gt;
 
 &lt;p&gt;Our implementation now took the form:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getSubrectangles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getSubrectangles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
@@ -1325,7 +1326,7 @@ implement the actual solution.&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// We count the top left 1x1 rectangle twice with this method&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others
 had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous
@@ -1340,16 +1341,16 @@ duplicates.&lt;/p&gt;
 
 &lt;p&gt;After a bit of trial and error we managed to reach the general solution:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;I like this, it&amp;#39;s rather clever. It&amp;#39;s easiest to understand given an example,
 let&amp;#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
 subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;i = 1:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;i = 1:
     j = 1:
         numberOfSubrectangles += 1;
         // numberOfSubrectangles = 1;
@@ -1358,7 +1359,7 @@ subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
         // numberOfSubrectangles = 3;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Looping over the first column we get 3 subrectangles, so good so far.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;i = 2:
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;i = 2:
     j = 1:
         numberOfSubrectangles += 2
         // numberOfSubrectangles = 5
@@ -1373,17 +1374,17 @@ this next column, however, we also need to take into account the rectangles that
 are formed along the rows, which there are 3 of, giving us a total of 6
 additional subrectangles.&lt;/p&gt;
 
-&lt;h2 id=&quot;algebraic-solution:&quot;&gt;Algebraic solution:&lt;/h2&gt;
+&lt;h2 id=&quot;algebraic-solution&quot;&gt;Algebraic solution:&lt;/h2&gt;
 
 &lt;p&gt;We had a solution! I like maths so I&amp;#39;ve found the algebraic solution from the
 code. Reasoning about loops of loops in mathematics is particularly
 aesthetically pleasing to me.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;numberOfSubrectangles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;I&amp;#39;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
 easier.
@@ -1431,10 +1432,10 @@ other niche things (think /dev/null, visualisers).&lt;/li&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot;&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;setup-the-server-(the-machine-that-is-attached-to-an-audio-device):&quot;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
+&lt;h2 id=&quot;setup-the-server-the-machine-that-is-attached-to-an-audio-device&quot;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
 
 &lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
   load-module module-zeroconf-publish
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The first line sets up a TCP server for pulseaudio allowing remote sound sources
@@ -1444,12 +1445,12 @@ other niche things (think /dev/null, visualisers).&lt;/li&gt;
   need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&amp;#39;ve
   just set up. &lt;/p&gt;
 
-&lt;h2 id=&quot;setup-the-client-(the-machine-that-you-want-audio-to-be-streamed-from)&quot;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
+&lt;h2 id=&quot;setup-the-client-the-machine-that-you-want-audio-to-be-streamed-from&quot;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
 
 &lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;
   load-module module-zeroconf-discover
   Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;load-module module-zeroconf-discover
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;load-module module-zeroconf-discover
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink
   (desktop) on the client/source (laptop).&lt;/p&gt;
@@ -1495,25 +1496,25 @@ filename&lt;/code&gt;[1].&lt;/p&gt;
 I did, however I&amp;#39;ve got my third attempt at it (it&amp;#39;s  pretty similar to the
 first, I&amp;#39;ve just been trying to internalize the concepts I&amp;#39;ve met so far).&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-diff&quot; data-lang=&quot;diff&quot;&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-diff&quot; data-lang=&quot;diff&quot;&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
 Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
 Date:   Tue Jan 29 17:56:42 2013 +0000
 
     Rename testLengthOf51 -&amp;gt; testLengthOfFiftyOne for consistency
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index b6d3197..dc28f8c 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -39,7 +39,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testLengthOfSeven(self):
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index b6d3197..dc28f8c 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -39,7 +39,7 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testLengthOfSeven(self):
          self.assertRaises(ValueError, self.fibonacciGenerator, 7)
  
-&lt;span class=&quot;gd&quot;&gt;-    def testLengthOf51(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    def testLengthOfFiftyOne(self):&lt;/span&gt;
-         self.assertRaises(ValueError, self.fibonacciGenerator, 51)
+&lt;span class=&quot;gd&quot;&gt;-    def testLengthOf51(self):
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    def testLengthOfFiftyOne(self):
+&lt;/span&gt;         self.assertRaises(ValueError, self.fibonacciGenerator, 51)
  
- if __name__ == &amp;#39;__main__&amp;#39;:
+ if __name__ == &#39;__main__&#39;:
 
 commit b73e6566b457ae493195ab04d8baf2bf5cfaf1bf
 Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
@@ -1521,27 +1522,27 @@ Date:   Tue Jan 29 17:56:13 2013 +0000
 
     Code to pass testLengthOf51
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index d3df5a9..b6d3197 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
- 
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index d3df5a9..b6d3197 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -4,7 +4,7 @@ import unittest
+&lt;/span&gt; 
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&quot;gd&quot;&gt;-        if (length &amp;lt; 8):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        if (length &amp;lt; 8 or length &amp;gt; 50):&lt;/span&gt;
-             raise ValueError
+&lt;span class=&quot;gd&quot;&gt;-        if (length &amp;lt; 8):
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+        if (length &amp;lt; 8 or length &amp;gt; 50):
+&lt;/span&gt;             raise ValueError
  
          fibonacciSequence = [0, 1]
-&lt;span class=&quot;gu&quot;&gt;@@ -39,5 +39,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testLengthOfSeven(self):
+&lt;span class=&quot;gu&quot;&gt;@@ -39,5 +39,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testLengthOfSeven(self):
          self.assertRaises(ValueError, self.fibonacciGenerator, 7)
  
-&lt;span class=&quot;gi&quot;&gt;+    def testLengthOf51(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 51)&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+    def testLengthOf51(self):
++        self.assertRaises(ValueError, self.fibonacciGenerator, 51)
++
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit 67062b240b5d25631fd8d87fc2aeb3ae5e9b983e
@@ -1550,18 +1551,18 @@ Date:   Tue Jan 29 17:54:41 2013 +0000
 
     Code to pass TestLengthOfSeven
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index fcd695d..d3df5a9 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -4,6 +4,9 @@ import unittest&lt;/span&gt;
- 
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index fcd695d..d3df5a9 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -4,6 +4,9 @@ import unittest
+&lt;/span&gt; 
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&quot;gi&quot;&gt;+        if (length &amp;lt; 8):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+            raise ValueError&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-         fibonacciSequence = [0, 1]
+&lt;span class=&quot;gi&quot;&gt;+        if (length &amp;lt; 8):
++            raise ValueError
++
+&lt;/span&gt;         fibonacciSequence = [0, 1]
  
          for i in range(2, length):
 
@@ -1571,18 +1572,18 @@ Date:   Tue Jan 29 17:53:56 2013 +0000
 
     Test for length of 7 (invalid)
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index 274d12b..fcd695d 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -33,5 +33,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testValidLength(self):
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index 274d12b..fcd695d 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -33,5 +33,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testValidLength(self):
          self.assertEquals(8, len(self.fibonacciGenerator(8)))
  
-&lt;span class=&quot;gi&quot;&gt;+    def testLengthOfSeven(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertRaises(ValueError, self.fibonacciGenerator, 7)&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+    def testLengthOfSeven(self):
++        self.assertRaises(ValueError, self.fibonacciGenerator, 7)
++
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit 0ad4ec5dd3a1df92fe40afb608f62ac7c8c52cda
@@ -1591,19 +1592,19 @@ Date:   Tue Jan 29 17:50:05 2013 +0000
 
     Changed testLength to testValidLength for clarity
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index 61f6f9a..274d12b 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -30,7 +30,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testSixthNumber(self):
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index 61f6f9a..274d12b 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -30,7 +30,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testSixthNumber(self):
          self.assertEquals(5, self.fibonacciGenerator(8)[5])
  
-&lt;span class=&quot;gd&quot;&gt;-    def testLength(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    def testValidLength(self):&lt;/span&gt;
-         self.assertEquals(8, len(self.fibonacciGenerator(8)))
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gd&quot;&gt;-    def testLength(self):
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+    def testValidLength(self):
+&lt;/span&gt;         self.assertEquals(8, len(self.fibonacciGenerator(8)))
+&lt;span class=&quot;gi&quot;&gt;+
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit f3c473f0fdd0d3e21f23efcf0916ea188a08f44c
@@ -1612,27 +1613,27 @@ Date:   Tue Jan 29 17:49:13 2013 +0000
 
     Test length of list
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index 783b800..61f6f9a 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -7,7 +7,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-         fibonacciSequence = [0, 1]
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index 783b800..61f6f9a 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -7,7 +7,7 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;         fibonacciSequence = [0, 1]
  
          for i in range(2, length):
-&lt;span class=&quot;gd&quot;&gt;-            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(fibonacciSequence[i - 2] + fibonacciSequence[i - 1])&lt;/span&gt;
- 
+&lt;span class=&quot;gd&quot;&gt;-            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(fibonacciSequence[i - 2] + fibonacciSequence[i - 1])
+&lt;/span&gt; 
          return fibonacciSequence
  
-&lt;span class=&quot;gu&quot;&gt;@@ -29,5 +29,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
- 
+&lt;span class=&quot;gu&quot;&gt;@@ -29,5 +29,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt; 
      def testSixthNumber(self):
          self.assertEquals(5, self.fibonacciGenerator(8)[5])
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    def testLength(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(8, len(self.fibonacciGenerator(8)))&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+
++    def testLength(self):
++        self.assertEquals(8, len(self.fibonacciGenerator(8)))
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit 1130cea31b30924f49fe49f3042da45a2825a460
@@ -1641,30 +1642,30 @@ Date:   Tue Jan 29 17:47:05 2013 +0000
 
     Test 6th number + code for that
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index f1b21d9..783b800 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -5,8 +5,10 @@ import unittest&lt;/span&gt;
- class TestFibonacciGenerator(unittest.TestCase):
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index f1b21d9..783b800 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -5,8 +5,10 @@ import unittest
+&lt;/span&gt; class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
          fibonacciSequence = [0, 1]
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-         for i in range(2, length):
-&lt;span class=&quot;gd&quot;&gt;-            fibonacciSequence.append(i - 1)&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-         return fibonacciSequence
+&lt;span class=&quot;gi&quot;&gt;+
+&lt;/span&gt;         for i in range(2, length):
+&lt;span class=&quot;gd&quot;&gt;-            fibonacciSequence.append(i - 1)
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(fibonacciSequence[i-2] + fibonacciSequence[i-1])
++
+&lt;/span&gt;         return fibonacciSequence
  
      # TESTS
-&lt;span class=&quot;gu&quot;&gt;@@ -24,5 +26,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
- 
+&lt;span class=&quot;gu&quot;&gt;@@ -24,5 +26,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt; 
      def testFifthNumber(self):
          self.assertEquals(3, self.fibonacciGenerator(8)[4])
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    def testSixthNumber(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(5, self.fibonacciGenerator(8)[5])&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+
++    def testSixthNumber(self):
++        self.assertEquals(5, self.fibonacciGenerator(8)[5])
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit d0256181239d47d8d975eed0bfb4277fb7a78ae2
@@ -1673,17 +1674,17 @@ Date:   Tue Jan 29 17:40:18 2013 +0000
 
     Test fifth number, no code needed to pass
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index 3400d82..f1b21d9 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -22,5 +22,7 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testFourthNumber(self):
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index 3400d82..f1b21d9 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -22,5 +22,7 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testFourthNumber(self):
          self.assertEquals(2, self.fibonacciGenerator(8)[3])
  
-&lt;span class=&quot;gi&quot;&gt;+    def testFifthNumber(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(3, self.fibonacciGenerator(8)[4])&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+    def testFifthNumber(self):
++        self.assertEquals(3, self.fibonacciGenerator(8)[4])
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit 92b636a26292f1e78078652c039347bca2027321
@@ -1692,18 +1693,18 @@ Date:   Tue Jan 29 17:36:11 2013 +0000
 
     Test fourth number, no code needed to pass
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index c43b118..3400d82 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -19,5 +19,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testThirdNumber(self):
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index c43b118..3400d82 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -19,5 +19,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testThirdNumber(self):
          self.assertEquals(1, self.fibonacciGenerator(8)[2])
  
-&lt;span class=&quot;gi&quot;&gt;+    def testFourthNumber(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(2, self.fibonacciGenerator(8)[3])&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+    def testFourthNumber(self):
++        self.assertEquals(2, self.fibonacciGenerator(8)[3])
++
+&lt;/span&gt; if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit 08b1e5edc66858f2205e16f32875706e06a128e6
@@ -1712,22 +1713,22 @@ Date:   Tue Jan 29 17:35:02 2013 +0000
 
     Code for third test
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index 28ed083..c43b118 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -4,8 +4,12 @@ import unittest&lt;/span&gt;
- 
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index 28ed083..c43b118 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -4,8 +4,12 @@ import unittest
+&lt;/span&gt; 
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&quot;gd&quot;&gt;-        return [0, 1]&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        fibonacciSequence = [0, 1]&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        for i in range(2, length):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+            fibonacciSequence.append(i - 1)&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        return fibonacciSequence&lt;/span&gt;
- 
-&lt;span class=&quot;gi&quot;&gt;+    # TESTS&lt;/span&gt;
-     def testFirstNumber(self):
+&lt;span class=&quot;gd&quot;&gt;-        return [0, 1]
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+        fibonacciSequence = [0, 1]
++        for i in range(2, length):
++            fibonacciSequence.append(i - 1)
++        return fibonacciSequence
+&lt;/span&gt; 
+&lt;span class=&quot;gi&quot;&gt;+    # TESTS
+&lt;/span&gt;     def testFirstNumber(self):
          self.assertEquals(0, self.fibonacciGenerator(8)[0])
  
 
@@ -1737,27 +1738,27 @@ Date:   Tue Jan 29 14:59:51 2013 +0000
 
     Add code for passing second test, test for third number
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index c9d28f3..28ed083 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -4,7 +4,7 @@ import unittest&lt;/span&gt;
- 
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index c9d28f3..28ed083 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -4,7 +4,7 @@ import unittest
+&lt;/span&gt; 
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&quot;gd&quot;&gt;-        return [0]&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        return [0, 1]&lt;/span&gt;
- 
+&lt;span class=&quot;gd&quot;&gt;-        return [0]
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+        return [0, 1]
+&lt;/span&gt; 
      def testFirstNumber(self):
          self.assertEquals(0, self.fibonacciGenerator(8)[0])
-&lt;span class=&quot;gu&quot;&gt;@@ -12,6 +12,8 @@ class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-     def testSecondNumber(self):
+&lt;span class=&quot;gu&quot;&gt;@@ -12,6 +12,8 @@ class TestFibonacciGenerator(unittest.TestCase):
+&lt;/span&gt;     def testSecondNumber(self):
          self.assertEquals(1, self.fibonacciGenerator(8)[1])
  
-&lt;span class=&quot;gi&quot;&gt;+    def testThirdNumber(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[2])&lt;/span&gt;
- 
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+    def testThirdNumber(self):
++        self.assertEquals(1, self.fibonacciGenerator(8)[2])
+&lt;/span&gt; 
+ if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit f04d7ec901640e5771a4ae816f17fbfade9ee9af
@@ -1766,25 +1767,25 @@ Date:   Tue Jan 29 14:58:04 2013 +0000
 
     Code to pass first test, test for second number
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index 54fe5bf..c9d28f3 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -4,11 +4,14 @@ import unittest&lt;/span&gt;
- 
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index 54fe5bf..c9d28f3 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -4,11 +4,14 @@ import unittest
+&lt;/span&gt; 
  class TestFibonacciGenerator(unittest.TestCase):
      def fibonacciGenerator(self, length):
-&lt;span class=&quot;gd&quot;&gt;-        return [None]&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        return [0]&lt;/span&gt;
- 
+&lt;span class=&quot;gd&quot;&gt;-        return [None]
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+        return [0]
+&lt;/span&gt; 
      def testFirstNumber(self):
          self.assertEquals(0, self.fibonacciGenerator(8)[0])
  
-&lt;span class=&quot;gi&quot;&gt;+    def testSecondNumber(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(1, self.fibonacciGenerator(8)[1])&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- 
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+    def testSecondNumber(self):
++        self.assertEquals(1, self.fibonacciGenerator(8)[1])
++
+&lt;/span&gt; 
+ if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit a6a83808fb900638706ccfdbbe922b36f5e27d4d
@@ -1793,24 +1794,24 @@ Date:   Tue Jan 29 14:51:39 2013 +0000
 
     Testing first fibonacci number, implemented fibonacciGenerator function
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gh&quot;&gt;index f4dfbd8..54fe5bf 100755&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -1,7 +1,14 @@&lt;/span&gt;
- #!/usr/bin/env python2
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+index f4dfbd8..54fe5bf 100755
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- a/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -1,7 +1,14 @@
+&lt;/span&gt; #!/usr/bin/env python2
  import unittest
  
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- class TestFibonacciGenerator(unittest.TestCase):
-&lt;span class=&quot;gi&quot;&gt;+    def fibonacciGenerator(self, length):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        return [None]&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    def testFirstNumber(self):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+        self.assertEquals(0, self.fibonacciGenerator(8)[0])&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
- 
- if __name__ == &amp;#39;__main__&amp;#39;:
+&lt;span class=&quot;gi&quot;&gt;+
+&lt;/span&gt; class TestFibonacciGenerator(unittest.TestCase):
+&lt;span class=&quot;gi&quot;&gt;+    def fibonacciGenerator(self, length):
++        return [None]
++
++    def testFirstNumber(self):
++        self.assertEquals(0, self.fibonacciGenerator(8)[0])
++
+&lt;/span&gt; 
+ if __name__ == &#39;__main__&#39;:
      unittest.main()
 
 commit d8bbcd07a01cc3b84a006bb8546133604bed12ba
@@ -1819,19 +1820,19 @@ Date:   Tue Jan 29 10:16:20 2013 +0000
 
     Skeleton
 
-&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py&lt;/span&gt;
-new file mode 100755
-&lt;span class=&quot;gh&quot;&gt;index 0000000..f4dfbd8&lt;/span&gt;
-&lt;span class=&quot;gd&quot;&gt;--- /dev/null&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py&lt;/span&gt;
-&lt;span class=&quot;gu&quot;&gt;@@ -0,0 +1,7 @@&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+#!/usr/bin/env python2&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+import unittest&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+class TestFibonacciGenerator(unittest.TestCase):&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+if __name__ == &amp;#39;__main__&amp;#39;:&lt;/span&gt;
-&lt;span class=&quot;gi&quot;&gt;+    unittest.main()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;gh&quot;&gt;diff --git a/fibonacci.py b/fibonacci.py
+&lt;/span&gt;new file mode 100755
+&lt;span class=&quot;gh&quot;&gt;index 0000000..f4dfbd8
+&lt;/span&gt;&lt;span class=&quot;gd&quot;&gt;--- /dev/null
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+++ b/fibonacci.py
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;@@ -0,0 +1,7 @@
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+#!/usr/bin/env python2
++import unittest
++
++class TestFibonacciGenerator(unittest.TestCase):
++
++if __name__ == &#39;__main__&#39;:
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;+    unittest.main()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#39;m just
 getting started with the tools and methodologies so hopefully in 6 months time
@@ -1853,7 +1854,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
    <content type="html">&lt;p&gt;I&amp;#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&amp;#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&amp;#39;ll explain the question and how the solution is reached for those that didn&amp;#39;t find the video particularly clear.&lt;/p&gt;
 
 &lt;p&gt;The question:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; # 1 Gold Star
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; # 1 Gold Star
 
  # The built-in &amp;lt;string&amp;gt;.split() procedure works
  # okay, but fails to find all the words on a page
@@ -1871,13 +1872,13 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
  # def split_string(source,splitlist)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;There are also some examples and expected behaviour given:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; out = split_string(&amp;quot;This is a test-of the,string separation-code!&amp;quot;,&amp;quot; ,!-&amp;quot;)
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
  print out
- #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]
+ #&amp;gt;&amp;gt;&amp;gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]
 
- out = split_string(&amp;quot;After  the flood   ...  all the colors came out.&amp;quot;, &amp;quot; .&amp;quot;)
+ out = split_string(&quot;After  the flood   ...  all the colors came out.&quot;, &quot; .&quot;)
  print out
- #&amp;gt;&amp;gt;&amp;gt; [&amp;#39;After&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;flood&amp;#39;, &amp;#39;all&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;colors&amp;#39;, &amp;#39;came&amp;#39;, &amp;#39;out&amp;#39;]
+ #&amp;gt;&amp;gt;&amp;gt; [&#39;After&#39;, &#39;the&#39;, &#39;flood&#39;, &#39;all&#39;, &#39;the&#39;, &#39;colors&#39;, &#39;came&#39;, &#39;out&#39;]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&amp;#39;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;). &lt;/p&gt;
 
@@ -1885,29 +1886,29 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 
 &lt;p&gt;Now we have a better of idea of the problem and how to implement the solution we can start writing code:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 
-    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;So we&amp;#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&amp;#39;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;this char: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; is in splitlist&quot;&lt;/span&gt;
 
-    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; ,!-.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a test-of the,string separation-code!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; ,!-.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This code results in:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;  this char:   is in splitlist
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;  this char:   is in splitlist
   this char:   is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
@@ -1919,26 +1920,26 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We&amp;#39;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&amp;#39;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&amp;#39;ll end up with one great list of words without spaces. First we&amp;#39;ll acheive this unwanted behaviour as it&amp;#39;s a step in the right direction, then we&amp;#39;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;this char: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; is in splitlist&amp;quot;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;this char: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; is in splitlist&quot;&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a test-of the,string separation-code!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; ,.!-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;code&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
 
 &lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&amp;#39;ve already got a block of code that deals with this situation, it&amp;#39;s simply printing lines at the moment, not doing anything useful, we&amp;#39;ll change that so we know when we&amp;#39;ve reached a splitting character.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
@@ -1947,16 +1948,16 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
         &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a test-of the,string separation-code!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; ,.!-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here we&amp;#39;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&amp;#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&amp;#39;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&amp;#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
@@ -1964,20 +1965,20 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
             &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;c&quot;&gt;# We&amp;#39;ve now reached the start of the word, time to make a new element in the list&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# This creates a new element in the array with the value of &amp;#39;char&amp;#39;&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;# We&#39;ve now reached the start of the word, time to make a new element in the list&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# This creates a new element in the array with the value of &#39;char&#39;&lt;/span&gt;
                 &lt;span class=&quot;c&quot;&gt;# Reset at_split so no more elements are created until we reach a new word&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;at_split&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
             &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-                &lt;span class=&quot;c&quot;&gt;# Char is not in splitlist, and we&amp;#39;re not at the start of a word, so simply concatenate&lt;/span&gt;
+                &lt;span class=&quot;c&quot;&gt;# Char is not in splitlist, and we&#39;re not at the start of a word, so simply concatenate&lt;/span&gt;
                 &lt;span class=&quot;c&quot;&gt;# char with the last entry in word_list&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;
 
-    &lt;span class=&quot;c&quot;&gt;# Once we&amp;#39;ve filled word list, we&amp;#39;ll want to return the list containing all the words&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;This is a test-of the,string separation-code!&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot; ,.!-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a test-of the,string separation-code!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; ,.!-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Finally, we have the behaviour, the code above prints:
       [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]&lt;/p&gt;
@@ -2011,10 +2012,10 @@ XMonad.Hooks.ICCCMFocus&amp;quot; and in your logHook add &amp;quot;takeTopFocus
 &lt;p&gt;So the solution is remarkable simple. Just add these lines to your
 xmonad.hs file:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;XMonad.Hooks.ICCCMFocus&lt;/span&gt;
 
-&lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </content>
  </entry>
  
@@ -2267,9 +2268,9 @@ This is quite a long experiment so I will be writing it in steps.&lt;br /&gt;&lt
  
  <entry>
    <title>MAKE Electronics Project 7 - 10</title>
-   <link href="http://willprice.org//2011/03/27/make-electronics-project-7-10.html"/>
+   <link href="http://willprice.org//make:%20electronics/2011/03/27/make-electronics-project-7-10.html"/>
    <updated>2011-03-27T00:00:00+00:00</updated>
-   <id>http://willprice.org/2011/03/27/make-electronics-project-7-10</id>
+   <id>http://willprice.org/make:%20electronics/2011/03/27/make-electronics-project-7-10</id>
    <content type="html">&lt;div class=&#39;post&#39;&gt;
 I have been working through the book &quot;Make: Electronics&quot; By Charles Platt. I have been inspired to document my progress by James Floyd Kelly&#39;s blog regarding the book, It has been invaluable when carrying out the projects, check it out here - &quot;http://handsonelectronics.blogspot.com/&quot; I like the idea of documenting your troubles and how you overcome them, it seems most people just document their success rather than failure, I think the latter is far more important when it comes to learning.&lt;br /&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;I&#39;ve written a bit about project 7 - 10 on Xournal and uploaded the PDFs to Google Docs so people can have a look at what I learnt, I find writing down what I did right/wrong helps me understand the circuits and theory better and improves my retention of the content.&lt;/div&gt;&lt;div&gt;&lt;u&gt;&lt;br /&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;Project 7 &amp;amp; 8:&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;iframe frameborder=&quot;0&quot; src=&quot;http://docs.google.com/gview?url=https://docs.google.com/viewer?a=v&amp;amp;pid=explorer&amp;amp;chrome=true&amp;amp;srcid=0B0b7Lw1a8gPuZmI5NDVhZGMtNjY2Zi00M2IyLWIxYmEtY2FkYzgzYzIzYzZi&amp;amp;hl=en_GB&amp;amp;embedded=true&quot; style=&quot;height: 500px; width: 600px;&quot;&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;br /&gt;&lt;table style=&quot;width: auto;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https://picasaweb.google.com/lh/photo/gdVnU5Mvp29TBD-xK26txow0IKFfp4Wx46k7z-QuzVo?feat=embedwebsite&quot;&gt;&lt;img height=&quot;240&quot; src=&quot;https://lh4.googleusercontent.com/-qYox8VOn8Ls/TZI1MV6AJmI/AAAAAAAAA2M/pCwNfH9ZzVE/s800/Demo.jpg&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: arial,sans-serif; font-size: 11px; text-align: right;&quot;&gt;From &lt;a href=&quot;https://picasaweb.google.com/105545134685620195788/MAKEElectronicsVideos?authuser=0&amp;amp;feat=embedwebsite&quot;&gt;MAKE Electronics: Videos&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;table style=&quot;width: auto;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https://picasaweb.google.com/lh/photo/aLgP_tQtS5FIKRKeezhI64w0IKFfp4Wx46k7z-QuzVo?feat=embedwebsite&quot;&gt;&lt;img height=&quot;240&quot; src=&quot;https://lh3.googleusercontent.com/-1cjUaf3V1J4/TZI3BO_wvtI/AAAAAAAAA2M/WdIRShLQCko/s800/Relay%2520oscillating%2520sans%2520cap.jpg&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: arial,sans-serif; font-size: 11px; text-align: right;&quot;&gt;From &lt;a href=&quot;https://picasaweb.google.com/105545134685620195788/MAKEElectronicsVideos?authuser=0&amp;amp;feat=embedwebsite&quot;&gt;MAKE Electronics: Videos&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;table style=&quot;width: auto;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https://picasaweb.google.com/lh/photo/wg7GKjSZ27SsAp8TNU02uIw0IKFfp4Wx46k7z-QuzVo?feat=embedwebsite&quot;&gt;&lt;img height=&quot;240&quot; src=&quot;https://lh5.googleusercontent.com/-yYw3qir70Vw/TZI3BH8uDyI/AAAAAAAAA2M/2zaiqJwb60A/s800/DSCF3761.jpg&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: arial,sans-serif; font-size: 11px; text-align: right;&quot;&gt;From &lt;a href=&quot;https://picasaweb.google.com/105545134685620195788/MAKEElectronicsVideos?authuser=0&amp;amp;feat=embedwebsite&quot;&gt;MAKE Electronics: Videos&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;Project 9:&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;iframe frameborder=&quot;0&quot; src=&quot;http://docs.google.com/gview?url=https://docs.google.com/viewer?a=v&amp;amp;pid=explorer&amp;amp;chrome=true&amp;amp;srcid=0B0b7Lw1a8gPuNDZmNTdkNmYtNGQ2OC00MTY4LTgxM2QtZTc4YzhiYWJkNjhi&amp;amp;hl=en_GB&amp;amp;embedded=true&quot; style=&quot;height: 500px; width: 600px;&quot;&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;table style=&quot;width: auto;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https://picasaweb.google.com/lh/photo/j527sA2WEdbF8R39jmA5DYw0IKFfp4Wx46k7z-QuzVo?feat=embedwebsite&quot;&gt;&lt;img height=&quot;240&quot; src=&quot;https://lh3.googleusercontent.com/-h-JCgH0yn5Y/TZNCVU5-kFI/AAAAAAAAA2M/bJt74ZPpNcM/s800/DSCF3764.jpg&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: arial,sans-serif; font-size: 11px; text-align: right;&quot;&gt;From &lt;a href=&quot;https://picasaweb.google.com/105545134685620195788/MAKEElectronicsVideos?authuser=0&amp;amp;feat=embedwebsite&quot;&gt;MAKE Electronics: Videos&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;Project 10:&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;iframe frameborder=&quot;0&quot; src=&quot;http://docs.google.com/gview?url=https://docs.google.com/viewer?a=v&amp;amp;pid=explorer&amp;amp;chrome=true&amp;amp;srcid=0B0b7Lw1a8gPuYTZmMjczZDYtMWQwMi00N2Y2LWEyYzQtZGI3NTQwODUwNmMw&amp;amp;hl=en_GB&amp;amp;embedded=true&quot; style=&quot;height: 500px; width: 600px;&quot;&gt;&lt;/iframe&gt;&lt;br /&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;table style=&quot;width: auto;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;https://picasaweb.google.com/lh/photo/27s4Y-PMmNvkJmxJXrWL94w0IKFfp4Wx46k7z-QuzVo?feat=embedwebsite&quot;&gt;&lt;img height=&quot;240&quot; src=&quot;https://lh6.googleusercontent.com/-iJnaBmAjdCQ/TZMyRgUgEyI/AAAAAAAAA2M/9qpp0seT4Sk/s800/DSCF3766.jpg&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;font-family: arial,sans-serif; font-size: 11px; text-align: right;&quot;&gt;From &lt;a href=&quot;https://picasaweb.google.com/105545134685620195788/MAKEElectronicsVideos?authuser=0&amp;amp;feat=embedwebsite&quot;&gt;MAKE Electronics: Videos&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br /&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;object height=&quot;344&quot; width=&quot;425&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/Ox2s8i17i3I?hl=en&amp;amp;fs=1&quot;&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;param name=&quot;allowscriptaccess&quot; value=&quot;always&quot;&gt;&lt;embed src=&quot;http://www.youtube.com/v/Ox2s8i17i3I?hl=en&amp;amp;fs=1&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; width=&quot;425&quot; height=&quot;344&quot;&gt;&lt;/embed&gt;&lt;/object&gt;&lt;/div&gt;&lt;/div&gt;
 </content>

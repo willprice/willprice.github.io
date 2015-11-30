@@ -85,33 +85,33 @@
 
 <p>Example of higher order function:</p>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">addThree</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-  <span class="n">applyTwice</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">applyTwice</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="n">addThree</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+  <span class="n">applyTwice</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+  <span class="n">applyTwice</span> <span class="n">f</span> <span class="n">x</span> <span class="o">=</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">)</span>
 
   <span class="o">...</span>
 
 <span class="kt">Prelude</span><span class="o">&gt;</span>  <span class="n">applyTwice</span> <span class="n">addThree</span> <span class="mi">2</span>
 <span class="mi">8</span>
-<span class="nf">prelude</span><span class="o">&gt;</span> <span class="n">applyTwice</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="mi">1</span> <span class="c1">-- remember that (+1) is a sectioned function, and therefore (+1) :: (Num a) =&gt; a -&gt; a</span>
-<span class="mi">3</span></code></pre></div>
+<span class="n">prelude</span><span class="o">&gt;</span> <span class="n">applyTwice</span> <span class="p">(</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="mi">1</span> <span class="c1">-- remember that (+1) is a sectioned function, and therefore (+1) :: (Num a) =&gt; a -&gt; a</span>
+<span class="mi">3</span></code></pre></figure>
 
 <p>Some more interesting functions:</p>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">filter&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-  <span class="n">filter&#39;</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
-  <span class="n">filter&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span>
-      <span class="o">|</span> <span class="n">f</span> <span class="n">x</span> <span class="ow">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">filter&#39;</span> <span class="n">f</span> <span class="n">xs</span>
-      <span class="o">|</span> <span class="n">otherwise</span> <span class="ow">=</span> <span class="n">filter&#39;</span> <span class="n">f</span> <span class="n">xs</span>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="n">filter'</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+  <span class="n">filter'</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+  <span class="n">filter'</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span>
+      <span class="o">|</span> <span class="n">f</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">++</span> <span class="n">filter'</span> <span class="n">f</span> <span class="n">xs</span>
+      <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">filter'</span> <span class="n">f</span> <span class="n">xs</span>
 
-  <span class="n">flip&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span>
-  <span class="n">flip&#39;</span> <span class="n">f</span> <span class="ow">=</span> <span class="n">g</span>
-    <span class="kr">where</span> <span class="n">g</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">y</span> <span class="n">x</span>
+  <span class="n">flip'</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="p">)</span>
+  <span class="n">flip'</span> <span class="n">f</span> <span class="o">=</span> <span class="n">g</span>
+    <span class="kr">where</span> <span class="n">g</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="n">f</span> <span class="n">y</span> <span class="n">x</span>
 
-  <span class="n">map&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
-  <span class="n">map&#39;</span> <span class="n">f</span> <span class="kt">[]</span> <span class="ow">=</span> <span class="kt">[]</span>
-  <span class="n">map&#39;</span> <span class="n">f</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">)</span><span class="kt">:[]</span>
-  <span class="n">map&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">x</span> <span class="kt">:</span> <span class="n">map&#39;</span> <span class="n">f</span> <span class="n">xs</span></code></pre></div>
+  <span class="n">map'</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+  <span class="n">map'</span> <span class="n">f</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+  <span class="n">map'</span> <span class="n">f</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="n">x</span><span class="p">)</span><span class="o">:</span><span class="kt">[]</span>
+  <span class="n">map'</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span> <span class="n">x</span> <span class="o">:</span> <span class="n">map'</span> <span class="n">f</span> <span class="n">xs</span></code></pre></figure>
 
 <p>Let&#39;s code a function that will generate a Collatz chain from a starting number. A Collatz chain is defined:</p>
 
@@ -123,12 +123,12 @@
 <li>repeat the algorithm with the resulting number</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="nf">collatz</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Integral</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="n">collatz</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Integral</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
   <span class="n">collatz</span> <span class="n">a</span>
-    <span class="o">|</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span>      <span class="ow">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="o">|</span> <span class="n">even</span> <span class="n">a</span>      <span class="ow">=</span> <span class="n">a</span><span class="kt">:</span><span class="n">collatz</span> <span class="p">(</span><span class="n">a</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n">odd</span> <span class="n">a</span>       <span class="ow">=</span> <span class="n">a</span><span class="kt">:</span><span class="n">collatz</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="o">|</span> <span class="n">otherwise</span>   <span class="ow">=</span> <span class="kt">[]</span></code></pre></div>
+    <span class="o">|</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span>      <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="o">|</span> <span class="n">even</span> <span class="n">a</span>      <span class="o">=</span> <span class="n">a</span><span class="o">:</span><span class="n">collatz</span> <span class="p">(</span><span class="n">a</span> <span class="p">`</span><span class="n">div</span><span class="p">`</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">odd</span> <span class="n">a</span>       <span class="o">=</span> <span class="n">a</span><span class="o">:</span><span class="n">collatz</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">otherwise</span>   <span class="o">=</span> <span class="kt">[]</span></code></pre></figure>
 
 <p>Remember that <code>div</code> must be used for Integral division, otherwise a Rational number will be the result, which can&#39;t be used with <code>even</code> and <code>odd</code>.</p>
 
@@ -138,21 +138,21 @@
 
 <p>Folds deal with reducing a data structure down into a single value, this is carried out through a recursive process</p>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="c1">-- Definition of foldl&#39; (fold left)</span>
-  <span class="n">foldl&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">foldl&#39;</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">acc</span> <span class="n">x</span>
-  <span class="n">foldl&#39;</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">foldl&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">acc</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="c1">-- Definition of foldl' (fold left)</span>
+  <span class="n">foldl'</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">a</span>
+  <span class="n">foldl'</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span> <span class="n">acc</span> <span class="n">x</span>
+  <span class="n">foldl'</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="n">foldl'</span> <span class="n">f</span> <span class="p">(</span><span class="n">f</span> <span class="n">acc</span> <span class="n">x</span><span class="p">)</span> <span class="n">xs</span></code></pre></figure>
 
 <p>Implementing the sum function can be done recursively or with foldl:</p>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="c1">-- recursive definition</span>
-  <span class="n">sum&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span> <span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">sum&#39;</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">=</span> <span class="n">x</span> <span class="c1">-- base case</span>
-  <span class="n">sum&#39;</span> <span class="p">(</span><span class="n">x</span><span class="kt">:</span><span class="n">xs</span><span class="p">)</span> <span class="ow">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sum</span> <span class="n">xs</span>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="c1">-- recursive definition</span>
+  <span class="n">sum'</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span> <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">a</span>
+  <span class="n">sum'</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="c1">-- base case</span>
+  <span class="n">sum'</span> <span class="p">(</span><span class="n">x</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">sum</span> <span class="n">xs</span>
   
   <span class="c1">-- foldl definition</span>
-  <span class="n">sum&#39;</span> <span class="ow">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span><span class="p">)</span> <span class="ow">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="ow">-&gt;</span> <span class="n">a</span>
-  <span class="n">sum&#39;</span> <span class="n">xs</span> <span class="ow">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="n">xs</span></code></pre></div>
+  <span class="n">sum'</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">a</span>
+  <span class="n">sum'</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="mi">0</span> <span class="n">xs</span></code></pre></figure>
 
 <p><code>foldr</code> is similar to <code>foldl</code> but starts from the right, rather than the left and it has a different syntax:
 <code>foldl &lt;binary function&gt; &lt;initial accumulator val&gt; &lt;list&gt;</code>, the binary function (f) will be applied like so: <code>f acc x</code> where <code>x</code> is the current val being read from the list, and <code>acc</code> is the accumulator.</p>
@@ -163,26 +163,26 @@
 
 <p>Anonymous functions are simply functions that don&#39;t have a name, these are especially useful when dealing with higher order functions, as instead of writing a separate simple function, you can integrate it with function call. Let&#39;s have a look at an example where we define a separate function and the corresponding use of a lambda function. First off, lambdas are defined using <code>(\&lt;arguments&gt; -&gt; &lt;function body&gt;)</code>, arguments are separated using commas, <code>\</code> simply says we&#39;re now defining a lambda function, the brackets just hold everything together.</p>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="c1">-- Using a where definition</span>
-  <span class="n">reverse</span> <span class="n">xs</span> <span class="ow">=</span> <span class="n">foldl</span> <span class="n">appendList</span> <span class="kt">[]</span> <span class="n">xs</span>
-    <span class="kr">where</span> <span class="n">appendList</span> <span class="n">acc</span> <span class="n">x</span> <span class="ow">=</span> <span class="n">x</span><span class="kt">:</span><span class="n">acc</span>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="c1">-- Using a where definition</span>
+  <span class="n">reverse</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">foldl</span> <span class="n">appendList</span> <span class="kt">[]</span> <span class="n">xs</span>
+    <span class="kr">where</span> <span class="n">appendList</span> <span class="n">acc</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">:</span><span class="n">acc</span>
 
   <span class="c1">-- Using a lambda function</span>
-  <span class="n">reverse</span> <span class="n">xs</span> <span class="ow">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="nf">\</span><span class="n">acc</span> <span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">x</span><span class="kt">:</span><span class="n">acc</span><span class="p">)</span> <span class="kt">[]</span> <span class="n">xs</span></code></pre></div>
+  <span class="n">reverse</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="nf">\</span><span class="n">acc</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">:</span><span class="n">acc</span><span class="p">)</span> <span class="kt">[]</span> <span class="n">xs</span></code></pre></figure>
 
 <h1 id="syntactical-beauty">Syntactical beauty</h1>
 
-<h2 id="function-application-with-$">Function application with <code>$</code></h2>
+<h2 id="function-application-with">Function application with <code>$</code></h2>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span>
-  <span class="n">f</span> <span class="o">$</span> <span class="n">a</span> <span class="ow">=</span> <span class="n">f</span> <span class="n">a</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span>
+  <span class="n">f</span> <span class="o">$</span> <span class="n">a</span> <span class="o">=</span> <span class="n">f</span> <span class="n">a</span></code></pre></figure>
 
 <p>Yes, that&#39;s right, this does not modify the function at all. However it changes how an expression with <code>$</code> is evaluated, <code>f $ a + 4</code> would be evaluated as <code>f (a+4)</code>, <code>$</code> has the lowest precedence of all operators. This allows you to write code a little more cleanly without so many parentheses. For example: <code>sum (map (*2) [1..10])</code> becomes <code>sum $ map (*2) [1..10]</code>.  It also allows you to weird things like <code>map ($ 3) [(4+), (4*), (4/)]</code> strange, eh?</p>
 
 <h2 id="function-composition">Function composition</h2>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="p">(</span><span class="o">.</span><span class="p">)</span> <span class="ow">::</span> <span class="p">(</span><span class="n">b</span> <span class="ow">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="ow">-&gt;</span> <span class="n">a</span> <span class="ow">-&gt;</span> <span class="n">c</span>
-  <span class="n">f</span> <span class="o">.</span> <span class="n">g</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">g</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="p">(</span><span class="o">.</span><span class="p">)</span> <span class="o">::</span> <span class="p">(</span><span class="n">b</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">c</span>
+  <span class="n">f</span> <span class="o">.</span> <span class="n">g</span> <span class="o">=</span> <span class="nf">\</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">g</span> <span class="n">x</span><span class="p">)</span></code></pre></figure>
 
 <p>Yay, more abstraction! Cool things like <code>map (negate . abs) [1, -2, -4, 3]</code> are now possible. So function composition takes 2 functions and returns a composite function which can then be combined with more functions to make more complex composite functions f(g(h(i(x))))) == f . g . h . i, much tidier, and no nasty parentheses!</p>
 
@@ -190,11 +190,11 @@
 
 <p>What about using functions that take multiple parameters? well how about...</p>
 
-<div class="highlight"><pre><code class="language-hs" data-lang="hs"><span class="c1">-- not too tidy</span>
-  <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">sum</span> <span class="p">(</span><span class="n">replicate</span> <span class="mi">5</span> <span class="p">(</span><span class="n">max</span> <span class="n">x</span> <span class="n">y</span><span class="p">))</span>
+<figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="c1">-- not too tidy</span>
+  <span class="n">f</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sum</span> <span class="p">(</span><span class="n">replicate</span> <span class="mi">5</span> <span class="p">(</span><span class="n">max</span> <span class="n">x</span> <span class="n">y</span><span class="p">))</span>
   
   <span class="c1">-- much better!</span>
-  <span class="n">f&#39;</span> <span class="n">x</span> <span class="n">y</span> <span class="ow">=</span> <span class="n">sum</span> <span class="o">.</span> <span class="n">replicate</span> <span class="o">$</span> <span class="n">max</span> <span class="n">x</span> <span class="n">y</span></code></pre></div>
+  <span class="n">f'</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">.</span> <span class="n">replicate</span> <span class="o">$</span> <span class="n">max</span> <span class="n">x</span> <span class="n">y</span></code></pre></figure>
 
       </section>
     </div>

@@ -112,7 +112,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="merge-(4-inputs)">Merge (4 inputs)</h2>
+<h2 id="merge-4-inputs">Merge (4 inputs)</h2>
 
 <p><img src="img/merge.jpg" alt="Example merge image"></p>
 
@@ -127,7 +127,7 @@ is the LSB and D the MSB. The 4 bit word is constructed in output A.</p>
 <p>Output B will only produce a word of the form <code>xxDC</code> or <code>xxC2C1</code> where <code>D</code> is the LSB of
 input D; the same goes for input C.</p>
 
-<h2 id="split-(4-outputs)">Split (4 outputs)</h2>
+<h2 id="split-4-outputs">Split (4 outputs)</h2>
 
 <p><img src="img/split.jpg" alt="Example split image"></p>
 
@@ -144,7 +144,7 @@ explanation is crap.</p>
 
 <p>Takes an input and repeats it to four outputs</p>
 
-<h1 id="reg---register">REG - Register</h1>
+<h1 id="reg-register">REG - Register</h1>
 
 <p><img src="img/reg.jpg" alt="Example register image"></p>
 
@@ -175,14 +175,53 @@ in them. The control input takes the following form:</p>
 </tr>
 </tbody></table>
 
-<h1 id="clk---clock">CLK - Clock</h1>
+<h1 id="clk-clock">CLK - Clock</h1>
 
 <p><img src="img/clock.jpg" alt="Example clock image"></p>
 
-<p>Outputs <code>010x</code> to two outputs where one will be <code>0101</code> and the other <code>0100</code>.
-This is used to alternately enable registers.</p>
+<p>Outputs two clock signals which are the inverse of each other, advancing through
+four phases as shown in the table below. The clock is also the source of the
+asynchronous reset signal for any registers in your design</p>
 
-<h1 id="lsh---left-shift">LSH - Left Shift</h1>
+<table><thead>
+<tr>
+<th>Bit</th>
+<th>Output 1</th>
+<th>Output 2</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><em>NB 1: Sends a 1 when reset is pressed</em></li>
+<li>NB 2: The enable bit <strong>defaults to 1 if left disconnected</strong>.
+Because the third clock bit is an &#39;x&#39; this is fine when connected directly to
+the clock. Connecting the clock to a register via a component that always drives
+either 1 or 0 (such as a fan out) <em>without manually adding in an enable
+signal</em> will result in the clock being permanently disabled.</li>
+</ul>
+
+<h1 id="lsh-left-shift">LSH - Left Shift</h1>
 
 <p><img src="img/left_shift.jpg" alt="Example left shift image"></p>
 
@@ -192,7 +231,7 @@ This is used to alternately enable registers.</p>
 idea what the chain in and outs do. If you do know, please email me and I&#39;ll add
 it in.</p>
 
-<h1 id="rsh---right-shift">RSH - Right Shift</h1>
+<h1 id="rsh-right-shift">RSH - Right Shift</h1>
 
 <p><img src="img/right_shift.jpg" alt="Example right shift image"></p>
 
@@ -201,7 +240,7 @@ it in.</p>
 <p>Take the input and shift it right by the number of places in the <em>control
 input</em>. No idea what the chain in and outs do.</p>
 
-<h1 id="mux---multiplexer">MUX - Multiplexer</h1>
+<h1 id="mux-multiplexer">MUX - Multiplexer</h1>
 
 <p><img src="img/mux.jpg" alt="Example mux image"></p>
 
@@ -232,7 +271,7 @@ the <em>Control in</em>, which is also fed out to <em>Control out</em>.</p>
 </tr>
 </tbody></table>
 
-<h1 id="dmx---demultiplexer">DMX - Demultiplexer</h1>
+<h1 id="dmx-demultiplexer">DMX - Demultiplexer</h1>
 
 <p><img src="img/demux.jpg" alt="Example demux image"></p>
 
@@ -277,7 +316,7 @@ otherwise the output will be 0000.</p>
 just as you fed them in, this means you can pass the lowest bits around quite a
 lot.</p>
 
-<h1 id="au---arithmetic-unit">AU - Arithmetic Unit</h1>
+<h1 id="au-arithmetic-unit">AU - Arithmetic Unit</h1>
 
 <p><img src="img/au.jpg" alt="Example au image"></p>
 
@@ -318,7 +357,7 @@ the two&#39;s complement system.</p>
 <p>The left output is the <em>Control out</em> that instructs another chained AU that
 overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
 
-<h1 id="lu---logic-unit">LU - Logic Unit</h1>
+<h1 id="lu-logic-unit">LU - Logic Unit</h1>
 
 <p><img src="img/lu.jpg" alt="Example lu image"></p>
 
@@ -348,7 +387,7 @@ overflow has occured so you can chain AUs to handle more than 4 bit numbers.</p>
 </tr>
 </tbody></table>
 
-<h1 id="ram---memory-unit">RAM - Memory unit</h1>
+<h1 id="ram-memory-unit">RAM - Memory unit</h1>
 
 <p>The RAM unit holds 65,536 bytes of memory. These are accessed through the 4
 <em>Address inputs</em> that take a nibble each. Inputs take the form of nibbles;

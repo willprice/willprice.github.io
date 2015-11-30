@@ -73,7 +73,7 @@
       </div>
 
       <section>
-      <h1 id="sensing-the-world-around-you!">Sensing the world around you!</h1>
+      <h1 id="sensing-the-world-around-you">Sensing the world around you!</h1>
 
 <p>Our robot is equipped with two types of sensors:</p>
 
@@ -89,9 +89,9 @@ guess what it does...?</p>
 
 <p>Ha... here&#39;s an example:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
-<span class="cp">#include &lt;DFRduino.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
+#include &lt;DFRduino.h&gt;
+</span>
 
 <span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
 
@@ -100,12 +100,12 @@ guess what it does...?</p>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Print the distance sensed by the IR sensor</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Distance: &quot;</span><span class="p">);</span>
+  <span class="c1">// Print the distance sensed by the IR sensor
+</span>  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Distance: "</span><span class="p">);</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">robot</span><span class="p">.</span><span class="n">readDistanceInCentimeters</span><span class="p">());</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;cm&quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"cm"</span><span class="p">);</span>
   <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>Pick your robot up and point it&#39;s eyes (the IR sensor) at some stuff, see how
 far, and how close it measure. Notice what happens when you move your hand too
@@ -119,9 +119,9 @@ explain what happens when you cover up the left hand side of the sensor?</p>
 avoiding robot. Let&#39;s have a look at how we can move depending on the distance
 read by the sensor:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
-<span class="cp">#include &lt;DFRduino.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
+#include &lt;DFRduino.h&gt;
+</span>
 
 <span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
 
@@ -129,23 +129,23 @@ read by the sensor:</p>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Providing there are no delays in our code, this loop is being run</span>
-  <span class="c1">// thousands of times a second. Think about how that might affect the</span>
-  <span class="c1">// code you write</span>
-
+  <span class="c1">// Providing there are no delays in our code, this loop is being run
+</span>  <span class="c1">// thousands of times a second. Think about how that might affect the
+</span>  <span class="c1">// code you write
+</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">robot</span><span class="p">.</span><span class="n">readDistanceInCentimeters</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Go back for 1 second</span>
-    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;b&#39;</span><span class="p">);</span>
+    <span class="c1">// Go back for 1 second
+</span>    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">'b'</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-    <span class="c1">// Turn right by approximately 90 degrees</span>
-    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;r&#39;</span><span class="p">);</span>
+    <span class="c1">// Turn right by approximately 90 degrees
+</span>    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">'r'</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">350</span><span class="p">);</span>
   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// Otherwise we&#39;ll just go forward </span>
-    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
+    <span class="c1">// Otherwise we'll just go forward 
+</span>    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">'f'</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>Surprisingly, at least in my room this is a relatively effective tactic, in
 fact, it&#39;s even better than some considerably more complex code I wrote! But

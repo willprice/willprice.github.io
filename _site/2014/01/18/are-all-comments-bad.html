@@ -88,7 +88,7 @@ doesn&#39;t work?</p>
 <p>Let&#39;s look at an example to emphasize my point. We&#39;ll take the naive Fibonacci
 function:</p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 
@@ -118,14 +118,14 @@ function:</p>
     <span class="k">def</span> <span class="nf">test_sixth_fib_number_is_five</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span></code></pre></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span></code></pre></figure>
 
 <p>Now for a tail recursive implementation that is more efficient (but not in
 Python, as it doesn&#39;t have tail call optimization! I should have done it in C,
 but I couldn&#39;t face writing the tests using <code>check</code>). </p>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">unittest</span>
 
@@ -159,8 +159,8 @@ but I couldn&#39;t face writing the tests using <code>check</code>). </p>
     <span class="k">def</span> <span class="nf">test_sixth_fib_number_is_five</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span></code></pre></div>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span></code></pre></figure>
 
 <p>I&#39;ve tried my best to make this as self-explanatory as possible. I still feel
 that additional explanation would help for whoever has to maintain it. The first
@@ -176,7 +176,7 @@ difference!</p>
 <li>When <code>n &gt; 1</code> then <code>counter == 2</code> terminates the algorithm returning the
 accumulated value</li>
 <li><p>A few examples: </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">fib(3) -&gt; fib_accumulator(3, 1, 0) -&gt; fib_accumulator(2, (1 + 0), 1) -&gt; return (1 + 0)
+<div class="highlight"><pre><code class="language-" data-lang="">fib(3) -&gt; fib_accumulator(3, 1, 0) -&gt; fib_accumulator(2, (1 + 0), 1) -&gt; return (1 + 0)
 
 fib(5) -&gt; fib_accumulator(5, 1, 0) -&gt; fib_accumulator(4, (1 + 0), 1) -&gt; 
           fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&gt; fib_accumulator(2, (1 +

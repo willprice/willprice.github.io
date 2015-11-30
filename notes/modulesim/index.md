@@ -59,8 +59,24 @@ in them. The control input takes the following form:
 # CLK - Clock
 ![Example clock image](img/clock.jpg)
 
-Outputs `010x` to two outputs where one will be `0101` and the other `0100`.
-This is used to alternately enable registers.
+Outputs two clock signals which are the inverse of each other, advancing through
+four phases as shown in the table below. The clock is also the source of the
+asynchronous reset signal for any registers in your design
+
+| Bit | Output 1 | Output 2 |
+|-----|----------|--------- |
+| 0   | 0        | 0        |
+| 1   | 1        | 0        |
+| 2   | 0        | 0        |
+| 3   | 0        | 1        |
+
+
+- *NB 1: Sends a 1 when reset is pressed*
+- NB 2: The enable bit **defaults to 1 if left disconnected**.
+  Because the third clock bit is an 'x' this is fine when connected directly to
+  the clock. Connecting the clock to a register via a component that always drives
+  either 1 or 0 (such as a fan out) *without manually adding in an enable
+  signal* will result in the clock being permanently disabled.
 
 # LSH - Left Shift
 ![Example left shift image](img/left_shift.jpg)

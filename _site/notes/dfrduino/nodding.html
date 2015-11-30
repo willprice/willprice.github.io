@@ -73,7 +73,7 @@
       </div>
 
       <section>
-      <h1 id="nodding-and-moving-your-robot&#39;s-head">Nodding and moving your robot&#39;s head</h1>
+      <h1 id="nodding-and-moving-your-robot-39-s-head">Nodding and moving your robot&#39;s head</h1>
 
 <p>Notice how your robot&#39;s IR sensor is mounted on a frame that can move in 2
 planes? Try moving it with your hand, don&#39;t be too vigorous with them, they&#39;re
@@ -85,9 +85,9 @@ motors</a> attached to each bracket, allow 180 degrees
 of control. We can make the robot look left and right; and up and down, so let&#39;s
 do just that:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
-<span class="cp">#include &lt;DFRduino.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
+#include &lt;DFRduino.h&gt;
+</span>
 
 <span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
 
@@ -95,20 +95,20 @@ do just that:</p>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Look forward</span>
-  <span class="c1">// Unfortunately my robot&#39;s vertical servo is not calibrated very</span>
-  <span class="c1">// well, so looking ahead is 130 degrees, less points it up, more</span>
-  <span class="c1">// makes it click a lot -- if your&#39;s clicks a lot, pull out the cable,</span>
-  <span class="c1">// and rewrite your code so that it won&#39;t put it to such extreme a</span>
-  <span class="c1">// position</span>
-  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
-  <span class="c1">// Wait for the servo to move</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="c1">// Look upwards</span>
-  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
-  <span class="c1">// Wait for the servo to move</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+  <span class="c1">// Look forward
+</span>  <span class="c1">// Unfortunately my robot's vertical servo is not calibrated very
+</span>  <span class="c1">// well, so looking ahead is 130 degrees, less points it up, more
+</span>  <span class="c1">// makes it click a lot -- if your's clicks a lot, pull out the cable,
+</span>  <span class="c1">// and rewrite your code so that it won't put it to such extreme a
+</span>  <span class="c1">// position
+</span>  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move
+</span>  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="c1">// Look upwards
+</span>  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move
+</span>  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>You may find that your robot&#39;s head isn&#39;t pointing forward, so we can modify the
 sketch above to do that using <code>setHorizontalHeadPosition</code>, this works as you&#39;d
@@ -120,40 +120,40 @@ expected, unlike <code>setVerticalHeadPosition</code>: </p>
 <li>180 degrees - Left</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
-<span class="cp">#include &lt;DFRduino.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
+#include &lt;DFRduino.h&gt;
+</span>
 
 <span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// We set the horizontal head position just once.</span>
-  <span class="c1">// There&#39;s no point repeatedly doing it as we&#39;re not changing it in</span>
-  <span class="c1">// our loop.</span>
-  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+  <span class="c1">// We set the horizontal head position just once.
+</span>  <span class="c1">// There's no point repeatedly doing it as we're not changing it in
+</span>  <span class="c1">// our loop.
+</span>  <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Look forward</span>
-  <span class="c1">// Unfortunately my robot&#39;s vertical servo is not calibrated very</span>
-  <span class="c1">// well, so looking ahead is 130 degrees, less points it up, more</span>
-  <span class="c1">// makes it click a lot -- if your&#39;s clicks a lot, pull out the cable,</span>
-  <span class="c1">// and rewrite your code so that it won&#39;t put it to such extreme a</span>
-  <span class="c1">// position</span>
-  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
-  <span class="c1">// Wait for the servo to move</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="c1">// Look upwards</span>
-  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
-  <span class="c1">// Wait for the servo to move</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+  <span class="c1">// Look forward
+</span>  <span class="c1">// Unfortunately my robot's vertical servo is not calibrated very
+</span>  <span class="c1">// well, so looking ahead is 130 degrees, less points it up, more
+</span>  <span class="c1">// makes it click a lot -- if your's clicks a lot, pull out the cable,
+</span>  <span class="c1">// and rewrite your code so that it won't put it to such extreme a
+</span>  <span class="c1">// position
+</span>  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">130</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move
+</span>  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+  <span class="c1">// Look upwards
+</span>  <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="mi">40</span><span class="p">);</span>
+  <span class="c1">// Wait for the servo to move
+</span>  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>We could do something more interesting...</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;</span>
-<span class="cp">#include &lt;DFRduino.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
+#include &lt;DFRduino.h&gt;
+</span>
 
 <span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">xIncrement</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -167,16 +167,16 @@ expected, unlike <code>setVerticalHeadPosition</code>: </p>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// &#39;||&#39; means OR</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="o">||</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// '||' means OR
+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="o">||</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">xIncrement</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
 
-  <span class="c1">// The furthest down y can go is 160 degrees. If it tries to go more</span>
-  <span class="c1">// than that the library will print out an error in the serial monitor</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">160</span> <span class="o">||</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// </span>
-    <span class="n">yIncrement</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="c1">// The furthest down y can go is 160 degrees. If it tries to go more
+</span>  <span class="c1">// than that the library will print out an error in the serial monitor
+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">160</span> <span class="o">||</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 
+</span>    <span class="n">yIncrement</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="n">x</span> <span class="o">+=</span> <span class="n">xIncrement</span><span class="p">;</span>
@@ -185,7 +185,7 @@ expected, unlike <code>setVerticalHeadPosition</code>: </p>
   <span class="n">robot</span><span class="p">.</span><span class="n">setHorizontalHeadPosition</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
   <span class="n">robot</span><span class="p">.</span><span class="n">setVerticalHeadPosition</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
   <span class="n">delay</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>See if you can figure this out by reading the code, If not, read on!</p>
 

@@ -82,7 +82,7 @@
         
         <p>(Friday 30th August Pairing with Jason)</p>
 
-<h3 id="introduction:-why-mock-objects">Introduction: Why mock objects</h3>
+<h3 id="introduction-why-mock-objects">Introduction: Why mock objects</h3>
 
 <p>Having been exposed to the basics of TDD: Using <code>asserts</code> to make sure things
 changed; trying to write each test so it fails for only one reason;
@@ -90,7 +90,7 @@ triangulating a solution, rather than just dumping it all in one fell swoop, I
 thought it was about time to learn what mock objects are, and what they are used
 for.</p>
 
-<h3 id="useful-terminology:">Useful Terminology:</h3>
+<h3 id="useful-terminology">Useful Terminology:</h3>
 
 <p>Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
 * <code>Stub</code> - A method that returns a specific result
@@ -98,12 +98,12 @@ for.</p>
 
 <p>Don&#39;t expect my usage of terminology to be spot on; I&#39;m still learning!</p>
 
-<h3 id="the-problem:">The Problem:</h3>
+<h3 id="the-problem">The Problem:</h3>
 
 <p>Jason suggested we try writing a virtual box office where a customer can book
 tickets for a specific play. After a discussion we wrote an acceptance test (in
 English) to outline what our end result should be able to do:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Given that the seat A6 is available for a performance of &#39;Cats&#39;
+<div class="highlight"><pre><code class="language-" data-lang="">Given that the seat A6 is available for a performance of 'Cats'
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -122,12 +122,12 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 * Marked as reserved for `[credit card number] (Seat)`
 * Cannot be booked/Unavailable (Seat)
 
-1. Customer tells box office to reserve seat A6 at performance of &#39;Cats&#39; using credit card number 1234
-2. Box office finds performance of &#39;Cats&#39; and tells performance to reserve Seat A6 using credit card number 1234
-3. &#39;Cats&#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
+1. Customer tells box office to reserve seat A6 at performance of 'Cats' using credit card number 1234
+2. Box office finds performance of 'Cats' and tells performance to reserve Seat A6 using credit card number 1234
+3. 'Cats' performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
 4. Seat A6 records the credit card number of the reserver.
 </code></pre></div>
-<h3 id="building-outside-in:">Building Outside in:</h3>
+<h3 id="building-outside-in">Building Outside in:</h3>
 
 <p>When building an application from the outside in, we need some way of testing
 the interaction between what we&#39;re writing and the next layer in which hasn&#39;t
@@ -149,11 +149,11 @@ way, before mocking classes was possible) for performance and then mock it using
 It has no functionality, but we can call any method on it that is defined in the
 interface, the methods will not do anything as we haven&#39;t defined any behaviour
 for it (because for this test behaviour is superfluous). </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">    // BoxOffice is a field in the test class
+<div class="highlight"><pre><code class="language-" data-lang="">    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
     Performance mockPerformance = mock(Performance.class);
     HashMap&lt;String, Performance&gt; performances = new HashMap&lt;&gt;();
-    performances.put(&quot;Cats&quot;, mockPerformance);
+    performances.put("Cats", mockPerformance);
     boxOffice = new BoxOffice(performances);
     return mockPerformance;
 }
@@ -161,23 +161,23 @@ protected Performance createBoxOfficeWithMockPerformance() {
 @Test
 public void findsPerformanceOfCats() {
     Performance mockPerformance = createBoxOfficeWithMockPerformance();
-    assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));
+    assertEquals(mockPerformance, boxOffice.findPerformance("Cats"));
 }
 </code></pre></div>
 <p>I thought the responsibility of reserving a seat should belong to a <code>Seat</code> class that would be at the bottom of the class hierarchy of the finished application: </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">BoxOffice -&gt; Performance -&gt; Seat
+<div class="highlight"><pre><code class="language-" data-lang="">BoxOffice -&gt; Performance -&gt; Seat
 </code></pre></div>
 <p><code>BoxOffice</code> would need to talk to <code>Performance</code> which would then eventually talk to <code>Seat</code>. </p>
 
 <p>We wrote the next test for <strong>Reserving a seat</strong>. <code>BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)</code> would be the signature of the method so we started by writing the assertion: </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
+<div class="highlight"><pre><code class="language-" data-lang="">verify(mockPerformance).reserveSeat("A6", "1234")
 </code></pre></div>
 <p><code>verify</code> takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call <code>mockPerformance.reserveSeat(...)</code> which would be called by <code>BoxOffice.reserveSeat(...)</code></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">// mockPerformance is a performance of &quot;Cats&quot; in the box office
-boxOffice.reserveSeat(&quot;Cats&quot;, &quot;A6&quot;, &quot;1234&quot;)
-verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
+<div class="highlight"><pre><code class="language-" data-lang="">// mockPerformance is a performance of "Cats" in the box office
+boxOffice.reserveSeat("Cats", "A6", "1234")
+verify(mockPerformance).reserveSeat("A6", "1234")
 </code></pre></div>
-<h3 id="mocking-voids:">Mocking <code>voids</code>:</h3>
+<h3 id="mocking-voids">Mocking <code>voids</code>:</h3>
 
 <p>Ouch! I had a hard time figuring out why <code>when(mockedObject.voidMethod).thenThrow(new RuntimeException())</code> wasn&#39;t working. Mockito&#39;s <code>when</code> method doesn&#39;t work with void methods. You must use a <code>doReturn|doThrow|doAnswer...</code> method, and so the <code>when</code> code ends up looking like: <code>doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);</code></p>
 
@@ -193,11 +193,11 @@ verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
 </ol>
 
 <p>The first:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">when(mockObject.method(1)).thenReturn(1)
+<div class="highlight"><pre><code class="language-" data-lang="">when(mockObject.method(1)).thenReturn(1)
 when(mockObject.method(2)).thenReturn(2)
 </code></pre></div>
 <p>The second</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">when(mockObject.method()).thenReturn(1).thenReturn(2)
+<div class="highlight"><pre><code class="language-" data-lang="">when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&gt; 1
 mockObject.method() // =&gt; 2
 </code></pre></div>

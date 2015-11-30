@@ -92,56 +92,56 @@ see whether you can understand the code below. I&#39;ve commented it to try and 
 you understand it. If you have trouble, try reading my introduction and
 following the Arduino links at the bottom of the page. </p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Declare the variables we&#39;ll use in the sketch</span>
-<span class="c1">// Definitions of variables come in the form:</span>
-<span class="c1">// [type] [name] = [value];</span>
-<span class="c1">// int stands for integer (a whole number, not a decimal)</span>
-<span class="kt">int</span> <span class="n">delayTimeInMiliSeconds</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-<span class="c1">// LEDs are a type of light</span>
-<span class="c1">// A pin is a port on the arduino in which we can plug wires into and control</span>
-<span class="c1">// things</span>
-<span class="kt">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Declare the variables we'll use in the sketch
+// Definitions of variables come in the form:
+// [type] [name] = [value];
+// int stands for integer (a whole number, not a decimal)
+</span><span class="kt">int</span> <span class="n">delayTimeInMiliSeconds</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+<span class="c1">// LEDs are a type of light
+// A pin is a port on the arduino in which we can plug wires into and control
+// things
+</span><span class="kt">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
 
-<span class="c1">// setup() runs only once</span>
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Set the ledPin (13) to be an output</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="c1">// setup() runs only once
+</span><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Set the ledPin (13) to be an output
+</span>    <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="c1">// Loop runs continuously, when it&#39;s finished, it reruns itself</span>
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Here we run the &#39;flash()&#39; function over and over again</span>
-    <span class="n">flash</span><span class="p">();</span>
+<span class="c1">// Loop runs continuously, when it's finished, it reruns itself
+</span><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Here we run the 'flash()' function over and over again
+</span>    <span class="n">flash</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="c1">// This is the &#39;flash()&#39; function definition</span>
-<span class="c1">// Function definitions look like this:</span>
-<span class="c1">// [type] [name]() {</span>
-<span class="c1">//      [code]</span>
-<span class="c1">// }</span>
-<span class="c1">// &#39;type&#39; is the type of value returned if you use any &#39;return&#39; statments in</span>
-<span class="c1">// your function. E.g. &#39;void&#39; if you don&#39;t return anything.</span>
-<span class="c1">// &#39;name&#39; is the name you use to run the code, e.g. &#39;flash&#39;</span>
-<span class="c1">// &#39;code&#39; is the code that your function will run when you call it. &#39;call&#39;ing a</span>
-<span class="c1">// function is achieved by writing &#39;name()&#39;</span>
-<span class="c1">//</span>
-<span class="c1">// The curly braces: &#39;{&#39; and &#39;}&#39; enclose the code that runs when</span>
-<span class="c1">// &#39;flash()&#39; is run.</span>
-<span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// digitalWrite allows us to control a pin (in this case, pin 13) and change</span>
-    <span class="c1">// it&#39;s value.</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="c1">// delay for the amount of time we declared at the start of the sketch</span>
-    <span class="n">delay</span><span class="p">(</span><span class="n">delayTimeInMiliSeconds</span><span class="p">);</span>
-    <span class="c1">// output a LOW (0V) signal on the ledPin</span>
-    <span class="c1">// this turns the LED off, as it will no longer have a current flowing</span>
-    <span class="c1">// through it</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="c1">// Again, delay like last time</span>
-    <span class="n">delay</span><span class="p">(</span><span class="n">delayTimeInMiliSeconds</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+<span class="c1">// This is the 'flash()' function definition
+// Function definitions look like this:
+// [type] [name]() {
+//      [code]
+// }
+// 'type' is the type of value returned if you use any 'return' statments in
+// your function. E.g. 'void' if you don't return anything.
+// 'name' is the name you use to run the code, e.g. 'flash'
+// 'code' is the code that your function will run when you call it. 'call'ing a
+// function is achieved by writing 'name()'
+//
+// The curly braces: '{' and '}' enclose the code that runs when
+// 'flash()' is run.
+</span><span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// digitalWrite allows us to control a pin (in this case, pin 13) and change
+</span>    <span class="c1">// it's value.
+</span>    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="c1">// delay for the amount of time we declared at the start of the sketch
+</span>    <span class="n">delay</span><span class="p">(</span><span class="n">delayTimeInMiliSeconds</span><span class="p">);</span>
+    <span class="c1">// output a LOW (0V) signal on the ledPin
+</span>    <span class="c1">// this turns the LED off, as it will no longer have a current flowing
+</span>    <span class="c1">// through it
+</span>    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="c1">// Again, delay like last time
+</span>    <span class="n">delay</span><span class="p">(</span><span class="n">delayTimeInMiliSeconds</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
-<h2 id="outline-of-the-workshop:">Outline of the workshop:</h2>
+<h2 id="outline-of-the-workshop">Outline of the workshop:</h2>
 
 <ol>
 <li><a href="intro.html"><strong>PRIMER</strong>: Introduction to Arduino and C</a> <strong>(IMPORTANT for beginners with little experience)</strong>, if you&#39;re already familiar with programming, just

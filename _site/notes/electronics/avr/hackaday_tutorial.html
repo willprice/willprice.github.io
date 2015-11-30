@@ -109,43 +109,43 @@
 
 <h1 id="blink-code">Blink code</h1>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cm">/*</span>
-<span class="cm">  * Hackaday.com AVR Tutorial firmware</span>
-<span class="cm">  * written by: Mike Szczys (@szczys)</span>
-<span class="cm">  * 10/24/2010</span>
-<span class="cm">  *</span>
-<span class="cm">  * ATmega168</span>
-<span class="cm">  * Blinks one LED conneced to PD0</span>
-<span class="cm">  *</span>
-<span class="cm">  * http://hackaday.com/2010/10/25/avr-programming-02-the-hardware/</span>
-<span class="cm">  */</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c">  <span class="cm">/*
+  * Hackaday.com AVR Tutorial firmware
+  * written by: Mike Szczys (@szczys)
+  * 10/24/2010
+  *
+  * ATmega168
+  * Blinks one LED conneced to PD0
+  *
+  * http://hackaday.com/2010/10/25/avr-programming-02-the-hardware/
+  */</span>
 
-  <span class="cp">#include &lt;avr/io.h&gt;</span>
-  <span class="cp">#include &lt;avr/interrupt.h&gt;</span>
-
+  <span class="cp">#include &lt;avr/io.h&gt;
+</span>  <span class="cp">#include &lt;avr/interrupt.h&gt;
+</span>
   <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
   <span class="p">{</span>
 
-    <span class="c1">//Setup the clock</span>
-    <span class="n">cli</span><span class="p">();</span>      <span class="c1">//Disable global interrupts</span>
-    <span class="n">TCCR1B</span> <span class="o">|=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">CS11</span> <span class="o">|</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">CS10</span><span class="p">;</span>  <span class="c1">//Divide by 64</span>
-    <span class="n">OCR1A</span> <span class="o">=</span> <span class="mi">15624</span><span class="p">;</span>    <span class="c1">//Count 15624 cycles for 1 second interrupt</span>
-    <span class="n">TCCR1B</span> <span class="o">|=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">WGM12</span><span class="p">;</span>   <span class="c1">//Put Timer/Counter1 in CTC mode</span>
-    <span class="n">TIMSK1</span> <span class="o">|=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">OCIE1A</span><span class="p">;</span>    <span class="c1">//enable timer compare interrupt</span>
-    <span class="n">sei</span><span class="p">();</span>      <span class="c1">//Enable global interrupts</span>
+    <span class="c1">//Setup the clock
+</span>    <span class="n">cli</span><span class="p">();</span>      <span class="c1">//Disable global interrupts
+</span>    <span class="n">TCCR1B</span> <span class="o">|=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">CS11</span> <span class="o">|</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">CS10</span><span class="p">;</span>  <span class="c1">//Divide by 64
+</span>    <span class="n">OCR1A</span> <span class="o">=</span> <span class="mi">15624</span><span class="p">;</span>    <span class="c1">//Count 15624 cycles for 1 second interrupt
+</span>    <span class="n">TCCR1B</span> <span class="o">|=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">WGM12</span><span class="p">;</span>   <span class="c1">//Put Timer/Counter1 in CTC mode
+</span>    <span class="n">TIMSK1</span> <span class="o">|=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">OCIE1A</span><span class="p">;</span>    <span class="c1">//enable timer compare interrupt
+</span>    <span class="n">sei</span><span class="p">();</span>      <span class="c1">//Enable global interrupts
+</span>
+    <span class="c1">//Setup the I/O for the LED
+</span>
+    <span class="n">DDRD</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>   <span class="c1">//Set PortD Pin0 as an output
+</span>    <span class="n">PORTD</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">//Set PortD Pin0 high to turn on LED
+</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>      <span class="c1">//Loop forever, interrupts do the rest
+</span>  <span class="p">}</span>
 
-    <span class="c1">//Setup the I/O for the LED</span>
-
-    <span class="n">DDRD</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>   <span class="c1">//Set PortD Pin0 as an output</span>
-    <span class="n">PORTD</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">//Set PortD Pin0 high to turn on LED</span>
-
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>      <span class="c1">//Loop forever, interrupts do the rest</span>
-  <span class="p">}</span>
-
-  <span class="n">ISR</span><span class="p">(</span><span class="n">TIMER1_COMPA_vect</span><span class="p">)</span>    <span class="c1">//Interrupt Service Routine</span>
-  <span class="p">{</span>
-    <span class="n">PORTD</span> <span class="o">^=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">//Use xor to toggle the LED</span>
-  <span class="p">}</span></code></pre></div>
+  <span class="n">ISR</span><span class="p">(</span><span class="n">TIMER1_COMPA_vect</span><span class="p">)</span>    <span class="c1">//Interrupt Service Routine
+</span>  <span class="p">{</span>
+    <span class="n">PORTD</span> <span class="o">^=</span> <span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">//Use xor to toggle the LED
+</span>  <span class="p">}</span>  </code></pre></figure>
 
 <p>Right, this to me looks like gobbledygook, regardless of having programmed in Processing...
 <code>int main(void)</code> is the start of the program, <code>main</code> is responsible for starting execution, it&#39;s just an arbitrary function name that is now used in every programming language. 

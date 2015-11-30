@@ -77,7 +77,7 @@
 IDE program. You&#39;ll be using a library I wrote that saves you from having to
 write code like this:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">LEFT_MOTOR_DIRECTION_CONTROL</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">LEFT_MOTOR_SPEED_CONTROL</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">RIGHT_MOTOR_DIRECTION_CONTROL</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
@@ -93,7 +93,7 @@ write code like this:</p>
     <span class="n">analogWrite</span><span class="p">(</span><span class="n">LEFT_MOTOR_SPEED_CONTROL</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">RIGHT_MOTOR_DIRECTION_CONTROL</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="n">analogWrite</span><span class="p">(</span><span class="n">RIGHT_MOTOR_SPEED_CONTROL</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>This is rather slow way to develop code, so I&#39;ve encapsulated (hidden the low
 level details) the robot dependent things and given you a library called
@@ -106,10 +106,10 @@ can arrange one for next DigiMakers)</em>.</p>
 
 <p>Instead of the above code, you&#39;ll be writing something like:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Import the DFRduino library and Servo library</span>
-<span class="cp">#include &lt;DFRduino.h&gt;</span>
-<span class="cp">#include &lt;servo.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Import the DFRduino library and Servo library
+</span><span class="cp">#include &lt;DFRduino.h&gt;
+#include &lt;servo.h&gt;
+</span>
 <span class="n">DFRduino</span> <span class="n">robot</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -117,9 +117,9 @@ can arrange one for next DigiMakers)</em>.</p>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// Make the robot go forward</span>
-    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">&#39;f&#39;</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+    <span class="c1">// Make the robot go forward
+</span>    <span class="n">robot</span><span class="p">.</span><span class="n">setDirection</span><span class="p">(</span><span class="sc">'f'</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
 
 <h2 id="features-of-the-dfrduino-robot">Features of the DFRduino robot</h2>
 

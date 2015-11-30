@@ -95,10 +95,10 @@ XMonad.Hooks.ICCCMFocus&quot; and in your logHook add &quot;takeTopFocus&quot;.<
 <p>So the solution is remarkable simple. Just add these lines to your
 xmonad.hs file:</p>
 
-<div class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="kr">import</span> <span class="nn">XMonad.Hooks.ICCCMFocus</span>
+<figure class="highlight"><pre><code class="language-haskell" data-lang="haskell"><span class="kr">import</span> <span class="nn">XMonad.Hooks.ICCCMFocus</span>
 
-<span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
-<span class="nf">logHook</span> <span class="ow">=</span> <span class="o">...</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">takeTopFocus</span></code></pre></div>
+<span class="n">main</span> <span class="o">=</span> <span class="kr">do</span>
+<span class="n">logHook</span> <span class="o">=</span> <span class="o">...</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">takeTopFocus</span> </code></pre></figure>
 
     </div>
 </div>

@@ -94,28 +94,28 @@ line) on Raspbian is as follows:</p>
 
 <p>Raspbian&#39;s network service needs to be stopped to connect using the method
 we&#39;re going to use. To do this run </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service networking stop
+<div class="highlight"><pre><code class="language-" data-lang="">sudo service networking stop
 </code></pre></div>
 <h1 id="connect-using-wpa_supplicant">Connect using wpa_supplicant</h1>
 
 <p>I&#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
 authentication, if you&#39;re at a different university this may well be different
 and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">network={
+<div class="highlight"><pre><code class="language-" data-lang="">network={
     # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
 
-    # The &#39;identity&#39; is the username actually used for authentication.
+    # The 'identity' is the username actually used for authentication.
     # This must be your Bristol username, all lowercase.
-        identity=&quot;ab1234&quot;
+        identity="ab1234"
 
     # Your normal Bristol password (so make sure the permissions on
     # your wpa_supplicant config file are not world readable!)
-        password=&quot;myUOBpassword&quot;
+        password="myUOBpassword"
 
     # CA cert from here:
     # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
     # Change the path to where you downloaded the file
-        ca_cert=&quot;/etc/ssl/certs/uob-net-ca.pem&quot;
+        ca_cert="/etc/ssl/certs/uob-net-ca.pem"
 
     # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
     # --- OF THE UNIVERSITY OF BRISTOL, UK          --
@@ -123,18 +123,18 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
     # Bristol supports PEAP and TTLS.
         eap=PEAP TTLS
 
-    # The &#39;anonymous_identity&#39; is the identity used for routing
-    # the authentication to Bristol. It must end with &#39;@bris.ac.uk&#39;
-    # or &#39;@bristol.ac.uk&#39;. It must be all lowercase. If you have 
+    # The 'anonymous_identity' is the identity used for routing
+    # the authentication to Bristol. It must end with '@bris.ac.uk'
+    # or '@bristol.ac.uk'. It must be all lowercase. If you have 
     # anything preceding the @ it must be all lowercase letters or 
     # a hyphen (no spaces, punctuation etc) 
-    # e.g. &quot;wireless-user@bristol.ac.uk&quot; would be ok
-        anonymous_identity=&quot;@bristol.ac.uk&quot;
+    # e.g. "wireless-user@bristol.ac.uk" would be ok
+        anonymous_identity="@bristol.ac.uk"
 
     # Bristol use MS-CHAPv2 as the inner authentication scheme,
     # with the traditional label
-    phase1=&quot;peaplabel=0&quot;
-    phase2=&quot;auth=MSCHAPV2&quot;
+    phase1="peaplabel=0"
+    phase2="auth=MSCHAPV2"
 
     # Set priority to a big number
     priority=999
@@ -145,9 +145,9 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
     disabled=0
 
     # eduroam please
-        ssid=&quot;eduroam&quot;
+        ssid="eduroam"
 
-    # SSID should be broadcast, so don&#39;t scan.
+    # SSID should be broadcast, so don't scan.
     scan_ssid=0
 
     # Infrastructure mode
@@ -158,11 +158,11 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
 
     # WPA and WPA2 (RSN) are both used for eduroam 
     # (depending on which organisation you are at)
-    # In the future &#39;WPA&#39; can be removed (WPA2 only).
+    # In the future 'WPA' can be removed (WPA2 only).
     proto=WPA RSN
 
     # CCMP (AES) is stronger, but some organisations use TKIP.
-    # In the future &#39;TKIP&#39; can be removed.
+    # In the future 'TKIP' can be removed.
     pairwise=CCMP TKIP
 
     # Use EAP
@@ -177,7 +177,7 @@ and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</
 <a href="http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/">wirless.bris.ac.uk</a> for the file!</p>
 
 <p>Run <code>wpa_supplicant</code>: </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+<div class="highlight"><pre><code class="language-" data-lang="">sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
 </code></pre></div>
 <p>You&#39;ll also need the PEM file <code>uob-net-ca.pem</code> to put into <code>/etc/ssl/certs/</code>
 which is located at
@@ -198,7 +198,7 @@ connecting.</li>
 
 <p>Once you&#39;ve connected to eduroam which you can verify by running <code>iwconfig</code>. You
 should now request an ip address with the command </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo dhclient wlan0
+<div class="highlight"><pre><code class="language-" data-lang="">sudo dhclient wlan0
 </code></pre></div>
 <p>To verify that you have got an ip address run <code>ifconfig</code> and make sure your
 wireless interface (usually wlan0) has been assigned an address.</p>

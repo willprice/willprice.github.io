@@ -96,10 +96,10 @@ other niche things (think /dev/null, visualisers).</li>
 
 <p><img src="/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg" alt="Diagram of PA network streaming setup"></p>
 
-<h2 id="setup-the-server-(the-machine-that-is-attached-to-an-audio-device):">Setup the server (the machine that is attached to an audio device):</h2>
+<h2 id="setup-the-server-the-machine-that-is-attached-to-an-audio-device">Setup the server (the machine that is attached to an audio device):</h2>
 
 <p>Add the following lines to <code>/etc/pulse/default.pa</code></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
+<div class="highlight"><pre><code class="language-" data-lang="">  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
   load-module module-zeroconf-publish
 </code></pre></div>
 <p>The first line sets up a TCP server for pulseaudio allowing remote sound sources
@@ -109,12 +109,12 @@ other niche things (think /dev/null, visualisers).</li>
   need the <code>avahi deamon</code> running to be informed of the pulseaudio server you&#39;ve
   just set up. </p>
 
-<h2 id="setup-the-client-(the-machine-that-you-want-audio-to-be-streamed-from)">Setup the client (the machine that you want audio to be streamed from)</h2>
+<h2 id="setup-the-client-the-machine-that-you-want-audio-to-be-streamed-from">Setup the client (the machine that you want audio to be streamed from)</h2>
 
 <p>Add the following lines to <code>/etc/pulse/default.pa</code>
   load-module module-zeroconf-discover
   Understandably this module searches out for other pulseaudio servers on the LAN.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">load-module module-zeroconf-discover
+<div class="highlight"><pre><code class="language-" data-lang="">load-module module-zeroconf-discover
 </code></pre></div>
 <p>Restart pulseaudio and install <code>pasystray</code> or <code>padevchooser</code> to set your sink
   (desktop) on the client/source (laptop).</p>

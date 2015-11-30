@@ -85,33 +85,33 @@
 <li><em>stable matching</em>: A solution where everyone is paired in such a way that no
 two roommates would prefer to be together, than in their current match.</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">INPUT: a map of roommates to their strict preferences
+<div class="highlight"><pre><code class="language-" data-lang="">INPUT: a map of roommates to their strict preferences
 OUTPUT: a map of roommates to their best match if possible, else nothing
 
 while there are unmatched people do:
-    let &#39;proposer&#39; be the earliest roommate in the input that hasn&#39;t been
+    let 'proposer' be the earliest roommate in the input that hasn't been
     matched.
 
-    &#39;proposer&#39; proposes to the highest preference roommate, the &#39;recipient&#39;, in
-    his preferences that hasn&#39;t already rejected him.
+    'proposer' proposes to the highest preference roommate, the 'recipient', in
+    his preferences that hasn't already rejected him.
 
-    if the &#39;recipient&#39; has not received a proposal before then:
-        the &#39;recipient&#39; accepts the &#39;proposer&#39;
-    else if the &#39;recipient&#39; prefers the &#39;proposer&#39; over her current match then:
-        the &#39;recipient&#39; accepts the &#39;proposer&#39;
+    if the 'recipient' has not received a proposal before then:
+        the 'recipient' accepts the 'proposer'
+    else if the 'recipient' prefers the 'proposer' over her current match then:
+        the 'recipient' accepts the 'proposer'
     else:
-        the &#39;recipient&#39; rejects the &#39;proposer&#39;
+        the 'recipient' rejects the 'proposer'
 
-for all accepted proposals (&#39;proposer&#39; -&gt; &#39;recipient&#39;):
-    reject all pairings where (&#39;recipient&#39; -&gt; &#39;other_person&#39;) and &#39;other_person&#39;
-    has a lower ranking preference in the &#39;recipient&#39;s preferences compared to
-    &#39;proposer&#39;.
+for all accepted proposals ('proposer' -&gt; 'recipient'):
+    reject all pairings where ('recipient' -&gt; 'other_person') and 'other_person'
+    has a lower ranking preference in the 'recipient's preferences compared to
+    'proposer'.
 
-for all cycles (&#39;person_1&#39;, ... , &#39;person_n&#39;) and associated second preferences
-(&#39;second_pref_1&#39;, ... , &#39;second_pref_n&#39;):
-    let &#39;second_pref_i&#39; be the second preference of &#39;person_(i-1)&#39;
-    for all pairs (&#39;person_(i+1)&#39;, &#39;second_pref_(i)&#39;):
-        &#39;second_pref_i&#39; rejects &#39;person_(i+1)&#39;
+for all cycles ('person_1', ... , 'person_n') and associated second preferences
+('second_pref_1', ... , 'second_pref_n'):
+    let 'second_pref_i' be the second preference of 'person_(i-1)'
+    for all pairs ('person_(i+1)', 'second_pref_(i)'):
+        'second_pref_i' rejects 'person_(i+1)'
 </code></pre></div>
 <p>While this pseudo code may be a little obtuse at first, you may find that in
 addition to simple English description of how to perform the algorithm by hand
@@ -131,7 +131,7 @@ the algorithm will become quite clear in how it works.</p>
 preferences and <code>A</code> in <code>B</code>s preferences. In other words, every rejection
 consists of removing two preferences from the preferences table.</p>
 
-<h4 id="phase-1:-gale-shapley-algorithm">Phase 1: Gale-Shapley algorithm</h4>
+<h4 id="phase-1-gale-shapley-algorithm">Phase 1: Gale-Shapley algorithm</h4>
 
 <p>The Gale-Shapley algorithm was designed for a very similar problem to the
 finding a stable matching for roommates, but instead of roommates the population
@@ -152,13 +152,13 @@ reject his previous match.</li>
 <li>Go to 1 whilst there are still unmatched roommates.</li>
 </ol>
 
-<h4 id="phase-2:-removing-lesser-preferences">Phase 2: Removing lesser preferences</h4>
+<h4 id="phase-2-removing-lesser-preferences">Phase 2: Removing lesser preferences</h4>
 
 <p>For every accepted proposal where <em>proposer</em> has been accepted by <em>recipient</em>,
 reject all lower preferences then the <em>proposer</em> in the <em>recipients</em> preference
 list</p>
 
-<h4 id="phase-3:-eliminating-remaining-preferences-by-analysis-of-cycles">Phase 3: Eliminating remaining preferences by analysis of cycles</h4>
+<h4 id="phase-3-eliminating-remaining-preferences-by-analysis-of-cycles">Phase 3: Eliminating remaining preferences by analysis of cycles</h4>
 
 <p>For every roommate that has more than one preference left in the preferences
 table, write down a table where the top element is the roommate, and the one
