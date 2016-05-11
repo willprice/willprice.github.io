@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+  <title>Mini-project: Horizontally scale a web service using Docker</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Will Price" />
+  <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/user.css">
+	<link rel="stylesheet" href="/css/pygments.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+
+  <! -- SCRIPTS
+  ================================================== -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/scripts/toc.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41410283-1', 'willprice.org');
+    ga('send', 'pageview');
+  </script>
+  
+
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+
+
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div class="container">
+		<div class="sixteen columns">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/posts.html">Posts</a>
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+
+      <section>
+      <div class="content">
+    <div id="post">
+        <h1>Mini-project: Horizontally scale a web service using Docker</h1>
+        
+        <p><em>Estimated Duration:</em> 2-4 hours</p>
+
+<p><em>Author:</em> Will Price, Codemanship</p>
+
+<p><em>Language(s)/stacks:</em> Any, Docker</p>
+
+<p><em>Goal:</em> Produce a simple web service that is easily overwhelmed by multiple
+concurrent requests.  To handle more concurrent users run multiple instances of
+the service behind a reverse proxy to abstract away which instance you are
+querying. Dynamically scale the number of instances of the service whilst
+updating the reverse proxy configuration.</p>
+
+<h2 id="summary">Summary:</h2>
+
+<p>Create a web service in your favourite language with the following end point
+* GET <code>/is_prime/&lt;integer&gt;</code> that responds with the JSON:
+  <code>{ &quot;integer&quot;: &lt;integer&gt;, &quot;is_prime&quot;: &lt;true,false&gt; }</code>
+Do this using the square root search method: iterate a candidate factor variable
+up to the square root of the integer, for each number checking whether the
+remainder of the integer divided by the candidate factor is zero (if it is, then
+it is a factor), this has the worst case complexity $$\mathcal{O}(\sqrt(n))$$.
+* Dockerise your web service
+* Run multiple instances of your web service and manually configure a reverse
+  proxy to allocate requests using <a href="https://en.wikipedia.org/wiki/Round-robin_scheduling">round robin</a> scheduling.
+* Dynamically configure the reverse proxy based on the running containers using
+  <a href="https://github.com/jwilder/docker-gen">Docker-gen</a></p>
+
+<h2 id="continuous-integration-extension">Continuous Integration Extension:</h2>
+
+<ul>
+<li>Build a container on each commit to your git repository using travis, jenkins,
+your favourite CI server.</li>
+<li>On a successful image build, push that image to the docker registry from your
+CI server.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>See my own attempt at
+<a href="https://github.com/willprice/horizontally-scaling-webservices-using-docker">https://github.com/willprice/horizontally-scaling-webservices-using-docker</a></p>
+
+    </div>
+</div>
+
+      </section>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </div>
+  <!-- container -->
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
