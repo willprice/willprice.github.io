@@ -80,30 +80,28 @@
     <div id="post">
         <h1>Mock objects: The BoxOffice example</h1>
         
-        <p>(Friday 30th August Pairing with Jason)</p>
+        <p>(Friday 30th August Pairing with Jason)
+### Introduction: Why mock objects</p>
 
-<h3 id="introduction-why-mock-objects">Introduction: Why mock objects</h3>
-
-<p>Having been exposed to the basics of TDD: Using <code>asserts</code> to make sure things
+<p>Having been exposed to the basics of TDD: Using <code class="highlighter-rouge">asserts</code> to make sure things
 changed; trying to write each test so it fails for only one reason;
 triangulating a solution, rather than just dumping it all in one fell swoop, I
 thought it was about time to learn what mock objects are, and what they are used
 for.</p>
 
 <h3 id="useful-terminology">Useful Terminology:</h3>
-
 <p>Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
-* <code>Stub</code> - A method that returns a specific result
-* <code>Mock</code> - A class with the assertion that a certain method was called.</p>
+* <code class="highlighter-rouge">Stub</code> - A method that returns a specific result
+* <code class="highlighter-rouge">Mock</code> - A class with the assertion that a certain method was called.</p>
 
-<p>Don&#39;t expect my usage of terminology to be spot on; I&#39;m still learning!</p>
+<p>Don’t expect my usage of terminology to be spot on; I’m still learning!</p>
 
 <h3 id="the-problem">The Problem:</h3>
-
 <p>Jason suggested we try writing a virtual box office where a customer can book
 tickets for a specific play. After a discussion we wrote an acceptance test (in
 English) to outline what our end result should be able to do:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">Given that the seat A6 is available for a performance of 'Cats'
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Given that the seat A6 is available for a performance of 'Cats'
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -126,86 +124,103 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 2. Box office finds performance of 'Cats' and tells performance to reserve Seat A6 using credit card number 1234
 3. 'Cats' performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
 4. Seat A6 records the credit card number of the reserver.
-</code></pre></div>
-<h3 id="building-outside-in">Building Outside in:</h3>
+</code></pre>
+</div>
 
+<h3 id="building-outside-in">Building Outside in:</h3>
 <p>When building an application from the outside in, we need some way of testing
-the interaction between what we&#39;re writing and the next layer in which hasn&#39;t
-been written yet. That&#39;s were mocks and stubs come in...</p>
+the interaction between what we’re writing and the next layer in which hasn’t
+been written yet. That’s were mocks and stubs come in…</p>
 
 <p>To start off Jason suggested that we design the program as a simple web
-service--a query would come in with a performance name, credit card number, and
-seat identifier. We&#39; d then reserve the seat if it was available, otherwise
+service–a query would come in with a performance name, credit card number, and
+seat identifier. We’ d then reserve the seat if it was available, otherwise
 throw and exception indicating the unavailability of that seat.</p>
 
 <p>The simplest thing I could think of testing was <strong>finding a specific
 performance</strong>, the implementation is pretty simple, define a method on
-<code>BoxOffice</code> that finds a performance in a <code>HashMap&lt;String, Performance&gt;</code>.
+<code class="highlighter-rouge">BoxOffice</code> that finds a performance in a <code class="highlighter-rouge">HashMap&lt;String, Performance&gt;</code>.
 Testing this is more complicated than simply asserting that the correct
 performance was found using the search. Mocks to the rescue! We can write an
-interface (<code>Mockito</code> can also mock classes too, Jason showed me the traditional
+interface (<code class="highlighter-rouge">Mockito</code> can also mock classes too, Jason showed me the traditional
 way, before mocking classes was possible) for performance and then mock it using
-<code>mock(Performance.class)</code>, this returns a mock object of the type <code>Performance</code>.
+<code class="highlighter-rouge">mock(Performance.class)</code>, this returns a mock object of the type <code class="highlighter-rouge">Performance</code>.
 It has no functionality, but we can call any method on it that is defined in the
-interface, the methods will not do anything as we haven&#39;t defined any behaviour
-for it (because for this test behaviour is superfluous). </p>
-<div class="highlight"><pre><code class="language-" data-lang="">    // BoxOffice is a field in the test class
+interface, the methods will not do anything as we haven’t defined any behaviour
+for it (because for this test behaviour is superfluous).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
-    Performance mockPerformance = mock(Performance.class);
-    HashMap&lt;String, Performance&gt; performances = new HashMap&lt;&gt;();
-    performances.put("Cats", mockPerformance);
-    boxOffice = new BoxOffice(performances);
-    return mockPerformance;
+	Performance mockPerformance = mock(Performance.class);
+	HashMap&lt;String, Performance&gt; performances = new HashMap&lt;&gt;();
+	performances.put("Cats", mockPerformance);
+	boxOffice = new BoxOffice(performances);
+	return mockPerformance;
 }
 
 @Test
 public void findsPerformanceOfCats() {
-    Performance mockPerformance = createBoxOfficeWithMockPerformance();
-    assertEquals(mockPerformance, boxOffice.findPerformance("Cats"));
+	Performance mockPerformance = createBoxOfficeWithMockPerformance();
+	assertEquals(mockPerformance, boxOffice.findPerformance("Cats"));
 }
-</code></pre></div>
-<p>I thought the responsibility of reserving a seat should belong to a <code>Seat</code> class that would be at the bottom of the class hierarchy of the finished application: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">BoxOffice -&gt; Performance -&gt; Seat
-</code></pre></div>
-<p><code>BoxOffice</code> would need to talk to <code>Performance</code> which would then eventually talk to <code>Seat</code>. </p>
+</code></pre>
+</div>
 
-<p>We wrote the next test for <strong>Reserving a seat</strong>. <code>BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)</code> would be the signature of the method so we started by writing the assertion: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">verify(mockPerformance).reserveSeat("A6", "1234")
-</code></pre></div>
-<p><code>verify</code> takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call <code>mockPerformance.reserveSeat(...)</code> which would be called by <code>BoxOffice.reserveSeat(...)</code></p>
-<div class="highlight"><pre><code class="language-" data-lang="">// mockPerformance is a performance of "Cats" in the box office
+<p>I thought the responsibility of reserving a seat should belong to a <code class="highlighter-rouge">Seat</code> class that would be at the bottom of the class hierarchy of the finished application:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>BoxOffice -&gt; Performance -&gt; Seat
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">BoxOffice</code> would need to talk to <code class="highlighter-rouge">Performance</code> which would then eventually talk to <code class="highlighter-rouge">Seat</code>.</p>
+
+<p>We wrote the next test for <strong>Reserving a seat</strong>. <code class="highlighter-rouge">BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)</code> would be the signature of the method so we started by writing the assertion:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>verify(mockPerformance).reserveSeat("A6", "1234")
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">verify</code> takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call <code class="highlighter-rouge">mockPerformance.reserveSeat(...)</code> which would be called by <code class="highlighter-rouge">BoxOffice.reserveSeat(...)</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// mockPerformance is a performance of "Cats" in the box office
 boxOffice.reserveSeat("Cats", "A6", "1234")
 verify(mockPerformance).reserveSeat("A6", "1234")
-</code></pre></div>
-<h3 id="mocking-voids">Mocking <code>voids</code>:</h3>
+</code></pre>
+</div>
 
-<p>Ouch! I had a hard time figuring out why <code>when(mockedObject.voidMethod).thenThrow(new RuntimeException())</code> wasn&#39;t working. Mockito&#39;s <code>when</code> method doesn&#39;t work with void methods. You must use a <code>doReturn|doThrow|doAnswer...</code> method, and so the <code>when</code> code ends up looking like: <code>doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);</code></p>
+<h3 id="mocking-voids">Mocking <code class="highlighter-rouge">voids</code>:</h3>
+<p>Ouch! I had a hard time figuring out why <code class="highlighter-rouge">when(mockedObject.voidMethod).thenThrow(new RuntimeException())</code> wasn’t working. Mockito’s <code class="highlighter-rouge">when</code> method doesn’t work with void methods. You must use a <code class="highlighter-rouge">doReturn|doThrow|doAnswer...</code> method, and so the <code class="highlighter-rouge">when</code> code ends up looking like: <code class="highlighter-rouge">doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);</code></p>
 
-<p>This helped me mock <code>Performance</code> so that I could throw an <code>UnavailableSeatException</code> when trying to reserve a seat for the second time in my acceptance test. </p>
+<p>This helped me mock <code class="highlighter-rouge">Performance</code> so that I could throw an <code class="highlighter-rouge">UnavailableSeatException</code> when trying to reserve a seat for the second time in my acceptance test.</p>
 
 <h3 id="mocked-method-behaviour">Mocked method behaviour</h3>
-
-<p>Giving mocked methods &#39;intelligent&#39; behaviour cam be accomplished in 2 ways. </p>
+<p>Giving mocked methods ‘intelligent’ behaviour cam be accomplished in 2 ways.</p>
 
 <ol>
-<li>Changing the behaviour based on argument</li>
-<li>Changing behavious based on number of invocations</li>
+  <li>Changing the behaviour based on argument</li>
+  <li>Changing behavious based on number of invocations</li>
 </ol>
 
 <p>The first:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">when(mockObject.method(1)).thenReturn(1)
+
+<div class="highlighter-rouge"><pre class="highlight"><code>when(mockObject.method(1)).thenReturn(1)
 when(mockObject.method(2)).thenReturn(2)
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>The second</p>
-<div class="highlight"><pre><code class="language-" data-lang="">when(mockObject.method()).thenReturn(1).thenReturn(2)
+
+<div class="highlighter-rouge"><pre class="highlight"><code>when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&gt; 1
 mockObject.method() // =&gt; 2
-</code></pre></div>
-<p>Mockito returns the mocked method for each <code>then*</code> invocation, so you can chain the <code>then*</code> methods together like in this example. </p>
+</code></pre>
+</div>
+
+<p>Mockito returns the mocked method for each <code class="highlighter-rouge">then*</code> invocation, so you can chain the <code class="highlighter-rouge">then*</code> methods together like in this example.</p>
 
 <p>My tests all have the mocks written into them. Jason suggested I try removing
 this hardcoding of objects, allowing myself to inject either mocks or a concrete
-implementation which will the focus of my next post; that is once I&#39;ve managed
+implementation which will the focus of my next post; that is once I’ve managed
 to do it, and write it up.</p>
 
     </div>

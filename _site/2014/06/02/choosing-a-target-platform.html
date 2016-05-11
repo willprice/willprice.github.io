@@ -77,20 +77,20 @@
     <div id="post">
         <h1>Choosing a target platform</h1>
         
-        <p>I&#39;m currently working on a project with my mentor. We first chose the simplest user
-story to work on that didn&#39;t depend on any other user stories.</p>
+        <p>I’m currently working on a project with my mentor. We first chose the simplest user
+story to work on that didn’t depend on any other user stories.</p>
 
 <blockquote>
-<p>Given a list of players for all games</p>
+  <p>Given a list of players for all games</p>
 
-<p>When a game is selected</p>
+  <p>When a game is selected</p>
 
-<p>Then the list is filtered to only include players 
+  <p>Then the list is filtered to only include players 
 capable of playing that game.</p>
 </blockquote>
 
 <p>The idea of the platform is to allow players to write AI programs that are able
-to play games (e.g. Noughts and crosses, Chess, Hangman...). Players can challenge
+to play games (e.g. Noughts and crosses, Chess, Hangman…). Players can challenge
 other players to games in which their AIs play against each other.</p>
 
 <p>Games are held on a server to eliminate issues of cheating that may
@@ -107,7 +107,7 @@ platform?</p>
 OS X, Linux, GTK, QT, KDE, Cocoa, etc. Ideally you choose the platform that
 maximises the number of users that will be able to use your system, minimise the
 time taken to develop and maximise the user experience. Unfortunately no silver
-bullet exists, and so you have to make trade-offs on each of these points. </p>
+bullet exists, and so you have to make trade-offs on each of these points.</p>
 
 <p>If you develop for the web you maximise your audience at the cost of having to
 check your website works in a hundred different browsers at hundreds of
@@ -123,13 +123,13 @@ plethora of different devices that your application has to work well on.</p>
 racks up large development costs. You could trade in part of your user
 experience and develop in Java/Swing so that the application runs on all
 platforms, but requires your users to download a 200MB language and wait 2-20
-seconds for your application to start up every time. </p>
+seconds for your application to start up every time.</p>
 
 <p>Since the target audience for our application is beginner developers such as
-Raspberry Pi enthusiasts, then we&#39;d better make sure our program runs well on
+Raspberry Pi enthusiasts, then we’d better make sure our program runs well on
 Linux (that, and I develop on Linux ;), but it should also at least run on
 Windows since almost everybody uses it, and a large proportion of our target
-audience will likely be using it. OS X shouldn&#39;t be too hard to support if we
+audience will likely be using it. OS X shouldn’t be too hard to support if we
 require Windows and Linux compatibility. What technology can we choose to
 develop for these platforms?</p>
 
@@ -137,33 +137,33 @@ develop for these platforms?</p>
 - The web
 - Cross platform languages (with cross platform GUIs)</p>
 
-<p>I&#39;ve already established that I&#39;d like to avoid web development for
+<p>I’ve already established that I’d like to avoid web development for
 the time being. This leaves us with a cross platform language to
-choose, and by cross platform I require that I don&#39;t have to
+choose, and by cross platform I require that I don’t have to
 constantly think about platform incompatibilities, I want to leave
-that up to libraries to handle. Since I&#39;ve already developed the
-server-side in Python, I&#39;d like to keep the code base as homogeneous
+that up to libraries to handle. Since I’ve already developed the
+server-side in Python, I’d like to keep the code base as homogeneous
 as possible. Python is cross platform and has a decent selection of
 good cross platform GUI toolkits (wxpython, tkinter). After looking
-into some examples with both toolkits I&#39;ll decide which to use. Python
+into some examples with both toolkits I’ll decide which to use. Python
 can also be quite easily be packaged into a executable that includes
 the interpreter/VM in a reasonable size (&lt; 20MB).</p>
 
-<p>My mentor suggested Android as a target platform since it&#39;s programmed in Java,
-a language he&#39;s an expert in, and we&#39;ve both paired on lots of Java katas
+<p>My mentor suggested Android as a target platform since it’s programmed in Java,
+a language he’s an expert in, and we’ve both paired on lots of Java katas
 before. I raised the point that this seems to fragment our user experience to
 programming on a laptop/desktop and challenging on a phone/tablet, therefore
 restricting our audience and making development harder (testing on devices). He
-countered that we needn&#39;t have just one client, but that we need to push on and
-develop some client to pass the acceptance test. I&#39;m in two minds about this;
-I&#39;m not sure whether we should target Android for our first client since in my
+countered that we needn’t have just one client, but that we need to push on and
+develop some client to pass the acceptance test. I’m in two minds about this;
+I’m not sure whether we should target Android for our first client since in my
 eyes, a desktop client would be more useful to our target audience, and it means
 programming in a different language which will surely duplicate some of the code
-that was developed for the server. On the other hand I&#39;m unsure how difficult
+that was developed for the server. On the other hand I’m unsure how difficult
 writing a GUI program in Python is going to be, if I come across unforeseen
 issues then development might stall again, which we want to try and avoid in the
-next month since we want to present what we&#39;ve been doing at the BCS SPA
-conference--It&#39;d be good to have some MVP to show off.</p>
+next month since we want to present what we’ve been doing at the BCS SPA
+conference–It’d be good to have some MVP to show off.</p>
 
     </div>
 </div>

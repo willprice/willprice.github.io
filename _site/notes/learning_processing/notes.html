@@ -79,8 +79,7 @@
 
       <section>
       <h2 id="arrays">ARRAYS</h2>
-
-<p>Array&#39;s are declared using the syntax:</p>
+<p>Array’s are declared using the syntax:</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">type</span> <span class="o">[]</span> <span class="n">name</span> <span class="o">=</span> <span class="k">new</span> <span class="n">type</span> <span class="o">[</span><span class="n">size</span><span class="o">]</span></code></pre></figure>
 
@@ -91,29 +90,28 @@
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Array of 10 integers to enter ages into.</span>
 <span class="kt">int</span> <span class="o">[]</span> <span class="n">ages</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span> <span class="o">[</span><span class="mi">10</span><span class="o">]</span></code></pre></figure>
 
-<p>Initially after defining an array, it will be empty, the elements have no defined values. To set up an array, it&#39;s usually best to fill it with something, lets say 0s.</p>
+<p>Initially after defining an array, it will be empty, the elements have no defined values. To set up an array, it’s usually best to fill it with something, lets say 0s.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ages</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
   <span class="n">age</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="o">}</span></code></pre></figure>
 
 <h2 id="objects">OBJECTS</h2>
-
 <p>Objects essentially pack up a set of variables and functions into a data structure that allows you to organise your code efficiently.</p>
 
 <p>Objects are defined in a few distinct parts. Looking at an object from a top-down perspective:</p>
 
 <ul>
-<li>Class
-
-<ul>
-<li>Variables of object</li>
-<li>Object constructor </li>
-<li>Functions</li>
-</ul></li>
+  <li>Class
+    <ul>
+      <li>Variables of object</li>
+      <li>Object constructor</li>
+      <li>Functions</li>
+    </ul>
+  </li>
 </ul>
 
-<p>A <em>class</em> is simply a way to define an object, or perhaps more intuitively a set of objects (think of yourself as a particular human, in this case, you&#39;re the object and the class is &#39;<em>humans</em>). From the class, objects can be produced using the <em>constructor</em> which defines which variables should be set externally through parameters (for example position etc). Variables just keep track of the data in the object. Functions take care of functionality...</p>
+<p>A <em>class</em> is simply a way to define an object, or perhaps more intuitively a set of objects (think of yourself as a particular human, in this case, you’re the object and the class is ‘<em>humans</em>). From the class, objects can be produced using the <em>constructor</em> which defines which variables should be set externally through parameters (for example position etc). Variables just keep track of the data in the object. Functions take care of functionality…</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Name</span> <span class="o">{</span>
 
@@ -147,9 +145,9 @@
 
 <h2 id="transformations">TRANSFORMATIONS</h2>
 
-<p>Transformations are carried out by moving the origin using the <code>translate()</code> function, <code>translate(x,y)</code> moves the origin by <code>x</code> to the right and <code>y</code> down. Rotate is used to spin the canvas around the origin clockwise: <code>rotate(x)</code> will rotate the canvas by <code>x</code> radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save transformations, this is handled by storing translations and rotations in a matrix, this matrix can be pushed to a stack using <code>matrixPush()</code> and popped using <code>matrixPop()</code> (pushing is like saving and removing, popping is like restoring, look up how stacks work).</p>
+<p>Transformations are carried out by moving the origin using the <code class="highlighter-rouge">translate()</code> function, <code class="highlighter-rouge">translate(x,y)</code> moves the origin by <code class="highlighter-rouge">x</code> to the right and <code class="highlighter-rouge">y</code> down. Rotate is used to spin the canvas around the origin clockwise: <code class="highlighter-rouge">rotate(x)</code> will rotate the canvas by <code class="highlighter-rouge">x</code> radians. To handle multiple translations when dealing with lots of shapes etc, it makes sense to save transformations, this is handled by storing translations and rotations in a matrix, this matrix can be pushed to a stack using <code class="highlighter-rouge">matrixPush()</code> and popped using <code class="highlighter-rouge">matrixPop()</code> (pushing is like saving and removing, popping is like restoring, look up how stacks work).</p>
 
-<p>Here&#39;s a good example of a variety of transformative functions:</p>
+<p>Here’s a good example of a variety of transformative functions:</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">number_of_boxes</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
 <span class="kt">float</span> <span class="n">width_of_box</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
@@ -199,20 +197,14 @@
 <canvas data-processing-sources="sketches/boxes.pde"></canvas>
 
 <h2 id="strings">STRINGS</h2>
-
-<p>Strings are immutable and hence cannot be modified.</p>
-
-<h3 id="methods">Methods:</h3>
-
-<ul>
-<li>toUpperCase()</li>
-<li>length()</li>
-<li>chartAt(x)</li>
-<li>equals(stringB) (This is used instead of <code>==</code> as <code>==</code> compares memory address, <code>equals</code> compares actual values at memory addresses)</li>
-</ul>
+<p>Strings are immutable and hence cannot be modified.
+### Methods:
+- toUpperCase()
+- length()
+- chartAt(x)
+- equals(stringB) (This is used instead of <code class="highlighter-rouge">==</code> as <code class="highlighter-rouge">==</code> compares memory address, <code class="highlighter-rouge">equals</code> compares actual values at memory addresses)</p>
 
 <h3 id="specifying-fonts">Specifying fonts:</h3>
-
 <p>To use a font in processing for display, you must initialize it using the following snippet of code:</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="n">PFont</span> <span class="n">f</span><span class="o">;</span>
@@ -229,8 +221,7 @@
   <span class="o">}</span></code></pre></figure>
 
 <h3 id="drawing-text">Drawing text</h3>
-
-<p><code>text(string,x,y)</code> is used to draw text, this is left-aligned by default, i.e. text starts being drawn from (x,y). <code>textAlign(LEFT)/textAlign(CENTER)/textAlign(RIGHT)</code> modifies this characteristic. <code>textSize(i)</code> specifies the size of the text. <code>textWidth(char)</code> returns the width of a specific character.</p>
+<p><code class="highlighter-rouge">text(string,x,y)</code> is used to draw text, this is left-aligned by default, i.e. text starts being drawn from (x,y). <code class="highlighter-rouge">textAlign(LEFT)/textAlign(CENTER)/textAlign(RIGHT)</code> modifies this characteristic. <code class="highlighter-rouge">textSize(i)</code> specifies the size of the text. <code class="highlighter-rouge">textWidth(char)</code> returns the width of a specific character.</p>
 
       </section>
     </div>

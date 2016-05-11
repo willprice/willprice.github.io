@@ -74,20 +74,19 @@
 
       <section>
       <h1 id="sensing-the-world-around-you">Sensing the world around you!</h1>
-
 <p>Our robot is equipped with two types of sensors:</p>
 
 <ol>
-<li>1 x InfraRed (IR) distance sensor.</li>
-<li>3 x Line following sensors.</li>
+  <li>1 x InfraRed (IR) distance sensor.</li>
+  <li>3 x Line following sensors.</li>
 </ol>
 
-<p>We&#39;ll be using just the first today. I haven&#39;t used the line following sensors
-yet so there are no functions to use them in the <code>DFRduino</code> library. To measure
-the distance we can use the <code>readDistanceInCentimeters()</code> function, can you
-guess what it does...?</p>
+<p>We’ll be using just the first today. I haven’t used the line following sensors
+yet so there are no functions to use them in the <code class="highlighter-rouge">DFRduino</code> library. To measure
+the distance we can use the <code class="highlighter-rouge">readDistanceInCentimeters()</code> function, can you
+guess what it does…?</p>
 
-<p>Ha... here&#39;s an example:</p>
+<p>Ha… here’s an example:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
 #include &lt;DFRduino.h&gt;
@@ -107,7 +106,7 @@ guess what it does...?</p>
   <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Pick your robot up and point it&#39;s eyes (the IR sensor) at some stuff, see how
+<p>Pick your robot up and point it’s eyes (the IR sensor) at some stuff, see how
 far, and how close it measure. Notice what happens when you move your hand too
 close to the sensor, what happens to the distance read?</p>
 
@@ -116,7 +115,7 @@ takes to bounce of a surface and be read by the infra red sensor. Can you
 explain what happens when you cover up the left hand side of the sensor?</p>
 
 <p>Our goal at the end of the workshop is for you to have built an obstacle
-avoiding robot. Let&#39;s have a look at how we can move depending on the distance
+avoiding robot. Let’s have a look at how we can move depending on the distance
 read by the sensor:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
@@ -148,17 +147,17 @@ read by the sensor:</p>
 <span class="p">}</span></code></pre></figure>
 
 <p>Surprisingly, at least in my room this is a relatively effective tactic, in
-fact, it&#39;s even better than some considerably more complex code I wrote! But
-we&#39;ll look at the complicated code anyway, so you can show me how I was doing it
+fact, it’s even better than some considerably more complex code I wrote! But
+we’ll look at the complicated code anyway, so you can show me how I was doing it
 wrong all along! The method of going back for a second, then turning 90 degrees
 right is called a <em>heuristic</em>. A <em>heuristic</em> is a way of solving a problem, it
 will not give you the optimal solution (notice how the robot will not see things
-below it&#39;s line of sight, like a pen, and will crash into them), but it will
-give you a reasonable solution none the less. I&#39;m sure you can develop a
-heuristic that is superior to this demo. Go have a go doing that now...</p>
+below it’s line of sight, like a pen, and will crash into them), but it will
+give you a reasonable solution none the less. I’m sure you can develop a
+heuristic that is superior to this demo. Go have a go doing that now…</p>
 
-<p>... or if you&#39;re more interested in making your robot&#39;s head move, then move on
-to the next section: <a href="nodding.html"><strong>nodding</strong></a> </p>
+<p>… or if you’re more interested in making your robot’s head move, then move on
+to the next section: <a href="nodding.html"><strong>nodding</strong></a></p>
 
       </section>
     </div>

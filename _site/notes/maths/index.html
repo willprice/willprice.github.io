@@ -74,18 +74,16 @@
 
       <section>
       <h1 id="maths">Maths</h1>
-
-<h2 id="algorithms">Algorithms</h2>
-
-<h3 id="stable-roommate-problem">Stable Roommate problem</h3>
+<p>## Algorithms
+### Stable Roommate problem</p>
 
 <h4 id="terminology">Terminology</h4>
-
 <ul>
-<li><em>stable matching</em>: A solution where everyone is paired in such a way that no
+  <li><em>stable matching</em>: A solution where everyone is paired in such a way that no
 two roommates would prefer to be together, than in their current match.</li>
 </ul>
-<div class="highlight"><pre><code class="language-" data-lang="">INPUT: a map of roommates to their strict preferences
+
+<div class="highlighter-rouge"><pre class="highlight"><code>INPUT: a map of roommates to their strict preferences
 OUTPUT: a map of roommates to their best match if possible, else nothing
 
 while there are unmatched people do:
@@ -112,7 +110,9 @@ for all cycles ('person_1', ... , 'person_n') and associated second preferences
     let 'second_pref_i' be the second preference of 'person_(i-1)'
     for all pairs ('person_(i+1)', 'second_pref_(i)'):
         'second_pref_i' rejects 'person_(i+1)'
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>While this pseudo code may be a little obtuse at first, you may find that in
 addition to simple English description of how to perform the algorithm by hand
 the algorithm will become quite clear in how it works.</p>
@@ -120,15 +120,15 @@ the algorithm will become quite clear in how it works.</p>
 <p>We split the algorithm into three phases:</p>
 
 <ol>
-<li>Gale-Shapley algorithm.</li>
-<li>Remove lesser preferences from recipients.</li>
-<li>Eliminate remaining preferences by analysis of cycles.</li>
+  <li>Gale-Shapley algorithm.</li>
+  <li>Remove lesser preferences from recipients.</li>
+  <li>Eliminate remaining preferences by analysis of cycles.</li>
 </ol>
 
 <h4 id="rejecting-a-proposal">Rejecting a proposal</h4>
 
-<p>By rejecting a proposal <code>A -&gt; B</code>, you must cross off both <code>B</code> in <code>A</code>s
-preferences and <code>A</code> in <code>B</code>s preferences. In other words, every rejection
+<p>By rejecting a proposal <code class="highlighter-rouge">A -&gt; B</code>, you must cross off both <code class="highlighter-rouge">B</code> in <code class="highlighter-rouge">A</code>s
+preferences and <code class="highlighter-rouge">A</code> in <code class="highlighter-rouge">B</code>s preferences. In other words, every rejection
 consists of removing two preferences from the preferences table.</p>
 
 <h4 id="phase-1-gale-shapley-algorithm">Phase 1: Gale-Shapley algorithm</h4>
@@ -139,17 +139,17 @@ was split into two halves, males, and females, each of whom had their own
 preferences. Only one gender would propose to the other to find a stable
 matching.</p>
 
-<p>We apply this algorithm to the roommates and their associated preferences. </p>
+<p>We apply this algorithm to the roommates and their associated preferences.</p>
 
 <ol>
-<li>Pick the first roommate on the list that hasn&#39;t had one of their proposals
+  <li>Pick the first roommate on the list that hasn’t had one of their proposals
 accepted, we shall call her the <em>proposer</em></li>
-<li>The <em>proposer</em> proposes to her first preference, the <em>recipient</em>, that hasn&#39;t already rejected
-her. If the <em>recipient</em> hasn&#39;t had a proposal before, then he accepts,
+  <li>The <em>proposer</em> proposes to her first preference, the <em>recipient</em>, that hasn’t already rejected
+her. If the <em>recipient</em> hasn’t had a proposal before, then he accepts,
 otherwise if the <em>proposer</em> is of a higher preference to the <em>recipient</em> than
 the <em>recipient</em> current match, the <em>recipient</em> accepts the proposal and
 reject his previous match.</li>
-<li>Go to 1 whilst there are still unmatched roommates.</li>
+  <li>Go to 1 whilst there are still unmatched roommates.</li>
 </ol>
 
 <h4 id="phase-2-removing-lesser-preferences">Phase 2: Removing lesser preferences</h4>
@@ -167,13 +167,13 @@ last preference of the element one cell below and behind. Essentially in
 constructing the table:</p>
 
 <ol>
-<li>Fill in the cell below you current position with the 2nd preference of the
+  <li>Fill in the cell below you current position with the 2nd preference of the
 current element</li>
-<li>Fill in the cell to the upper right of your current position with the last
+  <li>Fill in the cell to the upper right of your current position with the last
 preference of the current element</li>
 </ol>
 
-<p>Or in other words: to go down, put the 2nd preference, and to go diagonally it&#39;s
+<p>Or in other words: to go down, put the 2nd preference, and to go diagonally it’s
 the last preference.</p>
 
 <p>Continue constructing the table until you reach a cycle in the top row. Then

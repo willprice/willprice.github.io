@@ -73,16 +73,15 @@
       </div>
 
       <section>
-      <h1 id="nodding-and-moving-your-robot-39-s-head">Nodding and moving your robot&#39;s head</h1>
-
-<p>Notice how your robot&#39;s IR sensor is mounted on a frame that can move in 2
-planes? Try moving it with your hand, don&#39;t be too vigorous with them, they&#39;re
+      <h1 id="nodding-and-moving-your-robots-head">Nodding and moving your robot’s head</h1>
+<p>Notice how your robot’s IR sensor is mounted on a frame that can move in 2
+planes? Try moving it with your hand, don’t be too vigorous with them, they’re
 rather flimsy and plastic!</p>
 
-<p>So it&#39;s all well and good moving the head by hand, but it would be much more
+<p>So it’s all well and good moving the head by hand, but it would be much more
 userful doing this programmatically. There are two <a href="http://youtu.be/bMXx25Q5s24">servo
 motors</a> attached to each bracket, allow 180 degrees
-of control. We can make the robot look left and right; and up and down, so let&#39;s
+of control. We can make the robot look left and right; and up and down, so let’s
 do just that:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
@@ -110,14 +109,14 @@ do just that:</p>
 </span>  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>You may find that your robot&#39;s head isn&#39;t pointing forward, so we can modify the
-sketch above to do that using <code>setHorizontalHeadPosition</code>, this works as you&#39;d
-expected, unlike <code>setVerticalHeadPosition</code>: </p>
+<p>You may find that your robot’s head isn’t pointing forward, so we can modify the
+sketch above to do that using <code class="highlighter-rouge">setHorizontalHeadPosition</code>, this works as you’d
+expected, unlike <code class="highlighter-rouge">setVerticalHeadPosition</code>:</p>
 
 <ul>
-<li>0 degrees   - Right</li>
-<li>90 degrees  - Centre</li>
-<li>180 degrees - Left</li>
+  <li>0 degrees   - Right</li>
+  <li>90 degrees  - Centre</li>
+  <li>180 degrees - Left</li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
@@ -149,7 +148,7 @@ expected, unlike <code>setVerticalHeadPosition</code>: </p>
 </span>  <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>We could do something more interesting...</p>
+<p>We could do something more interesting…</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;Servo.h&gt;
 #include &lt;DFRduino.h&gt;
@@ -190,21 +189,21 @@ expected, unlike <code>setVerticalHeadPosition</code>: </p>
 <p>See if you can figure this out by reading the code, If not, read on!</p>
 
 <ol>
-<li>Set <code>x = 0</code>, <code>y = 0</code>.</li>
-<li>Each time we loop check to see if <code>x &gt; 180</code> or <code>x &lt; 0</code>, if this is the case,
-then change the sign of <code>xIncrement</code> (so we either increase, or decrease our
+  <li>Set <code class="highlighter-rouge">x = 0</code>, <code class="highlighter-rouge">y = 0</code>.</li>
+  <li>Each time we loop check to see if <code class="highlighter-rouge">x &gt; 180</code> or <code class="highlighter-rouge">x &lt; 0</code>, if this is the case,
+then change the sign of <code class="highlighter-rouge">xIncrement</code> (so we either increase, or decrease our
 angle)</li>
-<li>Each time we loop check to see if <code>y &gt; 160</code> or <code>y &lt; 0</code>, if this is the case,
-then change the sign of <code>yIncrement</code> (so we either increase, or decrease our
+  <li>Each time we loop check to see if <code class="highlighter-rouge">y &gt; 160</code> or <code class="highlighter-rouge">y &lt; 0</code>, if this is the case,
+then change the sign of <code class="highlighter-rouge">yIncrement</code> (so we either increase, or decrease our
 angle)</li>
-<li>Add <code>xIncrement</code> to <code>x</code> and add <code>yIncrement</code> to <code>y</code>.</li>
-<li>Set our angles by <code>x</code> and <code>y</code>.</li>
-<li>Delay for 20ms, this gives our servo a bit of time to move 1 degree. Play
-around with this value, see how fast it can go before it doesn&#39;t operate
+  <li>Add <code class="highlighter-rouge">xIncrement</code> to <code class="highlighter-rouge">x</code> and add <code class="highlighter-rouge">yIncrement</code> to <code class="highlighter-rouge">y</code>.</li>
+  <li>Set our angles by <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code>.</li>
+  <li>Delay for 20ms, this gives our servo a bit of time to move 1 degree. Play
+around with this value, see how fast it can go before it doesn’t operate
 correctly. Can you explain what happens when you leave the delay out?</li>
 </ol>
 
-<p>Time to move on and use everything you&#39;ve learnt to <a href="avoiding.html">write an obstacle avoidance
+<p>Time to move on and use everything you’ve learnt to <a href="avoiding.html">write an obstacle avoidance
 program for your robot</a></p>
 
       </section>

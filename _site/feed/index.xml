@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2016-05-11T23:04:28+01:00</updated>
+ <updated>2016-05-11T23:16:47+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -32,31 +32,37 @@ updating the reverse proxy configuration.&lt;/p&gt;
 &lt;h2 id=&quot;summary&quot;&gt;Summary:&lt;/h2&gt;
 
 &lt;p&gt;Create a web service in your favourite language with the following end point
-* GET &lt;code&gt;/is_prime/&amp;lt;integer&amp;gt;&lt;/code&gt; that responds with the JSON:
-  &lt;code&gt;{ &amp;quot;integer&amp;quot;: &amp;lt;integer&amp;gt;, &amp;quot;is_prime&amp;quot;: &amp;lt;true,false&amp;gt; }&lt;/code&gt;
-Do this using the square root search method: iterate a candidate factor variable
+GET &lt;code class=&quot;highlighter-rouge&quot;&gt;/is_prime/&amp;lt;integer&amp;gt;&lt;/code&gt; that responds with the JSON:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;integer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1234&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;is_prime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Do this using the square root search method: iterate a candidate factor variable
 up to the square root of the integer, for each number checking whether the
 remainder of the integer divided by the candidate factor is zero (if it is, then
-it is a factor), this has the worst case complexity $$\mathcal{O}(\sqrt(n))$$.
-* Dockerise your web service
-* Run multiple instances of your web service and manually configure a reverse
-  proxy to allocate requests using &lt;a href=&quot;https://en.wikipedia.org/wiki/Round-robin_scheduling&quot;&gt;round robin&lt;/a&gt; scheduling.
-* Dynamically configure the reverse proxy based on the running containers using
-  &lt;a href=&quot;https://github.com/jwilder/docker-gen&quot;&gt;Docker-gen&lt;/a&gt;&lt;/p&gt;
+it is a factor), this has the worst case complexity O(\sqrt(n)).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Dockerise your web service&lt;/li&gt;
+  &lt;li&gt;Run multiple instances of your web service and manually configure a reverse
+proxy to allocate requests using &lt;a href=&quot;https://en.wikipedia.org/wiki/Round-robin_scheduling&quot;&gt;round robin&lt;/a&gt; scheduling.&lt;/li&gt;
+  &lt;li&gt;Dynamically configure the reverse proxy based on the running containers using
+&lt;a href=&quot;https://github.com/jwilder/docker-gen&quot;&gt;Docker-gen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;continuous-integration-extension&quot;&gt;Continuous Integration Extension:&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Build a container on each commit to your git repository using travis, jenkins,
+  &lt;li&gt;Build a container on each commit to your git repository using travis, jenkins,
 your favourite CI server.&lt;/li&gt;
-&lt;li&gt;On a successful image build, push that image to the docker registry from your
+  &lt;li&gt;On a successful image build, push that image to the docker registry from your
 CI server.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
-
 &lt;p&gt;See my own attempt at
-&lt;a href=&quot;https://github.com/willprice/horizontally-scaling-webservices-using-docker&quot;&gt;https://github.com/willprice/horizontally-scaling-webservices-using-docker&lt;/a&gt;&lt;/p&gt;
+https://github.com/willprice/horizontally-scaling-webservices-using-docker&lt;/p&gt;
 </content>
  </entry>
  
@@ -66,15 +72,19 @@ CI server.&lt;/li&gt;
    <updated>2015-02-02T00:00:00+00:00</updated>
    <id>http://willprice.org/2015/02/02/loop-invariants</id>
    <content type="html">&lt;p&gt;Prove that the given the code calculates the factorial of a &lt;em&gt;positive&lt;/em&gt; integer
-variable &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+variable &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;We can annotate each line of code describe the properties of the variables (have
 a look into Hoare logic for more information).&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Subscripts denote the number of loops we have iterated through
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Subscripts denote the number of loops we have iterated through
 &lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// Since our input is a positive integer we know it is greater than 0
 // { x_0 &amp;gt; 0 }
@@ -85,18 +95,20 @@ a look into Hoare logic for more information).&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;// { x_{i + 1} = x_i - 1, y_i = x_0 * x_1 * ... * x_i }
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// { x_j = 1 }
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;We can prove validity using the following conditions&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Pre loop: (1): &lt;code&gt;{ x_0 &amp;gt; 0 }&lt;/code&gt;, (2): &lt;code&gt;{ y_0 = x_0 }&lt;/code&gt; &lt;/li&gt;
-&lt;li&gt;Inside of loop: (3): &lt;code&gt;{ x_{i + 1} = x_i - 1 }&lt;/code&gt; and (4): &lt;code&gt;{ y_i = x_0 * x_1 * ... * x_i }&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Post loop: (5): &lt;code&gt;{ x_j = 1 }&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Pre loop: (1): &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;, (2): &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;y_0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Inside of loop: (3): &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_{i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt; and (4): &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;y_i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Post loop: (5): &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;x_j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The loop runs &lt;code&gt;j&lt;/code&gt; times since the loop will only execute when &lt;code&gt;x_i &amp;gt; 1&lt;/code&gt;, and
-from (1), (3), (4) and (5) we can deduce that &lt;code&gt;y_j =  x_0 * x_1 * ... * x_j = x
-* (x - 1) * ... * 1&lt;/code&gt; which is the factorial of &lt;code&gt;x&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The loop runs &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt; times since the loop will only execute when &lt;code class=&quot;highlighter-rouge&quot;&gt;x_i &amp;gt; 1&lt;/code&gt;, and
+from (1), (3), (4) and (5) we can deduce that &lt;code class=&quot;highlighter-rouge&quot;&gt;y_j =  x_0 * x_1 * ... * x_j = x
+* (x - 1) * ... * 1&lt;/code&gt; which is the factorial of &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;.&lt;/p&gt;
 </content>
  </entry>
  
@@ -106,12 +118,12 @@ from (1), (3), (4) and (5) we can deduce that &lt;code&gt;y_j =  x_0 * x_1 * ...
    <updated>2014-08-20T00:00:00+01:00</updated>
    <id>http://willprice.org/2014/08/20/errors-pushing-via-git-in-pycharmintellij</id>
    <content type="html">&lt;p&gt;If you find yourself in the same position as I did where trying to push via an
-IntelliJ based IDE isn&amp;#39;t working (in my case PyCharm), and you&amp;#39;re getting the
-error: &lt;code&gt;Push failed: fatal: Could not read from remote repository&lt;/code&gt;. You might
-find that changing your SSH executable from the &lt;code&gt;built-in&lt;/code&gt; to the system
-&lt;code&gt;native&lt;/code&gt; will fix your woes. Pop into the preferences of your project and
-navigate to &lt;code&gt;Version Control/Git/SSH executable&lt;/code&gt; and flip that setting to
-&lt;code&gt;native&lt;/code&gt;.&lt;/p&gt;
+IntelliJ based IDE isn’t working (in my case PyCharm), and you’re getting the
+error: &lt;code class=&quot;highlighter-rouge&quot;&gt;Push failed: fatal: Could not read from remote repository&lt;/code&gt;. You might
+find that changing your SSH executable from the &lt;code class=&quot;highlighter-rouge&quot;&gt;built-in&lt;/code&gt; to the system
+&lt;code class=&quot;highlighter-rouge&quot;&gt;native&lt;/code&gt; will fix your woes. Pop into the preferences of your project and
+navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;Version Control/Git/SSH executable&lt;/code&gt; and flip that setting to
+&lt;code class=&quot;highlighter-rouge&quot;&gt;native&lt;/code&gt;.&lt;/p&gt;
 </content>
  </entry>
  
@@ -120,26 +132,29 @@ navigate to &lt;code&gt;Version Control/Git/SSH executable&lt;/code&gt; and flip
    <link href="http://willprice.org//2014/08/19/properties-in-python.html"/>
    <updated>2014-08-19T00:00:00+01:00</updated>
    <id>http://willprice.org/2014/08/19/properties-in-python</id>
-   <content type="html">&lt;p&gt;As we all know, it&amp;#39;s important to wrap field access of an object in a function
-e.g. &lt;code&gt;get_name&lt;/code&gt; simply returns &lt;code&gt;self.name&lt;/code&gt;. In python one can consider this an
-antipattern since we have these wonderful things called &lt;code&gt;properties&lt;/code&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;As we all know, it’s important to wrap field access of an object in a function
+e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;get_name&lt;/code&gt; simply returns &lt;code class=&quot;highlighter-rouge&quot;&gt;self.name&lt;/code&gt;. In python one can consider this an
+antipattern since we have these wonderful things called &lt;code class=&quot;highlighter-rouge&quot;&gt;properties&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;properties&lt;/code&gt; allow you to add a getter (or setter) when you need one, rather
-than from the get go. Imagine you&amp;#39;d written a tonne of client code where you&amp;#39;re
-accessing a password of a user: e.g. &lt;code&gt;user.password&lt;/code&gt;, but you&amp;#39;ve now decided
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;properties&lt;/code&gt; allow you to add a getter (or setter) when you need one, rather
+than from the get go. Imagine you’d written a tonne of client code where you’re
+accessing a password of a user: e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;user.password&lt;/code&gt;, but you’ve now decided
 that any time the user password is accessed it should be logged, you might be
-thinking &amp;quot;Oh god no, why didn&amp;#39;t I use a getter, I could have put the logging
-call inside of that&amp;quot;. Well no worries, you can transparently do this!&lt;/p&gt;
+thinking “Oh god no, why didn’t I use a getter, I could have put the logging
+call inside of that”. Well no worries, you can transparently do this!&lt;/p&gt;
 
 &lt;p&gt;Go from this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;To this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;
         &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;
@@ -148,8 +163,9 @@ call inside of that&amp;quot;. Well no worries, you can transparently do this!&l
     &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Password of user &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s, was accessed&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_password&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now any time someone calls &lt;code&gt;user.password&lt;/code&gt;  it&amp;#39;ll call the &lt;code&gt;password&lt;/code&gt; function,
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Now any time someone calls &lt;code class=&quot;highlighter-rouge&quot;&gt;user.password&lt;/code&gt;  it’ll call the &lt;code class=&quot;highlighter-rouge&quot;&gt;password&lt;/code&gt; function,
 log the password access and then return the property.&lt;/p&gt;
 </content>
  </entry>
@@ -159,20 +175,20 @@ log the password access and then return the property.&lt;/p&gt;
    <link href="http://willprice.org//2014/06/02/choosing-a-target-platform.html"/>
    <updated>2014-06-02T00:00:00+01:00</updated>
    <id>http://willprice.org/2014/06/02/choosing-a-target-platform</id>
-   <content type="html">&lt;p&gt;I&amp;#39;m currently working on a project with my mentor. We first chose the simplest user
-story to work on that didn&amp;#39;t depend on any other user stories.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I’m currently working on a project with my mentor. We first chose the simplest user
+story to work on that didn’t depend on any other user stories.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Given a list of players for all games&lt;/p&gt;
+  &lt;p&gt;Given a list of players for all games&lt;/p&gt;
 
-&lt;p&gt;When a game is selected&lt;/p&gt;
+  &lt;p&gt;When a game is selected&lt;/p&gt;
 
-&lt;p&gt;Then the list is filtered to only include players 
+  &lt;p&gt;Then the list is filtered to only include players 
 capable of playing that game.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;The idea of the platform is to allow players to write AI programs that are able
-to play games (e.g. Noughts and crosses, Chess, Hangman...). Players can challenge
+to play games (e.g. Noughts and crosses, Chess, Hangman…). Players can challenge
 other players to games in which their AIs play against each other.&lt;/p&gt;
 
 &lt;p&gt;Games are held on a server to eliminate issues of cheating that may
@@ -189,7 +205,7 @@ platform?&lt;/p&gt;
 OS X, Linux, GTK, QT, KDE, Cocoa, etc. Ideally you choose the platform that
 maximises the number of users that will be able to use your system, minimise the
 time taken to develop and maximise the user experience. Unfortunately no silver
-bullet exists, and so you have to make trade-offs on each of these points. &lt;/p&gt;
+bullet exists, and so you have to make trade-offs on each of these points.&lt;/p&gt;
 
 &lt;p&gt;If you develop for the web you maximise your audience at the cost of having to
 check your website works in a hundred different browsers at hundreds of
@@ -205,13 +221,13 @@ plethora of different devices that your application has to work well on.&lt;/p&g
 racks up large development costs. You could trade in part of your user
 experience and develop in Java/Swing so that the application runs on all
 platforms, but requires your users to download a 200MB language and wait 2-20
-seconds for your application to start up every time. &lt;/p&gt;
+seconds for your application to start up every time.&lt;/p&gt;
 
 &lt;p&gt;Since the target audience for our application is beginner developers such as
-Raspberry Pi enthusiasts, then we&amp;#39;d better make sure our program runs well on
+Raspberry Pi enthusiasts, then we’d better make sure our program runs well on
 Linux (that, and I develop on Linux ;), but it should also at least run on
 Windows since almost everybody uses it, and a large proportion of our target
-audience will likely be using it. OS X shouldn&amp;#39;t be too hard to support if we
+audience will likely be using it. OS X shouldn’t be too hard to support if we
 require Windows and Linux compatibility. What technology can we choose to
 develop for these platforms?&lt;/p&gt;
 
@@ -219,33 +235,33 @@ develop for these platforms?&lt;/p&gt;
 - The web
 - Cross platform languages (with cross platform GUIs)&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;ve already established that I&amp;#39;d like to avoid web development for
+&lt;p&gt;I’ve already established that I’d like to avoid web development for
 the time being. This leaves us with a cross platform language to
-choose, and by cross platform I require that I don&amp;#39;t have to
+choose, and by cross platform I require that I don’t have to
 constantly think about platform incompatibilities, I want to leave
-that up to libraries to handle. Since I&amp;#39;ve already developed the
-server-side in Python, I&amp;#39;d like to keep the code base as homogeneous
+that up to libraries to handle. Since I’ve already developed the
+server-side in Python, I’d like to keep the code base as homogeneous
 as possible. Python is cross platform and has a decent selection of
 good cross platform GUI toolkits (wxpython, tkinter). After looking
-into some examples with both toolkits I&amp;#39;ll decide which to use. Python
+into some examples with both toolkits I’ll decide which to use. Python
 can also be quite easily be packaged into a executable that includes
 the interpreter/VM in a reasonable size (&amp;lt; 20MB).&lt;/p&gt;
 
-&lt;p&gt;My mentor suggested Android as a target platform since it&amp;#39;s programmed in Java,
-a language he&amp;#39;s an expert in, and we&amp;#39;ve both paired on lots of Java katas
+&lt;p&gt;My mentor suggested Android as a target platform since it’s programmed in Java,
+a language he’s an expert in, and we’ve both paired on lots of Java katas
 before. I raised the point that this seems to fragment our user experience to
 programming on a laptop/desktop and challenging on a phone/tablet, therefore
 restricting our audience and making development harder (testing on devices). He
-countered that we needn&amp;#39;t have just one client, but that we need to push on and
-develop some client to pass the acceptance test. I&amp;#39;m in two minds about this;
-I&amp;#39;m not sure whether we should target Android for our first client since in my
+countered that we needn’t have just one client, but that we need to push on and
+develop some client to pass the acceptance test. I’m in two minds about this;
+I’m not sure whether we should target Android for our first client since in my
 eyes, a desktop client would be more useful to our target audience, and it means
 programming in a different language which will surely duplicate some of the code
-that was developed for the server. On the other hand I&amp;#39;m unsure how difficult
+that was developed for the server. On the other hand I’m unsure how difficult
 writing a GUI program in Python is going to be, if I come across unforeseen
 issues then development might stall again, which we want to try and avoid in the
-next month since we want to present what we&amp;#39;ve been doing at the BCS SPA
-conference--It&amp;#39;d be good to have some MVP to show off.&lt;/p&gt;
+next month since we want to present what we’ve been doing at the BCS SPA
+conference–It’d be good to have some MVP to show off.&lt;/p&gt;
 </content>
  </entry>
  
@@ -254,8 +270,8 @@ conference--It&amp;#39;d be good to have some MVP to show off.&lt;/p&gt;
    <link href="http://willprice.org//2014/04/11/testing-client-side-js.html"/>
    <updated>2014-04-11T00:00:00+01:00</updated>
    <id>http://willprice.org/2014/04/11/testing-client-side-js</id>
-   <content type="html">&lt;p&gt;I&amp;#39;ve recently had to look at writing some client-side javascript for an
-application I&amp;#39;m developing. Since I love testing, I had to have a look at what
+   <content type="html">&lt;p&gt;I’ve recently had to look at writing some client-side javascript for an
+application I’m developing. Since I love testing, I had to have a look at what
 testing framework I should use. Javascript is not Java, there are lots and lots
 of testing frameworks. After browsing the most popular projects I decided on
 using &lt;a href=&quot;http://visionmedia.github.io/mocha/&quot;&gt;Mocha&lt;/a&gt; to handle test running and
@@ -267,50 +283,60 @@ personally think this method is quite ugly and slow so I looked into running
 things headlessly. A few immediate choices came to mind:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Rhino&quot;&gt;Rhino&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Rhino&quot;&gt;Rhino&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These projects all run javascript off the browser and hence some don&amp;#39;t support
+&lt;p&gt;These projects all run javascript off the browser and hence some don’t support
 DOM manipulation (e.g. Rhino).&lt;/p&gt;
 
 &lt;p&gt;PhantomJS supports DOM manipulation which is quite a nice feature
 if you are eventually going to run your javascript client-side.&lt;/p&gt;
 
-&lt;p&gt;Having recently used node for a university project, I thought I&amp;#39;d try something
-else that isn&amp;#39;t built on an asynchronous model since I found this made testing
+&lt;p&gt;Having recently used node for a university project, I thought I’d try something
+else that isn’t built on an asynchronous model since I found this made testing
 quite difficult. In the end I chose PhantomJS as I running Rhino regularly
 sounded quite unpleasant given the time it takes the JVM to start.&lt;/p&gt;
 
 &lt;p&gt;Mocha is well supported under PhantomJS and already has a &lt;a href=&quot;https://github.com/metaskills/mocha-phantomjs&quot;&gt;runner
-availabe&lt;/a&gt;. I&amp;#39;ll give a few
+availabe&lt;/a&gt;. I’ll give a few
 examples of how to get all these libraries cooperating.&lt;/p&gt;
 
-&lt;p&gt;First up you&amp;#39;ll need &lt;code&gt;node&lt;/code&gt; installed to give you access to the &lt;code&gt;npm&lt;/code&gt; package
+&lt;p&gt;First up you’ll need &lt;code class=&quot;highlighter-rouge&quot;&gt;node&lt;/code&gt; installed to give you access to the &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt; package
 manager. It seems like most js projects have adopted it as a package manager
 irrespective of whether they target Node.js or the browser.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ sudo npm install -g mocha-phantomjs phantomjs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;will pull in PhantomJS, Mocha and the PhantomJS Mocha runner that we&amp;#39;ll use to
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo npm install -g mocha-phantomjs phantomjs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;will pull in PhantomJS, Mocha and the PhantomJS Mocha runner that we’ll use to
 run our tests in the command line.&lt;/p&gt;
 
 &lt;p&gt;Start a new project somewhere and add a source and tests directory.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ mkdir tests src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Since we&amp;#39;re PhantomJS we need an HTML page that will be run in the headless
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir tests src
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Since we’re PhantomJS we need an HTML page that will be run in the headless
 browser, this is mainly just a shell that will include all the javascript code
 that we wish to run. The advantage of using a platform like Node.js or Rhino
 means you can skip this extra step, but then you also lose the ability to
 perform DOM manipulation.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ touch tests.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ touch tests.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;This file will be used to included all your test suites, this might get pretty
-ugly/slow if you&amp;#39;ve got many and large test suites, but you can always break
+ugly/slow if you’ve got many and large test suites, but you can always break
 them up, or you could use python and jinja2 to dynamically create HTML pages
-based on the js files you have in your tests directory (I&amp;#39;m sure you could do
-this in js as well, but I&amp;#39;m not really familiar with the ecosystem).&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cat &amp;gt; tests.HTML &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt; EOF&lt;/span&gt;
+based on the js files you have in your tests directory (I’m sure you could do
+this in js as well, but I’m not really familiar with the ecosystem).&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat &amp;gt; tests.HTML &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt; EOF&lt;/span&gt;
 &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -334,32 +360,38 @@ this in js as well, but I&amp;#39;m not really familiar with the ecosystem).&lt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
 EOF    
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;This is just a simple document that will include the necessary libraries, setup
 Mocha appropriately:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Import Mocha and Chai&lt;/li&gt;
-&lt;li&gt;Use the TDD interface instead of BDD&lt;/li&gt;
-&lt;li&gt;Use the reporter &amp;#39;html&amp;#39;, this allows us to run open the page with a
-browser and check out the results in there too. We&amp;#39;ll specify a different
-reporter on the command line when developing code and running tests. &lt;/li&gt;
-&lt;li&gt;Alias &lt;code&gt;chai.assert&lt;/code&gt; as &lt;code&gt;assert&lt;/code&gt; for nicer looking test code&lt;/li&gt;
-&lt;li&gt;Finally check whether the tests are being executed in PhantomJS and use the
+  &lt;li&gt;Import Mocha and Chai&lt;/li&gt;
+  &lt;li&gt;Use the TDD interface instead of BDD&lt;/li&gt;
+  &lt;li&gt;Use the reporter ‘html’, this allows us to run open the page with a
+browser and check out the results in there too. We’ll specify a different
+reporter on the command line when developing code and running tests.&lt;/li&gt;
+  &lt;li&gt;Alias &lt;code class=&quot;highlighter-rouge&quot;&gt;chai.assert&lt;/code&gt; as &lt;code class=&quot;highlighter-rouge&quot;&gt;assert&lt;/code&gt; for nicer looking test code&lt;/li&gt;
+  &lt;li&gt;Finally check whether the tests are being executed in PhantomJS and use the
 mochaPhantomJS runner if they are, otherwise execute Mocha directly.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Evidently this HTML has some dependencies that need to be installed before the
 code can be run.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ npm install --save mocha chai
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;will install the necessary testing libraries and the &lt;code&gt;--save&lt;/code&gt; flag will produce
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install --save mocha chai
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;will install the necessary testing libraries and the &lt;code class=&quot;highlighter-rouge&quot;&gt;--save&lt;/code&gt; flag will produce
 a package.json file that can be distributed with your project for other users to
 automate downloading dependencies.&lt;/p&gt;
 
-&lt;p&gt;The HTML sources &lt;code&gt;tests/test_file.js&lt;/code&gt; which needs to be created, this is simply
+&lt;p&gt;The HTML sources &lt;code class=&quot;highlighter-rouge&quot;&gt;tests/test_file.js&lt;/code&gt; which needs to be created, this is simply
 an example test file:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat &amp;gt; tests/fibonacci.js &amp;lt;&amp;lt; EOF
 suite(&#39;Recursive fibonacci tests&#39;, function() {
     test(&#39;fib(0) = 0&#39;, function() {
         assert.equal(0, fib(0));
@@ -376,10 +408,15 @@ function fib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 EOF
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Now everything is set up you can run your tests:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;$ mocha-phantomjs tests.html
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mocha-phantomjs tests.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Quite nice really. Look into Sinon.js for a nice mocking framework&lt;/p&gt;
 </content>
  </entry>
@@ -396,123 +433,133 @@ eduroam with a raspberry pi. This time I endeavour to document the process.`&lt;
 line) on Raspbian is as follows:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Disable network service&lt;/li&gt;
-&lt;li&gt;Write a &lt;code&gt;wpa_supplicant&lt;/code&gt; configuration file with your username and password.&lt;/li&gt;
-&lt;li&gt;Connect to the wireless network using &lt;code&gt;wpa_supplicant&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Request an IP address with &lt;code&gt;dhclient&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Disable network service&lt;/li&gt;
+  &lt;li&gt;Write a &lt;code class=&quot;highlighter-rouge&quot;&gt;wpa_supplicant&lt;/code&gt; configuration file with your username and password.&lt;/li&gt;
+  &lt;li&gt;Connect to the wireless network using &lt;code class=&quot;highlighter-rouge&quot;&gt;wpa_supplicant&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Request an IP address with &lt;code class=&quot;highlighter-rouge&quot;&gt;dhclient&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;disable-network-service&quot;&gt;Disable network service&lt;/h1&gt;
+&lt;p&gt;Raspbian’s network service needs to be stopped to connect using the method
+we’re going to use. To do this run&lt;/p&gt;
 
-&lt;p&gt;Raspbian&amp;#39;s network service needs to be stopped to connect using the method
-we&amp;#39;re going to use. To do this run &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;sudo service networking stop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h1 id=&quot;connect-using-wpa_supplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service networking stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;I&amp;#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
-authentication, if you&amp;#39;re at a different university this may well be different
-and you&amp;#39;ll need to change the &lt;code&gt;wpa_supplicant&lt;/code&gt; file accordingly&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;network={
-    # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
+&lt;h1 id=&quot;connect-using-wpasupplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
 
-    # The &#39;identity&#39; is the username actually used for authentication.
-    # This must be your Bristol username, all lowercase.
+&lt;p&gt;I’m at Bristol university where our eduroam network uses PEAP or TTLS for
+authentication, if you’re at a different university this may well be different
+and you’ll need to change the &lt;code class=&quot;highlighter-rouge&quot;&gt;wpa_supplicant&lt;/code&gt; file accordingly&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;network={
+	# --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
+
+	# The &#39;identity&#39; is the username actually used for authentication.
+	# This must be your Bristol username, all lowercase.
         identity=&quot;ab1234&quot;
 
-    # Your normal Bristol password (so make sure the permissions on
-    # your wpa_supplicant config file are not world readable!)
+	# Your normal Bristol password (so make sure the permissions on
+	# your wpa_supplicant config file are not world readable!)
         password=&quot;myUOBpassword&quot;
 
-    # CA cert from here:
+	# CA cert from here:
     # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
-    # Change the path to where you downloaded the file
+	# Change the path to where you downloaded the file
         ca_cert=&quot;/etc/ssl/certs/uob-net-ca.pem&quot;
 
-    # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
-    # --- OF THE UNIVERSITY OF BRISTOL, UK          --
+	# --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
+	# --- OF THE UNIVERSITY OF BRISTOL, UK          --
 
-    # Bristol supports PEAP and TTLS.
+	# Bristol supports PEAP and TTLS.
         eap=PEAP TTLS
 
-    # The &#39;anonymous_identity&#39; is the identity used for routing
-    # the authentication to Bristol. It must end with &#39;@bris.ac.uk&#39;
-    # or &#39;@bristol.ac.uk&#39;. It must be all lowercase. If you have 
-    # anything preceding the @ it must be all lowercase letters or 
-    # a hyphen (no spaces, punctuation etc) 
-    # e.g. &quot;wireless-user@bristol.ac.uk&quot; would be ok
+	# The &#39;anonymous_identity&#39; is the identity used for routing
+	# the authentication to Bristol. It must end with &#39;@bris.ac.uk&#39;
+	# or &#39;@bristol.ac.uk&#39;. It must be all lowercase. If you have 
+	# anything preceding the @ it must be all lowercase letters or 
+	# a hyphen (no spaces, punctuation etc) 
+	# e.g. &quot;wireless-user@bristol.ac.uk&quot; would be ok
         anonymous_identity=&quot;@bristol.ac.uk&quot;
 
-    # Bristol use MS-CHAPv2 as the inner authentication scheme,
-    # with the traditional label
-    phase1=&quot;peaplabel=0&quot;
-    phase2=&quot;auth=MSCHAPV2&quot;
+	# Bristol use MS-CHAPv2 as the inner authentication scheme,
+	# with the traditional label
+	phase1=&quot;peaplabel=0&quot;
+	phase2=&quot;auth=MSCHAPV2&quot;
 
-    # Set priority to a big number
-    priority=999
+	# Set priority to a big number
+	priority=999
 
-    # --- DONT CHANGE THE REST OF THIS BLOCK --
+	# --- DONT CHANGE THE REST OF THIS BLOCK --
 
-    # Enable this network block
-    disabled=0
+	# Enable this network block
+	disabled=0
 
-    # eduroam please
+	# eduroam please
         ssid=&quot;eduroam&quot;
 
-    # SSID should be broadcast, so don&#39;t scan.
-    scan_ssid=0
+	# SSID should be broadcast, so don&#39;t scan.
+	scan_ssid=0
 
-    # Infrastructure mode
-    mode=0
+	# Infrastructure mode
+	mode=0
 
-    # WPA/WPA2 require OPEN
-    auth_alg=OPEN
+	# WPA/WPA2 require OPEN
+	auth_alg=OPEN
 
-    # WPA and WPA2 (RSN) are both used for eduroam 
-    # (depending on which organisation you are at)
-    # In the future &#39;WPA&#39; can be removed (WPA2 only).
-    proto=WPA RSN
+	# WPA and WPA2 (RSN) are both used for eduroam 
+	# (depending on which organisation you are at)
+	# In the future &#39;WPA&#39; can be removed (WPA2 only).
+	proto=WPA RSN
 
-    # CCMP (AES) is stronger, but some organisations use TKIP.
-    # In the future &#39;TKIP&#39; can be removed.
-    pairwise=CCMP TKIP
+	# CCMP (AES) is stronger, but some organisations use TKIP.
+	# In the future &#39;TKIP&#39; can be removed.
+	pairwise=CCMP TKIP
 
-    # Use EAP
+	# Use EAP
         key_mgmt=WPA-EAP
 
-    # Use PMKSA caching
+	# Use PMKSA caching
         proactive_key_caching=1
 
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;Thanks to
 &lt;a href=&quot;http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/&quot;&gt;wirless.bris.ac.uk&lt;/a&gt; for the file!&lt;/p&gt;
 
-&lt;p&gt;Run &lt;code&gt;wpa_supplicant&lt;/code&gt;: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You&amp;#39;ll also need the PEM file &lt;code&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code&gt;/etc/ssl/certs/&lt;/code&gt;
+&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;wpa_supplicant&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You’ll also need the PEM file &lt;code class=&quot;highlighter-rouge&quot;&gt;uob-net-ca.pem&lt;/code&gt; to put into &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ssl/certs/&lt;/code&gt;
 which is located at
 &lt;a href=&quot;https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem&quot;&gt;https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Problems you may encounter at this stage include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;The certificate being invalid as the raspberry pi&amp;#39;s time is set to a time
-before the certificate is valid (run wpa_supplicant with the &lt;code&gt;-dd&lt;/code&gt; flag for
+  &lt;li&gt;The certificate being invalid as the raspberry pi’s time is set to a time
+before the certificate is valid (run wpa_supplicant with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-dd&lt;/code&gt; flag for
 verbose debugging).&lt;/li&gt;
-&lt;li&gt;You&amp;#39;re as thick as me and you accidentally rename the certificate&lt;/li&gt;
-&lt;li&gt;Something else has control of the wireless interface preventing you from
+  &lt;li&gt;You’re as thick as me and you accidentally rename the certificate&lt;/li&gt;
+  &lt;li&gt;Something else has control of the wireless interface preventing you from
 connecting.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;request-an-ip-address&quot;&gt;Request an IP address&lt;/h1&gt;
 
-&lt;p&gt;Once you&amp;#39;ve connected to eduroam which you can verify by running &lt;code&gt;iwconfig&lt;/code&gt;. You
-should now request an ip address with the command &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;sudo dhclient wlan0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To verify that you have got an ip address run &lt;code&gt;ifconfig&lt;/code&gt; and make sure your
+&lt;p&gt;Once you’ve connected to eduroam which you can verify by running &lt;code class=&quot;highlighter-rouge&quot;&gt;iwconfig&lt;/code&gt;. You
+should now request an ip address with the command&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dhclient wlan0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To verify that you have got an ip address run &lt;code class=&quot;highlighter-rouge&quot;&gt;ifconfig&lt;/code&gt; and make sure your
 wireless interface (usually wlan0) has been assigned an address.&lt;/p&gt;
 
 &lt;p&gt;You should now have a wireless connection!&lt;/p&gt;
@@ -525,37 +572,39 @@ wireless interface (usually wlan0) has been assigned an address.&lt;/p&gt;
    <updated>2014-02-09T00:00:00+00:00</updated>
    <id>http://willprice.org/2014/02/09/packages-in-python</id>
    <content type="html">&lt;p&gt;Previously, and now currently, packages in Python have been a source of much woe
-to me. Plagued by hundred of &amp;quot;No module named xxx&amp;quot;, &amp;quot;Attempted relative import
-in non-package&amp;quot; etc, it is now time to write myself a little guide to refer to
+to me. Plagued by hundred of “No module named xxx”, “Attempted relative import
+in non-package” etc, it is now time to write myself a little guide to refer to
 in future.&lt;/p&gt;
 
 &lt;h1 id=&quot;packages-and-modules&quot;&gt;Packages and Modules&lt;/h1&gt;
-
-&lt;p&gt;A &lt;strong&gt;package&lt;/strong&gt; is a collection of modules with a &lt;code&gt;__init__.py&lt;/code&gt; file inside the
+&lt;p&gt;A &lt;strong&gt;package&lt;/strong&gt; is a collection of modules with a &lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt; file inside the
 package directory and a &lt;strong&gt;module&lt;/strong&gt; is simply a python file.&lt;/p&gt;
 
 &lt;p&gt;Say I have the layout:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;* core:
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* core:
     * __init__.py
     * queue.py
     * tests:
         * queue_tests.py
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;and I want the &lt;code&gt;Queue&lt;/code&gt; class from &lt;code&gt;core.queue&lt;/code&gt;. How do I import this in
-&lt;code&gt;queue_tests.py&lt;/code&gt;?&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;You&amp;#39;d think&lt;/p&gt;
+&lt;p&gt;and I want the &lt;code class=&quot;highlighter-rouge&quot;&gt;Queue&lt;/code&gt; class from &lt;code class=&quot;highlighter-rouge&quot;&gt;core.queue&lt;/code&gt;. How do I import this in
+&lt;code class=&quot;highlighter-rouge&quot;&gt;queue_tests.py&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;You’d think&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;..queue&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Queue&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;stuff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;would do it; and you&amp;#39;d be correct. But check how you&amp;#39;re running the file. If
-you&amp;#39;re running it directly like &lt;code&gt;python tests/queue_tests.py&lt;/code&gt;, then the name of the file will
-be &lt;code&gt;__main__&lt;/code&gt; which breaks relative imports. You have to run it like so: &lt;code&gt;python
--m tests.queue_tests&lt;/code&gt;. This runs the module &lt;code&gt;queue_tests&lt;/code&gt; as a script, but fixes
-the &lt;code&gt;__name__&lt;/code&gt; issue.&lt;/p&gt;
+&lt;p&gt;would do it; and you’d be correct. But check how you’re running the file. If
+you’re running it directly like &lt;code class=&quot;highlighter-rouge&quot;&gt;python tests/queue_tests.py&lt;/code&gt;, then the name of the file will
+be &lt;code class=&quot;highlighter-rouge&quot;&gt;__main__&lt;/code&gt; which breaks relative imports. You have to run it like so: &lt;code class=&quot;highlighter-rouge&quot;&gt;python
+-m tests.queue_tests&lt;/code&gt;. This runs the module &lt;code class=&quot;highlighter-rouge&quot;&gt;queue_tests&lt;/code&gt; as a script, but fixes
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;__name__&lt;/code&gt; issue.&lt;/p&gt;
 </content>
  </entry>
  
@@ -564,15 +613,15 @@ the &lt;code&gt;__name__&lt;/code&gt; issue.&lt;/p&gt;
    <link href="http://willprice.org//2014/01/18/are-all-comments-bad.html"/>
    <updated>2014-01-18T00:00:00+00:00</updated>
    <id>http://willprice.org/2014/01/18/are-all-comments-bad</id>
-   <content type="html">&lt;p&gt;I&amp;#39;ve been thinking about comments in code. Some people advocate not using
+   <content type="html">&lt;p&gt;I’ve been thinking about comments in code. Some people advocate not using
 comments suggesting that your code should be self documenting. I believe this to
 be a good practice where possible. If you need comments to explain what your
-code is doing, then it&amp;#39;s quite likely you&amp;#39;re code isn&amp;#39;t sufficiently broken down
+code is doing, then it’s quite likely you’re code isn’t sufficiently broken down
 into lots of little methods naming what each part does. What happens when you
 have code that is simply non-intuitive and breaking it out into named methods
-doesn&amp;#39;t work?&lt;/p&gt;
+doesn’t work?&lt;/p&gt;
 
-&lt;p&gt;Let&amp;#39;s look at an example to emphasize my point. We&amp;#39;ll take the naive Fibonacci
+&lt;p&gt;Let’s look at an example to emphasize my point. We’ll take the naive Fibonacci
 function:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
@@ -609,8 +658,8 @@ function:&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Now for a tail recursive implementation that is more efficient (but not in
-Python, as it doesn&amp;#39;t have tail call optimization! I should have done it in C,
-but I couldn&amp;#39;t face writing the tests using &lt;code&gt;check&lt;/code&gt;). &lt;/p&gt;
+Python, as it doesn’t have tail call optimization! I should have done it in C,
+but I couldn’t face writing the tests using &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt;).&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/env python&lt;/span&gt;
 
@@ -649,36 +698,40 @@ but I couldn&amp;#39;t face writing the tests using &lt;code&gt;check&lt;/code&g
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;__main__&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;unittest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;I&amp;#39;ve tried my best to make this as self-explanatory as possible. I still feel
+&lt;p&gt;I’ve tried my best to make this as self-explanatory as possible. I still feel
 that additional explanation would help for whoever has to maintain it. The first
-time I saw this definition &lt;code&gt;nth_fib&lt;/code&gt; was &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;nth_minus_one_fib&lt;/code&gt; was &lt;code&gt;b&lt;/code&gt;, I
+time I saw this definition &lt;code class=&quot;highlighter-rouge&quot;&gt;nth_fib&lt;/code&gt; was &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;nth_minus_one_fib&lt;/code&gt; was &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;, I
 had absolutely no idea how it worked. Naming things really makes such a
 difference!&lt;/p&gt;
 
-&lt;p&gt;The additional information I&amp;#39;d like to add is:&lt;/p&gt;
+&lt;p&gt;The additional information I’d like to add is:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;We only return &lt;code&gt;nth_minus_one&lt;/code&gt; if &lt;code&gt;counter == 1&lt;/code&gt;, which implies we&amp;#39;re calling
-&lt;code&gt;fib(1)&lt;/code&gt; so we return the first fibonacci number: 0.&lt;/li&gt;
-&lt;li&gt;When &lt;code&gt;n &amp;gt; 1&lt;/code&gt; then &lt;code&gt;counter == 2&lt;/code&gt; terminates the algorithm returning the
+  &lt;li&gt;We only return &lt;code class=&quot;highlighter-rouge&quot;&gt;nth_minus_one&lt;/code&gt; if &lt;code class=&quot;highlighter-rouge&quot;&gt;counter == 1&lt;/code&gt;, which implies we’re calling
+&lt;code class=&quot;highlighter-rouge&quot;&gt;fib(1)&lt;/code&gt; so we return the first fibonacci number: 0.&lt;/li&gt;
+  &lt;li&gt;When &lt;code class=&quot;highlighter-rouge&quot;&gt;n &amp;gt; 1&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;counter == 2&lt;/code&gt; terminates the algorithm returning the
 accumulated value&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;A few examples: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;fib(3) -&amp;gt; fib_accumulator(3, 1, 0) -&amp;gt; fib_accumulator(2, (1 + 0), 1) -&amp;gt; return (1 + 0)
+  &lt;li&gt;
+    &lt;p&gt;A few examples:&lt;/p&gt;
 
-fib(5) -&amp;gt; fib_accumulator(5, 1, 0) -&amp;gt; fib_accumulator(4, (1 + 0), 1) -&amp;gt; 
-          fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&amp;gt; fib_accumulator(2, (1 +
-          0 + 1 + 1 + 0), (0 + 1 + 1)) -&amp;gt; return (1 + 0 + 1 + 1 + 0) -&amp;gt; return 3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  fib(3) -&amp;gt; fib_accumulator(3, 1, 0) -&amp;gt; fib_accumulator(2, (1 + 0), 1) -&amp;gt; return (1 + 0)
+
+  fib(5) -&amp;gt; fib_accumulator(5, 1, 0) -&amp;gt; fib_accumulator(4, (1 + 0), 1) -&amp;gt; 
+            fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&amp;gt; fib_accumulator(2, (1 +
+            0 + 1 + 1 + 0), (0 + 1 + 1)) -&amp;gt; return (1 + 0 + 1 + 1 + 0) -&amp;gt; return 3
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I think that information makes it clearer how the function works. I tried to
-extract the base cases to add more explanation via code, but couldn&amp;#39;t think of
-descriptive enough methods, maybe that&amp;#39;s because I don&amp;#39;t grok the algorithm. I
-can see how it works, but find it very hard to articulate how to explain it&amp;#39;s
-behaviour, when this happens I find it&amp;#39;s best to resort to examples to guide
+extract the base cases to add more explanation via code, but couldn’t think of
+descriptive enough methods, maybe that’s because I don’t grok the algorithm. I
+can see how it works, but find it very hard to articulate how to explain it’s
+behaviour, when this happens I find it’s best to resort to examples to guide
 explanation, but this is difficult to do in code! Unit tests you scream!? True,
 maybe I should add comments there explaining what is happening? How do you
-handle cases where you feel your code isn&amp;#39;t sufficiently descriptive, but can&amp;#39;t
+handle cases where you feel your code isn’t sufficiently descriptive, but can’t
 make it more descriptive through refactoring?&lt;/p&gt;
 </content>
  </entry>
@@ -689,13 +742,12 @@ make it more descriptive through refactoring?&lt;/p&gt;
    <updated>2014-01-10T00:00:00+00:00</updated>
    <id>http://willprice.org/2014/01/10/latex-fails</id>
    <content type="html">&lt;p&gt;I thought it might be a good idea to brush up my LaTeX skills by writing my
-maths homework in it... big mistake... lots of time wasted! I&amp;#39;m much more
-informed on LaTeX now, so here&amp;#39;s some of the things I struggled with in the
+maths homework in it… big mistake… lots of time wasted! I’m much more
+informed on LaTeX now, so here’s some of the things I struggled with in the
 hopes it will help future me from spending hours figuring out how to put
 multiple tables on one line!&lt;/p&gt;
 
 &lt;h2 id=&quot;referencing-figures-and-tables&quot;&gt;Referencing figures and tables&lt;/h2&gt;
-
 &lt;p&gt;You must put the label &lt;em&gt;after the caption&lt;/em&gt; in a figure or table:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;
@@ -708,8 +760,7 @@ multiple tables on one line!&lt;/p&gt;
 &lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;multiple-tables-on-a-single-line&quot;&gt;Multiple tables on a single line&lt;/h2&gt;
-
-&lt;p&gt;Use the &lt;code&gt;subcaption&lt;/code&gt; package, this allows you to specify the width of subtables
+&lt;p&gt;Use the &lt;code class=&quot;highlighter-rouge&quot;&gt;subcaption&lt;/code&gt; package, this allows you to specify the width of subtables
 and subfigures.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span class=&quot;nt&quot;&gt;\begin{table}&lt;/span&gt;[h]
@@ -743,25 +794,23 @@ and subfigures.&lt;/p&gt;
 &lt;span class=&quot;nt&quot;&gt;\end{table}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;specify-the-location-of-tables&quot;&gt;Specify the location of tables&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;[specifier]&lt;/code&gt; takes one of the following &lt;code&gt;{h,t,b,p}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[specifier]&lt;/code&gt; takes one of the following &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;h,t,b,p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;h&lt;/code&gt; - Here&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;t&lt;/code&gt; - Top&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;b&lt;/code&gt; - Bottom&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;p&lt;/code&gt; - Own page&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt; - Here&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;t&lt;/code&gt; - Top&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; - Bottom&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; - Own page&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These can be combined like &lt;code&gt;hbp&lt;/code&gt;, close to the place in the text on it&amp;#39;s own
+&lt;p&gt;These can be combined like &lt;code class=&quot;highlighter-rouge&quot;&gt;hbp&lt;/code&gt;, close to the place in the text on it’s own
 separate page at the bottom&lt;/p&gt;
 
 &lt;h2 id=&quot;spacing-and-measures&quot;&gt;Spacing and measures&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;\quad&lt;/code&gt; - space&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\linewidth&lt;/code&gt; - width of page, use this with the &lt;code&gt;subtable&lt;/code&gt; environment when
-you&amp;#39;re setting the width of a subtable.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\quad&lt;/code&gt; - space&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\linewidth&lt;/code&gt; - width of page, use this with the &lt;code class=&quot;highlighter-rouge&quot;&gt;subtable&lt;/code&gt; environment when
+you’re setting the width of a subtable.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
@@ -774,14 +823,14 @@ you&amp;#39;re setting the width of a subtable.&lt;/li&gt;
    <content type="html">&lt;p&gt;One of the classic Katas: &lt;a href=&quot;http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata&quot;&gt;The Bowling
 Game&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;ve pretty much reproduced Uncle Bob&amp;#39;s solution as I had a huge amount of
+&lt;p&gt;I’ve pretty much reproduced Uncle Bob’s solution as I had a huge amount of
 trouble tackling this in an OO way. Jason has suggested I use linked lists to
-keep track of the next frame and get the score from that, I&amp;#39;d avoided doing
-something like that as I thought that would produce the &amp;#39;inappropriate intimacy&amp;#39;
-design smell, but I suppose it&amp;#39;s better than having responsibilities in the
-wrong place. &lt;/p&gt;
+keep track of the next frame and get the score from that, I’d avoided doing
+something like that as I thought that would produce the ‘inappropriate intimacy’
+design smell, but I suppose it’s better than having responsibilities in the
+wrong place.&lt;/p&gt;
 
-&lt;p&gt;I finish Uni this week so I&amp;#39;ll have some more time to look at this problem. I&amp;#39;ll
+&lt;p&gt;I finish Uni this week so I’ll have some more time to look at this problem. I’ll
 try and post a video where I refactor what I have into an OO solution :)&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/7RJM3pcMNyo&quot;&gt;&lt;/iframe&gt;
@@ -793,30 +842,30 @@ try and post a video where I refactor what I have into an OO solution :)&lt;/p&g
    <link href="http://willprice.org//2013/11/30/oo-design-addiction-app.html"/>
    <updated>2013-11-30T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/30/oo-design-addiction-app</id>
-   <content type="html">&lt;p&gt;From last week&amp;#39;s pairing session. Jason suggested I try and design my own
+   <content type="html">&lt;p&gt;From last week’s pairing session. Jason suggested I try and design my own
 application from the principles he showed me (and demonstrates in his youtube
-video). I decided I&amp;#39;d go for something a little simpler to make sure if I did
-screw up, it wouldn&amp;#39;t be too time consuming to restart.&lt;/p&gt;
+video). I decided I’d go for something a little simpler to make sure if I did
+screw up, it wouldn’t be too time consuming to restart.&lt;/p&gt;
 
 &lt;p&gt;My application is going to be for smartphones, it will allow people to record
-their &amp;#39;indulgences&amp;#39; in their vices. For example, an alcoholic will be able to
+their ‘indulgences’ in their vices. For example, an alcoholic will be able to
 record how often, and how much he/she drinks, then chart that to see whether they
 are decreasing their consumption or not. A pretty simple idea, but especially as
-this will be my first Android app, I thought I&amp;#39;d go for something reasonably
+this will be my first Android app, I thought I’d go for something reasonably
 simple.&lt;/p&gt;
 
 &lt;p&gt;I wrote my user stories in Trello, acceptance tests around these user stories
 are comments on the cards. I think I may have been pushing it, but I also used
-it for my CRC cards; I wouldn&amp;#39;t recommend it for this though! Look at the boards
+it for my CRC cards; I wouldn’t recommend it for this though! Look at the boards
 on &lt;a href=&quot;https://trello.com/b/5QErUdSy/addiciton-app&quot;&gt;Trello&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I also made a
-&lt;a href=&quot;https://docs.google.com/drawings/d/1np58VnMyYzhps_SrOcwW7bjJ2_tOr1R-aEpwweXU5tc/edit?usp=sharing&quot;&gt;diagram&lt;/a&gt; of the interactions between classes on google docs. I&amp;#39;m
-not sure how complete it is. I spent quite a while trying to see whether I&amp;#39;d
-missed any relationships, but I couldn&amp;#39;t spot any. At the same time it still
-felt incomplete. Once I&amp;#39;ve done quite a few of these I hope I&amp;#39;ll be able to
+&lt;a href=&quot;https://docs.google.com/drawings/d/1np58VnMyYzhps_SrOcwW7bjJ2_tOr1R-aEpwweXU5tc/edit?usp=sharing&quot;&gt;diagram&lt;/a&gt; of the interactions between classes on google docs. I’m
+not sure how complete it is. I spent quite a while trying to see whether I’d
+missed any relationships, but I couldn’t spot any. At the same time it still
+felt incomplete. Once I’ve done quite a few of these I hope I’ll be able to
 churn them out quicker, currently I find them quite difficult and constantly
-have to refer to examples to see whether I&amp;#39;m on the right path.&lt;/p&gt;
+have to refer to examples to see whether I’m on the right path.&lt;/p&gt;
 </content>
  </entry>
  
@@ -825,40 +874,39 @@ have to refer to examples to see whether I&amp;#39;m on the right path.&lt;/p&gt
    <link href="http://willprice.org//2013/11/23/a-little-bit-of-uml-pairing-session.html"/>
    <updated>2013-11-23T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/23/a-little-bit-of-uml-pairing-session</id>
-   <content type="html">&lt;p&gt;Jason&amp;#39;s video on the subject:
+   <content type="html">&lt;p&gt;Jason’s video on the subject:&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/U7X6EswilYc&quot;&gt;&lt;/iframe&gt;
-&lt;a href=&quot;http://www.codemanship.co.uk/files/littleuml.pdf&quot;&gt;Slide source&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.codemanship.co.uk/files/littleuml.pdf&quot;&gt;Slide source&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Jason and I went through the slides discussing OO design as we went. After
 looking at the user cases, acceptance tests and CRC cards, we started writing an
 implementation of the software.&lt;/p&gt;
 
 &lt;h2 id=&quot;tests&quot;&gt;Tests&lt;/h2&gt;
-
 &lt;p&gt;This is as far as we got:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;add a new title&lt;/li&gt;
-&lt;li&gt;donating a copy of a title that isn&amp;#39;t in the library add the title to the
+  &lt;li&gt;add a new title&lt;/li&gt;
+  &lt;li&gt;donating a copy of a title that isn’t in the library add the title to the
 library&lt;/li&gt;
-&lt;li&gt;donating a copy of a different title that isn&amp;#39;t in the library adds the title
+  &lt;li&gt;donating a copy of a different title that isn’t in the library adds the title
 to the library&lt;/li&gt;
-&lt;li&gt;finding a title that doesn&amp;#39;t exist in the library returns null.&lt;/li&gt;
+  &lt;li&gt;finding a title that doesn’t exist in the library returns null.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;To satisfy &lt;em&gt;1&lt;/em&gt; we mocked the title class and wrote a method &lt;code&gt;addToNewTitles&lt;/code&gt; on
-library to add that title to library. The assertion used a &lt;code&gt;getNewTitles&lt;/code&gt; method
+&lt;p&gt;To satisfy &lt;em&gt;1&lt;/em&gt; we mocked the title class and wrote a method &lt;code class=&quot;highlighter-rouge&quot;&gt;addToNewTitles&lt;/code&gt; on
+library to add that title to library. The assertion used a &lt;code class=&quot;highlighter-rouge&quot;&gt;getNewTitles&lt;/code&gt; method
 that returned a list of new titles. Initially we tried using arrays but lists
-have a nicer set of methods such as &lt;code&gt;contains&lt;/code&gt; that saved us the cost of writing
+have a nicer set of methods such as &lt;code class=&quot;highlighter-rouge&quot;&gt;contains&lt;/code&gt; that saved us the cost of writing
 sorting and searching algorithms (that would also require us to implement quite
 a bit of title). Satisfying &lt;em&gt;2&lt;/em&gt; involved adding a title to the library, and then
 returning the first element of the list holding our titles. The assertions we
 were writing to check the title was correct were very horrible, lots of getters
-on title--poor emergent design. Next week we&amp;#39;ll have a look at how to go from
+on title–poor emergent design. Next week we’ll have a look at how to go from
 our current implementation to something a little cleaner doing lots of
 refactoring!&lt;/p&gt;
 
-&lt;h1 id=&quot;librarytests-java&quot;&gt;LibraryTests.java&lt;/h1&gt;
+&lt;h1 id=&quot;librarytestsjava&quot;&gt;LibraryTests.java&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -873,49 +921,49 @@ refactoring!&lt;/p&gt;
 
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LibraryTests&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addNewTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donatingCopyOfTitleThatIsntInLibraryAddsTitleToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The Abyss&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;James Cameron&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1989&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donatingCopyOfOceansElevenThatIsntInLibraryAddsOceansElevenToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oceans Eleven&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Steven Soderbergh&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;2002&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    
-    &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findingTitleThatDoesntExistInLibraryReturnsNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The Abyss&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;assertNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addNewTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertTrue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contains&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donatingCopyOfTitleThatIsntInLibraryAddsTitleToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The Abyss&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;James Cameron&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1989&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donatingCopyOfOceansElevenThatIsntInLibraryAddsOceansElevenToLibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oceans Eleven&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Steven Soderbergh&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;2002&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yearOfRelease&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titleFound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	
+	&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findingTitleThatDoesntExistInLibraryReturnsNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The Abyss&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;assertNull&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h1 id=&quot;library-java&quot;&gt;Library.java&lt;/h1&gt;
+&lt;h1 id=&quot;libraryjava&quot;&gt;Library.java&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
@@ -926,72 +974,72 @@ refactoring!&lt;/p&gt;
 
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Library&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addToNewTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;newTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getTitles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;donate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findTitle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;titles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h1 id=&quot;title-java&quot;&gt;Title.java&lt;/h1&gt;
+&lt;h1 id=&quot;titlejava&quot;&gt;Title.java&lt;/h1&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;willprice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;videolibrary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;director&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getDirector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;director&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getYearOfRelease&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h1 id=&quot;the-homework-user-stories-acceptance-tests-and-crc-cards-for-an-interesting-problem&quot;&gt;The Homework: User stories, Acceptance tests, and CRC cards for an interesting problem&lt;/h1&gt;
-
 &lt;p&gt;Jason wants me to have ago applying the principles that we covered in the
 pairing session on a different example, so I have free reign over what I want to
-do. I&amp;#39;m quite interested in writing an app that allows users to track how often
-they indulge in their vices. In my case: alcohol, I&amp;#39;d like to cut down on my
-consumption, but I&amp;#39;m not quite sure how much I&amp;#39;m drinking, having an app to
+do. I’m quite interested in writing an app that allows users to track how often
+they indulge in their vices. In my case: alcohol, I’d like to cut down on my
+consumption, but I’m not quite sure how much I’m drinking, having an app to
 record this information would be very helpful. Graphing it would be even more
-helpful to see whether I&amp;#39;m decreasing my intake or not.&lt;/p&gt;
+helpful to see whether I’m decreasing my intake or not.&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -1000,12 +1048,11 @@ helpful to see whether I&amp;#39;m decreasing my intake or not.&lt;/p&gt;
    <link href="http://willprice.org//2013/11/18/binary-search.html"/>
    <updated>2013-11-18T00:00:00+00:00</updated>
    <id>http://willprice.org/2013/11/18/binary-search</id>
-   <content type="html">&lt;p&gt;This week I&amp;#39;ve been working on binary search. Like last week I did it in Java
-with JUnit, but I&amp;#39;ve also got a video executing my test cases with books as a
+   <content type="html">&lt;p&gt;This week I’ve been working on binary search. Like last week I did it in Java
+with JUnit, but I’ve also got a video executing my test cases with books as a
 supplement.&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/6oC7YU4TrvU&quot;&gt;&lt;/iframe&gt;
-
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/bsfadoOOggY&quot;&gt;&lt;/iframe&gt;
 </content>
  </entry>
@@ -1027,20 +1074,20 @@ overview of my reasons for the steps I was taking.&lt;/p&gt;
    <link href="http://willprice.org//2013/10/09/unit-testing-is-evil.html"/>
    <updated>2013-10-09T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/10/09/unit-testing-is-evil</id>
-   <content type="html">&lt;p&gt;I&amp;#39;m currently reading &amp;#39;Autotools&amp;#39;, a book about, yes you guessed it, Autotools!
+   <content type="html">&lt;p&gt;I’m currently reading ‘Autotools’, a book about, yes you guessed it, Autotools!
 This passage made me laugh:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they
+  &lt;p&gt;Some people insist that unit testing is evil, but the only honest rationale they
 can come up with for not doing it is laziness. Proper unit testing is hard work,
 but it pays off in the end. Those who do it have learned a lesson (usually in
 childhood) about the value of delayed gratification.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;I&amp;#39;m only reading the book so I can use the C unit testing framework
-&lt;a href=&quot;check.sourceforge.net&quot;&gt;check&lt;/a&gt;... so yes. I have certainly learned a lesson in
-the value of delayed gratification. Sometimes I wonder whether It&amp;#39;s a bad
-thing. Who knows whether I&amp;#39;ll get my homework done before it&amp;#39;s due date :)&lt;/p&gt;
+&lt;p&gt;I’m only reading the book so I can use the C unit testing framework
+&lt;a href=&quot;check.sourceforge.net&quot;&gt;check&lt;/a&gt;… so yes. I have certainly learned a lesson in
+the value of delayed gratification. Sometimes I wonder whether It’s a bad
+thing. Who knows whether I’ll get my homework done before it’s due date :)&lt;/p&gt;
 </content>
  </entry>
  
@@ -1049,41 +1096,41 @@ thing. Who knows whether I&amp;#39;ll get my homework done before it&amp;#39;s d
    <link href="http://willprice.org//2013/10/05/first-week-of-university.html"/>
    <updated>2013-10-05T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/10/05/first-week-of-university</id>
-   <content type="html">&lt;p&gt;Having settled in here at Bristol, I&amp;#39;ve started my lectures, topics include:&lt;/p&gt;
+   <content type="html">&lt;p&gt;Having settled in here at Bristol, I’ve started my lectures, topics include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Mathematical methods for computer scientists&lt;/p&gt;
+  &lt;li&gt;Mathematical methods for computer scientists
+    &lt;ul&gt;
+      &lt;li&gt;Logic&lt;/li&gt;
+      &lt;li&gt;Objects&lt;/li&gt;
+      &lt;li&gt;Proofs&lt;/li&gt;
+      &lt;li&gt;Counting &amp;amp; Probability&lt;/li&gt;
+      &lt;li&gt;Analysis&lt;/li&gt;
+      &lt;li&gt;Linear Algebra&lt;/li&gt;
+      &lt;li&gt;Probability &amp;amp; distributions&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Programming and Algorithms:
+    &lt;ul&gt;
+      &lt;li&gt;Learning C&lt;/li&gt;
+      &lt;li&gt;Probably some algorithms too…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Logic&lt;/li&gt;
-&lt;li&gt;Objects&lt;/li&gt;
-&lt;li&gt;Proofs&lt;/li&gt;
-&lt;li&gt;Counting &amp;amp; Probability&lt;/li&gt;
-&lt;li&gt;Analysis&lt;/li&gt;
-&lt;li&gt;Linear Algebra&lt;/li&gt;
-&lt;li&gt;Probability &amp;amp; distributions&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Programming and Algorithms:&lt;/p&gt;
+    &lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure
+what comes next)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Origins of Computer Science&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Learning C&lt;/li&gt;
-&lt;li&gt;Probably some algorithms too... &lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Introduction to Computer Architecture&lt;/p&gt;&lt;/li&gt;
+    &lt;p&gt;From early machines through various programming languages, and OSes to the
+future of computer science.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;From Boolean logic to RAM and ROM (for the first half of this year, not sure
-  what comes next)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Origins of Computer Science&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;From early machines through various programming languages, and OSes to the
-  future of computer science.&lt;/p&gt;
 
 &lt;h2 id=&quot;evolutionary-design-and-waterfall&quot;&gt;Evolutionary design and Waterfall&lt;/h2&gt;
-
 &lt;p&gt;In a programming and algorithms lecture, waterfall was mentioned as the
 development technique, and evolutionary design was said to be a bad way of
 building systems. This came with the suggestion that systems should be
@@ -1094,43 +1141,40 @@ said the key too succeeding was to continuously refactor your code to stop cruft
 from encroaching on your software.&lt;/p&gt;
 
 &lt;h2 id=&quot;pairing&quot;&gt;Pairing&lt;/h2&gt;
-
 &lt;p&gt;Jason and I also discussed what sort of problems we could tackle whilst
-pairing. He suggested that we try and TDD algorithms, next week we&amp;#39;ll be doing
-&lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I&amp;#39;m going to try and get up
-and running with C testing frameworks. So far I&amp;#39;ve had a look at:
+pairing. He suggested that we try and TDD algorithms, next week we’ll be doing
+&lt;em&gt;bubble sort&lt;/em&gt;, and &lt;em&gt;binary search&lt;/em&gt; in C. This week I’m going to try and get up
+and running with C testing frameworks. So far I’ve had a look at:
 * &lt;a href=&quot;http://check.sourceforge.net/&quot;&gt;Check&lt;/a&gt;
 * &lt;a href=&quot;http://www.jera.com/techinfo/jtns/jtn002.html&quot;&gt;Minunit&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;I haven&amp;#39;t managed to get either of these working yet. Check suggests the use of
-autotools--something I haven&amp;#39;t learnt yet. Minunit throws a segfault when I try
-and compile my test code. Currently I&amp;#39;m leaning towards minunit for it&amp;#39;s
+&lt;p&gt;I haven’t managed to get either of these working yet. Check suggests the use of
+autotools–something I haven’t learnt yet. Minunit throws a segfault when I try
+and compile my test code. Currently I’m leaning towards minunit for it’s
 simplicity.&lt;/p&gt;
 
 &lt;p&gt;Eric Radman has a good post on &lt;a href=&quot;http://eradman.com/posts/tdd-in-c.html&quot;&gt;unit testing C&lt;/a&gt;. 
-I haven&amp;#39;t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
+I haven’t looked into it too deeply yet, as my knowledge in C is rather limited.&lt;/p&gt;
 
-&lt;p&gt;If TDDing algorithms is a good exercise we&amp;#39;ll try and compile a wiki where we
+&lt;p&gt;If TDDing algorithms is a good exercise we’ll try and compile a wiki where we
 explain the algorithm, and show the steps to a TDD implementation.&lt;/p&gt;
 
 &lt;h2 id=&quot;screen-recording&quot;&gt;Screen recording&lt;/h2&gt;
-
-&lt;p&gt;Next week we&amp;#39;ll record our pairing session and put it on youtube. I&amp;#39;m using 
+&lt;p&gt;Next week we’ll record our pairing session and put it on youtube. I’m using 
 &lt;a href=&quot;http://www.maartenbaert.be/simplescreenrecorder/&quot;&gt;SimpleScreenRecorder&lt;/a&gt; to
-capture the screen and audio. It&amp;#39;s a lot better than Gtk-RecordMyDesktop. I also
-tried to check out &lt;a href=&quot;http://freeseer.github.io/&quot;&gt;FreeSeer&lt;/a&gt;, however I couldn&amp;#39;t
+capture the screen and audio. It’s a lot better than Gtk-RecordMyDesktop. I also
+tried to check out &lt;a href=&quot;http://freeseer.github.io/&quot;&gt;FreeSeer&lt;/a&gt;, however I couldn’t
 get it to compile.&lt;/p&gt;
 
 &lt;h2 id=&quot;apprenticeships-as-a-complement-to-a-degree&quot;&gt;Apprenticeships as a complement to a degree&lt;/h2&gt;
-
-&lt;p&gt;Jason feels confident that what I&amp;#39;ll learn in my degree will not overlap too
+&lt;p&gt;Jason feels confident that what I’ll learn in my degree will not overlap too
 much with what he wishes to teach me. Hopefully an apprenticeship will cover the
 more practical aspects of software development that seem to take a backseat in a
 CS degree, and understandably so given that it is CS, and not software
 development. The problem is that most CS graduates will just go on to do
 software development, and so it might not be a bad idea for CS students to learn
-a decent amount of software development too. It looks as if we&amp;#39;ll learn agile in
-the 2nd year... I would have thought by then it&amp;#39;d be too late...&lt;/p&gt;
+a decent amount of software development too. It looks as if we’ll learn agile in
+the 2nd year… I would have thought by then it’d be too late…&lt;/p&gt;
 </content>
  </entry>
  
@@ -1139,30 +1183,28 @@ the 2nd year... I would have thought by then it&amp;#39;d be too late...&lt;/p&g
    <link href="http://willprice.org//2013/09/02/mock-objects-pairing-session.html"/>
    <updated>2013-09-02T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/09/02/mock-objects-pairing-session</id>
-   <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)&lt;/p&gt;
+   <content type="html">&lt;p&gt;(Friday 30th August Pairing with Jason)
+### Introduction: Why mock objects&lt;/p&gt;
 
-&lt;h3 id=&quot;introduction-why-mock-objects&quot;&gt;Introduction: Why mock objects&lt;/h3&gt;
-
-&lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code&gt;asserts&lt;/code&gt; to make sure things
+&lt;p&gt;Having been exposed to the basics of TDD: Using &lt;code class=&quot;highlighter-rouge&quot;&gt;asserts&lt;/code&gt; to make sure things
 changed; trying to write each test so it fails for only one reason;
 triangulating a solution, rather than just dumping it all in one fell swoop, I
 thought it was about time to learn what mock objects are, and what they are used
 for.&lt;/p&gt;
 
 &lt;h3 id=&quot;useful-terminology&quot;&gt;Useful Terminology:&lt;/h3&gt;
-
 &lt;p&gt;Taking a moment to familiarise myself with the terminology used with mocks was an important step in understanding what they are.
-* &lt;code&gt;Stub&lt;/code&gt; - A method that returns a specific result
-* &lt;code&gt;Mock&lt;/code&gt; - A class with the assertion that a certain method was called.&lt;/p&gt;
+* &lt;code class=&quot;highlighter-rouge&quot;&gt;Stub&lt;/code&gt; - A method that returns a specific result
+* &lt;code class=&quot;highlighter-rouge&quot;&gt;Mock&lt;/code&gt; - A class with the assertion that a certain method was called.&lt;/p&gt;
 
-&lt;p&gt;Don&amp;#39;t expect my usage of terminology to be spot on; I&amp;#39;m still learning!&lt;/p&gt;
+&lt;p&gt;Don’t expect my usage of terminology to be spot on; I’m still learning!&lt;/p&gt;
 
 &lt;h3 id=&quot;the-problem&quot;&gt;The Problem:&lt;/h3&gt;
-
 &lt;p&gt;Jason suggested we try writing a virtual box office where a customer can book
 tickets for a specific play. After a discussion we wrote an acceptance test (in
 English) to outline what our end result should be able to do:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Given that the seat A6 is available for a performance of &#39;Cats&#39;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Given that the seat A6 is available for a performance of &#39;Cats&#39;
 when I reserve A6 using credit card number 1234
 then A6 should be marked as reserved for 1234 and cannot be booked by anyone else.
 
@@ -1185,86 +1227,103 @@ then A6 should be marked as reserved for 1234 and cannot be booked by anyone els
 2. Box office finds performance of &#39;Cats&#39; and tells performance to reserve Seat A6 using credit card number 1234
 3. &#39;Cats&#39; performance finds seat A6 and tells seat A6 to reserve itself using credit card number 1234
 4. Seat A6 records the credit card number of the reserver.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;building-outside-in&quot;&gt;Building Outside in:&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
+&lt;h3 id=&quot;building-outside-in&quot;&gt;Building Outside in:&lt;/h3&gt;
 &lt;p&gt;When building an application from the outside in, we need some way of testing
-the interaction between what we&amp;#39;re writing and the next layer in which hasn&amp;#39;t
-been written yet. That&amp;#39;s were mocks and stubs come in...&lt;/p&gt;
+the interaction between what we’re writing and the next layer in which hasn’t
+been written yet. That’s were mocks and stubs come in…&lt;/p&gt;
 
 &lt;p&gt;To start off Jason suggested that we design the program as a simple web
-service--a query would come in with a performance name, credit card number, and
-seat identifier. We&amp;#39; d then reserve the seat if it was available, otherwise
+service–a query would come in with a performance name, credit card number, and
+seat identifier. We’ d then reserve the seat if it was available, otherwise
 throw and exception indicating the unavailability of that seat.&lt;/p&gt;
 
 &lt;p&gt;The simplest thing I could think of testing was &lt;strong&gt;finding a specific
 performance&lt;/strong&gt;, the implementation is pretty simple, define a method on
-&lt;code&gt;BoxOffice&lt;/code&gt; that finds a performance in a &lt;code&gt;HashMap&amp;lt;String, Performance&amp;gt;&lt;/code&gt;.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;BoxOffice&lt;/code&gt; that finds a performance in a &lt;code class=&quot;highlighter-rouge&quot;&gt;HashMap&amp;lt;String, Performance&amp;gt;&lt;/code&gt;.
 Testing this is more complicated than simply asserting that the correct
 performance was found using the search. Mocks to the rescue! We can write an
-interface (&lt;code&gt;Mockito&lt;/code&gt; can also mock classes too, Jason showed me the traditional
+interface (&lt;code class=&quot;highlighter-rouge&quot;&gt;Mockito&lt;/code&gt; can also mock classes too, Jason showed me the traditional
 way, before mocking classes was possible) for performance and then mock it using
-&lt;code&gt;mock(Performance.class)&lt;/code&gt;, this returns a mock object of the type &lt;code&gt;Performance&lt;/code&gt;.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;mock(Performance.class)&lt;/code&gt;, this returns a mock object of the type &lt;code class=&quot;highlighter-rouge&quot;&gt;Performance&lt;/code&gt;.
 It has no functionality, but we can call any method on it that is defined in the
-interface, the methods will not do anything as we haven&amp;#39;t defined any behaviour
-for it (because for this test behaviour is superfluous). &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;    // BoxOffice is a field in the test class
+interface, the methods will not do anything as we haven’t defined any behaviour
+for it (because for this test behaviour is superfluous).&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    // BoxOffice is a field in the test class
 protected Performance createBoxOfficeWithMockPerformance() {
-    Performance mockPerformance = mock(Performance.class);
-    HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
-    performances.put(&quot;Cats&quot;, mockPerformance);
-    boxOffice = new BoxOffice(performances);
-    return mockPerformance;
+	Performance mockPerformance = mock(Performance.class);
+	HashMap&amp;lt;String, Performance&amp;gt; performances = new HashMap&amp;lt;&amp;gt;();
+	performances.put(&quot;Cats&quot;, mockPerformance);
+	boxOffice = new BoxOffice(performances);
+	return mockPerformance;
 }
 
 @Test
 public void findsPerformanceOfCats() {
-    Performance mockPerformance = createBoxOfficeWithMockPerformance();
-    assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));
+	Performance mockPerformance = createBoxOfficeWithMockPerformance();
+	assertEquals(mockPerformance, boxOffice.findPerformance(&quot;Cats&quot;));
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code&gt;Seat&lt;/code&gt;. &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion: &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;// mockPerformance is a performance of &quot;Cats&quot; in the box office
+&lt;p&gt;I thought the responsibility of reserving a seat should belong to a &lt;code class=&quot;highlighter-rouge&quot;&gt;Seat&lt;/code&gt; class that would be at the bottom of the class hierarchy of the finished application:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;BoxOffice -&amp;gt; Performance -&amp;gt; Seat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BoxOffice&lt;/code&gt; would need to talk to &lt;code class=&quot;highlighter-rouge&quot;&gt;Performance&lt;/code&gt; which would then eventually talk to &lt;code class=&quot;highlighter-rouge&quot;&gt;Seat&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;We wrote the next test for &lt;strong&gt;Reserving a seat&lt;/strong&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;BoxOffice.reserveSeat(String Performance, String seatIdentifier, String creditCardNumber)&lt;/code&gt; would be the signature of the method so we started by writing the assertion:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;verify&lt;/code&gt; takes a mock object and makes sure that the method was called using the same parameters, and so then it was time to call &lt;code class=&quot;highlighter-rouge&quot;&gt;mockPerformance.reserveSeat(...)&lt;/code&gt; which would be called by &lt;code class=&quot;highlighter-rouge&quot;&gt;BoxOffice.reserveSeat(...)&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// mockPerformance is a performance of &quot;Cats&quot; in the box office
 boxOffice.reserveSeat(&quot;Cats&quot;, &quot;A6&quot;, &quot;1234&quot;)
 verify(mockPerformance).reserveSeat(&quot;A6&quot;, &quot;1234&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;mocking-voids&quot;&gt;Mocking &lt;code&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn&amp;#39;t working. Mockito&amp;#39;s &lt;code&gt;when&lt;/code&gt; method doesn&amp;#39;t work with void methods. You must use a &lt;code&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code&gt;when&lt;/code&gt; code ends up looking like: &lt;code&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;mocking-voids&quot;&gt;Mocking &lt;code class=&quot;highlighter-rouge&quot;&gt;voids&lt;/code&gt;:&lt;/h3&gt;
+&lt;p&gt;Ouch! I had a hard time figuring out why &lt;code class=&quot;highlighter-rouge&quot;&gt;when(mockedObject.voidMethod).thenThrow(new RuntimeException())&lt;/code&gt; wasn’t working. Mockito’s &lt;code class=&quot;highlighter-rouge&quot;&gt;when&lt;/code&gt; method doesn’t work with void methods. You must use a &lt;code class=&quot;highlighter-rouge&quot;&gt;doReturn|doThrow|doAnswer...&lt;/code&gt; method, and so the &lt;code class=&quot;highlighter-rouge&quot;&gt;when&lt;/code&gt; code ends up looking like: &lt;code class=&quot;highlighter-rouge&quot;&gt;doThrow(new RuntimeException()).when(mockedObject).voidMethod(..);&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;This helped me mock &lt;code&gt;Performance&lt;/code&gt; so that I could throw an &lt;code&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test. &lt;/p&gt;
+&lt;p&gt;This helped me mock &lt;code class=&quot;highlighter-rouge&quot;&gt;Performance&lt;/code&gt; so that I could throw an &lt;code class=&quot;highlighter-rouge&quot;&gt;UnavailableSeatException&lt;/code&gt; when trying to reserve a seat for the second time in my acceptance test.&lt;/p&gt;
 
 &lt;h3 id=&quot;mocked-method-behaviour&quot;&gt;Mocked method behaviour&lt;/h3&gt;
-
-&lt;p&gt;Giving mocked methods &amp;#39;intelligent&amp;#39; behaviour cam be accomplished in 2 ways. &lt;/p&gt;
+&lt;p&gt;Giving mocked methods ‘intelligent’ behaviour cam be accomplished in 2 ways.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Changing the behaviour based on argument&lt;/li&gt;
-&lt;li&gt;Changing behavious based on number of invocations&lt;/li&gt;
+  &lt;li&gt;Changing the behaviour based on argument&lt;/li&gt;
+  &lt;li&gt;Changing behavious based on number of invocations&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;The first:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;when(mockObject.method(1)).thenReturn(1)
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;when(mockObject.method(1)).thenReturn(1)
 when(mockObject.method(2)).thenReturn(2)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;The second&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;when(mockObject.method()).thenReturn(1).thenReturn(2)
 mockObject.method() // =&amp;gt; 1
 mockObject.method() // =&amp;gt; 2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Mockito returns the mocked method for each &lt;code&gt;then*&lt;/code&gt; invocation, so you can chain the &lt;code&gt;then*&lt;/code&gt; methods together like in this example. &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Mockito returns the mocked method for each &lt;code class=&quot;highlighter-rouge&quot;&gt;then*&lt;/code&gt; invocation, so you can chain the &lt;code class=&quot;highlighter-rouge&quot;&gt;then*&lt;/code&gt; methods together like in this example.&lt;/p&gt;
 
 &lt;p&gt;My tests all have the mocks written into them. Jason suggested I try removing
 this hardcoding of objects, allowing myself to inject either mocks or a concrete
-implementation which will the focus of my next post; that is once I&amp;#39;ve managed
+implementation which will the focus of my next post; that is once I’ve managed
 to do it, and write it up.&lt;/p&gt;
 </content>
  </entry>
@@ -1277,43 +1336,46 @@ to do it, and write it up.&lt;/p&gt;
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.codemanship.co.uk/parlezuml/blog/index.php&quot;&gt;Jason&lt;/a&gt; and I had a
 rather interesting pair programming session last week where we tackled a problem
 that I found on &lt;a href=&quot;http://topcoder.com&quot;&gt;Topcoder&lt;/a&gt;. It is in fact a slight twist
-(easier) on the actual topcoder problem as I didn&amp;#39;t have it to hand when we were
+(easier) on the actual topcoder problem as I didn’t have it to hand when we were
 pairing.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-problem&quot;&gt;The Problem:&lt;/h2&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
+  &lt;p&gt;Given a composite rectangle (composed of unit rectangles) of arbitrary dimensions, calculate the number of
 sub rectangles that can be composed from the unit rectangles. Remember squares
-are rectangles...&lt;/p&gt;
+are rectangles…&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;If that&amp;#39;s not clear enough, this diagram should help articulate what the problem
+&lt;p&gt;If that’s not clear enough, this diagram should help articulate what the problem
 is.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&quot; alt=&quot;Diagram of 2x2 rectangles and it&amp;#39;s 9 subrectangles&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/4x4-solution.svg&quot; alt=&quot;Diagram of 2x2 rectangles and it&#39;s 9 subrectangles&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here we can see that you can create 9 rectangles from the initial 2x2 rectangle.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-design&quot;&gt;The Design:&lt;/h2&gt;
-
 &lt;p&gt;Tackling this in a TDD-way we first had to decide on rough roadmap of
 test cases. The simplest test case seemed to be a invalid rectangle,
 0 rectangles high or wide, or both.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Test cases:
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We&amp;#39;d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We’d then go on to a 1x1 rectangle, 1x2, 2x1, 3x1, 1x3, 2x2 and 3x2. Jason
 stressed that we were just sketching out a path we &lt;em&gt;might&lt;/em&gt; take, it may not have
-been neccessary to use all the test cases, or maybe we&amp;#39;d need more; the list
+been neccessary to use all the test cases, or maybe we’d need more; the list
 seemed like it would probably be sufficient for a full implementation.&lt;/p&gt;
 
 &lt;p&gt;The next step was to figure out how many subrectangles there were in each
 composite rectangle, this involved a bit of drawing and tallying. In the end I
 think I only miscounted one test case which we noticed fairly quickly when
 coding.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;Test cases:
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Test cases:
 -----------
 1. Do not accept geometrically impossible rectangle
 2. 1x1 has 1 subrectangle
@@ -1323,40 +1385,42 @@ coding.&lt;/p&gt;
 6. 1x3 has 6 subrectangles
 7. 2x2 has 9 subrectangles
 8. 3x2 has 18 subrectangles
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Having written our roadmap it was now time to start tackling this problem. We
 used Java, and JUnit with Eclipse.&lt;/p&gt;
 
 &lt;p&gt;The implementation up to 3x1 was fairly simple, however it started to get a little
-more tricky after that stage, it wasn&amp;#39;t immediately obvious what formula we
-should have been using, &lt;code&gt;\(xy + (x-1)y + (y-1)x\)&lt;/code&gt; seemed like a promising
+more tricky after that stage, it wasn’t immediately obvious what formula we
+should have been using, &lt;code class=&quot;highlighter-rouge&quot;&gt;\(xy + (x-1)y + (y-1)x\)&lt;/code&gt; seemed like a promising
 start, passing all the previous tests up until that point, addition of another
 term sounded like it might hold the solution, however it was difficult to think
-of what it could be, we didn&amp;#39;t come up with anything in the end.&lt;/p&gt;
+of what it could be, we didn’t come up with anything in the end.&lt;/p&gt;
 
 &lt;p&gt;Our design up until this point had been heading towards a solution in the form
-of &lt;code&gt;return some_algebraic_formula&lt;/code&gt;, we changed tack and started looking at it in
+of &lt;code class=&quot;highlighter-rouge&quot;&gt;return some_algebraic_formula&lt;/code&gt;, we changed tack and started looking at it in
 terms of combinations as we thought it might be a more successful avenue of
 attack. Jason suggested it might be as simple as a factorial, given that there
-are &lt;code&gt;\(^n C_r\)&lt;/code&gt; ways of ordering &lt;code&gt;\(r\)&lt;/code&gt; items from a sample of size &lt;code&gt;\(n\)&lt;/code&gt;
-and...
-&lt;code&gt;\[^n C_r = \frac{n!}{r!(n-r)!}\]&lt;/code&gt;
+are &lt;code class=&quot;highlighter-rouge&quot;&gt;\(^n C_r\)&lt;/code&gt; ways of ordering &lt;code class=&quot;highlighter-rouge&quot;&gt;\(r\)&lt;/code&gt; items from a sample of size &lt;code class=&quot;highlighter-rouge&quot;&gt;\(n\)&lt;/code&gt;
+and…
+&lt;code class=&quot;highlighter-rouge&quot;&gt;\[^n C_r = \frac{n!}{r!(n-r)!}\]&lt;/code&gt;
 Maybe not as simple as a single factorial, but we were definitely dealing with
 sequences and/or combinations. The problem with combinations is that they
 calculate all possible combinations including non-contiguous options (think
-first and last subrectangle of a 3x1). We didn&amp;#39;t discuss this at the time
+first and last subrectangle of a 3x1). We didn’t discuss this at the time
 because a simpler solution presented itself.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/media/img/diagrams/tdd-rectangles/combination-1.svg&quot; alt=&quot;Diagram demonstrating how many of each size of subrectangle are present in a
-3x1 rectangle&quot;&gt;&lt;/p&gt;
+3x1 rectangle&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Being Test Driven in design, we looked at our current test case, a 3x1 rectangle
-(I&amp;#39;ve illustrated a 1x3, imagine it&amp;#39;s just rotated!), after a bit of drawing and
+(I’ve illustrated a 1x3, imagine it’s just rotated!), after a bit of drawing and
 colouring it was evident that the number of subrectangles present in a column
 decreased by 1 for each unit increase in subrectangle length (refer to diagram). 
-In the general case you have &lt;code&gt;\(n + (n-1) + (n-2) + \ldots + 1\)&lt;/code&gt; subrectangles
-per column where &lt;code&gt;\(n\)&lt;/code&gt; is the length of the column. We could iterate over each
-column and add either the general result of this formula (&lt;code&gt;\(\Sigma_0^nr\)&lt;/code&gt;), or
+In the general case you have &lt;code class=&quot;highlighter-rouge&quot;&gt;\(n + (n-1) + (n-2) + \ldots + 1\)&lt;/code&gt; subrectangles
+per column where &lt;code class=&quot;highlighter-rouge&quot;&gt;\(n\)&lt;/code&gt; is the length of the column. We could iterate over each
+column and add either the general result of this formula (&lt;code class=&quot;highlighter-rouge&quot;&gt;\(\Sigma_0^nr\)&lt;/code&gt;), or
 generate it on the fly with another loop. Initially it was simplest to just loop
 over columns and rows separately, instead of trying to take the larger step and
 implement the actual solution.&lt;/p&gt;
@@ -1377,9 +1441,9 @@ implement the actual solution.&lt;/p&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The next test case: 2x2, introduced a new class of rectangles, 2D, the others
-had all been 1D in either the &lt;code&gt;\(x\)&lt;/code&gt; or &lt;code&gt;\(y\)&lt;/code&gt; axis. The previous
+had all been 1D in either the &lt;code class=&quot;highlighter-rouge&quot;&gt;\(x\)&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;\(y\)&lt;/code&gt; axis. The previous
 implementation yields 5 subrectangles instead of 9. We looked at which ones it
-was counting, just the first row and first column -- time to loop over the whole
+was counting, just the first row and first column – time to loop over the whole
 thing. Enclosing each loop with an outer loop iterating over either column or
 row depending on the inner loop and removing duplicates was a possibility, a
 very messy one, probably unlikely to succeed in being the general solution
@@ -1395,19 +1459,23 @@ duplicates.&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;I like this, it&amp;#39;s rather clever. It&amp;#39;s easiest to understand given an example,
-let&amp;#39;s use the 2x2 rectangle we were trying to solve. The first column has 3
-subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;i = 1:
+&lt;p&gt;I like this, it’s rather clever. It’s easiest to understand given an example,
+let’s use the 2x2 rectangle we were trying to solve. The first column has 3
+subrectangles, here’s what the code excecutes:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;i = 1:
     j = 1:
         numberOfSubrectangles += 1;
         // numberOfSubrectangles = 1;
     j = 2:
         numberOfSubrectangles += 2;
         // numberOfSubrectangles = 3;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Looping over the first column we get 3 subrectangles, so good so far.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;i = 2:
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;i = 2:
     j = 1:
         numberOfSubrectangles += 2
         // numberOfSubrectangles = 5
@@ -1416,15 +1484,16 @@ subrectangles, here&amp;#39;s what the code excecutes:&lt;/p&gt;
         // numberOfSubrectangles = 9
 
 return 9
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Through the second column, the subrectangles found in &lt;code&gt;i = 1&lt;/code&gt; are found again in
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Through the second column, the subrectangles found in &lt;code class=&quot;highlighter-rouge&quot;&gt;i = 1&lt;/code&gt; are found again in
 this next column, however, we also need to take into account the rectangles that
 are formed along the rows, which there are 3 of, giving us a total of 6
 additional subrectangles.&lt;/p&gt;
 
 &lt;h2 id=&quot;algebraic-solution&quot;&gt;Algebraic solution:&lt;/h2&gt;
-
-&lt;p&gt;We had a solution! I like maths so I&amp;#39;ve found the algebraic solution from the
+&lt;p&gt;We had a solution! I like maths so I’ve found the algebraic solution from the
 code. Reasoning about loops of loops in mathematics is particularly
 aesthetically pleasing to me.&lt;/p&gt;
 
@@ -1434,9 +1503,9 @@ aesthetically pleasing to me.&lt;/p&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;I&amp;#39;ll be using &lt;code&gt;\(z\)&lt;/code&gt; as the &lt;code&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
+&lt;p&gt;I’ll be using &lt;code class=&quot;highlighter-rouge&quot;&gt;\(z\)&lt;/code&gt; as the &lt;code class=&quot;highlighter-rouge&quot;&gt;numberOfSubrectangles&lt;/code&gt;, it makes writing the maths
 easier.
-&lt;code&gt;\[\begin{aligned}
+&lt;code class=&quot;highlighter-rouge&quot;&gt;\[\begin{aligned}
  z &amp;amp;= \sum_{i=1}^x (\sum_{j=1}^y(ij)) \\
  z &amp;amp;= \sum_{i=1}^x i(\sum_{j=1}^y(j)) \\
  z &amp;amp;= \sum_{i=1}^xi(\frac{1}{2}y(y+1)) \\
@@ -1444,13 +1513,13 @@ easier.
  z &amp;amp;= \frac{1}{4}xy(x+1)(y+1)
  \end{aligned}\]&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;You can literally change the Java code to return &lt;code&gt;\(z\)&lt;/code&gt;, how pleasing :)&lt;/p&gt;
+&lt;p&gt;You can literally change the Java code to return &lt;code class=&quot;highlighter-rouge&quot;&gt;\(z\)&lt;/code&gt;, how pleasing :)&lt;/p&gt;
 
 &lt;p&gt;After tackling the problem with Jason, I had a go solving it mathematically a
-few days after and by then I&amp;#39;d forgotten the solution; I didn&amp;#39;t have much success at all.
+few days after and by then I’d forgotten the solution; I didn’t have much success at all.
 In this case I think developing in this way helped us to reach the insight that
-we should add &lt;code&gt;i*j&lt;/code&gt; inside our nested loops. I don&amp;#39;t have the problem solving
-skills to incrementally build a solution mathematically, although I&amp;#39;m starting
+we should add &lt;code class=&quot;highlighter-rouge&quot;&gt;i*j&lt;/code&gt; inside our nested loops. I don’t have the problem solving
+skills to incrementally build a solution mathematically, although I’m starting
 to aquire them in the domain of programming (very slowly), perhaps if I try and
 apply a TDD approach to maths I may get further with hard mathematical problems?&lt;/p&gt;
 </content>
@@ -1461,55 +1530,67 @@ apply a TDD approach to maths I may get further with hard mathematical problems?
    <link href="http://willprice.org//2013/05/10/pulseaudio-network-streaming.html"/>
    <updated>2013-05-10T00:00:00+01:00</updated>
    <id>http://willprice.org/2013/05/10/pulseaudio-network-streaming</id>
-   <content type="html">&lt;p&gt;I&amp;#39;ve tried setting up pulseaudio before to stream music from my laptop to my
+   <content type="html">&lt;p&gt;I’ve tried setting up pulseaudio before to stream music from my laptop to my
 desktop without much success. I attribute my past failures to my lack of
 understanding of the client/server model that pulseaudio follows. Trust me when
-I say it&amp;#39;s important to learn the necessery terminology to setup pulseaudio,
-  you&amp;#39;ll end up quite confused otherwise!&lt;/p&gt;
+I say it’s important to learn the necessery terminology to setup pulseaudio,
+  you’ll end up quite confused otherwise!&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code&gt;sources&lt;/code&gt; and outputs audio
-on a &lt;code&gt;sink&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;server&lt;/code&gt; - A pulseaudio server or daemon accepts &lt;code class=&quot;highlighter-rouge&quot;&gt;sources&lt;/code&gt; and outputs audio
+on a &lt;code class=&quot;highlighter-rouge&quot;&gt;sink&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;source&lt;/code&gt; - Any process that outputs audio, for example chromium playing music
 from &lt;a href=&quot;http://hypem.com/willprice&quot;&gt;hypem.com&lt;/a&gt;. In the client/server relationship a &lt;em&gt;source&lt;/em&gt; is a &lt;em&gt;client&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sink&lt;/code&gt; - A soundcard, a remote pulseaudio server (with soundcards) and some
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sink&lt;/code&gt; - A soundcard, a remote pulseaudio server (with soundcards) and some
 other niche things (think /dev/null, visualisers).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This diagram represents the setup we&amp;#39;re creating:&lt;/p&gt;
+&lt;p&gt;This diagram represents the setup we’re creating:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/img/diagrams/pa-network-streaming/pa-network-streaming.svg&quot; alt=&quot;Diagram of PA network streaming setup&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;setup-the-server-the-machine-that-is-attached-to-an-audio-device&quot;&gt;Setup the server (the machine that is attached to an audio device):&lt;/h2&gt;
+&lt;p&gt;Add the following lines to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;192.168.0.0/24 auth-anonymous=1
   load-module module-zeroconf-publish
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;The first line sets up a TCP server for pulseaudio allowing remote sound sources
-  to be utilized (clients can be anonymous as well). The second line sets up &lt;code&gt;zerconf&lt;/code&gt; publishing by the &lt;code&gt;avahi
-  daemon&lt;/code&gt; (enable with &lt;code&gt;systemctl enable avahi-daemon &amp;amp;&amp;amp; systemctl start
+  to be utilized (clients can be anonymous as well). The second line sets up &lt;code class=&quot;highlighter-rouge&quot;&gt;zerconf&lt;/code&gt; publishing by the &lt;code class=&quot;highlighter-rouge&quot;&gt;avahi
+  daemon&lt;/code&gt; (enable with &lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable avahi-daemon &amp;amp;&amp;amp; systemctl start
           avahi-daemon&lt;/code&gt; on Arch), the clients that will attach to the server will also
-  need the &lt;code&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you&amp;#39;ve
-  just set up. &lt;/p&gt;
+  need the &lt;code class=&quot;highlighter-rouge&quot;&gt;avahi deamon&lt;/code&gt; running to be informed of the pulseaudio server you’ve
+  just set up.&lt;/p&gt;
 
 &lt;h2 id=&quot;setup-the-client-the-machine-that-you-want-audio-to-be-streamed-from&quot;&gt;Setup the client (the machine that you want audio to be streamed from)&lt;/h2&gt;
-
-&lt;p&gt;Add the following lines to &lt;code&gt;/etc/pulse/default.pa&lt;/code&gt;
+&lt;p&gt;Add the following lines to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/pulse/default.pa&lt;/code&gt;
   load-module module-zeroconf-discover
   Understandably this module searches out for other pulseaudio servers on the LAN.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;load-module module-zeroconf-discover
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Restart pulseaudio and install &lt;code&gt;pasystray&lt;/code&gt; or &lt;code&gt;padevchooser&lt;/code&gt; to set your sink
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;load-module module-zeroconf-discover
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Restart pulseaudio and install &lt;code class=&quot;highlighter-rouge&quot;&gt;pasystray&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;padevchooser&lt;/code&gt; to set your sink
   (desktop) on the client/source (laptop).&lt;/p&gt;
 
 &lt;h2 id=&quot;sources&quot;&gt;Sources&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/PulseAudio&quot;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/&quot;&gt;Sound on Linux is confusing part 1: ALSA&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/&quot;&gt;Sound on Linux is confusing part 2: Pulseaudio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt; &lt;a href=&quot;https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network&quot;&gt;Pulseaudio examples | Arch Wiki&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/PulseAudio&quot;&gt;Pulseaudio on Wikipedia&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://colin.guthr.ie/2009/08/sound-on-linux-is-confusing-defuzzing-part-1-alsa/&quot;&gt;Sound on Linux is confusing part 1: ALSA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://colin.guthr.ie/200k9/08/sound-on-linux-is-confusing-defuzzing-part-2-pulseaudio/&quot;&gt;Sound on Linux is confusing part 2: Pulseaudio&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[Pulseaudio examples&lt;/td&gt;
+          &lt;td&gt;Arch Wiki](https://wiki.archlinux.org/index.php/PulseAudio/Examples#PulseAudio_over_network)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
@@ -1526,23 +1607,23 @@ as I learn the principles behind this philosophy.&lt;/p&gt;
 &lt;p&gt;TDD can be roughly outlined as follows:
 - Write a failing test for the desired functionality.
 - Write the smallest amount of code that can make &lt;em&gt;that&lt;/em&gt; test pass.
-- Refactor you code, making sure your changes don&amp;#39;t break functionality (keep
+- Refactor you code, making sure your changes don’t break functionality (keep
   running the tests)&lt;/p&gt;
 
 &lt;p&gt;As my first introduction to TDD Jason and I did some pair programming where I
 implemented a simple Fibonacci function, this enabled me to see how the general
-principle worked: &amp;quot;Test a little, program a little&amp;quot;, and see what sort of
-obstacles I might come across, such as &amp;quot;What&amp;#39;s the next test going to be where
-there is no linear progression to follow&amp;quot;. &lt;/p&gt;
+principle worked: “Test a little, program a little”, and see what sort of
+obstacles I might come across, such as “What’s the next test going to be where
+there is no linear progression to follow”.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can
+&lt;p&gt;I’ve given my self a quick crash course in &lt;em&gt;git&lt;/em&gt; to document my progress, I can
 commit every time I write a test or a piece of code. The history of the code
-can be viewed using &lt;code&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code&gt;git log --follow --all -p
+can be viewed using &lt;code class=&quot;highlighter-rouge&quot;&gt;gitk filename&lt;/code&gt; using a GUI or &lt;code class=&quot;highlighter-rouge&quot;&gt;git log --follow --all -p
 filename&lt;/code&gt;[1].&lt;/p&gt;
 
-&lt;p&gt;I don&amp;#39;t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise
-I did, however I&amp;#39;ve got my third attempt at it (it&amp;#39;s  pretty similar to the
-first, I&amp;#39;ve just been trying to internalize the concepts I&amp;#39;ve met so far).&lt;/p&gt;
+&lt;p&gt;I don’t have the commit history for the &lt;em&gt;very&lt;/em&gt; first Fibonacci sequence exercise
+I did, however I’ve got my third attempt at it (it’s  pretty similar to the
+first, I’ve just been trying to internalize the concepts I’ve met so far).&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-diff&quot; data-lang=&quot;diff&quot;&gt;commit 9c764e57c26e43a87954fbc9026119530c2b6ecf
 Author: Will Price &amp;lt;will.price94@gmail.com&amp;gt;
@@ -1882,14 +1963,14 @@ Date:   Tue Jan 29 10:16:20 2013 +0000
 +if __name__ == &#39;__main__&#39;:
 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;+    unittest.main()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I&amp;#39;m just
+&lt;p&gt;You might disagree with my steps, or marvel at my crap commit messages; I’m just
 getting started with the tools and methodologies so hopefully in 6 months time
-I&amp;#39;ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
+I’ll be able to look back at this and correct all my mistakes.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;ve been using &lt;code&gt;tmux&lt;/code&gt; to organise my work, &lt;code&gt;vim&lt;/code&gt; to edit it, &lt;code&gt;git&lt;/code&gt; to save
-progress and &lt;code&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I&amp;#39;m
-reasonably pleased with this workflow, it&amp;#39;s both simple and flexible.
-[1] - &amp;#39;--follow&amp;#39; handles renames, &amp;#39;--all&amp;#39; shows commits on all branches, &amp;#39;-p&amp;#39;
+&lt;p&gt;I’ve been using &lt;code class=&quot;highlighter-rouge&quot;&gt;tmux&lt;/code&gt; to organise my work, &lt;code class=&quot;highlighter-rouge&quot;&gt;vim&lt;/code&gt; to edit it, &lt;code class=&quot;highlighter-rouge&quot;&gt;git&lt;/code&gt; to save
+progress and &lt;code class=&quot;highlighter-rouge&quot;&gt;watch&lt;/code&gt; to continually test my code (this is very handy!). I’m
+reasonably pleased with this workflow, it’s both simple and flexible.
+[1] - ‘–follow’ handles renames, ‘–all’ shows commits on all branches, ‘-p’
 shows the changes in patch form (otherwise you just get commit messages)&lt;/p&gt;
 </content>
  </entry>
@@ -1899,17 +1980,18 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
    <link href="http://willprice.org//2012/11/19/CS101-Homework-4-splitting-strings.html"/>
    <updated>2012-11-19T00:00:00+00:00</updated>
    <id>http://willprice.org/2012/11/19/CS101-Homework-4-splitting-strings</id>
-   <content type="html">&lt;p&gt;I&amp;#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&amp;#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&amp;#39;ll explain the question and how the solution is reached for those that didn&amp;#39;t find the video particularly clear.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I’ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I’ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I’ll explain the question and how the solution is reached for those that didn’t find the video particularly clear.&lt;/p&gt;
 
 &lt;p&gt;The question:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; # 1 Gold Star
 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; # 1 Gold Star
+ 
  # The built-in &amp;lt;string&amp;gt;.split() procedure works
  # okay, but fails to find all the words on a page
  # because it only uses whitespace to split the
  # string. To do better, we should also use punctuation
  # marks to split the page into words.
-
+ 
  # Define a procedure, split_string, that takes two
  # inputs: the string to split and a string containing
  # all of the characters considered separators. The
@@ -1918,19 +2000,24 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
  # splitlist.
  #
  # def split_string(source,splitlist)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;There are also some examples and expected behaviour given:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt; out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; out = split_string(&quot;This is a test-of the,string separation-code!&quot;,&quot; ,!-&quot;)
  print out
  #&amp;gt;&amp;gt;&amp;gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]
-
+ 
  out = split_string(&quot;After  the flood   ...  all the colors came out.&quot;, &quot; .&quot;)
  print out
  #&amp;gt;&amp;gt;&amp;gt; [&#39;After&#39;, &#39;the&#39;, &#39;flood&#39;, &#39;all&#39;, &#39;the&#39;, &#39;colors&#39;, &#39;came&#39;, &#39;out&#39;]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&amp;#39;t members of &lt;code&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code&gt;splitlist&lt;/code&gt;). &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Let&amp;#39;s define a list,&lt;code&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code&gt;source&lt;/code&gt; adding characters to a string present in &lt;code&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&amp;#39;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&amp;#39;ll need to start a new entry in the word_list list otherwise we&amp;#39;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
+&lt;p&gt;Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren’t members of &lt;code class=&quot;highlighter-rouge&quot;&gt;splitlist&lt;/code&gt;) that are separated by splitting characters (as defined in &lt;code class=&quot;highlighter-rouge&quot;&gt;splitlist&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Let’s define a list,&lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt;, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in &lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt;. We want to iterate through &lt;code class=&quot;highlighter-rouge&quot;&gt;source&lt;/code&gt; adding characters to a string present in &lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt; until we hit upon a splitting character. At that point we want to skip to the next character and check whether that’s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we’ll need to start a new entry in the word_list list otherwise we’ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.&lt;/p&gt;
 
 &lt;p&gt;Now we have a better of idea of the problem and how to implement the solution we can start writing code:&lt;/p&gt;
 
@@ -1940,7 +2027,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
     &lt;span class=&quot;c&quot;&gt;# Once we&#39;ve filled word list, we&#39;ll want to return the list containing all the words&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;So we&amp;#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&amp;#39;ll now add functionality that loops through &lt;code&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
+&lt;p&gt;So we’ve got a skeleton function now, we know what parameters the function is going to take and the end result. We’ll now add functionality that loops through &lt;code class=&quot;highlighter-rouge&quot;&gt;source&lt;/code&gt; and check which characters are members of split list&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
@@ -1956,7 +2043,8 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This code results in:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;  this char:   is in splitlist
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  this char:   is in splitlist
   this char:   is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
@@ -1965,8 +2053,10 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
   this char:   is in splitlist
   this char: - is in splitlist
   this char: ! is in splitlist
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We&amp;#39;ve got a code block that is executed when &lt;code&gt;char&lt;/code&gt; is equal to a character from &lt;code&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code&gt;word_list&lt;/code&gt;. Remember that once we&amp;#39;ve added a word to &lt;code&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&amp;#39;ll end up with one great list of words without spaces. First we&amp;#39;ll acheive this unwanted behaviour as it&amp;#39;s a step in the right direction, then we&amp;#39;ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We’ve got a code block that is executed when &lt;code class=&quot;highlighter-rouge&quot;&gt;char&lt;/code&gt; is equal to a character from &lt;code class=&quot;highlighter-rouge&quot;&gt;splitlist&lt;/code&gt;. We can now implement the code that will add the words to &lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt;. Remember that once we’ve added a word to &lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt; and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we’ll end up with one great list of words without spaces. First we’ll acheive this unwanted behaviour as it’s a step in the right direction, then we’ll add checks to create new list entries splitting the words properly.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -1982,9 +2072,9 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a test-of the,string separation-code!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; ,.!-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;code&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt;s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in &lt;code class=&quot;highlighter-rouge&quot;&gt;word_list&lt;/code&gt;. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.&lt;/p&gt;
 
-&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we&amp;#39;ve already got a block of code that deals with this situation, it&amp;#39;s simply printing lines at the moment, not doing anything useful, we&amp;#39;ll change that so we know when we&amp;#39;ve reached a splitting character.&lt;/p&gt;
+&lt;p&gt;To acheive the functionality above, we need to know when we get to splitting characters, we’ve already got a block of code that deals with this situation, it’s simply printing lines at the moment, not doing anything useful, we’ll change that so we know when we’ve reached a splitting character.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -2002,7 +2092,7 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This is a test-of the,string separation-code!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; ,.!-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Here we&amp;#39;ve intialised &lt;code&gt;at_split&lt;/code&gt; outside of the for loop as it&amp;#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&amp;#39;t affected the functionality of &lt;code&gt;split_string&lt;/code&gt; yet, but it&amp;#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
+&lt;p&gt;Here we’ve intialised &lt;code class=&quot;highlighter-rouge&quot;&gt;at_split&lt;/code&gt; outside of the for loop as it’s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn’t affected the functionality of &lt;code class=&quot;highlighter-rouge&quot;&gt;split_string&lt;/code&gt; yet, but it’s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-py&quot; data-lang=&quot;py&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;split_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splitlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;word_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -2029,11 +2119,11 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;out&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Finally, we have the behaviour, the code above prints:
-      [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;test&amp;#39;, &amp;#39;of&amp;#39;, &amp;#39;the&amp;#39;, &amp;#39;string&amp;#39;, &amp;#39;separation&amp;#39;, &amp;#39;code&amp;#39;]&lt;/p&gt;
+      [‘This’, ‘is’, ‘a’, ‘test’, ‘of’, ‘the’, ‘string’, ‘separation’, ‘code’]&lt;/p&gt;
 
 &lt;p&gt;Mission accomplished.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;ve also used Python Tutor&amp;#39;s visualise program to show how the code is executed: &lt;a href=&quot;http://goo.gl/GSRHJ&quot;&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;
+&lt;p&gt;I’ve also used Python Tutor’s visualise program to show how the code is executed: &lt;a href=&quot;http://goo.gl/GSRHJ&quot;&gt;Visualised&lt;/a&gt;. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.&lt;/p&gt;
 </content>
  </entry>
  
@@ -2046,15 +2136,15 @@ shows the changes in patch form (otherwise you just get commit messages)&lt;/p&g
 while, I could no longer take not being able to focus the text area
 without clicking on the stop button.&lt;/p&gt;
 
-&lt;p&gt;It transpires this is an issue caused by XMonad&amp;#39;s handling of Java swing
+&lt;p&gt;It transpires this is an issue caused by XMonad’s handling of Java swing
 applications as noted by Krzysztof Krason in a &lt;a href=&quot;http://youtrack.jetbrains.com/issue/IDEA-65637&quot;&gt;thread&lt;/a&gt;
 in regard to the IDEA IDE (which also uses Java swing).&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;It&amp;#39;s not a problem with Intellij but with XMonad, it has problems with
+  &lt;p&gt;It’s not a problem with Intellij but with XMonad, it has problems with
 java swing applications.
-The solution is to use something like this in to add &amp;quot;import
-XMonad.Hooks.ICCCMFocus&amp;quot; and in your logHook add &amp;quot;takeTopFocus&amp;quot;.&lt;/p&gt;
+The solution is to use something like this in to add “import
+XMonad.Hooks.ICCCMFocus” and in your logHook add “takeTopFocus”.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;So the solution is remarkable simple. Just add these lines to your
@@ -2064,6 +2154,7 @@ xmonad.hs file:&lt;/p&gt;
 
 &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;do&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;logHook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;takeTopFocus&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
 </content>
  </entry>
  
@@ -2095,7 +2186,8 @@ Nice work.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.jayconsystems.com&
    <link href="http://willprice.org//2011/12/27/tp-link-wr703n-openwrt-mpd.html"/>
    <updated>2011-12-27T00:00:00+00:00</updated>
    <id>http://willprice.org/2011/12/27/tp-link-wr703n-openwrt-mpd</id>
-   <content type="html"></content>
+   <content type="html">
+</content>
  </entry>
  
  <entry>

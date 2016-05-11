@@ -77,15 +77,15 @@
     <div id="post">
         <h1>Are all comments bad?</h1>
         
-        <p>I&#39;ve been thinking about comments in code. Some people advocate not using
+        <p>I’ve been thinking about comments in code. Some people advocate not using
 comments suggesting that your code should be self documenting. I believe this to
 be a good practice where possible. If you need comments to explain what your
-code is doing, then it&#39;s quite likely you&#39;re code isn&#39;t sufficiently broken down
+code is doing, then it’s quite likely you’re code isn’t sufficiently broken down
 into lots of little methods naming what each part does. What happens when you
 have code that is simply non-intuitive and breaking it out into named methods
-doesn&#39;t work?</p>
+doesn’t work?</p>
 
-<p>Let&#39;s look at an example to emphasize my point. We&#39;ll take the naive Fibonacci
+<p>Let’s look at an example to emphasize my point. We’ll take the naive Fibonacci
 function:</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
@@ -122,8 +122,8 @@ function:</p>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span></code></pre></figure>
 
 <p>Now for a tail recursive implementation that is more efficient (but not in
-Python, as it doesn&#39;t have tail call optimization! I should have done it in C,
-but I couldn&#39;t face writing the tests using <code>check</code>). </p>
+Python, as it doesn’t have tail call optimization! I should have done it in C,
+but I couldn’t face writing the tests using <code class="highlighter-rouge">check</code>).</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
 
@@ -162,36 +162,40 @@ but I couldn&#39;t face writing the tests using <code>check</code>). </p>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span></code></pre></figure>
 
-<p>I&#39;ve tried my best to make this as self-explanatory as possible. I still feel
+<p>I’ve tried my best to make this as self-explanatory as possible. I still feel
 that additional explanation would help for whoever has to maintain it. The first
-time I saw this definition <code>nth_fib</code> was <code>a</code> and <code>nth_minus_one_fib</code> was <code>b</code>, I
+time I saw this definition <code class="highlighter-rouge">nth_fib</code> was <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">nth_minus_one_fib</code> was <code class="highlighter-rouge">b</code>, I
 had absolutely no idea how it worked. Naming things really makes such a
 difference!</p>
 
-<p>The additional information I&#39;d like to add is:</p>
+<p>The additional information I’d like to add is:</p>
 
 <ul>
-<li>We only return <code>nth_minus_one</code> if <code>counter == 1</code>, which implies we&#39;re calling
-<code>fib(1)</code> so we return the first fibonacci number: 0.</li>
-<li>When <code>n &gt; 1</code> then <code>counter == 2</code> terminates the algorithm returning the
+  <li>We only return <code class="highlighter-rouge">nth_minus_one</code> if <code class="highlighter-rouge">counter == 1</code>, which implies we’re calling
+<code class="highlighter-rouge">fib(1)</code> so we return the first fibonacci number: 0.</li>
+  <li>When <code class="highlighter-rouge">n &gt; 1</code> then <code class="highlighter-rouge">counter == 2</code> terminates the algorithm returning the
 accumulated value</li>
-<li><p>A few examples: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">fib(3) -&gt; fib_accumulator(3, 1, 0) -&gt; fib_accumulator(2, (1 + 0), 1) -&gt; return (1 + 0)
+  <li>
+    <p>A few examples:</p>
 
-fib(5) -&gt; fib_accumulator(5, 1, 0) -&gt; fib_accumulator(4, (1 + 0), 1) -&gt; 
-          fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&gt; fib_accumulator(2, (1 +
-          0 + 1 + 1 + 0), (0 + 1 + 1)) -&gt; return (1 + 0 + 1 + 1 + 0) -&gt; return 3
-</code></pre></div></li>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  fib(3) -&gt; fib_accumulator(3, 1, 0) -&gt; fib_accumulator(2, (1 + 0), 1) -&gt; return (1 + 0)
+
+  fib(5) -&gt; fib_accumulator(5, 1, 0) -&gt; fib_accumulator(4, (1 + 0), 1) -&gt; 
+            fib_accumulator(3, (1 + 0 + 1), (1 + 0)) -&gt; fib_accumulator(2, (1 +
+            0 + 1 + 1 + 0), (0 + 1 + 1)) -&gt; return (1 + 0 + 1 + 1 + 0) -&gt; return 3
+</code></pre>
+    </div>
+  </li>
 </ul>
 
 <p>I think that information makes it clearer how the function works. I tried to
-extract the base cases to add more explanation via code, but couldn&#39;t think of
-descriptive enough methods, maybe that&#39;s because I don&#39;t grok the algorithm. I
-can see how it works, but find it very hard to articulate how to explain it&#39;s
-behaviour, when this happens I find it&#39;s best to resort to examples to guide
+extract the base cases to add more explanation via code, but couldn’t think of
+descriptive enough methods, maybe that’s because I don’t grok the algorithm. I
+can see how it works, but find it very hard to articulate how to explain it’s
+behaviour, when this happens I find it’s best to resort to examples to guide
 explanation, but this is difficult to do in code! Unit tests you scream!? True,
 maybe I should add comments there explaining what is happening? How do you
-handle cases where you feel your code isn&#39;t sufficiently descriptive, but can&#39;t
+handle cases where you feel your code isn’t sufficiently descriptive, but can’t
 make it more descriptive through refactoring?</p>
 
     </div>

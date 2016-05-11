@@ -78,37 +78,39 @@
         <h1>Packages and modules in Python</h1>
         
         <p>Previously, and now currently, packages in Python have been a source of much woe
-to me. Plagued by hundred of &quot;No module named xxx&quot;, &quot;Attempted relative import
-in non-package&quot; etc, it is now time to write myself a little guide to refer to
+to me. Plagued by hundred of “No module named xxx”, “Attempted relative import
+in non-package” etc, it is now time to write myself a little guide to refer to
 in future.</p>
 
 <h1 id="packages-and-modules">Packages and Modules</h1>
-
-<p>A <strong>package</strong> is a collection of modules with a <code>__init__.py</code> file inside the
+<p>A <strong>package</strong> is a collection of modules with a <code class="highlighter-rouge">__init__.py</code> file inside the
 package directory and a <strong>module</strong> is simply a python file.</p>
 
 <p>Say I have the layout:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">* core:
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* core:
     * __init__.py
     * queue.py
     * tests:
         * queue_tests.py
-</code></pre></div>
-<p>and I want the <code>Queue</code> class from <code>core.queue</code>. How do I import this in
-<code>queue_tests.py</code>?</p>
+</code></pre>
+</div>
 
-<p>You&#39;d think</p>
+<p>and I want the <code class="highlighter-rouge">Queue</code> class from <code class="highlighter-rouge">core.queue</code>. How do I import this in
+<code class="highlighter-rouge">queue_tests.py</code>?</p>
+
+<p>You’d think</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">..queue</span> <span class="kn">import</span> <span class="n">Queue</span>
 
 <span class="k">def</span> <span class="nf">blah</span><span class="p">():</span>
     <span class="n">stuff</span><span class="p">()</span></code></pre></figure>
 
-<p>would do it; and you&#39;d be correct. But check how you&#39;re running the file. If
-you&#39;re running it directly like <code>python tests/queue_tests.py</code>, then the name of the file will
-be <code>__main__</code> which breaks relative imports. You have to run it like so: <code>python
--m tests.queue_tests</code>. This runs the module <code>queue_tests</code> as a script, but fixes
-the <code>__name__</code> issue.</p>
+<p>would do it; and you’d be correct. But check how you’re running the file. If
+you’re running it directly like <code class="highlighter-rouge">python tests/queue_tests.py</code>, then the name of the file will
+be <code class="highlighter-rouge">__main__</code> which breaks relative imports. You have to run it like so: <code class="highlighter-rouge">python
+-m tests.queue_tests</code>. This runs the module <code class="highlighter-rouge">queue_tests</code> as a script, but fixes
+the <code class="highlighter-rouge">__name__</code> issue.</p>
 
     </div>
 </div>

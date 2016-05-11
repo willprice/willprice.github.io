@@ -76,31 +76,29 @@
       <p>All programs can be expressed in terms of 3 <em>control structures</em>, namely:
 - sequence structure (excecution in sequential order)
 - selection structure (if, if/else, switch)
-- repetition structure (while, for)</p>
-
-<h1 id="flowcharting">Flowcharting</h1>
-
-<ul>
-<li>Rectangle : action symbol : computation, IO</li>
-<li>Oval : <code>begin</code>, <code>end</code> to mark start/end program excecution.</li>
-<li>Diamond : conditional symbol : if, if/else, switch</li>
-</ul>
+- repetition structure (while, for)
+# Flowcharting
+- Rectangle : action symbol : computation, IO
+- Oval : <code class="highlighter-rouge">begin</code>, <code class="highlighter-rouge">end</code> to mark start/end program excecution.
+- Diamond : conditional symbol : if, if/else, switch</p>
 
 <h1 id="selection-structure">Selection structure</h1>
-
 <ul>
-<li>if : single-selection</li>
-<li>if/else : double-selection</li>
-<li><p>switch : multiple-selection</p></li>
-<li><p><code>?:</code> : conditional operator : <code>printf(&quot;%s\n&quot;, grade &gt;= 60 ? &quot;Passed&quot; : Failed&quot;);</code>
-      <code>&lt;conditional statement&gt; ? &lt;code block if true&gt; : &lt;code block if false&gt;</code></p></li>
-<li><p>Unitialized variables contain garbage data (still the case?)</p></li>
-<li><p><code>;</code> : empty statement.</p></li>
+  <li>if : single-selection</li>
+  <li>if/else : double-selection</li>
+  <li>
+    <p>switch : multiple-selection</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">?:</code> : conditional operator : <code class="highlighter-rouge">printf("%s\n", grade &gt;= 60 ? "Passed" : Failed");</code>
+        <code class="highlighter-rouge">&lt;conditional statement&gt; ? &lt;code block if true&gt; : &lt;code block if false&gt;</code></p>
+  </li>
+  <li>Unitialized variables contain garbage data (still the case?)</li>
+  <li><code class="highlighter-rouge">;</code> : empty statement.</li>
 </ul>
 
 <h1 id="repetition-structures">Repetition structures:</h1>
-
-<h2 id="count-controlled-repetition">Count-Controlled repetition</h2>
+<p>## Count-Controlled repetition</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="kt">int</span> <span class="n">total</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">average</span><span class="p">;</span>
@@ -123,42 +121,23 @@
 <span class="p">}</span></code></pre></figure>
 
 <h2 id="sentinel-controlled-repetition">Sentinel-Controlled repetition</h2>
-
-<h3 id="top-down-stepwise-refinement">Top-down, stepwise refinement</h3>
-
-<ol>
-<li>Determine class average for the quiz</li>
-<li>- initialize vars
-
-<ul>
-<li>input, sum and count the quiz grades</li>
-<li>calculate the average of the quiz grades, and print</li>
-</ul></li>
-<li>- intialize total to zero, counter to zero
-
-<ul>
-<li>input the first grade</li>
-<li>while the user has not get entered the sentinel:
-
-<ul>
-<li>add this grade into the running total</li>
-<li>Add one to the grade counter</li>
-<li>input the next grade or sentinel</li>
-</ul></li>
-<li>if counter is not equal to zero:
-
-<ul>
-<li>set average to total divided by counter</li>
-<li>print average</li>
-</ul></li>
-<li>else:
-
-<ul>
-<li>print &quot;no grades were entered&quot;</li>
-</ul></li>
-</ul></li>
-<li>Now at a sufficiently high level of detail/low level of abstraction, rewrite in C.</li>
-</ol>
+<p>### Top-down, stepwise refinement
+1. Determine class average for the quiz
+2. - initialize vars
+   - input, sum and count the quiz grades
+   - calculate the average of the quiz grades, and print
+3. - intialize total to zero, counter to zero
+   - input the first grade
+   - while the user has not get entered the sentinel:
+      - add this grade into the running total
+      - Add one to the grade counter
+      - input the next grade or sentinel
+   - if counter is not equal to zero:
+      - set average to total divided by counter
+      - print average
+   - else:
+      - print “no grades were entered”
+4. Now at a sufficiently high level of detail/low level of abstraction, rewrite in C.</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c">  <span class="cm">/*  Class average written using a top-down approach
       with sentinel-controlled reptition */</span>
@@ -190,14 +169,15 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Here we used (float) to <em>cast</em> <code>total</code> from an <code>int</code> to a <code>float</code>, allowing for floating point division.
-- <code>(float)</code> is the <em>unary cast operator</em>, this creates a floating point copy of it&#39;s argument for use in whatever calculation is being performed.
+<p>Here we used (float) to <em>cast</em> <code class="highlighter-rouge">total</code> from an <code class="highlighter-rouge">int</code> to a <code class="highlighter-rouge">float</code>, allowing for floating point division.
+- <code class="highlighter-rouge">(float)</code> is the <em>unary cast operator</em>, this creates a floating point copy of it’s argument for use in whatever calculation is being performed.
 - When float/int, int is promoted to a float (implicit conversion/promotion) so that the calculation can take place.
-- <code>%.2f</code> : print floating point number to 2 d.
-- <code>a++</code> : postincrement : will use the current value of a in the expression, then increment a by one.
-- <code>++a</code> : preincrement : will increment a, then use the new value of a in the expression
-- <code>a++</code> == <code>++a</code> when executed as an individual statement.
+- <code class="highlighter-rouge">%.2f</code> : print floating point number to 2 d.
+- <code class="highlighter-rouge">a++</code> : postincrement : will use the current value of a in the expression, then increment a by one.
+- <code class="highlighter-rouge">++a</code> : preincrement : will increment a, then use the new value of a in the expression
+- <code class="highlighter-rouge">a++</code> == <code class="highlighter-rouge">++a</code> when executed as an individual statement.
 - casts, increments have second highest precedence (first being parentheses)</p>
+
 
       </section>
     </div>

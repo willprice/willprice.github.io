@@ -73,8 +73,8 @@
       </div>
 
       <section>
-      <p>The DFRduino is an Arduino based robot. It&#39;s programmed through the Arduino
-IDE program. You&#39;ll be using a library I wrote that saves you from having to
+      <p>The DFRduino is an Arduino based robot. It’s programmed through the Arduino
+IDE program. You’ll be using a library I wrote that saves you from having to
 write code like this:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -95,16 +95,16 @@ write code like this:</p>
     <span class="n">analogWrite</span><span class="p">(</span><span class="n">RIGHT_MOTOR_SPEED_CONTROL</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>This is rather slow way to develop code, so I&#39;ve encapsulated (hidden the low
+<p>This is rather slow way to develop code, so I’ve encapsulated (hidden the low
 level details) the robot dependent things and given you a library called
-<code>DFRduino</code> that allows you to control the robot at a higher level through the
+<code class="highlighter-rouge">DFRduino</code> that allows you to control the robot at a higher level through the
 use of some functions. This will allow us to design an obstacle avoiding robot
 in a few hours without getting stuck trying to figure out how to get the robot
 to go forward! <em>(although, if people are interested in approaching robots at a
-lower level of detail talk to me at the end of the workshop and I&#39;ll see if i
+lower level of detail talk to me at the end of the workshop and I’ll see if i
 can arrange one for next DigiMakers)</em>.</p>
 
-<p>Instead of the above code, you&#39;ll be writing something like:</p>
+<p>Instead of the above code, you’ll be writing something like:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// Import the DFRduino library and Servo library
 </span><span class="cp">#include &lt;DFRduino.h&gt;
@@ -122,72 +122,71 @@ can arrange one for next DigiMakers)</em>.</p>
 <span class="p">}</span></code></pre></figure>
 
 <h2 id="features-of-the-dfrduino-robot">Features of the DFRduino robot</h2>
-
 <ul>
-<li>2 wheel drive.</li>
-<li>Sharp IR distance measuring sensors (range: 20cm -- 150cm) mounted on twin
+  <li>2 wheel drive.</li>
+  <li>Sharp IR distance measuring sensors (range: 20cm – 150cm) mounted on twin
 servo head.</li>
 </ul>
 
 <h2 id="library-functions">Library functions</h2>
-
 <p>The library I have written contains a set of functions to help you develop your
 obstacle avoiding robot.</p>
 
 <h3 id="types-of-parameters">Types of parameters</h3>
-
 <ul>
-<li><code>[percentage]</code> can be -100 to 100.</li>
-<li><code>[angle]</code> can be 0 to 180.</li>
-<li><code>[char]</code> can be any character inside of single quotes, e.g. <code>&#39;f&#39;</code>.</li>
+  <li><code class="highlighter-rouge">[percentage]</code> can be -100 to 100.</li>
+  <li><code class="highlighter-rouge">[angle]</code> can be 0 to 180.</li>
+  <li><code class="highlighter-rouge">[char]</code> can be any character inside of single quotes, e.g. <code class="highlighter-rouge">'f'</code>.</li>
 </ul>
 
 <h3 id="functions">Functions</h3>
-
 <ul>
-<li><code>void setDirection([char])</code>:
-
-<ul>
-<li><code>&#39;f&#39;</code> - forward.</li>
-<li><code>&#39;b&#39;</code> - backward.</li>
-<li><code>&#39;l&#39;</code> - spin left (spins on the spot).</li>
-<li><code>&#39;r&#39;</code> - spin right (spins on the spot).</li>
-</ul></li>
+  <li><code class="highlighter-rouge">void setDirection([char])</code>:
+    <ul>
+      <li><code class="highlighter-rouge">'f'</code> - forward.</li>
+      <li><code class="highlighter-rouge">'b'</code> - backward.</li>
+      <li><code class="highlighter-rouge">'l'</code> - spin left (spins on the spot).</li>
+      <li><code class="highlighter-rouge">'r'</code> - spin right (spins on the spot).</li>
+    </ul>
+  </li>
 </ul>
 
-<table><thead>
-<tr>
-<th><code>[return type]</code></th>
-<th><code>[name]</code></th>
-<th><code>[parameters]</code></th>
-<th>Explanation</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>void</code></td>
-<td><code>setMotors</code></td>
-<td><code>([left percentage], [right percentage])</code></td>
-<td>Set the motor speed by percentage of maximum speed, e.g. <code>setMotors(100, 100)</code> is full thrust forward.</td>
-</tr>
-<tr>
-<td><code>void</code></td>
-<td><code>setVerticalHeadPosition</code></td>
-<td><code>([angle])</code></td>
-<td>Sets the vertical angle of the IR sensor (we call this the head). For me looking straight ahead was 130, you&#39;ll have to play around with this to figure out which values do what.</td>
-</tr>
-<tr>
-<td><code>void</code></td>
-<td><code>setHorizontalHeadPosition</code></td>
-<td><code>([angle])</code></td>
-<td>Sets the horizontal angle of the head. 0 for left, 90 for forward, 180 for right.</td>
-</tr>
-<tr>
-<td><code>int</code></td>
-<td><code>readDistanceInCentimeters</code></td>
-<td>NONE</td>
-<td>Reads the distance from the IR sensor and returns the distance in centimeters.</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th><code class="highlighter-rouge">[return type]</code></th>
+      <th><code class="highlighter-rouge">[name]</code></th>
+      <th><code class="highlighter-rouge">[parameters]</code></th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">void</code></td>
+      <td><code class="highlighter-rouge">setMotors</code></td>
+      <td><code class="highlighter-rouge">([left percentage], [right percentage])</code></td>
+      <td>Set the motor speed by percentage of maximum speed, e.g. <code class="highlighter-rouge">setMotors(100, 100)</code> is full thrust forward.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">void</code></td>
+      <td><code class="highlighter-rouge">setVerticalHeadPosition</code></td>
+      <td><code class="highlighter-rouge">([angle])</code></td>
+      <td>Sets the vertical angle of the IR sensor (we call this the head). For me looking straight ahead was 130, you’ll have to play around with this to figure out which values do what.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">void</code></td>
+      <td><code class="highlighter-rouge">setHorizontalHeadPosition</code></td>
+      <td><code class="highlighter-rouge">([angle])</code></td>
+      <td>Sets the horizontal angle of the head. 0 for left, 90 for forward, 180 for right.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">int</code></td>
+      <td><code class="highlighter-rouge">readDistanceInCentimeters</code></td>
+      <td>NONE</td>
+      <td>Reads the distance from the IR sensor and returns the distance in centimeters.</td>
+    </tr>
+  </tbody>
+</table>
 
       </section>
     </div>

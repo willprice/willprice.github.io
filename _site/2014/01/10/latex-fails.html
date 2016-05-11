@@ -78,13 +78,12 @@
         <h1>LaTeX fails... and fixes!</h1>
         
         <p>I thought it might be a good idea to brush up my LaTeX skills by writing my
-maths homework in it... big mistake... lots of time wasted! I&#39;m much more
-informed on LaTeX now, so here&#39;s some of the things I struggled with in the
+maths homework in it… big mistake… lots of time wasted! I’m much more
+informed on LaTeX now, so here’s some of the things I struggled with in the
 hopes it will help future me from spending hours figuring out how to put
 multiple tables on one line!</p>
 
 <h2 id="referencing-figures-and-tables">Referencing figures and tables</h2>
-
 <p>You must put the label <em>after the caption</em> in a figure or table:</p>
 
 <figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="nt">\begin{table}</span>
@@ -97,8 +96,7 @@ multiple tables on one line!</p>
 <span class="nt">\end{table}</span></code></pre></figure>
 
 <h2 id="multiple-tables-on-a-single-line">Multiple tables on a single line</h2>
-
-<p>Use the <code>subcaption</code> package, this allows you to specify the width of subtables
+<p>Use the <code class="highlighter-rouge">subcaption</code> package, this allows you to specify the width of subtables
 and subfigures.</p>
 
 <figure class="highlight"><pre><code class="language-tex" data-lang="tex"><span class="nt">\begin{table}</span>[h]
@@ -132,25 +130,23 @@ and subfigures.</p>
 <span class="nt">\end{table}</span></code></pre></figure>
 
 <h2 id="specify-the-location-of-tables">Specify the location of tables</h2>
-
-<p><code>[specifier]</code> takes one of the following <code>{h,t,b,p}</code></p>
+<p><code class="highlighter-rouge">[specifier]</code> takes one of the following <code class="highlighter-rouge"><span class="p">{</span><span class="err">h,t,b,p</span><span class="p">}</span></code></p>
 
 <ul>
-<li><code>h</code> - Here</li>
-<li><code>t</code> - Top</li>
-<li><code>b</code> - Bottom</li>
-<li><code>p</code> - Own page</li>
+  <li><code class="highlighter-rouge">h</code> - Here</li>
+  <li><code class="highlighter-rouge">t</code> - Top</li>
+  <li><code class="highlighter-rouge">b</code> - Bottom</li>
+  <li><code class="highlighter-rouge">p</code> - Own page</li>
 </ul>
 
-<p>These can be combined like <code>hbp</code>, close to the place in the text on it&#39;s own
+<p>These can be combined like <code class="highlighter-rouge">hbp</code>, close to the place in the text on it’s own
 separate page at the bottom</p>
 
 <h2 id="spacing-and-measures">Spacing and measures</h2>
-
 <ul>
-<li><code>\quad</code> - space</li>
-<li><code>\linewidth</code> - width of page, use this with the <code>subtable</code> environment when
-you&#39;re setting the width of a subtable.</li>
+  <li><code class="highlighter-rouge">\quad</code> - space</li>
+  <li><code class="highlighter-rouge">\linewidth</code> - width of page, use this with the <code class="highlighter-rouge">subtable</code> environment when
+you’re setting the width of a subtable.</li>
 </ul>
 
     </div>

@@ -18,12 +18,15 @@ updating the reverse proxy configuration.
 ## Summary:
 
 Create a web service in your favourite language with the following end point
-* GET `/is_prime/<integer>` that responds with the JSON:
-  `{ "integer": <integer>, "is_prime": <true,false> }`
+GET `/is_prime/<integer>` that responds with the JSON: 
+
+    { "integer": 1234, "is_prime": false }
+
 Do this using the square root search method: iterate a candidate factor variable
 up to the square root of the integer, for each number checking whether the
 remainder of the integer divided by the candidate factor is zero (if it is, then
-it is a factor), this has the worst case complexity $$\mathcal{O}(\sqrt(n))$$.
+it is a factor), this has the worst case complexity O(\sqrt(n)).
+
 * Dockerise your web service
 * Run multiple instances of your web service and manually configure a reverse
   proxy to allocate requests using [round robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) scheduling.
@@ -32,6 +35,7 @@ it is a factor), this has the worst case complexity $$\mathcal{O}(\sqrt(n))$$.
 
 
 ## Continuous Integration Extension:
+
 * Build a container on each commit to your git repository using travis, jenkins,
   your favourite CI server.
 * On a successful image build, push that image to the docker registry from your

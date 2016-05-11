@@ -74,51 +74,48 @@
 
       <section>
       <h1 id="arduino-introduction">Arduino Introduction</h1>
-
 <p>So, at what level of expertise are you? Absolute beginner? No worries, It might
-be tough going, but I&#39;m sure a smart person like yourself should be able to follow along
+be tough going, but I’m sure a smart person like yourself should be able to follow along
 ! :D</p>
 
-<p>WARNING: There are code snippets throughout the text, I won&#39;t have introduced
+<p>WARNING: There are code snippets throughout the text, I won’t have introduced
 the language in which you program until later, just take a look and see whether
-you can understand any of the code. It&#39;s meant to be somewhat understandable to
-non programmers. Once you&#39;ve finished the introduction you should be able to
+you can understand any of the code. It’s meant to be somewhat understandable to
+non programmers. Once you’ve finished the introduction you should be able to
 understand any of the code snippets throughout.</p>
 
 <p>When I introduce the syntax for the language I use a name inside square brackets
-to represent something that should be replaced. For example <code>[type] [name];</code> could be
-realised as <code>int x</code> when I tell you that an <code>int</code> is a <code>type</code>, and a <code>name</code> can be
-anything in English that doesn&#39;t have spaces in it or punctuation characters other
+to represent something that should be replaced. For example <code class="highlighter-rouge">[type] [name];</code> could be
+realised as <code class="highlighter-rouge">int x</code> when I tell you that an <code class="highlighter-rouge">int</code> is a <code class="highlighter-rouge">type</code>, and a <code class="highlighter-rouge">name</code> can be
+anything in English that doesn’t have spaces in it or punctuation characters other
 than an underscore.</p>
 
 <h2 id="hardware">Hardware</h2>
-
 <p>The Arduino is a microcontroller, this is essentially like a mini-computer. In
-one sense it&#39;s rather like any laptop, tablet or PC you use, in that at the
-lowest level they turn things on and off. However, the way you use them couldn&#39;t
+one sense it’s rather like any laptop, tablet or PC you use, in that at the
+lowest level they turn things on and off. However, the way you use them couldn’t
 be more different!</p>
 
-<p>Microcontrollers aren&#39;t clever, you have to instruct them on how to
-do things, they&#39;re fundamentally stupid. You&#39;re the one who programs the
-brains; you&#39;re the clever one.</p>
+<p>Microcontrollers aren’t clever, you have to instruct them on how to
+do things, they’re fundamentally stupid. You’re the one who programs the
+brains; you’re the clever one.</p>
 
-<p>We&#39;ll go over the basic features of the Arduino, how they are used, and what you
+<p>We’ll go over the basic features of the Arduino, how they are used, and what you
 can use them for.</p>
 
 <h3 id="pins-and-ports">Pins and Ports</h3>
-
-<p>Pins are part of a port, you can plug things into them. Once you&#39;ve plugged
+<p>Pins are part of a port, you can plug things into them. Once you’ve plugged
 something in to them, you can use them as:</p>
 
 <ul>
-<li>Input: take in information from the real world.</li>
-<li>Output: control things like lights, motors etc.</li>
+  <li>Input: take in information from the real world.</li>
+  <li>Output: control things like lights, motors etc.</li>
 </ul>
 
-<p><img src="ArduinoMegaAnnotatedSmall.jpg" alt="Arduino Mega Pins"></p>
+<p><img src="ArduinoMegaAnnotatedSmall.jpg" alt="Arduino Mega Pins" /></p>
 
-<p>To use a pin you have to tell the Arduino whether you&#39;ll use it as an input or
-an output. We use the <code>pinMode</code> function to do this.</p>
+<p>To use a pin you have to tell the Arduino whether you’ll use it as an input or
+an output. We use the <code class="highlighter-rouge">pinMode</code> function to do this.</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Set pin 10 as an output
@@ -129,16 +126,16 @@ an output. We use the <code>pinMode</code> function to do this.</p>
 <p>On the Arduino there are two types of pins:</p>
 
 <ul>
-<li>Analog pins (they can read a large range of values: from 0-1023)</li>
-<li>Digital pins (they can only read two values: 0 and 1)</li>
+  <li>Analog pins (they can read a large range of values: from 0-1023)</li>
+  <li>Digital pins (they can only read two values: 0 and 1)</li>
 </ul>
 
 <p>A digital value is one of two values: 0 or 1, false or true. In contrast, Analog
 values make up a range, in theory this range is infinitely large, in practice
-the Arduino can only handle 1024 values (this is a limit of it&#39;s hardware). This
-is plenty for most applications, so don&#39;t despair...</p>
+the Arduino can only handle 1024 values (this is a limit of it’s hardware). This
+is plenty for most applications, so don’t despair…</p>
 
-<p>Once we&#39;ve set up the mode for a pin, we can go ahead and actually read input
+<p>Once we’ve set up the mode for a pin, we can go ahead and actually read input
 from it, or write some output to it.</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -174,27 +171,25 @@ from it, or write some output to it.</p>
 <span class="p">}</span></code></pre></figure>
 
 <h2 id="programing-language">Programing Language</h2>
-
-<p>The Arduino is programmed in a language called <code>C</code>. It&#39;s rather low level, this
-means that it doesn&#39;t hold your hand that much; you have to do a lot of things
+<p>The Arduino is programmed in a language called <code class="highlighter-rouge">C</code>. It’s rather low level, this
+means that it doesn’t hold your hand that much; you have to do a lot of things
 yourself that other languages would automatically do for you. This is a good
 thing for microcontrollers as it gives you very fine control.</p>
 
-<p>Throughout this section I&#39;ll refer to the syntax of <code>C</code>, by &#39;syntax&#39; I&#39;m talking
-about the grammar; how you can construct valid sentences. If you violate <code>C</code>s syntax
-you will receive errors in the Arduino program, and your code won&#39;t run. You
-have to correctly state what you want the Arduino to do, if you don&#39;t it will
-complain that it doesn&#39;t understand how to interpret what you wrote.</p>
+<p>Throughout this section I’ll refer to the syntax of <code class="highlighter-rouge">C</code>, by ‘syntax’ I’m talking
+about the grammar; how you can construct valid sentences. If you violate <code class="highlighter-rouge">C</code>s syntax
+you will receive errors in the Arduino program, and your code won’t run. You
+have to correctly state what you want the Arduino to do, if you don’t it will
+complain that it doesn’t understand how to interpret what you wrote.</p>
 
 <h3 id="variables">Variables</h3>
-
 <p>A variable is a bit of memory that stores a value. All values are stored as 1s
-and 0s, so for <code>C</code> to know how to interpret the 1s and 0s you have to state what
-you&#39;re storing in your variable.</p>
+and 0s, so for <code class="highlighter-rouge">C</code> to know how to interpret the 1s and 0s you have to state what
+you’re storing in your variable.</p>
 
-<p>The syntax for defining variables is: <code>[type] [name] = [value];</code></p>
+<p>The syntax for defining variables is: <code class="highlighter-rouge">[type] [name] = [value];</code></p>
 
-<p>I&#39;ll declare some variables to give you a taste of what&#39;s possible:</p>
+<p>I’ll declare some variables to give you a taste of what’s possible:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// int is a type that holds an integer, a whole number
 </span><span class="kt">int</span> <span class="n">wholeNumber</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
@@ -208,33 +203,31 @@ you&#39;re storing in your variable.</p>
 </span><span class="o">//</span> <span class="n">lots</span> <span class="n">of</span> <span class="n">memory</span> <span class="n">space</span></code></pre></figure>
 
 <h3 id="statements-and-expressions">Statements and Expressions</h3>
-
-<p>A statement takes the form: <code>expression;</code>, expressions are things like:</p>
+<p>A statement takes the form: <code class="highlighter-rouge">expression;</code>, expressions are things like:</p>
 
 <ul>
-<li><code>3 + 1</code></li>
-<li><code>a = 3</code> Assign 3 to the variable &#39;a&#39;</li>
-<li><code>pinMode(3, INPUT)</code> &#39;Set pin 3 as an input&#39;</li>
+  <li><code class="highlighter-rouge">3 + 1</code></li>
+  <li><code class="highlighter-rouge">a = 3</code> Assign 3 to the variable ‘a’</li>
+  <li><code class="highlighter-rouge">pinMode(3, INPUT)</code> ‘Set pin 3 as an input’</li>
 </ul>
 
 <p>They become statements when you put a semi-colon on the end. Expressions will
 evaluate to values:</p>
 
 <ul>
-<li><code>3 + 1</code> evaluates to 4</li>
-<li><code>a = 3</code> evaluates to 3</li>
-<li><code>pinMode(3, INPUT)</code> evaluates to something (maybe 0, maybe 13? We just don&#39;t
-know!), whatever it evaluates to, it doesn&#39;t matter because we don&#39;t care
+  <li><code class="highlighter-rouge">3 + 1</code> evaluates to 4</li>
+  <li><code class="highlighter-rouge">a = 3</code> evaluates to 3</li>
+  <li><code class="highlighter-rouge">pinMode(3, INPUT)</code> evaluates to something (maybe 0, maybe 13? We just don’t
+know!), whatever it evaluates to, it doesn’t matter because we don’t care
 about what it returns; we care about what it does: set a pin as an input.</li>
 </ul>
 
 <h3 id="functions">Functions</h3>
-
 <p>Functions are an incredibly useful tool. They allow you to wrap up a set of
-statements and give them a name. I&#39;m going to show you how to write a function
-<code>flash()</code> that turns an LED on and off.</p>
+statements and give them a name. I’m going to show you how to write a function
+<code class="highlighter-rouge">flash()</code> that turns an LED on and off.</p>
 
-<p>Functions take the form <code>[return type] [name]()</code></p>
+<p>Functions take the form <code class="highlighter-rouge">[return type] [name]()</code></p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// We define the function flash 
 </span><span class="kt">void</span> <span class="nf">flash</span><span class="p">()</span> <span class="p">{</span>
@@ -248,7 +241,7 @@ statements and give them a name. I&#39;m going to show you how to write a functi
 </span>    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>We can now &#39;call&#39; (run) the function:</p>
+<p>We can now ‘call’ (run) the function:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
@@ -269,8 +262,8 @@ statements and give them a name. I&#39;m going to show you how to write a functi
 </span>    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>I haven&#39;t been entirely honest with you. Functions can also take <em>parameters</em>,
-these allow you to take values into the function. I&#39;ll show you a simple
+<p>I haven’t been entirely honest with you. Functions can also take <em>parameters</em>,
+these allow you to take values into the function. I’ll show you a simple
 function with a parameter, it should make the concept clearer.</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// double returns an int (a whole number), we could assign this to a variable if
@@ -292,43 +285,48 @@ function with a parameter, it should make the concept clearer.</p>
 <span class="c1">// we reassign x to be double(2) which evaluates to 4.
 </span><span class="n">x</span> <span class="o">=</span> <span class="kt">double</span><span class="p">(</span><span class="n">x</span><span class="p">);</span></code></pre></figure>
 
-<h2 id="conditionals-quot-if-this-then-do-that-else-do-this-quot">Conditionals: &quot;if this, then do that, else do this&quot;</h2>
-
-<p>Conditionals are one of the great things about programming, they&#39;re a way to
+<h2 id="conditionals-if-this-then-do-that-else-do-this">Conditionals: “if this, then do that, else do this”</h2>
+<p>Conditionals are one of the great things about programming, they’re a way to
 make your code a little more human, make it decide things! I found it to be one
 of the most exciting things when I first learnt to program.</p>
 
 <p>The idea looks like this:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">if (something is true)
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if (something is true)
     then do this
 else
     do this instead
-</code></pre></div>
-<p>There&#39;s nothing mysterious about this, you do it all the time when you talk to
-people: &quot;If I get up on time, I&#39;ll eat breakfast, otherwise I&#39;ll skip it&quot;</p>
+</code></pre>
+</div>
 
-<p>Let&#39;s put that logic into the above form:
+<p>There’s nothing mysterious about this, you do it all the time when you talk to
+people: “If I get up on time, I’ll eat breakfast, otherwise I’ll skip it”</p>
+
+<p>Let’s put that logic into the above form:
     if (i get up on time)
         then eat breakfast
     else
         skip breakfast</p>
 
-<p>We can transform that to the equivalent <code>C</code> code, imagine we had some functions:
-<code>eatBreakfast()</code>, <code>skipBreakfast()</code> and a variable <code>gotUpOnTime</code> that is <code>1</code> if
-you got up on time, otherwise is <code>0</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 1 means True
+<p>We can transform that to the equivalent <code class="highlighter-rouge">C</code> code, imagine we had some functions:
+<code class="highlighter-rouge">eatBreakfast()</code>, <code class="highlighter-rouge">skipBreakfast()</code> and a variable <code class="highlighter-rouge">gotUpOnTime</code> that is <code class="highlighter-rouge">1</code> if
+you got up on time, otherwise is <code class="highlighter-rouge">0</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// 1 means True
 if (gotUpOnTime == 1) {
    // Invoke a function that 'eats breakfast'
    eatBreakfast();
 } else {
    skipBreakfast();
 }
-</code></pre></div>
-<p>So we&#39;ve looked at some examples that you might face in reality, but how can we
-use this tool to leverage the features of a microcontroller? Well. We&#39;ll use it
+</code></pre>
+</div>
+
+<p>So we’ve looked at some examples that you might face in reality, but how can we
+use this tool to leverage the features of a microcontroller? Well. We’ll use it
 to interact with the world of course! Lets do something simple to begin with.
-Imagine you have a light sensor hooked up that gives a <code>1</code> when there is light
-shining on it, and <code>0</code> when it&#39;s dark. We&#39;ll also hook up and LED to the
+Imagine you have a light sensor hooked up that gives a <code class="highlighter-rouge">1</code> when there is light
+shining on it, and <code class="highlighter-rouge">0</code> when it’s dark. We’ll also hook up and LED to the
 microcontroller so that it can respond to the input from the light sensor.</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -347,17 +345,17 @@ microcontroller so that it can respond to the input from the light sensor.</p>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Ta Da! We now have a very simple porch light. When it&#39;s dark the LED will turn
-on. If it&#39;s light, then the LED will turn off. There are loads of really
+<p>Ta Da! We now have a very simple porch light. When it’s dark the LED will turn
+on. If it’s light, then the LED will turn off. There are loads of really
 simple problems that can be solved like this, you just have to have the creative
 to see the applications of microcontrollers. Just because something is simple
-it doesn&#39;t mean you&#39;re not clever for solving it. In fact, I&#39;d go as far as
-saying if you see something that hasn&#39;t been solved that is simple, you&#39;re 
+it doesn’t mean you’re not clever for solving it. In fact, I’d go as far as
+saying if you see something that hasn’t been solved that is simple, you’re 
 clever! Others would just shrug and put up with the problem.</p>
 
-<p>That&#39;s probably enough for the moment. You should be sufficiently equipped to do
+<p>That’s probably enough for the moment. You should be sufficiently equipped to do
 well in the workshop if you understood the material. You can find more on the
-<a href="http://www.arduino.cc">Arduino website</a>. </p>
+<a href="http://www.arduino.cc">Arduino website</a>.</p>
 
       </section>
     </div>

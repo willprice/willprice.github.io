@@ -74,11 +74,10 @@
 
       <section>
       <h1 id="avoiding-obstacles">Avoiding obstacles</h1>
-
-<p>You&#39;ve learnt lots! We&#39;ve covered all the functions in the library, you can
-bring all this functionality together to make an obstacle avoiding robot. I&#39;ve
+<p>You’ve learnt lots! We’ve covered all the functions in the library, you can
+bring all this functionality together to make an obstacle avoiding robot. I’ve
 purposefully left this very open ended. I shall give you an example of some code
-I wrote to do obstacle avoidance, it&#39;s not very good, please improve it! Better
+I wrote to do obstacle avoidance, it’s not very good, please improve it! Better
 yet define some new heuristics and try them out!</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;DFRduino.h&gt;
@@ -147,11 +146,11 @@ yet define some new heuristics and try them out!</p>
 <p>A few tips:</p>
 
 <ul>
-<li>Break all your complex behaviour into functions, as you can see I&#39;ve got
-<code>lookLeft</code> and <code>lookRight</code> to get the distance when looking left and right.</li>
-<li>Use the serial port to print out values when you&#39;re not sure why your robot is
+  <li>Break all your complex behaviour into functions, as you can see I’ve got
+<code class="highlighter-rouge">lookLeft</code> and <code class="highlighter-rouge">lookRight</code> to get the distance when looking left and right.</li>
+  <li>Use the serial port to print out values when you’re not sure why your robot is
 doing something unexpected</li>
-<li>Tilting the head down can cause the IR sensor to pick up the floor, you may or
+  <li>Tilting the head down can cause the IR sensor to pick up the floor, you may or
 may not want this; it could be part of quite a good heuristic.</li>
 </ul>
 

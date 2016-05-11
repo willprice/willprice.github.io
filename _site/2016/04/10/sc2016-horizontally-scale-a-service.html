@@ -92,31 +92,37 @@ updating the reverse proxy configuration.</p>
 <h2 id="summary">Summary:</h2>
 
 <p>Create a web service in your favourite language with the following end point
-* GET <code>/is_prime/&lt;integer&gt;</code> that responds with the JSON:
-  <code>{ &quot;integer&quot;: &lt;integer&gt;, &quot;is_prime&quot;: &lt;true,false&gt; }</code>
-Do this using the square root search method: iterate a candidate factor variable
+GET <code class="highlighter-rouge">/is_prime/&lt;integer&gt;</code> that responds with the JSON:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"integer"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="nt">"is_prime"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Do this using the square root search method: iterate a candidate factor variable
 up to the square root of the integer, for each number checking whether the
 remainder of the integer divided by the candidate factor is zero (if it is, then
-it is a factor), this has the worst case complexity $$\mathcal{O}(\sqrt(n))$$.
-* Dockerise your web service
-* Run multiple instances of your web service and manually configure a reverse
-  proxy to allocate requests using <a href="https://en.wikipedia.org/wiki/Round-robin_scheduling">round robin</a> scheduling.
-* Dynamically configure the reverse proxy based on the running containers using
-  <a href="https://github.com/jwilder/docker-gen">Docker-gen</a></p>
+it is a factor), this has the worst case complexity O(\sqrt(n)).</p>
+
+<ul>
+  <li>Dockerise your web service</li>
+  <li>Run multiple instances of your web service and manually configure a reverse
+proxy to allocate requests using <a href="https://en.wikipedia.org/wiki/Round-robin_scheduling">round robin</a> scheduling.</li>
+  <li>Dynamically configure the reverse proxy based on the running containers using
+<a href="https://github.com/jwilder/docker-gen">Docker-gen</a></li>
+</ul>
 
 <h2 id="continuous-integration-extension">Continuous Integration Extension:</h2>
 
 <ul>
-<li>Build a container on each commit to your git repository using travis, jenkins,
+  <li>Build a container on each commit to your git repository using travis, jenkins,
 your favourite CI server.</li>
-<li>On a successful image build, push that image to the docker registry from your
+  <li>On a successful image build, push that image to the docker registry from your
 CI server.</li>
 </ul>
 
 <h2 id="example">Example</h2>
-
 <p>See my own attempt at
-<a href="https://github.com/willprice/horizontally-scaling-webservices-using-docker">https://github.com/willprice/horizontally-scaling-webservices-using-docker</a></p>
+https://github.com/willprice/horizontally-scaling-webservices-using-docker</p>
 
     </div>
 </div>

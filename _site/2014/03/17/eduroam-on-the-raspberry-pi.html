@@ -84,123 +84,133 @@ eduroam with a raspberry pi. This time I endeavour to document the process.`</p>
 line) on Raspbian is as follows:</p>
 
 <ol>
-<li>Disable network service</li>
-<li>Write a <code>wpa_supplicant</code> configuration file with your username and password.</li>
-<li>Connect to the wireless network using <code>wpa_supplicant</code></li>
-<li>Request an IP address with <code>dhclient</code>.</li>
+  <li>Disable network service</li>
+  <li>Write a <code class="highlighter-rouge">wpa_supplicant</code> configuration file with your username and password.</li>
+  <li>Connect to the wireless network using <code class="highlighter-rouge">wpa_supplicant</code></li>
+  <li>Request an IP address with <code class="highlighter-rouge">dhclient</code>.</li>
 </ol>
 
 <h1 id="disable-network-service">Disable network service</h1>
+<p>Raspbian’s network service needs to be stopped to connect using the method
+we’re going to use. To do this run</p>
 
-<p>Raspbian&#39;s network service needs to be stopped to connect using the method
-we&#39;re going to use. To do this run </p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo service networking stop
-</code></pre></div>
-<h1 id="connect-using-wpa_supplicant">Connect using wpa_supplicant</h1>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo service networking stop
+</code></pre>
+</div>
 
-<p>I&#39;m at Bristol university where our eduroam network uses PEAP or TTLS for
-authentication, if you&#39;re at a different university this may well be different
-and you&#39;ll need to change the <code>wpa_supplicant</code> file accordingly</p>
-<div class="highlight"><pre><code class="language-" data-lang="">network={
-    # --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
+<h1 id="connect-using-wpasupplicant">Connect using wpa_supplicant</h1>
 
-    # The 'identity' is the username actually used for authentication.
-    # This must be your Bristol username, all lowercase.
+<p>I’m at Bristol university where our eduroam network uses PEAP or TTLS for
+authentication, if you’re at a different university this may well be different
+and you’ll need to change the <code class="highlighter-rouge">wpa_supplicant</code> file accordingly</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>network={
+	# --- MUST CONFIGURE THE FOLLOWING THREE OPTIONS --
+
+	# The 'identity' is the username actually used for authentication.
+	# This must be your Bristol username, all lowercase.
         identity="ab1234"
 
-    # Your normal Bristol password (so make sure the permissions on
-    # your wpa_supplicant config file are not world readable!)
+	# Your normal Bristol password (so make sure the permissions on
+	# your wpa_supplicant config file are not world readable!)
         password="myUOBpassword"
 
-    # CA cert from here:
+	# CA cert from here:
     # https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem
-    # Change the path to where you downloaded the file
+	# Change the path to where you downloaded the file
         ca_cert="/etc/ssl/certs/uob-net-ca.pem"
 
-    # --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
-    # --- OF THE UNIVERSITY OF BRISTOL, UK          --
+	# --- ONLY CHANGE BELOW IF YOU ARE NOT A MEMBER --
+	# --- OF THE UNIVERSITY OF BRISTOL, UK          --
 
-    # Bristol supports PEAP and TTLS.
+	# Bristol supports PEAP and TTLS.
         eap=PEAP TTLS
 
-    # The 'anonymous_identity' is the identity used for routing
-    # the authentication to Bristol. It must end with '@bris.ac.uk'
-    # or '@bristol.ac.uk'. It must be all lowercase. If you have 
-    # anything preceding the @ it must be all lowercase letters or 
-    # a hyphen (no spaces, punctuation etc) 
-    # e.g. "wireless-user@bristol.ac.uk" would be ok
+	# The 'anonymous_identity' is the identity used for routing
+	# the authentication to Bristol. It must end with '@bris.ac.uk'
+	# or '@bristol.ac.uk'. It must be all lowercase. If you have 
+	# anything preceding the @ it must be all lowercase letters or 
+	# a hyphen (no spaces, punctuation etc) 
+	# e.g. "wireless-user@bristol.ac.uk" would be ok
         anonymous_identity="@bristol.ac.uk"
 
-    # Bristol use MS-CHAPv2 as the inner authentication scheme,
-    # with the traditional label
-    phase1="peaplabel=0"
-    phase2="auth=MSCHAPV2"
+	# Bristol use MS-CHAPv2 as the inner authentication scheme,
+	# with the traditional label
+	phase1="peaplabel=0"
+	phase2="auth=MSCHAPV2"
 
-    # Set priority to a big number
-    priority=999
+	# Set priority to a big number
+	priority=999
 
-    # --- DONT CHANGE THE REST OF THIS BLOCK --
+	# --- DONT CHANGE THE REST OF THIS BLOCK --
 
-    # Enable this network block
-    disabled=0
+	# Enable this network block
+	disabled=0
 
-    # eduroam please
+	# eduroam please
         ssid="eduroam"
 
-    # SSID should be broadcast, so don't scan.
-    scan_ssid=0
+	# SSID should be broadcast, so don't scan.
+	scan_ssid=0
 
-    # Infrastructure mode
-    mode=0
+	# Infrastructure mode
+	mode=0
 
-    # WPA/WPA2 require OPEN
-    auth_alg=OPEN
+	# WPA/WPA2 require OPEN
+	auth_alg=OPEN
 
-    # WPA and WPA2 (RSN) are both used for eduroam 
-    # (depending on which organisation you are at)
-    # In the future 'WPA' can be removed (WPA2 only).
-    proto=WPA RSN
+	# WPA and WPA2 (RSN) are both used for eduroam 
+	# (depending on which organisation you are at)
+	# In the future 'WPA' can be removed (WPA2 only).
+	proto=WPA RSN
 
-    # CCMP (AES) is stronger, but some organisations use TKIP.
-    # In the future 'TKIP' can be removed.
-    pairwise=CCMP TKIP
+	# CCMP (AES) is stronger, but some organisations use TKIP.
+	# In the future 'TKIP' can be removed.
+	pairwise=CCMP TKIP
 
-    # Use EAP
+	# Use EAP
         key_mgmt=WPA-EAP
 
-    # Use PMKSA caching
+	# Use PMKSA caching
         proactive_key_caching=1
 
 }
-</code></pre></div>
+</code></pre>
+</div>
 <p>Thanks to
 <a href="http://www.wireless.bris.ac.uk/eduroam/instructions/go-wpasup/">wirless.bris.ac.uk</a> for the file!</p>
 
-<p>Run <code>wpa_supplicant</code>: </p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
-</code></pre></div>
-<p>You&#39;ll also need the PEM file <code>uob-net-ca.pem</code> to put into <code>/etc/ssl/certs/</code>
+<p>Run <code class="highlighter-rouge">wpa_supplicant</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo wpa_supplicant -i wlan0 -c /path/to/wpa_supplicant.conf -B
+</code></pre>
+</div>
+
+<p>You’ll also need the PEM file <code class="highlighter-rouge">uob-net-ca.pem</code> to put into <code class="highlighter-rouge">/etc/ssl/certs/</code>
 which is located at
 <a href="https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem">https://www.wireless.bris.ac.uk/certs/eaproot/uob-net-ca.pem</a></p>
 
 <p>Problems you may encounter at this stage include:</p>
 
 <ul>
-<li>The certificate being invalid as the raspberry pi&#39;s time is set to a time
-before the certificate is valid (run wpa_supplicant with the <code>-dd</code> flag for
+  <li>The certificate being invalid as the raspberry pi’s time is set to a time
+before the certificate is valid (run wpa_supplicant with the <code class="highlighter-rouge">-dd</code> flag for
 verbose debugging).</li>
-<li>You&#39;re as thick as me and you accidentally rename the certificate</li>
-<li>Something else has control of the wireless interface preventing you from
+  <li>You’re as thick as me and you accidentally rename the certificate</li>
+  <li>Something else has control of the wireless interface preventing you from
 connecting.</li>
 </ul>
 
 <h1 id="request-an-ip-address">Request an IP address</h1>
 
-<p>Once you&#39;ve connected to eduroam which you can verify by running <code>iwconfig</code>. You
-should now request an ip address with the command </p>
-<div class="highlight"><pre><code class="language-" data-lang="">sudo dhclient wlan0
-</code></pre></div>
-<p>To verify that you have got an ip address run <code>ifconfig</code> and make sure your
+<p>Once you’ve connected to eduroam which you can verify by running <code class="highlighter-rouge">iwconfig</code>. You
+should now request an ip address with the command</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dhclient wlan0
+</code></pre>
+</div>
+
+<p>To verify that you have got an ip address run <code class="highlighter-rouge">ifconfig</code> and make sure your
 wireless interface (usually wlan0) has been assigned an address.</p>
 
 <p>You should now have a wireless connection!</p>

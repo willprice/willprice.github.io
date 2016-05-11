@@ -76,12 +76,12 @@
       <p>ConsCells are the building blocks of Lisp, everything in Lisp is either
 a ConsCell or an Atom (strings, numbers, symbols etc). ConsCells take
 the form: (CAR CDR) where CAR is another ConsCell or an atom, CDR is
-always another ConsCell or the atom NIL, in which case, you&#39;ve reached
+always another ConsCell or the atom NIL, in which case, you’ve reached
 the end of the list.</p>
 
 <p>In Lisp, (cons 1 2) evaluates to (1 . 2), in this case, CAR=1, CDR=2</p>
 
-<p>In Lisp, all lists (so all programs) are represented as ConsCells, it&#39;s
+<p>In Lisp, all lists (so all programs) are represented as ConsCells, it’s
 just that (a b c) == (a . (b . (c . NIL))). In this format Lisp programs
 take the form of a binary tree with each ConsCell being a node.</p>
 

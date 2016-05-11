@@ -89,35 +89,32 @@ of the language are produced.</p>
 <p>The set of strings that can be <em>derived</em> from a set of rules is called the
 <em>language of the grammar</em>.</p>
 
-<p>A <strong>CFG</strong> is defined as a 4 tuple: <code>$$\right(V, \Sgima, R, S \left)$$</code>. 
-* <code>$$V$$</code> - A finite set: <strong>variables</strong>.
-* <code>$$\Sigma$$</code> - A finite set s.t <code>$$\Sigma \cap V = \emptyset$$</code> the
+<p>A <strong>CFG</strong> is defined as a 4 tuple: <code class="highlighter-rouge">$$\right(V, \Sgima, R, S \left)$$</code>. 
+* <code class="highlighter-rouge">$$V$$</code> - A finite set: <strong>variables</strong>.
+* <code class="highlighter-rouge">$$\Sigma$$</code> - A finite set s.t <code class="highlighter-rouge">$$\Sigma \cap V = \emptyset$$</code> the
   <strong>terminals</strong>.
-* <code>$$R$$</code> - A finite set of rules, with each rule being a variable and a string
+* <code class="highlighter-rouge">$$R$$</code> - A finite set of rules, with each rule being a variable and a string
   of variables and terminals.
-* <code>$$S$$</code> - The start variable s.t. <code>$$S \in V$$</code>.</p>
+* <code class="highlighter-rouge">$$S$$</code> - The start variable s.t. <code class="highlighter-rouge">$$S \in V$$</code>.</p>
 
 <h2 id="designing-cfls">Designing CFLs</h2>
-
 <p>Many CFLs are the union of simpler CFLs. Merging simpler CFLs into a more
 complex CFL is achieved by merging their grammars and adding a new start
 variable that maps to the union of all the old start variables from the simpler
 CFLs.</p>
 
 <h3 id="dfa-to-cfg">DFA to CFG</h3>
-
-<p>For each state in the machine add a rule <code>$$R_i \Rightarrow aR_j$$</code> for every
-transition from state <code>$$R_i$$</code> to state <code>$$R_j$$</code> when reading the symbol
-<code>$$a$$</code>. </p>
+<p>For each state in the machine add a rule <code class="highlighter-rouge">$$R_i \Rightarrow aR_j$$</code> for every
+transition from state <code class="highlighter-rouge">$$R_i$$</code> to state <code class="highlighter-rouge">$$R_j$$</code> when reading the symbol
+<code class="highlighter-rouge">$$a$$</code>.</p>
 
 <h2 id="ambiguity">Ambiguity</h2>
-
 <p>Some CFGs will allow derivation of strings in a few different ways. This leads
 to the idea of <strong>ambiguity</strong> in derivation. A grammar is ambiguous if you can
-derive any string ambiguously. </p>
+derive any string ambiguously.</p>
 
 <ul>
-<li><strong>Leftmost derivations</strong>  are derivations in which the <strong>Leftmost</strong> variable
+  <li><strong>Leftmost derivations</strong>  are derivations in which the <strong>Leftmost</strong> variable
 is always replaced.</li>
 </ul>
 
@@ -125,15 +122,14 @@ is always replaced.</li>
 <strong>inherently ambiguous</strong>.</p>
 
 <h2 id="chomsky-normal-form">Chomsky normal form</h2>
-
 <p>All CFGs can be expressed in <strong>Chomsky normal form</strong> where all rules are of the
 form:</p>
 
 <ul>
-<li><code>$$A \Rightarrow BC$$</code></li>
-<li><code>$$A \Rightarrow a$$</code></li>
-<li><code>$$S \Rightarrow \epsilon</code> is the only mapping to <code>$$epsilon$$</code> permitted in
-the grammar. (<code>$$S$$</code> is the start variable)</li>
+  <li><code class="highlighter-rouge">$$A \Rightarrow BC$$</code></li>
+  <li><code class="highlighter-rouge">$$A \Rightarrow a$$</code></li>
+  <li><code class="highlighter-rouge">$$S \Rightarrow \epsilon</code> is the only mapping to <code class="highlighter-rouge">$$epsilon$$</code> permitted in
+the grammar. (<code class="highlighter-rouge">$$S$$</code> is the start variable)</li>
 </ul>
 
 <h1 id="pushdown-automata">Pushdown Automata</h1>

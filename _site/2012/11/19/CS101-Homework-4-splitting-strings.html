@@ -77,17 +77,18 @@
     <div id="post">
         <h1>CS101 Unit 4: Homework 4: Splitting Strings</h1>
         
-        <p>I&#39;ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I&#39;ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I&#39;ll explain the question and how the solution is reached for those that didn&#39;t find the video particularly clear.</p>
+        <p>I’ve been going through CS101 on Udacity to get a decent grounding in Python and some CS concepts. So far I’ve found it quite rewarding thanks to some rather challenging questions. This question in particular (Unit 4 homework, question 4) I found very difficult to crack and finally had to watch the answer video. I’ll explain the question and how the solution is reached for those that didn’t find the video particularly clear.</p>
 
 <p>The question:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""> # 1 Gold Star
 
+<div class="highlighter-rouge"><pre class="highlight"><code> # 1 Gold Star
+ 
  # The built-in &lt;string&gt;.split() procedure works
  # okay, but fails to find all the words on a page
  # because it only uses whitespace to split the
  # string. To do better, we should also use punctuation
  # marks to split the page into words.
-
+ 
  # Define a procedure, split_string, that takes two
  # inputs: the string to split and a string containing
  # all of the characters considered separators. The
@@ -96,19 +97,24 @@
  # splitlist.
  #
  # def split_string(source,splitlist)
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>There are also some examples and expected behaviour given:</p>
-<div class="highlight"><pre><code class="language-" data-lang=""> out = split_string("This is a test-of the,string separation-code!"," ,!-")
+
+<div class="highlighter-rouge"><pre class="highlight"><code> out = split_string("This is a test-of the,string separation-code!"," ,!-")
  print out
  #&gt;&gt;&gt; ['This', 'is', 'a', 'test', 'of', 'the', 'string', 'separation', 'code']
-
+ 
  out = split_string("After  the flood   ...  all the colors came out.", " .")
  print out
  #&gt;&gt;&gt; ['After', 'the', 'flood', 'all', 'the', 'colors', 'came', 'out']
-</code></pre></div>
-<p>Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren&#39;t members of <code>splitlist</code>) that are separated by splitting characters (as defined in <code>splitlist</code>). </p>
+</code></pre>
+</div>
 
-<p>Let&#39;s define a list,<code>word_list</code>, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in <code>word_list</code>. We want to iterate through <code>source</code> adding characters to a string present in <code>word_list</code> until we hit upon a splitting character. At that point we want to skip to the next character and check whether that&#39;s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we&#39;ll need to start a new entry in the word_list list otherwise we&#39;ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.</p>
+<p>Approaching the problem from a high level we can see that in essence we need produce a list of words (sets of characters that aren’t members of <code class="highlighter-rouge">splitlist</code>) that are separated by splitting characters (as defined in <code class="highlighter-rouge">splitlist</code>).</p>
+
+<p>Let’s define a list,<code class="highlighter-rouge">word_list</code>, that will hold all the words from source without the splitting characters present, each block of characters seperated by splitlist characters will be a new entry in <code class="highlighter-rouge">word_list</code>. We want to iterate through <code class="highlighter-rouge">source</code> adding characters to a string present in <code class="highlighter-rouge">word_list</code> until we hit upon a splitting character. At that point we want to skip to the next character and check whether that’s also a splitting character, if it is, then skip to the next one and so on until we reach a word character (i.e. one not present in splitlist). Once we reach that new word character, we’ll need to start a new entry in the word_list list otherwise we’ll continue appending to the first word we found and therefore just end up with an list containing one element; a string containing all the words without any splitting characters in it.</p>
 
 <p>Now we have a better of idea of the problem and how to implement the solution we can start writing code:</p>
 
@@ -118,7 +124,7 @@
     <span class="c"># Once we've filled word list, we'll want to return the list containing all the words</span>
     <span class="k">return</span> <span class="n">word_list</span></code></pre></figure>
 
-<p>So we&#39;ve got a skeleton function now, we know what parameters the function is going to take and the end result. We&#39;ll now add functionality that loops through <code>source</code> and check which characters are members of split list</p>
+<p>So we’ve got a skeleton function now, we know what parameters the function is going to take and the end result. We’ll now add functionality that loops through <code class="highlighter-rouge">source</code> and check which characters are members of split list</p>
 
 <figure class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -134,7 +140,8 @@
 <span class="k">print</span> <span class="n">out</span></code></pre></figure>
 
 <p>This code results in:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">  this char:   is in splitlist
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  this char:   is in splitlist
   this char:   is in splitlist
   this char:   is in splitlist
   this char: - is in splitlist
@@ -143,8 +150,10 @@
   this char:   is in splitlist
   this char: - is in splitlist
   this char: ! is in splitlist
-</code></pre></div>
-<p>We&#39;ve got a code block that is executed when <code>char</code> is equal to a character from <code>splitlist</code>. We can now implement the code that will add the words to <code>word_list</code>. Remember that once we&#39;ve added a word to <code>word_list</code> and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we&#39;ll end up with one great list of words without spaces. First we&#39;ll acheive this unwanted behaviour as it&#39;s a step in the right direction, then we&#39;ll add checks to create new list entries splitting the words properly.</p>
+</code></pre>
+</div>
+
+<p>We’ve got a code block that is executed when <code class="highlighter-rouge">char</code> is equal to a character from <code class="highlighter-rouge">splitlist</code>. We can now implement the code that will add the words to <code class="highlighter-rouge">word_list</code>. Remember that once we’ve added a word to <code class="highlighter-rouge">word_list</code> and have iterated over the splitting characters between the word just added and the word about to be added, a new list entry needs to be added otherwise we’ll end up with one great list of words without spaces. First we’ll acheive this unwanted behaviour as it’s a step in the right direction, then we’ll add checks to create new list entries splitting the words properly.</p>
 
 <figure class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
@@ -160,9 +169,9 @@
 <span class="n">out</span> <span class="o">=</span> <span class="n">split_string</span><span class="p">(</span><span class="s">"This is a test-of the,string separation-code!"</span><span class="p">,</span> <span class="s">" ,.!-"</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">out</span></code></pre></figure>
 
-<p><code>word_list</code>s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in <code>word_list</code>. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.</p>
+<p><code class="highlighter-rouge">word_list</code>s initialisation value has changed so that it contains an empty string, this will allow us to concatenate characters with it, otherwise an error would be raised if it was simply left empty. In our for loop there is a conditional that will now concatenate non-splitting characters with our string in <code class="highlighter-rouge">word_list</code>. This produces one big string inside the list, our code now has to be modified so that each word gets a new entry in the list.</p>
 
-<p>To acheive the functionality above, we need to know when we get to splitting characters, we&#39;ve already got a block of code that deals with this situation, it&#39;s simply printing lines at the moment, not doing anything useful, we&#39;ll change that so we know when we&#39;ve reached a splitting character.</p>
+<p>To acheive the functionality above, we need to know when we get to splitting characters, we’ve already got a block of code that deals with this situation, it’s simply printing lines at the moment, not doing anything useful, we’ll change that so we know when we’ve reached a splitting character.</p>
 
 <figure class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
@@ -180,7 +189,7 @@
 <span class="n">out</span> <span class="o">=</span> <span class="n">split_string</span><span class="p">(</span><span class="s">"This is a test-of the,string separation-code!"</span><span class="p">,</span> <span class="s">" ,.!-"</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">out</span></code></pre></figure>
 
-<p>Here we&#39;ve intialised <code>at_split</code> outside of the for loop as it&#39;s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn&#39;t affected the functionality of <code>split_string</code> yet, but it&#39;s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.</p>
+<p>Here we’ve intialised <code class="highlighter-rouge">at_split</code> outside of the for loop as it’s going to be used in the else statement and hence has to be accessible by the if and else statements. This change hasn’t affected the functionality of <code class="highlighter-rouge">split_string</code> yet, but it’s a step in the right direction, we now have a variable that can be used to execute code blocks when an end of word is reached, which is the last step to reproducing the desired behaviour.</p>
 
 <figure class="highlight"><pre><code class="language-py" data-lang="py"><span class="k">def</span> <span class="nf">split_string</span><span class="p">(</span><span class="n">source</span><span class="p">,</span><span class="n">splitlist</span><span class="p">):</span>
     <span class="n">word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">''</span><span class="p">]</span>
@@ -207,11 +216,11 @@
 <span class="k">print</span> <span class="n">out</span></code></pre></figure>
 
 <p>Finally, we have the behaviour, the code above prints:
-      [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;test&#39;, &#39;of&#39;, &#39;the&#39;, &#39;string&#39;, &#39;separation&#39;, &#39;code&#39;]</p>
+      [‘This’, ‘is’, ‘a’, ‘test’, ‘of’, ‘the’, ‘string’, ‘separation’, ‘code’]</p>
 
 <p>Mission accomplished.</p>
 
-<p>I&#39;ve also used Python Tutor&#39;s visualise program to show how the code is executed: <a href="http://goo.gl/GSRHJ">Visualised</a>. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.</p>
+<p>I’ve also used Python Tutor’s visualise program to show how the code is executed: <a href="http://goo.gl/GSRHJ">Visualised</a>. I found this helpful to understand what was happening as words were ending and new elements in the list were being created.</p>
 
     </div>
 </div>
