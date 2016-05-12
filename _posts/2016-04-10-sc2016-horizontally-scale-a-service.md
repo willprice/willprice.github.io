@@ -43,5 +43,4 @@ it is a factor), this has the worst case complexity O(\sqrt(n)).
 
 
 ## Example
-See my own attempt at
-https://github.com/willprice/horizontally-scaling-webservices-using-docker
+See my own attempt on [github](https://github.com/willprice/horizontally-scaling-webservices-using-docker)

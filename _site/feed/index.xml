@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2016-05-11T23:16:47+01:00</updated>
+ <updated>2016-05-12T08:08:45+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -61,8 +61,7 @@ CI server.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
-&lt;p&gt;See my own attempt at
-https://github.com/willprice/horizontally-scaling-webservices-using-docker&lt;/p&gt;
+&lt;p&gt;See my own attempt on &lt;a href=&quot;https://github.com/willprice/horizontally-scaling-webservices-using-docker&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
