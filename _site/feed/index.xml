@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2016-05-12T08:08:45+01:00</updated>
+ <updated>2016-05-12T21:08:14+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -17,7 +17,7 @@
    <link href="http://willprice.org//2016/04/10/sc2016-horizontally-scale-a-service.html"/>
    <updated>2016-04-10T00:00:00+01:00</updated>
    <id>http://willprice.org/2016/04/10/sc2016-horizontally-scale-a-service</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;Estimated Duration:&lt;/em&gt; 2-4 hours&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;em&gt;Estimated Duration:&lt;/em&gt; 2 hours&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Author:&lt;/em&gt; Will Price, Codemanship&lt;/p&gt;
 
@@ -32,23 +32,22 @@ updating the reverse proxy configuration.&lt;/p&gt;
 &lt;h2 id=&quot;summary&quot;&gt;Summary:&lt;/h2&gt;
 
 &lt;p&gt;Create a web service in your favourite language with the following end point
-GET &lt;code class=&quot;highlighter-rouge&quot;&gt;/is_prime/&amp;lt;integer&amp;gt;&lt;/code&gt; that responds with the JSON:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;integer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1234&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;is_prime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+GET &lt;code class=&quot;highlighter-rouge&quot;&gt;/is_prime/&amp;lt;integer&amp;gt;&lt;/code&gt; that responds with the JSON: 
+{ “integer”: 1234, “is_prime”: false }&lt;/p&gt;
 
 &lt;p&gt;Do this using the square root search method: iterate a candidate factor variable
 up to the square root of the integer, for each number checking whether the
 remainder of the integer divided by the candidate factor is zero (if it is, then
-it is a factor), this has the worst case complexity O(\sqrt(n)).&lt;/p&gt;
+it is a factor), this has the worst case complexity O(\sqrt(n)) which is useful
+to demonstrate how you can increase request capacity by running multiple
+concurrent services.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Dockerise your web service&lt;/li&gt;
   &lt;li&gt;Run multiple instances of your web service and manually configure a reverse
 proxy to allocate requests using &lt;a href=&quot;https://en.wikipedia.org/wiki/Round-robin_scheduling&quot;&gt;round robin&lt;/a&gt; scheduling.&lt;/li&gt;
   &lt;li&gt;Dynamically configure the reverse proxy based on the running containers using
-&lt;a href=&quot;https://github.com/jwilder/docker-gen&quot;&gt;Docker-gen&lt;/a&gt;&lt;/li&gt;
+&lt;a href=&quot;https://github.com/jwilder/nginx-proxy&quot;&gt;nginx-proxy&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;continuous-integration-extension&quot;&gt;Continuous Integration Extension:&lt;/h2&gt;
@@ -58,6 +57,11 @@ proxy to allocate requests using &lt;a href=&quot;https://en.wikipedia.org/wiki/
 your favourite CI server.&lt;/li&gt;
   &lt;li&gt;On a successful image build, push that image to the docker registry from your
 CI server.&lt;/li&gt;
+  &lt;li&gt;Set up docker hub web hooks to deploy an instance of your server to a host
+such as heroku, AWS, digital ocean, etc.&lt;/li&gt;
+  &lt;li&gt;Instead of using nginx-proxy, implement the dynamic upstream configuration on
+apache using &lt;a href=&quot;https://github.com/jwilder/docker-gen&quot;&gt;docker-gen&lt;/a&gt; (the
+application that nginx-proxy utilises for dynamic configuration)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;

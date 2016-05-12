@@ -77,7 +77,7 @@
     <div id="post">
         <h1>Mini-project: Horizontally scale a web service using Docker</h1>
         
-        <p><em>Estimated Duration:</em> 2-4 hours</p>
+        <p><em>Estimated Duration:</em> 2 hours</p>
 
 <p><em>Author:</em> Will Price, Codemanship</p>
 
@@ -92,23 +92,22 @@ updating the reverse proxy configuration.</p>
 <h2 id="summary">Summary:</h2>
 
 <p>Create a web service in your favourite language with the following end point
-GET <code class="highlighter-rouge">/is_prime/&lt;integer&gt;</code> that responds with the JSON:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"integer"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="nt">"is_prime"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+GET <code class="highlighter-rouge">/is_prime/&lt;integer&gt;</code> that responds with the JSON: 
+{ “integer”: 1234, “is_prime”: false }</p>
 
 <p>Do this using the square root search method: iterate a candidate factor variable
 up to the square root of the integer, for each number checking whether the
 remainder of the integer divided by the candidate factor is zero (if it is, then
-it is a factor), this has the worst case complexity O(\sqrt(n)).</p>
+it is a factor), this has the worst case complexity O(\sqrt(n)) which is useful
+to demonstrate how you can increase request capacity by running multiple
+concurrent services.</p>
 
 <ul>
   <li>Dockerise your web service</li>
   <li>Run multiple instances of your web service and manually configure a reverse
 proxy to allocate requests using <a href="https://en.wikipedia.org/wiki/Round-robin_scheduling">round robin</a> scheduling.</li>
   <li>Dynamically configure the reverse proxy based on the running containers using
-<a href="https://github.com/jwilder/docker-gen">Docker-gen</a></li>
+<a href="https://github.com/jwilder/nginx-proxy">nginx-proxy</a></li>
 </ul>
 
 <h2 id="continuous-integration-extension">Continuous Integration Extension:</h2>
@@ -118,6 +117,11 @@ proxy to allocate requests using <a href="https://en.wikipedia.org/wiki/Round-ro
 your favourite CI server.</li>
   <li>On a successful image build, push that image to the docker registry from your
 CI server.</li>
+  <li>Set up docker hub web hooks to deploy an instance of your server to a host
+such as heroku, AWS, digital ocean, etc.</li>
+  <li>Instead of using nginx-proxy, implement the dynamic upstream configuration on
+apache using <a href="https://github.com/jwilder/docker-gen">docker-gen</a> (the
+application that nginx-proxy utilises for dynamic configuration)</li>
 </ul>
 
 <h2 id="example">Example</h2>
