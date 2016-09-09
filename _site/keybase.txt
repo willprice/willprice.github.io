@@ -1,0 +1,69 @@
+==================================================================
+https://keybase.io/willprice
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://willprice.org
+  * I am willprice (https://keybase.io/willprice) on keybase.
+  * I have a public key with fingerprint CC72 6003 1EF7 AA27 17CD  1A73 BB32 C350 AEA0 A298
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010132e3b7213cf5f7ec55280a1b7fafcfcb9e94628ba22d597c1a2071af49bd36bf0a",
+            "fingerprint": "cc7260031ef7aa2717cd1a73bb32c350aea0a298",
+            "host": "keybase.io",
+            "key_id": "bb32c350aea0a298",
+            "kid": "010132e3b7213cf5f7ec55280a1b7fafcfcb9e94628ba22d597c1a2071af49bd36bf0a",
+            "uid": "4c1fc446613fc250616877e50cdcdb19",
+            "username": "willprice"
+        },
+        "service": {
+            "hostname": "willprice.org",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1473457608,
+    "expire_in": 157680000,
+    "prev": "591fa9fd69ffc88abafa92af1bda07fe993e18c1a8fa2229bc55a635a235e5f8",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.56
+Comment: https://keybase.io/crypto
+
+yMIfAnicrVJbSFRBGF7TdtMINTONCPKUFLLWmXP23BYqKIPMeigopRbWmTkzuydt
+z3r2uGlWoEQX1JBQ0tiCLkIRZPeXIO0eRr2kCEYhYSBJJkWaodAcqZfosXmZ+f/5
+vm++/2OeLEh2pSVdKrAalqCyu0kvH7ZXu0rfFL6o45Cp13L+Oq6CzG6kUicxO1hh
+6Jyf4wEPRIGISBGAiKlEFYIlSVB5CJBCIcUUI41oPllQERQEXdIUDKDAKwBSn4Z0
+UUaUh5yXo0YkRKyoZURsJouxIsg8LwJCFQgFBShYB1ARERIFLEo8JJCHgqYyYtiM
+OQxmDsEYWWOYrMeK4Ky9f+D/s+/qWTkfBhT7fLIMRIoFiZeBrCoKkXisYx0BzQHG
+iBWB+wlDHzAqK9mkmHCHvRxrx50jS9YZ5W/IGtMKMXbUMm0Tm5XsKmzbUb/DtGuj
+s1CCgr9FgsiI6CxIRogTK2aYEc4PGBLbhqMKfIrokxSZV70cqYkaFgkaDoK1VJ4t
+5xkSZ5KSBijUqC5rlGJVhQiyUoAUIB3yCiWaJhKgskBUysIRNMSyg7IoQUGUiESd
+mGOkKmJyfpnZhCEmGTNCEWhXW2zmRz2BFFdSmss9d47zwVxpqRl/vl3+R89Mlv00
+d/TDlgSdzJw30nN23pVGd40XFxZ1JKZqA8WLetP3luVB1+Dy9mXqz/I69Xha00xF
+yepN6qlxb/+TjdKU61nxyNbXE0+rUwcnbzSne3+M5B4pTwS6Gjn9zvSJnGPr84Z3
+822LEuEHeX2Dge6qkonO/oHYrbZhLvtQ1tjl/Oefr3amZI571b4kuyW/4N4GV1GO
+e62nuyG856gRbr646svdyfkkeLKrwD0jFpa6O76+T/6Wcf7dym318bHWlgvXiuKj
+dBd+m30mmDvt2dO/sOqxZ99Bz7PF968PNdmZrUP1p5VPr252hW4PlG7uXRco1r/n
+r7CWpvcmXu+o277z3C80JT2h
+=dvzH
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/willprice
+
+==================================================================
+
