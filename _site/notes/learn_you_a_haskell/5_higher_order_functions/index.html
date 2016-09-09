@@ -130,9 +130,9 @@
     <span class="o">|</span> <span class="n">odd</span> <span class="n">a</span>       <span class="o">=</span> <span class="n">a</span><span class="o">:</span><span class="n">collatz</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="o">|</span> <span class="n">otherwise</span>   <span class="o">=</span> <span class="kt">[]</span></code></pre></figure>
 
-<p>Remember that <code class="highlighter-rouge">div</code> must be used for Integral division, otherwise a Rational number will be the result, which can’t be used with <code class="highlighter-rouge">even</code> and <code class="highlighter-rouge">odd</code>.
-# Folds
-Folds are pretty cool, they allow you to apply a binary function to every member in the list starting with the first and second value, then the result of that and the third value and so on, the starting value is called the <em>accumulator</em>.</p>
+<p>Remember that <code class="highlighter-rouge">div</code> must be used for Integral division, otherwise a Rational number will be the result, which can’t be used with <code class="highlighter-rouge">even</code> and <code class="highlighter-rouge">odd</code>.</p>
+<h1 id="folds">Folds</h1>
+<p>Folds are pretty cool, they allow you to apply a binary function to every member in the list starting with the first and second value, then the result of that and the third value and so on, the starting value is called the <em>accumulator</em>.</p>
 
 <p>Folds deal with reducing a data structure down into a single value, this is carried out through a recursive process</p>
 
@@ -168,7 +168,7 @@ Folds are pretty cool, they allow you to apply a binary function to every member
   <span class="n">reverse</span> <span class="n">xs</span> <span class="o">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="nf">\</span><span class="n">acc</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">:</span><span class="n">acc</span><span class="p">)</span> <span class="kt">[]</span> <span class="n">xs</span></code></pre></figure>
 
 <h1 id="syntactical-beauty">Syntactical beauty</h1>
-<p>## Function application with <code class="highlighter-rouge">$</code></p>
+<h2 id="function-application-with-">Function application with <code class="highlighter-rouge">$</code></h2>
 
 <figure class="highlight"><pre><code class="language-hs" data-lang="hs">  <span class="p">(</span><span class="o">$</span><span class="p">)</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span>
   <span class="n">f</span> <span class="o">$</span> <span class="n">a</span> <span class="o">=</span> <span class="n">f</span> <span class="n">a</span></code></pre></figure>

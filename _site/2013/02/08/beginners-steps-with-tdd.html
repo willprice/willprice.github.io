@@ -81,11 +81,13 @@
 in the subject of TDD (Test Driven Development). I plan to document my progress
 as I learn the principles behind this philosophy.</p>
 
-<p>TDD can be roughly outlined as follows:
-- Write a failing test for the desired functionality.
-- Write the smallest amount of code that can make <em>that</em> test pass.
-- Refactor you code, making sure your changes don’t break functionality (keep
-  running the tests)</p>
+<p>TDD can be roughly outlined as follows:</p>
+<ul>
+  <li>Write a failing test for the desired functionality.</li>
+  <li>Write the smallest amount of code that can make <em>that</em> test pass.</li>
+  <li>Refactor you code, making sure your changes don’t break functionality (keep
+running the tests)</li>
+</ul>
 
 <p>As my first introduction to TDD Jason and I did some pair programming where I
 implemented a simple Fibonacci function, this enabled me to see how the general
@@ -438,7 +440,7 @@ Date:   Tue Jan 29 10:16:20 2013 +0000
 +class TestFibonacciGenerator(unittest.TestCase):
 +
 +if __name__ == '__main__':
-</span><span class="err">+    unittest.main()</span></code></pre></figure>
++    unittest.main()</span></code></pre></figure>
 
 <p>You might disagree with my steps, or marvel at my crap commit messages; I’m just
 getting started with the tools and methodologies so hopefully in 6 months time

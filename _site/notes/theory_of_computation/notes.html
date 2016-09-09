@@ -81,21 +81,25 @@ known as <strong>productions</strong>. <strong>Variables</strong> map to more va
 variable in the grammar is chosen as the <strong>start variable</strong> from which all words
 of the language are produced.</p>
 
-<p>The general steps of deriving a word in a CFL:
-1. Write down start variable <strong>S</strong>.
-2. Find a rule that maps <strong>S</strong> and write down the right-hand side.
-3. Goto <em>2</em> until no variable remains.</p>
+<p>The general steps of deriving a word in a CFL:</p>
+<ol>
+  <li>Write down start variable <strong>S</strong>.</li>
+  <li>Find a rule that maps <strong>S</strong> and write down the right-hand side.</li>
+  <li>Goto <em>2</em> until no variable remains.</li>
+</ol>
 
 <p>The set of strings that can be <em>derived</em> from a set of rules is called the
 <em>language of the grammar</em>.</p>
 
-<p>A <strong>CFG</strong> is defined as a 4 tuple: <code class="highlighter-rouge">$$\right(V, \Sgima, R, S \left)$$</code>. 
-* <code class="highlighter-rouge">$$V$$</code> - A finite set: <strong>variables</strong>.
-* <code class="highlighter-rouge">$$\Sigma$$</code> - A finite set s.t <code class="highlighter-rouge">$$\Sigma \cap V = \emptyset$$</code> the
-  <strong>terminals</strong>.
-* <code class="highlighter-rouge">$$R$$</code> - A finite set of rules, with each rule being a variable and a string
-  of variables and terminals.
-* <code class="highlighter-rouge">$$S$$</code> - The start variable s.t. <code class="highlighter-rouge">$$S \in V$$</code>.</p>
+<p>A <strong>CFG</strong> is defined as a 4 tuple: <code class="highlighter-rouge">$$\right(V, \Sgima, R, S \left)$$</code>.</p>
+<ul>
+  <li><code class="highlighter-rouge">$$V$$</code> - A finite set: <strong>variables</strong>.</li>
+  <li><code class="highlighter-rouge">$$\Sigma$$</code> - A finite set s.t <code class="highlighter-rouge">$$\Sigma \cap V = \emptyset$$</code> the
+<strong>terminals</strong>.</li>
+  <li><code class="highlighter-rouge">$$R$$</code> - A finite set of rules, with each rule being a variable and a string
+of variables and terminals.</li>
+  <li><code class="highlighter-rouge">$$S$$</code> - The start variable s.t. <code class="highlighter-rouge">$$S \in V$$</code>.</li>
+</ul>
 
 <h2 id="designing-cfls">Designing CFLs</h2>
 <p>Many CFLs are the union of simpler CFLs. Merging simpler CFLs into a more

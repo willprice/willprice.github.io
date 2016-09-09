@@ -153,11 +153,11 @@
 <span class="kt">float</span> <span class="n">width_of_box</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
 <span class="kt">float</span> <span class="n">theta</span><span class="o">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
   <span class="n">size</span><span class="o">(</span><span class="mi">400</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span><span class="n">numberOfBoxes</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
       <span class="n">numberOfBoxes</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
   <span class="o">}</span>
@@ -185,7 +185,7 @@
   <span class="o">}</span>
 <span class="o">}</span>
 
-<span class="kt">void</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<span class="kt">void</span> <span class="nf">mousePressed</span><span class="o">()</span> <span class="o">{</span>
   <span class="k">if</span> <span class="o">(</span><span class="n">mouseX</span> <span class="o">&lt;</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">number_of_boxes</span><span class="o">+=</span><span class="mi">1</span><span class="o">;</span>
   <span class="o">}</span>
@@ -197,26 +197,28 @@
 <canvas data-processing-sources="sketches/boxes.pde"></canvas>
 
 <h2 id="strings">STRINGS</h2>
-<p>Strings are immutable and hence cannot be modified.
-### Methods:
-- toUpperCase()
-- length()
-- chartAt(x)
-- equals(stringB) (This is used instead of <code class="highlighter-rouge">==</code> as <code class="highlighter-rouge">==</code> compares memory address, <code class="highlighter-rouge">equals</code> compares actual values at memory addresses)</p>
+<p>Strings are immutable and hence cannot be modified.</p>
+<h3 id="methods">Methods:</h3>
+<ul>
+  <li>toUpperCase()</li>
+  <li>length()</li>
+  <li>chartAt(x)</li>
+  <li>equals(stringB) (This is used instead of <code class="highlighter-rouge">==</code> as <code class="highlighter-rouge">==</code> compares memory address, <code class="highlighter-rouge">equals</code> compares actual values at memory addresses)</li>
+</ul>
 
 <h3 id="specifying-fonts">Specifying fonts:</h3>
 <p>To use a font in processing for display, you must initialize it using the following snippet of code:</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="n">PFont</span> <span class="n">f</span><span class="o">;</span>
 
-  <span class="kt">void</span> <span class="n">setup</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">loadFont</span><span class="o">(</span><span class="s">"fontname"</span><span class="o">)</span>
     <span class="c1">// or use</span>
     <span class="c1">// f = createFont("fontname", i, true/false) where i is the size, true/false enables/disables anti-aliasing</span>
     <span class="n">textFont</span><span class="o">(</span><span class="n">f</span><span class="o">);</span> <span class="c1">// use font object 'f' to render text</span>
   <span class="o">}</span>
 
-  <span class="kt">void</span> <span class="n">draw</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">text</span><span class="o">(</span><span class="n">string</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">);</span> <span class="c1">// (x,y)</span>
   <span class="o">}</span></code></pre></figure>
 
