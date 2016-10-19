@@ -3,6 +3,8 @@ title: Will Price
 layout: layout
 categories: [meta]
 ---
+<img id="profile-picture" src="/media/profile.jpg" height="400px">
+
 Currently studying Computer Science at [University of
 Bristol](cs.bris.ac.uk). Potentially available for job opportunities
 mid-2017.
