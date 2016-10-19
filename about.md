@@ -1,26 +1,19 @@
 ---
-title: About me
+title: Will Price
 layout: layout
 categories: [meta]
 ---
-# About me 
-## Personal Infomation: 
-* Age: 19
-* Email: willprice94+website@gmail.com
-* Sports: Running, Cycling, Walking.
-* Hobbies: Learning, Wood carving, Metal work, Programming, Cooking (in no particular order)
+Currently studying Computer Science at [University of
+Bristol](cs.bris.ac.uk). Potentially available for job opportunities
+mid-2017.
 
-## Sites I like:
-### Technology: 
-- [Hacker News](http://news.ycombinator.com)
-- [Coursera](http://www.coursera.org) 
-- [Udacity](http://www.udacity.com)
-- [edX](http://www.edx.org)
+Interested in...
 
-### Wood work:
-- [Sean Hellman](http://seanhellman.blogspot.co.uk/)
-- [Robin Wood](http://www.robin-wood.co.uk/)
-- [Simon Hill](http://simonhillgreenwoodwork.blogspot.co.uk/)
-
-### Metal work:
-- [Dean's Photographica](http://www.deansphotographica.com/machining/projects/projects.html)
+* **Software development**: How do we write good software? What tools and
+  processes can we use to accomplish these goals? Topics of interest:
+  test driven development, agile, design patterns, programming
+  languages, high assurance code, formal verification.
+* **Automation**: Continuous integration, Build automation, Software
+  defined networking
+* **Machine learning**: How do we make sense of all the data we collect
+  these days? How can we use it in new and higher leverage ways?
