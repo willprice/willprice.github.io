@@ -4,7 +4,7 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2016-09-09T22:51:02+01:00</updated>
+ <updated>2017-01-29T16:50:05+00:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
@@ -454,7 +454,7 @@ we’re going to use. To do this run&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h1 id=&quot;connect-using-wpasupplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
+&lt;h1 id=&quot;connect-using-wpa_supplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
 
 &lt;p&gt;I’m at Bristol university where our eduroam network uses PEAP or TTLS for
 authentication, if you’re at a different university this may well be different
@@ -2191,15 +2191,6 @@ Hi fatmi,&lt;br /&gt;thanks for the comments. The python code is a bit shoddy, i
 Nice work.&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.jayconsystems.com&quot; rel=&quot;nofollow&quot;&gt; Arduino &lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>TP-Link WR703N, OpenWRT and MPD</title>
-   <link href="http://willprice.org//2011/12/27/tp-link-wr703n-openwrt-mpd.html"/>
-   <updated>2011-12-27T00:00:00+00:00</updated>
-   <id>http://willprice.org/2011/12/27/tp-link-wr703n-openwrt-mpd</id>
-   <content type="html">
 </content>
  </entry>
  

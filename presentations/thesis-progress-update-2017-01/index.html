@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Understanding Convolutional Neural Networks with
+    Visualistion</title>
+
+  <link rel="stylesheet" href="/css/revealjs/reveal.css">
+  <link rel="stylesheet" href="/css/revealjs/theme/simple.css">
+
+  <script src="/scripts/revealjs/pdf_print_support.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+      <!-- INTRO -->
+        <div>
+          <img height='200' src='/media/img/cnns/vgg16.png'>
+          <img height='200' src='/media/img/cnns/occlusion-analysis-afghan-hound.png'>
+        </div>
+        <div>
+          <img height='220' src='/media/img/cnns/deconvolution-analysis-layer2.png'>
+          <img height='220' src='/media/img/cnns/deconvolution-analysis-layer5.png'>
+          <img height='220' src='/media/img/cnns/synthesizing-preferred-inputs-analysis.png'>
+        </div>
+        <div>
+          <img height='200' src='/media/img/cnns/excitation-bp.png'>
+        </div>
+
+        <aside class="notes">
+          <ul>
+            <li>Intro: CNNs, a set of supervised deep learning models
+              achieve state of the art performance on a variety of
+              learnign tasks, in particular they have been very
+              successfully used in object recognition and detection
+            </li>
+            <li>Most research on CNNs has been on images rather than
+              videos
+            </li>
+            <li>The first image shows a CNN architecture, most layers
+              are convolutional, the learning process determines the
+              individual parameters of the kernels
+            </li>
+            <li>As we progress through the network the dimensionality is
+              reduced through the use of 'pooling' layers which
+              aggregate signals
+            </li>
+            <li>Here are the visualisation techniques for CNNs, all of
+              them have been developed to analyse spatial (image based) networks
+            </li>
+            <li>Occlusion analysis, slide a window over the image and
+              compute the score of the true class, record each score and
+              plot in the central pixel of the occluding box, heatmap
+              indicates class neuron excitation
+            </li>
+            <li>Deconvolution by Zeiler and Fergus, learn a
+              'deconvolutional' network to invert each layer,
+              information from the pooling layers in the network are
+              used to calculate these visualisations
+            </li>
+            <li>Synthesizing preferred inputs by use of a Deep Generator
+              Network attached to the input layer of the CNN
+            </li>
+            <li>Excitation backprop similar to error backprop for
+              training, but it is probabilistic, calculating the winning
+              probability of each neuron, propagating this backwards
+              through the network
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+
+      <section>
+      <!-- DATASETS -->
+        <div>
+        <!-- BEOID -->
+          <p>
+            <a style="font-size: 12px" href='https://www.cs.bris.ac.uk/~damen/BEOID/'>
+              BEOID - Bristol Egocentric Object Interactions Dataset
+            </a>
+          </p>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/00_Desk2_pick-up_plug_334-366.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/00_Sink1_open_jar_1890-1938.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/02_Door2_open_door_181-224.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/02_Printer1_press_button_447-485.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/05_Row3_rotate_weight-setting_1969-1991.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/07_Row3_push_rowing-machine_811-869.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/07_Treadmill2_insert_foot_2526-2591.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/beoid/07_Treadmill3_press_button_349-365.mp4">
+          </video>
+        </div>
+
+
+        <div>
+          <!-- UCF101 -->
+          <a style="font-size: 12px" href='http://crcv.ucf.edu/data/UCF101.php'>UCF101 - University of Central Florida Action Recogntion Data set</a>
+          <br />
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_ApplyEyeMakeup_g04_c01.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_BabyCrawling_g06_c01.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_BaseballPitch_g07_c05.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_JugglingBalls_g03_c02.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_PlayingGuitar_g04_c01.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_SoccerPenalty_g04_c04.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_TrampolineJumping_g02_c06.mp4">
+          </video>
+          <video preload=auto autoplay loop 
+            width="100"
+            src="/media/video/ucf101/v_WallPushups_g03_c05.mp4">
+          </video>
+        </div>
+
+        <div>
+          <a style="font-size: 12px" href='https://www.cs.bris.ac.uk/~damen/SEMBED/'>BEOID labelling example (source: SEMBED demo video)</a>
+          <br />
+          <video preload=auto autoplay loop 
+            width="300"
+            src="/media/video/SEMBED-BEOID-clip-scaled.mp4">
+          </video>
+        </div>
+      </section>
+
+      <aside class="notes">
+        <ul>
+          <li>Discuss </li>
+        </ul>
+      </aside>
+
+      <section>
+        <img height='200' src='/media/img/cnns/two-stream-2014.png'>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="/scripts/revealjs/head.min.js"></script>
+  <script src="/scripts/revealjs/reveal.js"></script>
+  <script src="/scripts/revealjs/reveal_configuration.js"></script>
+</body>
+</html>
