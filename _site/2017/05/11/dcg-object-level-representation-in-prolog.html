@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DCG object level representation in prolog</title>
+    <meta name="author" content="Will Price">
+    <meta name="description" content="">
+    <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/pygments.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/user.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/scripts/toc.js"></script>
+    <script src="/scripts/ganalytics.js"></script>
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <a href="/">Will Price</a>
+        <a class="extra" href="/">Posts</a>
+        <!-- Notes need more cleaning up before being visible for
+             browsing!
+        <a class="extra" href="/notes">Notes</a>
+        -->
+        <a class="extra" href="/about.html">About</a>
+        <hr />
+      </div>
+      <section>
+        <div class="content">
+    <div id="post">
+        <h1>DCG object level representation in prolog</h1>
+        
+        <p>Prolog is an excellent language for writing parsers using Definite Clause
+Grammars (DCG) which are supported as first class objects in the language. The
+language provides syntactic sugar to make writing these grammars more easily
+than without.</p>
+
+<p>Writing a DCG isn’t far off translating a given grammar into prolog syntax, but
+before we get to that we’ll first look at writing DCGs the hard way without
+syntactic sugar. It’s important to understand the object level representation
+of a DCG as this is what prolog actually executes.</p>
+
+<p>Parsing a sentence using a DCG makes use of a standard prolog programming
+pattern: <a href="https://www.cl.cam.ac.uk/teaching/0809/Prolog/Prolog08ML5R2.pdf">the difference
+list</a>. The
+<em>difference list</em> programming pattern represents a list <code class="highlighter-rouge">L</code> as the  difference
+between two other lists <code class="highlighter-rouge">L1</code> and <code class="highlighter-rouge">L2</code> where <code class="highlighter-rouge">L2</code> is a sublist of <code class="highlighter-rouge">L1</code> and
+<code class="highlighter-rouge">append(L, L2, L1)</code> (that is, <code class="highlighter-rouge">L</code> appended with <code class="highlighter-rouge">L2</code> forms <code class="highlighter-rouge">L1</code>).</p>
+
+<p>A list in difference list form is represented by two lists. Let’s say we want
+to express <code class="highlighter-rouge">L = [element1, element2, ..., elementN]</code> in difference list form.
+We need two lists <code class="highlighter-rouge">L1</code> and <code class="highlighter-rouge">L2</code> in which we’ll encode <code class="highlighter-rouge">L</code> as the difference
+between those lists. We’ll represent the two lists as a pair, pairs in prolog
+use the syntax <code class="highlighter-rouge">A-B</code> where <code class="highlighter-rouge">A</code> is the first element of the pair, and <code class="highlighter-rouge">B</code> the
+second. This is not necessary, and later we’ll drop the pair syntax and just
+use arguments to hold each of the lists. Getting back to encoding <code class="highlighter-rouge">L</code> using
+<code class="highlighter-rouge">L1</code> and <code class="highlighter-rouge">L2</code> we can form the difference list <code class="highlighter-rouge">L1-L2 = [element1, element2,
+..., elementN | Rest]-Rest</code>. <code class="highlighter-rouge">L1</code> is <code class="highlighter-rouge">L</code> prepended to <code class="highlighter-rouge">L2</code>, and <code class="highlighter-rouge">L2</code> is some
+other list, we don’t really care what.</p>
+
+<p>“Why do this, you’re insane!?” You might ask, well we now have
+a handle <code class="highlighter-rouge">Rest</code> on the end of the list which allows us to do some clever tricks
+to write efficient predicates, and it makes writing parsers super
+easy.</p>
+
+<h2 id="appending-with-difference-lists">Appending with difference lists</h2>
+
+<p>One of the simplest examples of the difference list pattern is an
+implementation of the <code class="highlighter-rouge">append/3</code> predicate. You may have seen the naive
+implementation:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">append</span><span class="p">([],</span> <span class="nv">L</span><span class="p">,</span> <span class="nv">L</span><span class="p">).</span>
+<span class="ss">append</span><span class="p">([</span><span class="nv">Head</span><span class="p">|</span><span class="nv">Tail</span><span class="p">],</span><span class="nv">List</span><span class="p">,[</span><span class="nv">Head</span><span class="p">|</span><span class="nv">Rest</span><span class="p">])</span> <span class="p">:-</span> <span class="ss">append</span><span class="p">(</span><span class="nv">Tail</span><span class="p">,</span> <span class="nv">List</span><span class="p">,</span> <span class="nv">Rest</span><span class="p">).</span>
+</code></pre>
+</div>
+
+<p>However this takes linear time in execution… for something as frequently used
+as appending, this isn’t good enough, we want constant time execution! To achieve
+constant time execution of appending we’ll implement <code class="highlighter-rouge">append/3</code> using difference lists.</p>
+
+<p>Let’s start with a simple example, appending <code class="highlighter-rouge">[1, 2, 3]</code> to <code class="highlighter-rouge">[4, 5, 6, 7]</code>.
+First lets convert these to difference list representation: <code class="highlighter-rouge">[1, 2,
+3 | Rest1]-Rest1</code>, <code class="highlighter-rouge">[4, 5, 6, 7 | Rest2]-Rest2</code> (suspend your suspicion that this is
+a pointless, useless representation, we’ll get there!). What should the result
+of appending the two lists result in (in difference list form?)? Well it should
+at least start with <code class="highlighter-rouge">[1, 2, 3, 4, 5, 6, 7 | Something]-Something</code> as this contains the
+result, but how about the <code class="highlighter-rouge">Rest</code> part of the list which we’ve left as
+<code class="highlighter-rouge">Something</code>? I suppose we could put anything here but there’s an alternative
+that makes a bit more sense: reuse the <code class="highlighter-rouge">Rest</code> part from the second list, this
+makes a bit more sense, as we preserve more information about our inputs this
+way. In conclusion we’ve decided that appending the difference lists <code class="highlighter-rouge">[1, 2,
+3 | Rest1]-Rest1</code> and <code class="highlighter-rouge">[4, 5, 6, 7 | Rest2]-Rest2</code> should result in <code class="highlighter-rouge">[1, 2, 3,
+4, 5, 6, 7 | Rest2]-Rest2</code>.</p>
+
+<p>How we write <code class="highlighter-rouge">append/3</code> such that it uses difference lists? Lets distinguish it
+from the recursive definition we presented above my denoting it as <code class="highlighter-rouge">dappend/3</code>
+(for difference-list append). We know the inputs, so they form the first
+2 arguments of the predicate, and the last argument will be the appended
+difference lists. Let’s sketch this out:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">dappend</span><span class="p">([</span><span class="nv">L1element1</span><span class="p">,</span> <span class="nv">L1element2</span><span class="p">,</span> <span class="p">...,</span> <span class="nv">L1elementN</span> <span class="p">|</span> <span class="nv">Rest1</span><span class="p">]</span><span class="o">-</span><span class="nv">Rest1</span><span class="p">,</span>
+        <span class="p">[</span><span class="nv">L2element1</span><span class="p">,</span> <span class="nv">L2element2</span><span class="p">,</span> <span class="p">...,</span> <span class="nv">L2elementM</span> <span class="p">|</span> <span class="nv">Rest2</span><span class="p">]</span><span class="o">-</span><span class="nv">Rest2</span><span class="p">,</span>
+        <span class="p">[</span><span class="nv">L1element1</span><span class="p">,</span> <span class="nv">L1element2</span><span class="p">,</span> <span class="p">...,</span> <span class="nv">L1elementN</span><span class="p">,</span> <span class="nv">L2element1</span><span class="p">,</span> <span class="nv">L2element2</span><span class="p">,</span> <span class="p">...,</span> <span class="nv">L2elementM</span> <span class="p">|</span> <span class="nv">Rest2</span><span class="p">]</span><span class="o">-</span><span class="nv">Rest2</span><span class="p">]).</span>
+</code></pre>
+</div>
+
+<p>We could write out a bunch of predicates for all different sizes of lists, but
+that’d be insanity! Instead we can make clever use of the <code class="highlighter-rouge">Rest</code> parts of the
+difference lists to combine them!</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">dappend</span><span class="p">(</span><span class="nv">L1</span><span class="o">-</span><span class="nv">Rest1</span><span class="p">,</span> <span class="nv">L2</span><span class="o">-</span><span class="nv">Rest2</span><span class="p">,</span> <span class="nv">L1</span><span class="o">-</span><span class="nv">Rest2</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Rest1</span> <span class="o">=</span> <span class="nv">L2</span><span class="p">.</span>
+<span class="err">%</span> <span class="ss">or</span> <span class="ss">more</span> <span class="ss">simply</span><span class="o">:</span>
+<span class="ss">dappend</span><span class="p">(</span><span class="nv">L1</span><span class="o">-</span><span class="nv">L2</span><span class="p">,</span> <span class="nv">L2</span><span class="o">-</span><span class="nv">Rest</span><span class="p">,</span> <span class="nv">L1</span><span class="o">-</span><span class="nv">Rest</span><span class="p">).</span>
+</code></pre>
+</div>
+
+<p>By unifying <code class="highlighter-rouge">Rest1</code> with <code class="highlighter-rouge">L2</code> we force the difference part of the <code class="highlighter-rouge">L1</code>
+difference list to be the <code class="highlighter-rouge">L2</code> difference list. Going back to our example, we
+unify <code class="highlighter-rouge">Rest1</code> in <code class="highlighter-rouge">[1, 2, 3 | Rest1]-Rest1</code> with <code class="highlighter-rouge">[4, 5, 6, 7 | Rest2]</code> resulting in
+<code class="highlighter-rouge">[1, 2, 3, 4, 5, 6, 7 | Rest2]</code>, then make this into a difference list by lifting
+it into the pair functor <code class="highlighter-rouge">-/2</code> in the output argument <code class="highlighter-rouge">[1, 2, 3, 4, 5, 6,
+7 | Rest2]-Rest2</code>. No recursion, just unification!</p>
+
+<p>Now what if we want to wrap this up so we don’t have to use difference lists
+directly? Let’s try and write a wrapper <code class="highlighter-rouge">my_append/3</code> that takes 2 normal lists
+<code class="highlighter-rouge">L1</code> and <code class="highlighter-rouge">L2</code> and concatenates them to form <code class="highlighter-rouge">L</code>, first we have to convert <code class="highlighter-rouge">L1</code>
+and <code class="highlighter-rouge">L2</code> into difference lists, then we can call <code class="highlighter-rouge">dappend/3</code> and pull out the
+difference of the result to get <code class="highlighter-rouge">L</code>.</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">diff_list</span><span class="p">([],</span> <span class="nv">End</span><span class="o">-</span><span class="nv">End</span><span class="p">).</span>
+<span class="ss">diff_list</span><span class="p">([</span><span class="nv">Head</span><span class="p">|</span><span class="nv">Rest</span><span class="p">],</span> <span class="p">[</span><span class="nv">Head</span><span class="p">|</span><span class="nv">DiffListRest</span><span class="p">]</span><span class="o">-</span><span class="nv">End</span><span class="p">)</span> <span class="p">:-</span>
+  <span class="ss">diff_list</span><span class="p">(</span><span class="nv">Rest</span><span class="p">,</span> <span class="nv">DiffListRest</span><span class="o">-</span><span class="nv">End</span><span class="p">).</span>
+
+<span class="ss">my_append</span><span class="p">(</span><span class="nv">L1</span><span class="p">,</span> <span class="nv">L2</span><span class="p">,</span> <span class="nv">L</span><span class="p">)</span> <span class="p">:-</span>
+  <span class="ss">diff_list</span><span class="p">(</span><span class="nv">L1</span><span class="p">,</span> <span class="nv">DiffList1</span><span class="p">),</span>
+  <span class="ss">dappend</span><span class="p">(</span><span class="nv">L1</span><span class="o">-</span><span class="nv">_</span><span class="p">,</span> <span class="nv">L2</span><span class="o">-</span><span class="nv">_</span><span class="p">,</span> <span class="nv">L</span><span class="o">-</span><span class="p">[]).</span>
+</code></pre>
+</div>
+
+<p>And some examples using <code class="highlighter-rouge">dappend/3</code> and <code class="highlighter-rouge">my_append/3</code>:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="o">?-</span> <span class="nv">L2</span> <span class="o">=</span> <span class="p">[</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">],</span> <span class="ss">dappend</span><span class="p">([</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">|</span><span class="nv">L2</span><span class="p">]</span><span class="o">-</span><span class="nv">L2</span><span class="p">,</span> <span class="nv">L2</span><span class="o">-</span><span class="p">[],</span> <span class="nv">L</span><span class="o">-</span><span class="p">[]).</span>
+<span class="nv">L</span> <span class="o">=</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">].</span>
+<span class="err">%</span> <span class="nv">We</span> <span class="ss">force</span> <span class="ss">the</span> <span class="ss">difference</span> <span class="ss">list</span> <span class="ss">representing</span> <span class="err">`</span><span class="nv">L1</span><span class="err">`</span> <span class="ss">to</span> <span class="ss">be</span> <span class="ss">the</span>
+<span class="err">%</span> <span class="ss">difference</span> <span class="ss">between</span> <span class="nv">L1</span> <span class="ss">appended</span> <span class="ss">to</span> <span class="nv">L2</span><span class="p">.</span>
+
+<span class="o">?-</span> <span class="ss">dappend</span><span class="p">([</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span><span class="o">-</span><span class="nv">_</span><span class="p">,</span> <span class="p">[</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">]</span><span class="o">-</span><span class="p">[],</span> <span class="nv">L</span><span class="o">-</span><span class="p">[]).</span>
+<span class="nv">L</span> <span class="o">=</span> <span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">].</span>
+<span class="err">%</span> <span class="nv">By</span> <span class="ss">failing</span> <span class="ss">to</span> <span class="ss">create</span> <span class="ss">a</span> <span class="ss">proper</span> <span class="ss">difference</span> <span class="ss">list</span> <span class="ss">in</span> <span class="ss">the</span> <span class="nv">L1</span> <span class="ss">position</span><span class="p">,</span> <span class="ss">namely</span>
+<span class="err">%</span> <span class="err">`</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span><span class="o">-</span><span class="nv">_</span><span class="err">`</span><span class="p">,</span> <span class="err">`</span><span class="nv">_</span><span class="err">`</span> <span class="ss">unifies</span> <span class="ss">with</span> <span class="err">`</span><span class="p">[</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">]</span><span class="err">`</span> <span class="ss">and</span> <span class="nv">L</span> <span class="ss">unifies</span> <span class="ss">with</span> <span class="err">`</span><span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span><span class="err">`</span><span class="p">.</span>
+</code></pre>
+</div>
+
+<p>To make the normal lists into difference lists we have to traverse them to the
+end… defeating the whole object of the exercise: to make <code class="highlighter-rouge">append/3</code> work in
+constant time, so DON’T use this unless you already have your lists in
+difference list form.</p>
+
+<p>Exercise: Take a few example difference lists and try appending them with the
+<code class="highlighter-rouge">dappend/3</code> predicate.</p>
+
+<h2 id="dcgs-grammars-with-difference-lists">DCGs: Grammars with difference lists</h2>
+
+<p>You should now be familiar with the concept of difference lists from the
+<code class="highlighter-rouge">dappend/3</code> example. We now show how to construct parsers from difference
+lists. What does it mean to parse a sentence? How are we going to represent
+a sentence? What does it mean to partially parse a sentence? Keep these
+questions in mind.</p>
+
+<p>Prolog represents sentences as lists of words, an example being <code class="highlighter-rouge">[hello, my,
+name, is, will]</code>. How about parsing this sentence? To parse it, we need
+a grammar. A grammar specifies the legal sentences in the language; we’ll constrain
+our language to be sentences of the form <code class="highlighter-rouge">hello my name is &lt;name&gt;</code> where
+<code class="highlighter-rouge">&lt;name&gt;</code> is either <code class="highlighter-rouge">will</code>, <code class="highlighter-rouge">tom</code>, or <code class="highlighter-rouge">henry</code>.</p>
+
+<p>Lets define this in <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form">EBNF</a>,
+a standard form for representing grammars.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sentence = greeting, introduction;
+greeting = "hello";
+introduction = "my", "name", "is", name;
+name = "will" | "tom" | "henry";
+</code></pre>
+</div>
+
+<p>What are the valid sentences represented in Prolog?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[hello, my, name, is, will]
+[hello, my, name, is, tom]
+[hello, my, name, is, henry]
+</code></pre>
+</div>
+
+<p>Parsing the sentence top-down from <code class="highlighter-rouge">sentence</code> involves substituting the LHS of
+a rule for the RHS repeatedly until all non-terminals are replaced with
+terminals. <code class="highlighter-rouge">[hello, my name, is will]</code> parsed by the rule <code class="highlighter-rouge">sentence</code> takes the
+following sequence:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">[], sentence</code></li>
+  <li><code class="highlighter-rouge">[], greeting, introduction</code></li>
+  <li><code class="highlighter-rouge">[hello], introduction</code></li>
+  <li><code class="highlighter-rouge">[hello, my, name, is], name</code></li>
+  <li><code class="highlighter-rouge">[hello, my, name, is, will]</code></li>
+</ul>
+
+<p>At each stage we replace a non-terminal with the RHS of its rule, we accumulate
+the non-terminals into a list starting with the empty list. Parsers <em>consume</em>
+terminals, that is given a sentence, rules will match part of the sentence.</p>
+
+<p>How would we parse the <code class="highlighter-rouge">greeting</code> rule in prolog using difference lists? 
+We represent the parsed terminals as the difference between two lists:
+<code class="highlighter-rouge">greeting(L1, L2)</code> the difference between <code class="highlighter-rouge">L1</code> and <code class="highlighter-rouge">L2</code> should be <code class="highlighter-rouge">hello</code>,
+we can write this as <code class="highlighter-rouge">greeting([hello|Rest], Rest)</code>, we match <code class="highlighter-rouge">hello</code> from the
+head of the first list, consuming it, leaving <code class="highlighter-rouge">Rest</code>.</p>
+
+<p>Let’s see how this predicate functions in a few queries:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="o">?-</span> <span class="ss">greeting</span><span class="p">([</span><span class="ss">hello</span><span class="p">],</span> <span class="nv">Rest</span><span class="p">).</span>
+<span class="nv">Rest</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="o">?-</span> <span class="ss">greeting</span><span class="p">([</span><span class="ss">hello</span><span class="p">,</span> <span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span> <span class="p">,</span><span class="ss">will</span><span class="p">],</span> <span class="nv">Rest</span><span class="p">).</span>
+<span class="nv">Rest</span> <span class="o">=</span> <span class="p">[</span><span class="ss">my</span><span class="p">,</span> <span class="ss">name</span> <span class="ss">is</span> <span class="ss">will</span><span class="p">]</span>
+
+<span class="o">?-</span> <span class="ss">greeting</span><span class="p">(</span><span class="nv">Sentence</span><span class="p">,</span> <span class="p">[</span><span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span> <span class="ss">will</span><span class="p">]).</span>
+<span class="nv">Sentence</span> <span class="o">=</span> <span class="p">[</span><span class="ss">hello</span><span class="p">,</span> <span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span> <span class="ss">will</span><span class="p">]</span>
+
+<span class="o">?-</span> <span class="ss">greeting</span><span class="p">([],</span> <span class="p">[])</span>
+<span class="ss">false</span><span class="p">.</span>
+
+<span class="o">?-</span> <span class="ss">greeting</span><span class="p">([</span><span class="ss">hello</span><span class="p">],</span> <span class="p">[])</span>
+<span class="ss">true</span><span class="p">.</span>
+
+<span class="o">?-</span> <span class="ss">greeting</span><span class="p">([</span><span class="ss">hello</span><span class="p">,</span> <span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span> <span class="ss">will</span><span class="p">],</span> <span class="p">[])</span>
+<span class="ss">false</span><span class="p">.</span>
+</code></pre>
+</div>
+
+<p>Although <code class="highlighter-rouge">greeting</code> was arguably the simplest of the grammar rules, the concept
+applies to all other grammar rules, all we’re doing is consuming terminals from
+the first list, putting the resulting list in the second argument.</p>
+
+<p>Let’s convert the rest of the grammar rules to Prolog in difference list form.</p>
+
+<p><code class="highlighter-rouge">name</code> is very similar to <code class="highlighter-rouge">greeting</code>, we simply consume the name.</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">name</span><span class="p">([</span><span class="ss">will</span><span class="p">|</span><span class="nv">Rest</span><span class="p">],</span> <span class="nv">Rest</span><span class="p">).</span>
+<span class="ss">name</span><span class="p">([</span><span class="ss">tom</span><span class="p">|</span><span class="nv">Rest</span><span class="p">],</span> <span class="nv">Rest</span><span class="p">).</span>
+<span class="ss">name</span><span class="p">([</span><span class="ss">henry</span><span class="p">|</span><span class="nv">Rest</span><span class="p">],</span> <span class="nv">Rest</span><span class="p">).</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">introduction</code> is slightly more complicated as now we have a non-terminal in
+the RHS of the rule</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">introduction</span><span class="p">([</span><span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span><span class="p">|</span><span class="nv">Rest1</span><span class="p">],</span> <span class="nv">Rest2</span><span class="p">)</span> <span class="p">:-</span> <span class="ss">name</span><span class="p">(</span><span class="nv">Rest1</span><span class="p">,</span> <span class="nv">Rest2</span><span class="p">).</span>
+</code></pre>
+</div>
+
+<p>This deserves some explanation. <code class="highlighter-rouge">introduction</code> consumes the non-terminals on the
+RHS of its corresponding grammar rule, but then we also need to give the rest of the
+sentence to the <code class="highlighter-rouge">name</code> parser so it can check that the rest of the sentence is
+a name. To do this we pass the remainder of the sentence, <code class="highlighter-rouge">Rest1</code>, onto <code class="highlighter-rouge">name</code> which
+results in another list, containing the remainder of the sentence after
+matching the name in <code class="highlighter-rouge">Rest2</code>. Let’s give some pseudo-Prolog examples to further
+demonstrate how this works:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="err">%</span> <span class="nv">This</span> <span class="ss">is</span> <span class="ss">not</span> <span class="ss">a</span> <span class="ss">real</span> <span class="ss">prolog</span> <span class="ss">session</span><span class="p">,</span> <span class="nv">I</span><span class="ss">'ve written out the intermediate
+% variables to aid the understanding of which parts of the sentence are
+% consumed by which parsers
+
+?- introduction([my, name, is, will], X).
+Rest1 = [will],
+Rest2 = [],
+X = Rest2 = []
+
+?- introduction([my], X).
+false
+% Prolog can't</span> <span class="ss">match</span> <span class="ss">the</span> <span class="p">[</span><span class="ss">my</span><span class="p">]</span> <span class="ss">to</span> <span class="p">[</span><span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span><span class="p">|</span><span class="nv">Rest1</span><span class="p">]</span> <span class="ss">as</span> <span class="ss">the</span> <span class="ss">list</span> <span class="ss">is</span> <span class="ss">missing</span> <span class="p">[</span><span class="ss">name</span><span class="p">,</span> <span class="ss">is</span><span class="p">]</span>
+
+<span class="o">?-</span> <span class="ss">introduction</span><span class="p">([</span><span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span><span class="p">,</span> <span class="nv">Name</span><span class="p">],</span> <span class="p">[]).</span>
+<span class="nv">Name</span> <span class="o">=</span> <span class="ss">will</span><span class="p">;</span>
+<span class="nv">Name</span> <span class="o">=</span> <span class="ss">tom</span><span class="p">;</span>
+<span class="nv">Name</span> <span class="o">=</span> <span class="ss">henry</span>
+</code></pre>
+</div>
+
+<p>Finally the sentence rule:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">sentence</span><span class="p">(</span><span class="nv">L1</span><span class="p">,</span> <span class="nv">L3</span><span class="p">)</span> <span class="p">:-</span> <span class="ss">greeting</span><span class="p">(</span><span class="nv">L1</span><span class="p">,</span> <span class="nv">L2</span><span class="p">),</span> <span class="ss">introduction</span><span class="p">(</span><span class="nv">L2</span><span class="p">,</span> <span class="nv">L3</span><span class="p">).</span>
+</code></pre>
+</div>
+
+<p>and some examples:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="err">%</span> <span class="nv">This</span> <span class="ss">is</span> <span class="ss">not</span> <span class="ss">a</span> <span class="ss">real</span> <span class="ss">prolog</span> <span class="ss">session</span><span class="p">,</span> <span class="nv">I</span><span class="ss">'ve written out the intermediate
+% variables to aid the understanding of which parts of the sentence are
+% consumed by which parsers
+
+?- sentence([hello, my, name, is will], []).
+L1 = [hello, my, name, is will],
+L2 = [my, name, is will],
+L3 = []
+true.
+% greeting/2 consumes `hello` from the list leaving L2,
+% which is then fully consumed by introduction/2 resulting
+% in L3 = []
+
+?- sentence(Sentence, []).
+Sentence = [hello, my, name, is will];
+Sentence = [hello, my, name, is tom];
+Sentence = [hello, my, name, is henry].
+
+?- sentence([my, name, is, will], [will]).
+false.
+% Because name is called like `name([will|Rest], [will])`, it doesn't</span> <span class="ss">match</span> <span class="ss">the</span>
+<span class="err">%</span> <span class="ss">definition</span> <span class="ss">of</span> <span class="err">`</span><span class="ss">name</span><span class="o">/</span><span class="m">2</span><span class="err">`</span> <span class="ss">so</span> <span class="ss">fails</span><span class="p">.</span>
+</code></pre>
+</div>
+
+<p>Translating these grammar rules is very mechanical, which is why Prolog
+introduces syntactic sugar for them! Yay! The grammar we gave before can be
+rewritten as:</p>
+
+<div class="language-prolog highlighter-rouge"><pre class="highlight"><code><span class="ss">sentence</span> <span class="p">--&gt;</span> <span class="ss">greeting</span><span class="p">,</span> <span class="ss">introduction</span><span class="p">.</span>
+<span class="ss">greeting</span> <span class="p">--&gt;</span> <span class="p">[</span><span class="ss">hello</span><span class="p">].</span>
+<span class="ss">introduction</span> <span class="p">--&gt;</span> <span class="p">[</span><span class="ss">hello</span><span class="p">,</span> <span class="ss">my</span><span class="p">,</span> <span class="ss">name</span><span class="p">,</span> <span class="ss">is</span><span class="p">],</span> <span class="ss">name</span><span class="p">.</span>
+<span class="ss">name</span> <span class="p">--&gt;</span> <span class="p">[</span><span class="ss">will</span><span class="p">].</span>
+<span class="ss">name</span> <span class="p">--&gt;</span> <span class="p">[</span><span class="ss">tom</span><span class="p">].</span>
+<span class="ss">name</span> <span class="p">--&gt;</span> <span class="p">[</span><span class="ss">henry</span><span class="p">].</span>
+</code></pre>
+</div>
+
+<p>We also don’t have to explicitly call the  predicates like <code class="highlighter-rouge">sentence(Sentence,
+[])</code>, we can use <code class="highlighter-rouge">phrase/2</code> instead: <code class="highlighter-rouge">phrase(sentence, Sentence)</code> is equivalent
+to the previous call.</p>
+
+<h2 id="more-resources">More resources</h2>
+
+<ul>
+  <li><a href="http://www.learnprolognow.org/lpnpage.php?pagetype=html&amp;pageid=lpn-htmlch7">Learn Prolog Now! Chapter 7: Definite Clause Grammars</a></li>
+  <li><a href="http://www.pathwayslms.com/swipltuts/dcg/">Using Definite Clause Grammars in SWI-Prolog (Anne Ogborn)</a></li>
+</ul>
+
+    </div>
+</div>
+
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.toc').toc();
+      });
+    </script>
+  </body>
+</html>

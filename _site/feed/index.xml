@@ -4,13 +4,332 @@
  <title>Will Price</title>
  <link href="http://www.willprice.org/feed/" rel="self"/>
  <link href="http://www.willprice.org"/>
- <updated>2017-02-09T14:55:33+00:00</updated>
+ <updated>2017-05-12T22:14:04+01:00</updated>
  <id>http://willprice.org/</id>
  <author>
    <name>Will Price</name>
    <email>willprice94+blog@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>DCG object level representation in prolog</title>
+   <link href="http://willprice.org//2017/05/11/dcg-object-level-representation-in-prolog.html"/>
+   <updated>2017-05-11T00:00:00+01:00</updated>
+   <id>http://willprice.org/2017/05/11/dcg-object-level-representation-in-prolog</id>
+   <content type="html">&lt;p&gt;Prolog is an excellent language for writing parsers using Definite Clause
+Grammars (DCG) which are supported as first class objects in the language. The
+language provides syntactic sugar to make writing these grammars more easily
+than without.&lt;/p&gt;
+
+&lt;p&gt;Writing a DCG isn’t far off translating a given grammar into prolog syntax, but
+before we get to that we’ll first look at writing DCGs the hard way without
+syntactic sugar. It’s important to understand the object level representation
+of a DCG as this is what prolog actually executes.&lt;/p&gt;
+
+&lt;p&gt;Parsing a sentence using a DCG makes use of a standard prolog programming
+pattern: &lt;a href=&quot;https://www.cl.cam.ac.uk/teaching/0809/Prolog/Prolog08ML5R2.pdf&quot;&gt;the difference
+list&lt;/a&gt;. The
+&lt;em&gt;difference list&lt;/em&gt; programming pattern represents a list &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; as the  difference
+between two other lists &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; where &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; is a sublist of &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; and
+&lt;code class=&quot;highlighter-rouge&quot;&gt;append(L, L2, L1)&lt;/code&gt; (that is, &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; appended with &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; forms &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;A list in difference list form is represented by two lists. Let’s say we want
+to express &lt;code class=&quot;highlighter-rouge&quot;&gt;L = [element1, element2, ..., elementN]&lt;/code&gt; in difference list form.
+We need two lists &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; in which we’ll encode &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; as the difference
+between those lists. We’ll represent the two lists as a pair, pairs in prolog
+use the syntax &lt;code class=&quot;highlighter-rouge&quot;&gt;A-B&lt;/code&gt; where &lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; is the first element of the pair, and &lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; the
+second. This is not necessary, and later we’ll drop the pair syntax and just
+use arguments to hold each of the lists. Getting back to encoding &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; using
+&lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; we can form the difference list &lt;code class=&quot;highlighter-rouge&quot;&gt;L1-L2 = [element1, element2,
+..., elementN | Rest]-Rest&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; prepended to &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; is some
+other list, we don’t really care what.&lt;/p&gt;
+
+&lt;p&gt;“Why do this, you’re insane!?” You might ask, well we now have
+a handle &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest&lt;/code&gt; on the end of the list which allows us to do some clever tricks
+to write efficient predicates, and it makes writing parsers super
+easy.&lt;/p&gt;
+
+&lt;h2 id=&quot;appending-with-difference-lists&quot;&gt;Appending with difference lists&lt;/h2&gt;
+
+&lt;p&gt;One of the simplest examples of the difference list pattern is an
+implementation of the &lt;code class=&quot;highlighter-rouge&quot;&gt;append/3&lt;/code&gt; predicate. You may have seen the naive
+implementation:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However this takes linear time in execution… for something as frequently used
+as appending, this isn’t good enough, we want constant time execution! To achieve
+constant time execution of appending we’ll implement &lt;code class=&quot;highlighter-rouge&quot;&gt;append/3&lt;/code&gt; using difference lists.&lt;/p&gt;
+
+&lt;p&gt;Let’s start with a simple example, appending &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3]&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;[4, 5, 6, 7]&lt;/code&gt;.
+First lets convert these to difference list representation: &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2,
+3 | Rest1]-Rest1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;[4, 5, 6, 7 | Rest2]-Rest2&lt;/code&gt; (suspend your suspicion that this is
+a pointless, useless representation, we’ll get there!). What should the result
+of appending the two lists result in (in difference list form?)? Well it should
+at least start with &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3, 4, 5, 6, 7 | Something]-Something&lt;/code&gt; as this contains the
+result, but how about the &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest&lt;/code&gt; part of the list which we’ve left as
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Something&lt;/code&gt;? I suppose we could put anything here but there’s an alternative
+that makes a bit more sense: reuse the &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest&lt;/code&gt; part from the second list, this
+makes a bit more sense, as we preserve more information about our inputs this
+way. In conclusion we’ve decided that appending the difference lists &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2,
+3 | Rest1]-Rest1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;[4, 5, 6, 7 | Rest2]-Rest2&lt;/code&gt; should result in &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3,
+4, 5, 6, 7 | Rest2]-Rest2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;How we write &lt;code class=&quot;highlighter-rouge&quot;&gt;append/3&lt;/code&gt; such that it uses difference lists? Lets distinguish it
+from the recursive definition we presented above my denoting it as &lt;code class=&quot;highlighter-rouge&quot;&gt;dappend/3&lt;/code&gt;
+(for difference-list append). We know the inputs, so they form the first
+2 arguments of the predicate, and the last argument will be the appended
+difference lists. Let’s sketch this out:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;dappend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1element1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1element2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1elementN&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L2element1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2element2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2elementM&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1element1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1element2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1elementN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2element1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2element2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2elementM&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We could write out a bunch of predicates for all different sizes of lists, but
+that’d be insanity! Instead we can make clever use of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest&lt;/code&gt; parts of the
+difference lists to combine them!&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;dappend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:-&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;more&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;simply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;dappend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;By unifying &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest1&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; we force the difference part of the &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt;
+difference list to be the &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; difference list. Going back to our example, we
+unify &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest1&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3 | Rest1]-Rest1&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;[4, 5, 6, 7 | Rest2]&lt;/code&gt; resulting in
+&lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3, 4, 5, 6, 7 | Rest2]&lt;/code&gt;, then make this into a difference list by lifting
+it into the pair functor &lt;code class=&quot;highlighter-rouge&quot;&gt;-/2&lt;/code&gt; in the output argument &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3, 4, 5, 6,
+7 | Rest2]-Rest2&lt;/code&gt;. No recursion, just unification!&lt;/p&gt;
+
+&lt;p&gt;Now what if we want to wrap this up so we don’t have to use difference lists
+directly? Let’s try and write a wrapper &lt;code class=&quot;highlighter-rouge&quot;&gt;my_append/3&lt;/code&gt; that takes 2 normal lists
+&lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; and concatenates them to form &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt;, first we have to convert &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt;
+and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; into difference lists, then we can call &lt;code class=&quot;highlighter-rouge&quot;&gt;dappend/3&lt;/code&gt; and pull out the
+difference of the result to get &lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;diff_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;End&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;End&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;diff_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DiffListRest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;End&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:-&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;diff_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DiffListRest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;End&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+
+&lt;span class=&quot;ss&quot;&gt;my_append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:-&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;diff_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DiffList1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;dappend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And some examples using &lt;code class=&quot;highlighter-rouge&quot;&gt;dappend/3&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;my_append/3&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;dappend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;We&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;force&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;difference&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;representing&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;the&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;difference&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;between&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;appended&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;dappend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;By&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;failing&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;proper&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;difference&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;namely&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;unifies&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;unifies&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To make the normal lists into difference lists we have to traverse them to the
+end… defeating the whole object of the exercise: to make &lt;code class=&quot;highlighter-rouge&quot;&gt;append/3&lt;/code&gt; work in
+constant time, so DON’T use this unless you already have your lists in
+difference list form.&lt;/p&gt;
+
+&lt;p&gt;Exercise: Take a few example difference lists and try appending them with the
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dappend/3&lt;/code&gt; predicate.&lt;/p&gt;
+
+&lt;h2 id=&quot;dcgs-grammars-with-difference-lists&quot;&gt;DCGs: Grammars with difference lists&lt;/h2&gt;
+
+&lt;p&gt;You should now be familiar with the concept of difference lists from the
+&lt;code class=&quot;highlighter-rouge&quot;&gt;dappend/3&lt;/code&gt; example. We now show how to construct parsers from difference
+lists. What does it mean to parse a sentence? How are we going to represent
+a sentence? What does it mean to partially parse a sentence? Keep these
+questions in mind.&lt;/p&gt;
+
+&lt;p&gt;Prolog represents sentences as lists of words, an example being &lt;code class=&quot;highlighter-rouge&quot;&gt;[hello, my,
+name, is, will]&lt;/code&gt;. How about parsing this sentence? To parse it, we need
+a grammar. A grammar specifies the legal sentences in the language; we’ll constrain
+our language to be sentences of the form &lt;code class=&quot;highlighter-rouge&quot;&gt;hello my name is &amp;lt;name&amp;gt;&lt;/code&gt; where
+&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;name&amp;gt;&lt;/code&gt; is either &lt;code class=&quot;highlighter-rouge&quot;&gt;will&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;tom&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;henry&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lets define this in &lt;a href=&quot;https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form&quot;&gt;EBNF&lt;/a&gt;,
+a standard form for representing grammars.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sentence = greeting, introduction;
+greeting = &quot;hello&quot;;
+introduction = &quot;my&quot;, &quot;name&quot;, &quot;is&quot;, name;
+name = &quot;will&quot; | &quot;tom&quot; | &quot;henry&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;What are the valid sentences represented in Prolog?&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[hello, my, name, is, will]
+[hello, my, name, is, tom]
+[hello, my, name, is, henry]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Parsing the sentence top-down from &lt;code class=&quot;highlighter-rouge&quot;&gt;sentence&lt;/code&gt; involves substituting the LHS of
+a rule for the RHS repeatedly until all non-terminals are replaced with
+terminals. &lt;code class=&quot;highlighter-rouge&quot;&gt;[hello, my name, is will]&lt;/code&gt; parsed by the rule &lt;code class=&quot;highlighter-rouge&quot;&gt;sentence&lt;/code&gt; takes the
+following sequence:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[], sentence&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[], greeting, introduction&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[hello], introduction&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[hello, my, name, is], name&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[hello, my, name, is, will]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At each stage we replace a non-terminal with the RHS of its rule, we accumulate
+the non-terminals into a list starting with the empty list. Parsers &lt;em&gt;consume&lt;/em&gt;
+terminals, that is given a sentence, rules will match part of the sentence.&lt;/p&gt;
+
+&lt;p&gt;How would we parse the &lt;code class=&quot;highlighter-rouge&quot;&gt;greeting&lt;/code&gt; rule in prolog using difference lists? 
+We represent the parsed terminals as the difference between two lists:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;greeting(L1, L2)&lt;/code&gt; the difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;L1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;L2&lt;/code&gt; should be &lt;code class=&quot;highlighter-rouge&quot;&gt;hello&lt;/code&gt;,
+we can write this as &lt;code class=&quot;highlighter-rouge&quot;&gt;greeting([hello|Rest], Rest)&lt;/code&gt;, we match &lt;code class=&quot;highlighter-rouge&quot;&gt;hello&lt;/code&gt; from the
+head of the first list, consuming it, leaving &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s see how this predicate functions in a few queries:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Sentence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Sentence&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Although &lt;code class=&quot;highlighter-rouge&quot;&gt;greeting&lt;/code&gt; was arguably the simplest of the grammar rules, the concept
+applies to all other grammar rules, all we’re doing is consuming terminals from
+the first list, putting the resulting list in the second argument.&lt;/p&gt;
+
+&lt;p&gt;Let’s convert the rest of the grammar rules to Prolog in difference list form.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; is very similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;greeting&lt;/code&gt;, we simply consume the name.&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;tom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;henry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;introduction&lt;/code&gt; is slightly more complicated as now we have a non-terminal in
+the RHS of the rule&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;introduction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Rest2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This deserves some explanation. &lt;code class=&quot;highlighter-rouge&quot;&gt;introduction&lt;/code&gt; consumes the non-terminals on the
+RHS of its corresponding grammar rule, but then we also need to give the rest of the
+sentence to the &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; parser so it can check that the rest of the sentence is
+a name. To do this we pass the remainder of the sentence, &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest1&lt;/code&gt;, onto &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; which
+results in another list, containing the remainder of the sentence after
+matching the name in &lt;code class=&quot;highlighter-rouge&quot;&gt;Rest2&lt;/code&gt;. Let’s give some pseudo-Prolog examples to further
+demonstrate how this works:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;real&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;prolog&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;'ve written out the intermediate
+% variables to aid the understanding of which parts of the sentence are
+% consumed by which parsers
+
+?- introduction([my, name, is, will], X).
+Rest1 = [will],
+Rest2 = [],
+X = Rest2 = []
+
+?- introduction([my], X).
+false
+% Prolog can't&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Rest1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;missing&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;?-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;introduction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;tom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;henry&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Finally the sentence rule:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;sentence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:-&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;introduction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;L2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;L3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and some examples:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;real&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;prolog&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;'ve written out the intermediate
+% variables to aid the understanding of which parts of the sentence are
+% consumed by which parsers
+
+?- sentence([hello, my, name, is will], []).
+L1 = [hello, my, name, is will],
+L2 = [my, name, is will],
+L3 = []
+true.
+% greeting/2 consumes `hello` from the list leaving L2,
+% which is then fully consumed by introduction/2 resulting
+% in L3 = []
+
+?- sentence(Sentence, []).
+Sentence = [hello, my, name, is will];
+Sentence = [hello, my, name, is tom];
+Sentence = [hello, my, name, is henry].
+
+?- sentence([my, name, is, will], [will]).
+false.
+% Because name is called like `name([will|Rest], [will])`, it doesn't&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;the&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;definition&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;so&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;fails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Translating these grammar rules is very mechanical, which is why Prolog
+introduces syntactic sugar for them! Yay! The grammar we gave before can be
+rewritten as:&lt;/p&gt;
+
+&lt;div class=&quot;language-prolog highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;ss&quot;&gt;sentence&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;introduction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;greeting&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;introduction&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;will&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;tom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;henry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We also don’t have to explicitly call the  predicates like &lt;code class=&quot;highlighter-rouge&quot;&gt;sentence(Sentence,
+[])&lt;/code&gt;, we can use &lt;code class=&quot;highlighter-rouge&quot;&gt;phrase/2&lt;/code&gt; instead: &lt;code class=&quot;highlighter-rouge&quot;&gt;phrase(sentence, Sentence)&lt;/code&gt; is equivalent
+to the previous call.&lt;/p&gt;
+
+&lt;h2 id=&quot;more-resources&quot;&gt;More resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.learnprolognow.org/lpnpage.php?pagetype=html&amp;amp;pageid=lpn-htmlch7&quot;&gt;Learn Prolog Now! Chapter 7: Definite Clause Grammars&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.pathwayslms.com/swipltuts/dcg/&quot;&gt;Using Definite Clause Grammars in SWI-Prolog (Anne Ogborn)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Mini-project: Horizontally scale a web service using Docker</title>
@@ -454,7 +773,7 @@ we’re going to use. To do this run&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h1 id=&quot;connect-using-wpa_supplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
+&lt;h1 id=&quot;connect-using-wpasupplicant&quot;&gt;Connect using wpa_supplicant&lt;/h1&gt;
 
 &lt;p&gt;I’m at Bristol university where our eduroam network uses PEAP or TTLS for
 authentication, if you’re at a different university this may well be different
