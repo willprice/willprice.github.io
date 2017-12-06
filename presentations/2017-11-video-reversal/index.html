@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Reversible Actions</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+      .grid-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 3fr);
+        grid-auto-rows: 2fr;
+      }
+
+      .grid-container video {
+        width: 640px;
+        height: 376px;
+        margin: auto;
+      }
+
+      .reveal section img {
+        border: 0;
+        max-height: 70%;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown id="landing">
+          <textarea data-template>
+            # Exploring object-interaction reversal
+
+            Will Price / [willprice.org](http://willprice.org)
+          </textarea>
+        </section>
+
+        <section data-markdown id="question">
+          <textarea data-template>
+            # Reversible actions
+
+            Can the object interaction in a reversed video make sense?
+          </textarea>
+        </section>
+
+        <section id="reversible-actions">
+          <h1>Some actions can be reversed</h1>
+
+          <div class="grid-container">
+            <video  autoplay="true" loop="true">
+              <source
+              data-src="media/reversed/success/P03_04_1693_1738_put-squash_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/success/P03_04_32753_32932_dry-hands_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/success/P03_04_51538_51592_open-drawer_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/success/P06_09_63842_63923_shake-lid_small.mp4"
+              type="video/mp4" />
+            </video>
+          </div>
+        </section>
+
+        <section id="irreversible-actions">
+          <h1>Some actions are irreversible</h1>
+
+          <div class="grid-container">
+            <video  autoplay="true" loop="true">
+              <source
+              data-src="media/reversed/fail/P03_04_11037_11164_cut-onions-in-bin_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/fail/P03_04_30200_30693_dice-chicken_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/fail/P06_09_28370_28825_scrape-pepper-into-pan_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/fail/P06_09_64765_65061_scrape-chicken-into-pan_small.mp4"
+              type="video/mp4" />
+            </video>
+          </div>
+        </section>
+
+        <section id="mixed-reversible-actions">
+          <h1>Sometimes it isn't clear whether an action is reversible</h1>
+
+          <div class="grid-container">
+            <video  autoplay="true" loop="true">
+              <source
+              data-src="media/reversed/mixed/P03_04_46523_46718_wash-hands_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/mixed/P03_04_88788_89238_wash-lid_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/mixed/P03_04_70542_70751_pour-squash_small.mp4"
+              type="video/mp4" />
+            </video>
+            <video autoplay="true" loop="true" muted="true">
+              <source
+              data-src="media/reversed/mixed/P03_04_70823_71069_pour-squash_small.mp4"
+              type="video/mp4" />
+            </video>
+          </div>
+        </section>
+
+        <section data-markdown id="quantifying-reversibility">
+          <textarea data-template>
+            # Quanityfing reversibility
+
+            | Score | Definition | 
+            |-------|------------| 
+            | 0 (Worst) | The reversed video defies gravity and entropy, the majority of short segments taken from the video viewed alone still demonstrate these pathologies |
+            | 1 | The reversed video has some presence of reversal artifacts in the action itself but only a minority of segments viewed alone demonstrate pathologies |
+            | 2 | There are only reversal artifacts outside of the main action, the main action itself is sensible |
+            | 3 (Best) | The reversed video is indistinguishable from one in forward motion |
+          </textarea>
+
+        </section>
+
+        <section id="reversible-actions-stats">
+          <h1>Which actions are reversible?</h1>
+
+          <img data-src="./media/truncated-verb-video-reversal-success-rate-by-verb.png" />
+        </section>
+
+        <section id="sample-stats">
+          <h1>Reversed action analysis sample stats</h1>
+
+          <div style="display: flex">
+            <ul style="flex-basis: 20%; margin-right: 1em;">
+              <li>2 people's kitchen: 1 video per person</li>
+              <li>850 actions</li>
+              <li>Reversibility hand labelled by single annotation</li> 
+              <li>500 successfully reversed actions</li>
+            </ul>
+
+            <img data-src="./media/reversed-video-by-truncated-verb-frequency.png" />
+          </div>
+        </section>
+
+        <section data-markdown id="factors-preventing-reversal">
+          <textarea data-template>
+            # Factors preventing reversal
+
+            - Increase in entropy
+            - Unfeasible inverted force vectors
+          </textarea>
+        </section>
+
+        <section data-markdown id="future-work">
+          <textarea data-template>
+            # Future work
+
+            - Seeing how a CNN responds to reversed videos
+            - Data augmentation
+            - Zero shot learning, "given only examples of 'close', can I
+              learn 'open'"
+          </textarea>
+        </section>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+// More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
+Reveal.initialize({
+  dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/notes/notes.js', async: true },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+  ],
+  width: 1920,
+  height: 1200
+});
+    </script>
+  </body>
+</html>
