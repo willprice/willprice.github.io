@@ -72,21 +72,6 @@
           </textarea>
         </section>
 
-
-        <section data-markdown id="overview">
-          <textarea data-template>
-            TODO
-          </textarea>
-
-          <aside class="notes">
-            <ul>
-              <li>2 largest categories</li>
-              <li>Feature vis: </li>
-            </ul>
-          </aside>
-
-        </section>
-
         <section id="notation">
           <h2>First some notation</h2>
           <div class="figure">
@@ -198,14 +183,14 @@
             </div>
             <div style="grid-column: col 2 / span 2; margin: 1em;">
               <ol>
-                <li>Initialise $\bf{x}$ with random noise</li>
+                <li>Initialise $\bf{x}_0$ with random noise</li>
                 <li>Repeat $n$ times (e.g. $n = 2000$):
                   <ol>
                     <li>Compute the partial derivatives of the neuron
                       activation with respect to each input pixel:
                       $\nabla_{\bf{x}}\Phi^l_n(\bf{x}; \theta)$</li>
-                    <li>Update image: $\bf{x} \leftarrow \bf{x} +
-                      \lambda \nabla_{\bf{x}}\Phi^l_n(\bf{x};
+                    <li>Update image: $\bf{x}_{m + 1} = \bf{x}_m +
+                      \lambda \nabla_{\bf{x}_m}\Phi^l_n(\bf{x}_m;
                       \theta)$</li>
                     </ol>
                   </li>
