@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>ANN Visualisation</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+      .fragment.current-visible.visible:not(.current-fragment) {
+        display: none;
+        height:0px;
+        width:0px;
+        line-height: 0px;
+        font-size: 0px;
+      }
+
+      .reveal section .figure .top-example {
+        height: 60vh;
+      }
+
+      .reveal section .attribution {
+        color: grey;
+        position: fixed;
+        bottom: 1em;
+        font-size: .7em;
+      }
+
+      .reveal section .figure {
+        margin-top: 1.5em;
+      }
+
+      .reveal section img {
+        border: 0;
+        box-shadow: 0 0 0;
+      }
+
+      .reveal section .grid {
+        display: grid;
+      }
+
+      .reveal section .left-aligned {
+        text-align: left;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown id="landing">
+          <textarea data-template>
+            # ANN Visualisation
+
+            <h5>Will Price / [willprice.org](http://willprice.org)</h5>
+          </textarea>
+        </section>
+
+
+        <section data-markdown id="overview">
+          <textarea data-template>
+            TODO
+          </textarea>
+
+          <aside class="notes">
+            <ul>
+              <li>2 largest categories</li>
+              <li>Feature vis: </li>
+            </ul>
+          </aside>
+
+        </section>
+
+        <section id="notation">
+          <h2>First some notation</h2>
+          <div class="figure">
+            <img style="height: 70vh" data-src="./media/what-is-activation-maximisation-2.png" />
+        </section>
+
+        <section id="learning-about-neurons">
+          <h2>Learning about neurons</h2>
+          <div class="figure">
+            <div class="figcaption">
+              \[ \bf{x}_0 = \operatorname{argmax}_{\bf{x}} \Phi^l_n\left(\bf{x};
+              \theta\right) \]
+            </div>
+            <img style="height: 70vh" data-src="./media/what-is-activation-maximisation.png" />
+        </section>
+
+
+        <section id="example-selection">
+          <h2>Which examples maximally activate a neuron? <em>Example
+              selection</em></h2>
+
+          <div class="fragment current-visible">
+            \[ 
+              \bf{x}_0 = \operatorname{argmax}_{\bf{x} \in \text{Te}} 
+              \Phi^l_n\left(\bf{x}; \theta\right)
+            \]
+          </div>
+
+          <div class="fragment current-visible figure">
+            <img data-src="https://www.venueseeker.com/wp-content/uploads/2014/02/New-outside-image-resized.jpg" />
+            <div class="figcaption">
+              Our top example - what does this tell us?
+            </div>
+          </div>
+
+          <div class="fragment current-visible figure">
+            <div class="figcaption">
+              ZeilerNet top-9 examples for 9 different neurons in layer 1
+            </div>
+            <img class="top-example"  data-src="./media/top-examples-layer-1.png" />
+          </div>
+
+          <div class="fragment current-visible figure">
+            <div class="figcaption">
+              ZeilerNet top-9 examples for 16 different neurons in layer 2
+            </div>
+            <img class="top-example"  data-src="./media/top-examples-layer-2.png" />
+          </div>
+
+          <div class="fragment current-visible figure">
+            <div class="figcaption">
+              ZeilerNet top-9 examples for 12 different neurons in layer 3
+            </div>
+            <img class="top-example"  data-src="./media/top-examples-layer-3.png" />
+          </div>
+
+          <div class="fragment current-visible figure">
+            <div class="figcaption">
+              ZeilerNet top-9 examples for 4 different neurons in layer 4
+            </div>
+            <img class="top-example"  data-src="./media/top-examples-layer-4.png" />
+          </div>
+
+          <div class="fragment current-visible figure">
+            <div class="figcaption">
+              ZeilerNet top-9 examples for 4 different neurons in layer 5
+            </div>
+            <img class="top-example"  data-src="./media/top-examples-layer-5-1.png" />
+          </div>
+
+          <div class="fragment current-visible figure">
+            <div class="figcaption">
+              ZeilerNet top-9 examples for 4 different neurons in layer 5
+            </div>
+            <img class="top-example" data-src="./media/top-examples-layer-5-2.png" />
+          </div>
+
+
+          <div class="attribution">Figures from <em>Zeiler &amp; Fergus - 2013</em></div>
+
+          <aside class="notes">
+            <ul>
+              <li></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="activation-maximisation">
+          <h2>Activation Maximisation</h2>
+
+          <p>How about <em>synthesizing</em> images that maxmially activate a
+              neuron using gradient ascent.</p>
+
+            <p>Let $I = \{0..255\}^{W \times H \times 3}$</p>
+
+            <p>
+            \[
+              \bf{x}_0 = \underset{\bf{x} \in I}{\operatorname{argmax}} \Phi^l_n\left(\bf{x}; \theta\right)
+            \]
+          </p>
+
+        </section>
+
+        <section id="implementing-activationg-maximisation">
+          <h2>Implementing activation maximisation</h2>
+          <div class="grid col-3">
+            <div style="grid-column: col;">
+              <img data-src="./media/noise.jpg">
+            </div>
+            <div style="grid-column: col 2 / span 2; margin: 1em;">
+              <ol>
+                <li>Initialise $\bf{x}$ with random noise</li>
+                <li>Repeat $n$ times (e.g. $n = 2000$):
+                  <ol>
+                    <li>Compute the partial derivatives of the neuron
+                      activation with respect to each input pixel:
+                      $\nabla_{\bf{x}}\Phi^l_n(\bf{x}; \theta)$</li>
+                    <li>Update image: $\bf{x} \leftarrow \bf{x} +
+                      \lambda \nabla_{\bf{x}}\Phi^l_n(\bf{x};
+                      \theta)$</li>
+                    </ol>
+                  </li>
+                </ol>
+            </div>
+          </div>
+
+          <p>Recall that $\nabla_{\bf{x}}\Phi^l_n(\bf{x}; \theta)$ is made up of
+            partial derivatives $\frac{\partial \Phi^l_n(\bf{x};
+            \theta)}{\partial x_{i,j}}$</p>
+        </section>
+
+        <section id="naive-activation-maximisation-results">
+          <h2>So what do these synthetic images look like?</h2>
+          <div class="figure fragment current-hide">
+            <img style="height: 70vh" data-src="./media/activation-maximisation-unregularised.png" />
+            <div class="figcaption">
+              Example of activation maximisation from 
+              <a href="https://distill.pub/2017/feature-visualization/">
+                <em>Feature Visualsation Review - Olah, Mordvintsev,
+                  Schubert (2017)</em>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="improving-synthetic-images">
+          <h2>Improving the quality of synthetic images</h2>
+
+          <div class="left-aligned">
+            <p>We know a lot about images, we can utilise this knowledge
+              to guide the optimisation process</p>
+
+            <div>
+              <p>The synthetic images has high frequency noise, we can
+                discourage that by penialising it:</p>
+
+              <ul>
+                <li>$L_n$ regularisation</li>
+                <li>Blurring in between optimisation steps</li>
+                <li>Total variation regularisation</li>
+              </ul>
+            </div>
+
+            <div>
+              <p>Transformations preserving semantic contents:</p>
+
+              <ul>
+                <li>Blurring</li>
+                <li>Shifting</li>
+                <li>Rotating</li>
+                <li>Scaling</li>
+                <li>Adding random noise</li>
+                <li>Changing brightness</li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="https://distill.pub/2017/feature-visualization/">Feature
+            Visualisation (2017)</a>
+          </section>
+
+          <section
+            id="activation-maximisation-generative-network-prior">
+            <h2>Encoding prior knowledge with a generative network</h2>
+            <div class="figure fragment current-visible">
+              <img
+              data-src="./media/generative-network-prior-diagram.png">
+              <div class="figcaption">
+              </div>
+            </div>
+
+            <div class="figure fragment current-visible">
+              <img
+              style="width: 90%;"
+              data-src="./media/synthesizing-caffenet-imagenet.png">
+              <div class="figcaption">
+                Synthetic examples computed via activation maximisation
+                on CaffeNet trained on ImageNet.
+              </div>
+            </div>
+
+            <div class="figure fragment current-visible">
+              <img
+              style="width: 90%;"
+              data-src="./media/synthesizing-alexnet-mit-places.png">
+              <div class="figcaption">
+                Synthetic examples computed via activation maximisation
+                on AlexNet trained on MIT Places.
+              </div>
+            </div>
+
+            <div class="attribution">
+              Synthesizing the preferred inputs for neurons in neural networks via
+              deep generator networks - Nguyen et al (2016)
+            </div>
+          </section>
+
+          <section id="multifaceted-neurons">
+            <h2>Multifaceted Neurons</h2>
+
+            <div class="figure fragment current-visible">
+              <img
+              style="width: 70%;"
+              data-src="./media/multifaceted-neuron-dataset-examples.png">
+              <div class="figcaption">
+                Dataset examples maximally activating a chosen neuron.
+              </div>
+            </div>
+
+            <div class="figure fragment current-visible">
+              <img
+              style="width: 70%;"
+              data-src="./media/multifaceted-neuron-synthetic.png">
+              <div class="figcaption">
+                Synthetic examples for the same neuron
+              </div>
+            </div>
+
+
+            <div class="attribution">
+              Multifaceted Feature Visualization: Uncovering the
+              Different Types of Features Learned By Each Neuron in Deep
+              Neural Networks- Nguyen et al (2016)
+            </div>
+
+            <aside class="notes">
+              <ul>
+                <li>Multifacetedness of neurons increases deeper into
+                  the network</li>
+                <li>conv3 is the first layer that starts to demonstrate
+                  multifacetedness</li>
+                <li>Optimisation process is modified to start from the
+                  mean image of an intra-class cluster found by using
+                  tSNE and k-means</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section id="image-attribution">
+            <h2>Attribution</h2>
+            
+            <div class="figure fragment current-visible">
+              <img style="height: 70vh" data-src="./media/cat-roll.jpg">
+            </div>
+            <div class="figure fragment current-visible">
+              <img style="height: 70vh" data-src="./media/ebp-object-detection-cat.png">
+            </div>
+          </section>
+
+          <section id="attribution-ablation">
+            <h2>Attribution: Region Ablation</h2>
+            <div class="figure">
+              <img style="height: 70vh" data-src="./media/region-ablation-pomeranian.png">
+            </div>
+          </section>
+
+          <section id="conclusion">
+            <h2>Summary</h2>
+            <ul>
+              <li>Feature visualisation: Dataset example selection,
+                activation maximisation</li>
+              <li>Attribution: Region ablation</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+// More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
+Reveal.initialize({
+  math: {
+    mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+  },
+  dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/math/math.js', async: true },
+    { src: 'plugin/notes/notes.js', async: true },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+  ],
+  width: 2560,
+  height: 1440,
+  history: true
+});
+    </script>
+  </body>
+</html>
