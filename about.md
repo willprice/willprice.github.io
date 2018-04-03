@@ -7,8 +7,7 @@ categories: [meta]
 
 
 I'm a PhD student supervised by [Dr. Dima
-Damen](https://www.cs.bris.ac.uk/~damen/) and [Prof. Walterio
-Mayol-Cuevas](http://www.cs.bris.ac.uk/~wmayol/) at the [University of
+Damen](https://www.cs.bris.ac.uk/~damen/) at the [University of
 Bristol](https://www.cs.bris.ac.uk/) studying computer vision and machine
 learning. My research interests in probing trained neural networks to understand
 where they succeed, where they fail and how we can reason about them. I've been
