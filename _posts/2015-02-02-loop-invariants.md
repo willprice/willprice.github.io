@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Loop invariants"
+mathjax: yes
 ---
 
 Prove that the given the code calculates the factorial of a *positive* integer
@@ -32,10 +33,9 @@ while (x-- > 1) {
 
 We can prove validity using the following conditions
 
-- Pre loop: (1): `{ x_0 > 0 }`, (2): `{ y_0 = x_0 }` 
-- Inside of loop: (3): `{ x_{i + 1} = x_i - 1 }` and (4): `{ y_i = x_0 * x_1 * ... * x_i }`
-- Post loop: (5): `{ x_j = 1 }`
+- Pre loop: (1): ${ x_0 > 0 }$, (2): ${ y_0 = x_0 }$ 
+- Inside of loop: (3): ${ x_{i + 1} = x_i - 1 }$ and (4): ${ y_i = x_0 \times x_1 \times ... \times x_i }$
+- Post loop: (5): ${ x_j = 1 }$
 
-The loop runs `j` times since the loop will only execute when `x_i > 1`, and
-from (1), (3), (4) and (5) we can deduce that `y_j =  x_0 * x_1 * ... * x_j = x
-* (x - 1) * ... * 1` which is the factorial of `x`.
+The loop runs $j$ times since the loop will only execute when $x_i > 1$, and
+from (1), (3), (4) and (5) we can deduce that $y_j =  x_0 \times x_1 \times \cdots \times x_j = x \times (x - 1) \times \cdots \times 1$ which is the factorial of $x$.

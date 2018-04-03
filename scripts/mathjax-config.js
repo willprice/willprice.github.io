@@ -1,6 +1,9 @@
 MathJax.Hub.Config({
   tex2jax: {
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+    displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
+    processEscapes: false
   }
 });
 

@@ -1,10 +1,17 @@
-safe: true
-markdown: kramdown
-redcarpet:
- extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-kramdown:
-  input: GFM
 highlight: true
-
+sass_dir: scss
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+plugins:
+  - jekyll-toc
 exclude:
   - vendor
+  - '**/node_modules'
+
+# Site specific vars
+name: Will Price
+twitter: will_price_94
+github: willprice
+linkedin: will-price-aba5797b

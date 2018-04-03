@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "TDD rectangles"
-description: ""
-category: 
-tags: ['maths']
+category:
+mathjax: yes
 ---
 [Jason](http://www.codemanship.co.uk/parlezuml/blog/index.php) and I had a
 rather interesting pair programming session last week where we tackled a problem
@@ -61,7 +60,7 @@ used Java, and JUnit with Eclipse.
 
 The implementation up to 3x1 was fairly simple, however it started to get a little
 more tricky after that stage, it wasn't immediately obvious what formula we
-should have been using, `\(xy + (x-1)y + (y-1)x\)` seemed like a promising
+should have been using, $xy + (x-1)y + (y-1)x$ seemed like a promising
 start, passing all the previous tests up until that point, addition of another
 term sounded like it might hold the solution, however it was difficult to think
 of what it could be, we didn't come up with anything in the end.
@@ -70,9 +69,11 @@ Our design up until this point had been heading towards a solution in the form
 of `return some_algebraic_formula`, we changed tack and started looking at it in
 terms of combinations as we thought it might be a more successful avenue of
 attack. Jason suggested it might be as simple as a factorial, given that there
-are `\(^n C_r\)` ways of ordering `\(r\)` items from a sample of size `\(n\)`
+are $^n C_r ways of ordering $r$ items from a sample of size $n$
 and...
-`\[^n C_r = \frac{n!}{r!(n-r)!}\]`
+
+$$^n C_r = \frac{n!}{r!(n-r)!}$$
+
 Maybe not as simple as a single factorial, but we were definitely dealing with
 sequences and/or combinations. The problem with combinations is that they
 calculate all possible combinations including non-contiguous options (think
@@ -86,9 +87,9 @@ Being Test Driven in design, we looked at our current test case, a 3x1 rectangle
 (I've illustrated a 1x3, imagine it's just rotated!), after a bit of drawing and
 colouring it was evident that the number of subrectangles present in a column
 decreased by 1 for each unit increase in subrectangle length (refer to diagram). 
-In the general case you have `\(n + (n-1) + (n-2) + \ldots + 1\)` subrectangles
-per column where `\(n\)` is the length of the column. We could iterate over each
-column and add either the general result of this formula (`\(\Sigma_0^nr\)`), or
+In the general case you have $n + (n-1) + (n-2) + \ldots + 1$ subrectangles
+per column where $n$ is the length of the column. We could iterate over each
+column and add either the general result of this formula ($\Sigma_0^nr$), or
 generate it on the fly with another loop. Initially it was simplest to just loop
 over columns and rows separately, instead of trying to take the larger step and
 implement the actual solution.
@@ -111,7 +112,7 @@ public long getSubrectangles() {
 {% endhighlight %}
 
 The next test case: 2x2, introduced a new class of rectangles, 2D, the others
-had all been 1D in either the `\(x\)` or `\(y\)` axis. The previous
+had all been 1D in either the $x$ or $y$ axis. The previous
 implementation yields 5 subrectangles instead of 9. We looked at which ones it
 was counting, just the first row and first column -- time to loop over the whole
 thing. Enclosing each loop with an outer loop iterating over either column or
@@ -122,6 +123,7 @@ and then calculate the number of possibilities, hopefully without counting
 duplicates.
 
 After a bit of trial and error we managed to reach the general solution:
+
 {% highlight java %}
 for (int i = 1; i <= x; i++) {
     for (int j = 1; j <=y; j++) {
@@ -129,6 +131,7 @@ for (int i = 1; i <= x; i++) {
     }
 }
 {% endhighlight %}
+
 I like this, it's rather clever. It's easiest to understand given an example,
 let's use the 2x2 rectangle we were trying to solve. The first column has 3
 subrectangles, here's what the code excecutes:
@@ -171,17 +174,20 @@ for (int i = 1; i <= x; i++) {
 }
 {% endhighlight %}
 
-I'll be using `\(z\)` as the `numberOfSubrectangles`, it makes writing the maths
+I'll be using $z$ as the `numberOfSubrectangles`, it makes writing the maths
 easier.
-`\[\begin{aligned}
+
+$$
+\begin{aligned}
  z &= \sum_{i=1}^x (\sum_{j=1}^y(ij)) \\
  z &= \sum_{i=1}^x i(\sum_{j=1}^y(j)) \\
  z &= \sum_{i=1}^xi(\frac{1}{2}y(y+1)) \\
  z &= \frac{1}{2}x(x+1)\frac{1}{2}y(y+1) \\
  z &= \frac{1}{4}xy(x+1)(y+1)
- \end{aligned}\]`
+ \end{aligned}
+$$
 
-You can literally change the Java code to return `\(z\)`, how pleasing :)
+You can literally change the Java code to return $z$, how pleasing.
 
 After tackling the problem with Jason, I had a go solving it mathematically a
 few days after and by then I'd forgotten the solution; I didn't have much success at all.

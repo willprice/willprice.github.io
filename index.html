@@ -1,16 +1,18 @@
 ---
 layout: layout
 title: Will Price
+description: >
+  PhD student studying ML & CV at the University of Bristol with
+  interests in software design, programming languages and verification.
 ---
 
-<h2 style='border: none;'>Posts</h2>
-<ul id="posts">
-  {% for post in site.posts %}
-  <li>
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-    <span class="post-name">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-    </span>
-  </li>
-  {% endfor %}
-</ul>
+<section>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li class="post-entry">
+        <span class="post-date">{{ post.date | date_to_string }}</span>
+        <a class="post-title" href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

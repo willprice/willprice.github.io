@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Adventures with SPI TFT screens for the Raspberry Pi 
+toc: yes
 ---
 
 The following is a grab bag of notes from an afternoon of playing around with
@@ -153,7 +154,9 @@ e6fd2c6abb2195a2b08c856ddeee2ba4c07d7c1f). Hooray, success!
 
 Refresh rate is appalling, as can be seen in the video below.
 
-<iframe width="854" height="480" src="https://www.youtube.com/embed/6swVrs4jOyY"></iframe>
+<div class="yt-video-wrapper">
+  <iframe width="856" height="480" src="https://www.youtube.com/embed/6swVrs4jOyY"></iframe>
+</div>
 
 Let's dig deeper and find out how it works.
 
