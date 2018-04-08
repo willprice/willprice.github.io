@@ -9,8 +9,8 @@ categories: [meta]
 I'm a PhD student supervised by [Dr. Dima
 Damen](https://www.cs.bris.ac.uk/~damen/) at the [University of
 Bristol](https://www.cs.bris.ac.uk/) studying computer vision and machine
-learning. My research interests in probing trained neural networks to understand
-where they succeed, where they fail and how we can reason about them. I've been
+learning. My research interests include: probing trained neural networks to understand
+where they succeed, where they fail, and how we can reason about them. I've been
 inspired by works such as 
 [lime](https://github.com/marcotcr/lime),
 [shap](https://github.com/slundberg/shap), 
@@ -18,12 +18,11 @@ inspired by works such as
 [network dissection](http://netdissect.csail.mit.edu/)
 and the research of [Anh Nguyen](http://anhnguyen.me/research/).
 
-In addition to my research interests I come from a software development
-background having been trained as an apprentice alongside by undergraduate
-degree by 
-[Jason Gorman](http://www.codemanship.co.uk/index.html). During my
+In addition to my research interests, I come from a software development
+background having been trained as an apprentice alongside my undergraduate
+degree by [Jason Gorman](http://www.codemanship.co.uk/index.html). During my
 apprenticeship and degree I've developed a particular fondness for the following
-topics
+topics:
 
 * **Software development**: How do we write good software? What tools and
   processes can we use to accomplish these goals?
