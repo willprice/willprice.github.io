@@ -5,38 +5,12 @@ layout: layout
 
 # Notes
 
-Disclaimer: Could well be wrong, peruse at your own peril.
-
-<div class="row">
-<div class="six columns centered">
-## University
-
-- [Hex language compiler](hex_compiler)
-- [Maths](maths)
-- [ModuleSim](modulesim)
-
-## Computer Science
-
-- [New Turing Omnibus](new_turing_omnibus)
-- [Theory of Computation](theory_of_computation/notes.html)
-
-
-</div>
-
-<div class="six columns centered">
-## Programming
-
-- [Learn You A Haskell For Great Good](learn_you_a_haskell)
-- [Haskell types](random/haskell-types)
-- [How to Program C](how_to_program_c)
-- [Learning Processing](learning_processing)
-
-## Electronics
-
-- [DFRduino](dfrduino)
-- [AVR HackADay Tutorial](electronics/avr/hackaday_tutorial.html)
-- [Eagle](eagle)
-
-</div>
-
-</div>
+- [Learn You A Haskell For Great Good](learn_you_a_haskell) - Some notes (up to
+  chapter 6) whilst reading the book ["Learn You a Haskell for Great
+  Good"](http://learnyouahaskell.com/)
+- [DFRduino](dfrduino) - Obstacle avoiding robot outreach workshop for
+  [Digimakers](http://www.digimakers.co.uk/)
+- [ModuleSim documentation](modulesim) - Wrote this whilst doing the first year
+  computer architecture unit at University of Bristol as there was no
+  reference manual on how the hardware worked, it was later used to build some
+  better docs: [ModuleSim documentation](https://bighexmachine.github.io/hexModuleSpec/)
