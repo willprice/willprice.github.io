@@ -272,7 +272,11 @@ ul.post-list {
 }
 
 .project-entry {
-    padding: 1em;
+    padding: 1em 0 1em 0;
+
+    img {
+        min-width: 100%
+    }
 }
 
 /* Larger than phablet (also point when grid becomes active) */
@@ -289,7 +293,7 @@ ul.post-list {
 
 
 img {
-    max-width: 80vw;
+    max-width: 100%;
 }
 
 .yt-video-wrapper {
