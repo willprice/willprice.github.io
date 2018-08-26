@@ -74,6 +74,10 @@ Tools
 
 -- [Sacred](https://github.com/IDSIA/sacred)
 
+> A simple experiment manager for deep learning experiments
+
+-- [labnotebook](https://github.com/henripal/labnotebook)
+
 > DVC is an open source tool for data science projects. DVC makes your data
 > science projects reproducible by automatically building data dependency graph
 > (DAG). Your code and the dependencies could be easily shared by Git, and data
@@ -169,3 +173,29 @@ Tools
 >    collections run on top of the dynamic task schedulers.
 
 -- [dask](https://github.com/dask/dask)
+
+https://towardsdatascience.com/how-i-monitor-and-track-my-machine-learning-experiments-from-anywhere-described-in-13-tweets-ec3d0870af9
+https://github.com/oleg-panichev/kinoa
+https://github.com/datmo/datmo
+https://github.com/mitdbg/modeldb
+https://github.com/chovanecm/sacredboard
+https://github.com/galeone/dynamic-training-bench
+https://www.comet.ml/
+ https://www.kdnuggets.com/2018/04/comet-ml-machine-learning-experiment-management.html
+https://neptune.ml/
+https://machinelearningmastery.com/plan-run-machine-learning-experiments-systematically/
+https://aetros.com/
+https://www.reddit.com/r/MachineLearning/comments/71cini/d_how_do_you_organize_your_research/
+https://glotzerlab.engin.umich.edu/signac/
+https://github.com/jhclark/ducttape
+https://petewarden.com/2018/03/19/the-machine-learning-reproducibility-crisis/
+https://github.com/polyaxon/polyaxon
+https://github.com/ardax/xDB
+https://www.google.com/search?q=Compellon&ie=utf-8&oe=utf-8&client=firefox-b
+https://www.comet.ml/
+https://diva-dia.github.io/DeepDIVAweb/
+https://github.com/datmo/datmo
+https://developers.soundcloud.com/blog/soundclouds-data-science-process
+http://dustintran.com/blog/a-research-to-engineering-workflow
+https://www.kogu.io/
+https://neptune.ml/
