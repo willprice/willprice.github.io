@@ -48,6 +48,35 @@ $background: #fffffe;
 $black: #333;
 $light-grey: #fafafa;
 
+/* nanum-myeongjo-regular - latin */
+@font-face {
+  font-family: 'Nanum Myeongjo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/nanum-myeongjo-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('NanumMyeongjo'),
+       url('/fonts/nanum-myeongjo-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/nanum-myeongjo-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/nanum-myeongjo-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/nanum-myeongjo-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/nanum-myeongjo-v11-latin-regular.svg#NanumMyeongjo') format('svg'); /* Legacy iOS */
+}
+  
+/* roboto-regular - latin-ext_latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/roboto-v18-latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Roboto'), local('Roboto-Regular'),
+       url('/fonts/roboto-v18-latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/roboto-v18-latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/roboto-v18-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/roboto-v18-latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/roboto-v18-latin-ext_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+
 body {
     font-family: 'Roboto', sans-serif;
     background: $background;
