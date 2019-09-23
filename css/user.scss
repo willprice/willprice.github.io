@@ -140,7 +140,9 @@ a {
 }
 
 ul {
+    list-style-position: outside;
     list-style-type: square;
+    padding-left: 1em;
 }
 
 header, footer {
