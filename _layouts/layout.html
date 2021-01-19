@@ -18,10 +18,10 @@ pre    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script
 
     <title>{{ page.title | default: site.name }}</title>
     <meta name="author" content="Will Price">
-    {%- if page.description %}
+    {%- if page.description -%}
     <meta name="description" content="{{ page.description | strip_newlines }}">
     <meta property="og:description" content="{{ page.description | strip_newlines }}"/>
-    {%- endif %}
+    {%- endif -%}
 
     <link href="http://feeds.feedburner.com/willpriceblog" type="application/atom+xml" title="Will Price" rel="alternative"/>
 
@@ -49,10 +49,10 @@ pre    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script
     <script src="/scripts/processing.js"></script>
       {% endif %}
     {% endfor %}
-    {%- if page.mathjax %}
+    {%- if page.mathjax -%}
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
     <script src="/scripts/mathjax-config.js"></script>
-    {%- endif %}
+    {%- endif -%}
   </head>
   <body>
     <!-- container for 960px grid, skeleton.css -->

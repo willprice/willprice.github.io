@@ -4,7 +4,7 @@ highlighter: rouge
 markdown: kramdown
 kramdown:
   parse_block_html: true
-plugins:
+plugins_dir:
   - jekyll-toc
 exclude:
   - vendor
